@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="rmdir  删除空目录，非空的目录不能删除 1、命令格式 rmdir [options]      DIRECTORY 2、命令参数 -p, 递归删除，删除目录之前是否删除父目录，如果父目录为空的话就删除   -v, 删除目录时，显示删除信息  --help   显示此帮助信息并退出     --version  输出版本信息并退出  3、常用范例 例1：删除空目录doc   删除所有空目录 命">
+<meta property="og:type" content="article">
+<meta property="og:title" content="删除空目录命令rmdir">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/删除空目录命令rmdir/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="rmdir  删除空目录，非空的目录不能删除 1、命令格式 rmdir [options]      DIRECTORY 2、命令参数 -p, 递归删除，删除目录之前是否删除父目录，如果父目录为空的话就删除   -v, 删除目录时，显示删除信息  --help   显示此帮助信息并退出     --version  输出版本信息并退出  3、常用范例 例1：删除空目录doc   删除所有空目录 命">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-25T02:30:58.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="删除空目录命令rmdir">
+<meta name="twitter:description" content="rmdir  删除空目录，非空的目录不能删除 1、命令格式 rmdir [options]      DIRECTORY 2、命令参数 -p, 递归删除，删除目录之前是否删除父目录，如果父目录为空的话就删除   -v, 删除目录时，显示删除信息  --help   显示此帮助信息并退出     --version  输出版本信息并退出  3、常用范例 例1：删除空目录doc   删除所有空目录 命">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/03/25/删除空目录命令rmdir/">
+
+
+
+
+
+  <title>删除空目录命令rmdir | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/03/25/删除空目录命令rmdir/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">删除空目录命令rmdir</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:29:50+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>rmdir  删除空目录，非空的目录不能删除</p>
+<p>1、命令格式</p>
+<p>rmdir [options]      DIRECTORY</p>
+<p>2、命令参数</p>
+<pre><code>-p, 递归删除，删除目录之前是否删除父目录，如果父目录为空的话就删除
+
+ -v, 删除目录时，显示删除信息
+
+--help   显示此帮助信息并退出
+
+   --version  输出版本信息并退出
+</code></pre><p> 3、常用范例</p>
+<p>例1：删除空目录doc   删除所有空目录</p>
+<p>命令：rmdir doc        命令：rmdir *</p>
+<p>[root@server~]# tree doc/<br>doc/</p>
+<p>0directories, 0 files<br>[root@server~]#<br>[root@server~]# ls<br>anaconda-ks.cfg  doc install.log  install.log.syslog<br>[root@server~]# rmdir doc/<br>[root@server~]# ls<br>anaconda-ks.cfg  install.log install.log.syslog<br>[root@server~]#</p>
+<p>例2：删除非空目录echo</p>
+<p>命令：rmdir echo</p>
+<p>[root@server~]# ls echo/<br>fstab<br>[root@server~]# rmdir echo/<br>rmdir:failed to remove `echo/‘: Directory not empty<br>[root@server~]#</p>
+<p>提示：rmdir不能删除非空的目录，如果想删除非空的目录用rm -r命令 rm -r echo</p>
+<p>[root@server~]# rm -r echo/<br>rm:descend into directory <code>echo&#39;? y
+rm:remove regular file</code>echo/fstab’? y<br>rm:remove directory `echo’? y<br>[root@server~]#</p>
+<p>例3：递归删除目录 tree1/tree2/tree3并显示删除过程</p>
+<p>命令 rmdir -pv tree1/tree2/tree3</p>
+<p>[root@server~]# tree tree1/<br>tree1/<br>└── tree2<br>    └── tree3</p>
+<p>2directories, 0 files<br>[root@server~]# rmdir -pv tree1/tree2/tree3/<br>rmdir:removing directory, <code>tree1/tree2/tree3/&#39;
+rmdir:removing directory,</code>tree1/tree2’<br>rmdir:removing directory, `tree1’</p>
+<p>扩展：</p>
+<p>tree命令：以树状图列出文件目录结构。Centos6.5没有tree命令,需要手动安装，下面介绍tree命令的安装方法</p>
+<p>1、命令格式：</p>
+<p>tree [options] DIRECTORY</p>
+<p>2、常用参数</p>
+<p>-d：生成目录树的时候只显示目录</p>
+<p>3、使用范例</p>
+<p>1、显示/var/log下的文件，以树状形式展现</p>
+<p>命令：tree /var/log</p>
+<p>root@server~]# tree /var/log/<br>/var/log/<br>├── anaconda.ifcfg.log<br>├── anaconda.log<br>├── anaconda.program.log<br>├── anaconda.storage.log<br>├── anaconda.syslog<br>├── anaconda.xlog<br>├── anaconda.yum.log<br>├── audit<br>│   └── audit.log<br>├── boot.log<br>├── btmp<br>├── ConsoleKit<br>│   └── history<br>├── cron<br>├── cups<br>├── dmesg<br>├── dmesg.old<br>├── dracut.log<br>├── lastlog<br>├── maillog<br>├── mcelog<br>├── messages<br>├── ntpstats<br>├── prelink<br>│   └── prelink.log<br>├── sa<br>│   ├── sa07<br>│   └── sa08<br>├── samba<br>│   └── old<br>├── secure<br>├── spooler<br>├── sssd<br>├── tallylog<br>├── wtmp<br>└── yum.log</p>
+<p>9directories, 27 files<br>[root@server~]#</p>
+<p>2、显示/var/log目录下的子目录，以树状展现</p>
+<p>命令：tree -d  /var/log</p>
+<p>[root@server~]# tree -d /var/log/<br>/var/log/<br>├── audit<br>├── ConsoleKit<br>├── cups<br>├── ntpstats<br>├── prelink<br>├── sa<br>├── samba<br>│   └── old<br>└── sssd</p>
+<p>9directories<br>[root@server~]#</p>
+<p>tree安装方式，以CentOS6.5为例</p>
+<p>[root@server~]# mv /etc/yum.repos.d/* /bak/     //移动yum源仓库的所有文件 到/bak目录下<br>[root@server~]# cp /bak/CentOS-Media.repo /etc/yum.repos.d/  //把/bak下的e本地yum源仓库(CentOS_Media.repo)复制一份到yum源仓库<br>[root@server~]# vim /etc/yum.repos.d/CentOS-Media.repo //用vim编辑器编辑yum源(CentOS-Media.repo)</p>
+<p>#CentOS-Media.repo<br>#</p>
+<h1 id="This-repo-can-be-used-with-mounted-DVD-media-verify-the-mount-point-for"><a href="#This-repo-can-be-used-with-mounted-DVD-media-verify-the-mount-point-for" class="headerlink" title="This repo can be used with mounted DVD media,verify the mount point for"></a>This repo can be used with mounted DVD media,verify the mount point for</h1><h1 id="CentOS-6-You-can-use-this-repo-and-yum-to-install-items-directly-off-the"><a href="#CentOS-6-You-can-use-this-repo-and-yum-to-install-items-directly-off-the" class="headerlink" title="CentOS-6. You can use this repo and yum to install items directly off the"></a>CentOS-6. You can use this repo and yum to install items directly off the</h1><h1 id="DVD-ISO-that-we-release"><a href="#DVD-ISO-that-we-release" class="headerlink" title="DVD ISO that we release."></a>DVD ISO that we release.</h1><p>#</p>
+<h1 id="To-usethis-repo-put-in-your-DVD-and-use-it-with-the-other-repos-too"><a href="#To-usethis-repo-put-in-your-DVD-and-use-it-with-the-other-repos-too" class="headerlink" title="To usethis repo, put in your DVD and use it with the other repos too:"></a>To usethis repo, put in your DVD and use it with the other repos too:</h1><h1 id="yum-–enablerepo-c6-media-command"><a href="#yum-–enablerepo-c6-media-command" class="headerlink" title="yum –enablerepo=c6-media [command]"></a>yum –enablerepo=c6-media [command]</h1><h1 id><a href="#" class="headerlink" title=" "></a> </h1><h1 id="or-forONLY-the-media-repo-do-this"><a href="#or-forONLY-the-media-repo-do-this" class="headerlink" title="or forONLY the media repo, do this:"></a>or forONLY the media repo, do this:</h1><p>#</p>
+<h1 id="yum-–disablerepo-–enablerepo-c6-media-command"><a href="#yum-–disablerepo-–enablerepo-c6-media-command" class="headerlink" title="yum –disablerepo=* –enablerepo=c6-media[command]"></a>yum –disablerepo=* –enablerepo=c6-media[command]</h1><p>[c6-media]<br>name=CentOS-$releasever- Media<br>baseurl=file:///media/CentOS/<br>        file:///media/cdrom/<br>        file:///media/cdrecorder/<br>gpgcheck=1<br>enabled=1    //在此将0修改为1<br>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6</p>
+<p>提示：默认CentOS-Media.repo没有开启这个软件仓库固在郁闷源里面查找不到此源，需把enabled从0改到1开启  0是关闭状态，1是开启</p>
+<pre><code>链接cdrom把CentOS6.5的安装光盘插入然后挂载至上面三个目录中的某一个即可
+</code></pre><p>以下我挂载到/media下的cdrom目录中</p>
+<p>[root@server~]# mount /dev/cdrom /media/cdrom/  //挂载光盘至/media/cdrom目录下<br>mount:block device /dev/sr0 is write-protected, mounting read-only<br>[root@server~]# mount  //查看挂载设备信息<br>/dev/mapper/vg_server-LogVol00on / type ext4 (rw)<br>proc on/proc type proc (rw)<br>sysfs on/sys type sysfs (rw)<br>devpts on/dev/pts type devpts (rw,gid=5,mode=620)<br>tmpfs on/dev/shm type tmpfs (rw,rootcontext=”system_u:object_r:tmpfs_t:s0”)<br>/dev/sda1on /boot type ext4 (rw)<br>/dev/mapper/vg_server-LogVol02on /home type ext4 (rw)<br>none on/proc/sys/fs/binfmt_misc type binfmt_misc (rw)<br>/dev/sr0 on /media/cdrom type iso9660 (ro)<br>[root@server~]# yum -y install tree   //安装tree命令<br>Loadedplugins: fastestmirror, security<br>Loadingmirror speeds from cached hostfile</p>
+<ul>
+<li>c6-media:<br>Settingup Install Process<br>ResolvingDependencies<br>–&gt; Runningtransaction check<br>—&gt;Package tree.x86_64 0:1.5.3-2.el6 will be installed<br>–&gt;Finished Dependency Resolution</li>
+</ul>
+<p>DependenciesResolved</p>
+<p>==================================================================================================================================</p>
+<h1 id="Package-Arch-Version-Repository-Size"><a href="#Package-Arch-Version-Repository-Size" class="headerlink" title=" Package                    Arch                         Version                             Repository                      Size"></a> Package                    Arch                         Version                             Repository                      Size</h1><p>Installing:<br> tree                       x86_64                       1.5.3-2.el6                         c6-media                        36 k</p>
+<h1 id="TransactionSummary"><a href="#TransactionSummary" class="headerlink" title="TransactionSummary"></a>TransactionSummary</h1><p>Install       1 Package(s)</p>
+<p>Totaldownload size: 36 k<br>Installedsize: 65 k<br>DownloadingPackages:<br>Runningrpm_check_debug<br>RunningTransaction Test<br>TransactionTest Succeeded<br>RunningTransaction<br>  Installing : tree-1.5.3-2.el6.x86_64                                                                                       1/1<br>  Verifying : tree-1.5.3-2.el6.x86_64                                                                                       1/1 </p>
+<p>Installed:<br>  tree.x86_64 0:1.5.3-2.el6                                                                                                      </p>
+<p>Complete!<br>[root@server~]#</p>
+<p>以上tree命令安装成功</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/linux-inux中find批量删除空文件及空文件夹脚本/" rel="next" title="linux_inux中find批量删除空文件及空文件夹脚本">
+                <i class="fa fa-chevron-left"></i> linux_inux中find批量删除空文件及空文件夹脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/25/利用Caddy扩展快速安装FileManager私人网盘-在线文件管理器/" rel="prev" title="利用Caddy扩展快速安装FileManager私人网盘/在线文件管理器">
+                利用Caddy扩展快速安装FileManager私人网盘/在线文件管理器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John Doe">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#This-repo-can-be-used-with-mounted-DVD-media-verify-the-mount-point-for"><span class="nav-number">1.</span> <span class="nav-text">This repo can be used with mounted DVD media,verify the mount point for</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS-6-You-can-use-this-repo-and-yum-to-install-items-directly-off-the"><span class="nav-number">2.</span> <span class="nav-text">CentOS-6. You can use this repo and yum to install items directly off the</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DVD-ISO-that-we-release"><span class="nav-number">3.</span> <span class="nav-text">DVD ISO that we release.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-usethis-repo-put-in-your-DVD-and-use-it-with-the-other-repos-too"><span class="nav-number">4.</span> <span class="nav-text">To usethis repo, put in your DVD and use it with the other repos too:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yum-–enablerepo-c6-media-command"><span class="nav-number">5.</span> <span class="nav-text">yum –enablerepo=c6-media [command]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">6.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#or-forONLY-the-media-repo-do-this"><span class="nav-number">7.</span> <span class="nav-text">or forONLY the media repo, do this:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yum-–disablerepo-–enablerepo-c6-media-command"><span class="nav-number">8.</span> <span class="nav-text">yum –disablerepo=* –enablerepo=c6-media[command]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Package-Arch-Version-Repository-Size"><span class="nav-number">9.</span> <span class="nav-text"> Package                    Arch                         Version                             Repository                      Size</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TransactionSummary"><span class="nav-number">10.</span> <span class="nav-text">TransactionSummary</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
