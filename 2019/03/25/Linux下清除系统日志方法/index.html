@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放 正确 Bashcat /dev/null &amp;gt; logfile把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志 Bash #!/bin/shcat /dev/null &amp;gt; /var/log/syslogcat /dev/null &amp;gt">
+<meta name="description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下清除系统日志方法">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/Linux下清除系统日志方法/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放 正确 Bashcat /dev/null &amp;gt; logfile把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志 Bash #!/bin/shcat /dev/null &amp;gt; /var/log/syslogcat /dev/null &amp;gt">
+<meta property="og:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T02:49:46.942Z">
+<meta property="og:updated_time" content="2019-03-25T07:19:31.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下清除系统日志方法">
-<meta name="twitter:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放 正确 Bashcat /dev/null &amp;gt; logfile把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志 Bash #!/bin/shcat /dev/null &amp;gt; /var/log/syslogcat /dev/null &amp;gt">
+<meta name="twitter:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 
 
 
@@ -304,8 +304,7 @@
 <p>原因</p>
 <p>应用已经打开文件句柄，直接删除会造成：</p>
 <p>1.应用无法正确释放日志文件和写入</p>
-<p>2.显示磁盘空间未释放</p>
-<p>正确</p>
+<p>2.显示磁盘空间未释放<br><a id="more"></a><br>正确</p>
 <p>Bash<br>cat /dev/null &gt; logfile<br>把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志</p>
 <p>Bash</p>
 <p>#!/bin/sh<br>cat /dev/null &gt; /var/log/syslog<br>cat /dev/null &gt; /var/adm/sylog<br>cat /dev/null &gt; /var/log/wtmp<br>cat /dev/null &gt; /var/log/maillog<br>cat /dev/null &gt; /var/log/messages<br>cat /dev/null &gt; /var/log/openwebmail.log<br>cat /dev/null &gt; /var/log/maillog<br>cat /dev/null &gt; /var/log/secure<br>cat /dev/null &gt; /var/log/httpd/error_log<br>cat /dev/null &gt; /var/log/httpd/ssl_error_log<br>cat /dev/null &gt; /var/log/httpd/ssl_request_log<br>cat /dev/null &gt; /var/log/httpd/ssl_access_log<br>另外清理linux系统垃圾还有以下命令</p>

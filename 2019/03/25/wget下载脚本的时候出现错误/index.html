@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …Connecting to raw.githubusercontent.com (raw.gith">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T02:54:15.811Z">
+<meta property="og:updated_time" content="2019-03-25T07:17:25.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wget下载脚本的时候出现错误">
 <meta name="twitter:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …Connecting to raw.githubusercontent.com (raw.gith">
@@ -301,6 +301,7 @@
       
         <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.</p>
 <p>Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …<br>Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443… connected.<br>ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.<br>ERROR: The certificate of ‘raw.githubusercontent.com’ hasn’t got a known issuer</p>
+<a id="more"></a>
 <p>错误非常常见,主要是系统过于精简所以很多包没有安装。</p>
 <p>解决方法<br>在Wget后面添加”–no-check-certificate”如下所示:</p>
 <p>wget –no-check-certificate<br>你要下载的SSL网址</p>

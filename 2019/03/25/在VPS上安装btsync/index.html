@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T02:00:53.364Z">
+<meta property="og:updated_time" content="2019-03-25T07:15:26.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在VPS上安装btsync">
 <meta name="twitter:description" content="BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向">
@@ -299,8 +299,7 @@
       
 
       
-        <p>BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向外提供密钥，就没有第二个人能够获取这些文件，即使它们在整个互联网范围内都是流通的。另外，由于传输过程完全建立在两个终端之间，文件传输速度理论上就是带宽允许的速度。</p>
-<p>第一、操作环境</p>
+        <p>BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向外提供密钥，就没有第二个人能够获取这些文件，即使它们在整个互联网范围内都是流通的。另外，由于传输过程完全建立在两个终端之间，文件传输速度理论上就是带宽允许的速度。<br><a id="more"></a><br>第一、操作环境</p>
 <p>以下内容的操作环境为：32位 CentOS6.5，20GB SSD Disk；如果用的是其他 Linux 方法也大同小异，DO 官方就有说明。本地 Windows 需安装 BTSync 的客户端；SSH 客户端用的是 PuTTY。</p>
 <p>第二、创建安装目录</p>
 <p>在 PuTTY 中以 root 登陆，在服务器上新建一个文件夹用来存放待同步的数据，比如在 /usr 下新建一个名为 BTSyncStorage 的文件夹：</p>

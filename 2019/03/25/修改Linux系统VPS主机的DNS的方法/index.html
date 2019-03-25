@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/修改Linux系统VPS主机的DNS的方法/1.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/修改Linux系统VPS主机的DNS的方法/2.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/修改Linux系统VPS主机的DNS的方法/3.jpg">
-<meta property="og:updated_time" content="2019-03-25T02:24:25.668Z">
+<meta property="og:updated_time" content="2019-03-25T07:15:55.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改Linux系统VPS主机的DNS的方法">
 <meta name="twitter:description" content="一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。 所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS">
@@ -306,8 +306,7 @@
         <p>一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。</p>
 <p>所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS的过程，一般我平时使用的时候也是用的临时修改方法，但为了确保以后不再麻烦更换，也可以采用永久更换。</p>
 <p>第一、临时修改当前DNS</p>
-<p>代码如下:</p>
-<p>vi /etc/resolv.conf</p>
+<p>代码如下:<br><a id="more"></a><br>vi /etc/resolv.conf</p>
 <p>然后将默认的文件都修改成如下图所示。</p>
 <p><img src="修改Linux系统VPS主机的DNS的方法/1.jpg" alt></p>
 <p>修改完毕之后，然后:wq保存退出，然后再执行我们需要的脚本安装应该没有多大问题。比如在阿里云、Linode上安装一些环境包的时候，不修改DNS还真安装不了。</p>

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="部署Kcptun本教程以 CentOS 6.5 64位为例。 首先下载 Kcptun，可以到 GitHub 上获取最新版：https://github.com/xtaci/kcptun/releases用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询： Bashmkdir kcptuncd kcptunwget h">
+<meta name="description" content="部署Kcptun本教程以 CentOS 6.5 64位为例。 首先下载 Kcptun，可以到 GitHub 上获取最新版：https://github.com/xtaci/kcptun/releases用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kcptun+ss">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/kcptun-ss/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="部署Kcptun本教程以 CentOS 6.5 64位为例。 首先下载 Kcptun，可以到 GitHub 上获取最新版：https://github.com/xtaci/kcptun/releases用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询： Bashmkdir kcptuncd kcptunwget h">
+<meta property="og:description" content="部署Kcptun本教程以 CentOS 6.5 64位为例。 首先下载 Kcptun，可以到 GitHub 上获取最新版：https://github.com/xtaci/kcptun/releases用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T02:50:34.170Z">
+<meta property="og:updated_time" content="2019-03-25T07:19:44.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kcptun+ss">
-<meta name="twitter:description" content="部署Kcptun本教程以 CentOS 6.5 64位为例。 首先下载 Kcptun，可以到 GitHub 上获取最新版：https://github.com/xtaci/kcptun/releases用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询： Bashmkdir kcptuncd kcptunwget h">
+<meta name="twitter:description" content="部署Kcptun本教程以 CentOS 6.5 64位为例。 首先下载 Kcptun，可以到 GitHub 上获取最新版：https://github.com/xtaci/kcptun/releases用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询：">
 
 
 
@@ -300,8 +300,7 @@
 
       
         <p>部署Kcptun<br>本教程以 CentOS 6.5 64位为例。</p>
-<p>首先下载 Kcptun，可以到 GitHub 上获取最新版：<a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases</a><br>用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询：</p>
-<p>Bash<br>mkdir kcptun<br>cd kcptun<br>wget <a href="https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-linux-amd64-20160612.tar.gz" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-linux-amd64-20160612.tar.gz</a><br>tar –zxf kcptun–linux–amd64–<em>.tar.gz<br>注：请根据你的系统下载对应版本。32位系统下载 kcptun-linux-386-</em>.tar.gz，64位系统下载 kcptun-linux-amd64-*.tar.gz<br>解压之后有两个文件：client_linux_amd64 和 server_linux_amd64，一个用于服务器，一个用于客户端。<br>这个项目目前还没有 init 脚本，也还不支持配置文件，于是我写了两个简单的 sh 脚本，用于启动和关闭服务端。请在服务端程序相同目录下新建两个文件 start.sh 和 stop.sh。<br>创建 start.sh</p>
+<p>首先下载 Kcptun，可以到 GitHub 上获取最新版：<a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases</a><br>用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询：<br><a id="more"></a><br>Bash<br>mkdir kcptun<br>cd kcptun<br>wget <a href="https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-linux-amd64-20160612.tar.gz" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-linux-amd64-20160612.tar.gz</a><br>tar –zxf kcptun–linux–amd64–<em>.tar.gz<br>注：请根据你的系统下载对应版本。32位系统下载 kcptun-linux-386-</em>.tar.gz，64位系统下载 kcptun-linux-amd64-*.tar.gz<br>解压之后有两个文件：client_linux_amd64 和 server_linux_amd64，一个用于服务器，一个用于客户端。<br>这个项目目前还没有 init 脚本，也还不支持配置文件，于是我写了两个简单的 sh 脚本，用于启动和关闭服务端。请在服务端程序相同目录下新建两个文件 start.sh 和 stop.sh。<br>创建 start.sh</p>
 <p>Bash<br>vi start.sh<br>写入以下内容：</p>
 <p>./server_linux_amd64 –l “:29900” –t “127.0.0.1:8388” —key “test” —mode “fast2” &gt; kcptun.log 2&gt;&amp;1 &amp;</p>
 <p>server_linux_amd64 对应服务端文件名，请对应修改。<br>解释一下参数：-l 表示 Kcptun 的服务端监听端口，用于接收外部请求和发送数据，默认 29900；-t 表示要加速的地址，我这里设置的是我服务器的 Shadowsocks 端口；–key 是 Kcptun 的验证密钥，服务端和本地必须一致才能通过验证，请自行设置；–mode 为加速模式，默认 fast。<br>响应速度:<br>fast3 &gt; [fast2] &gt; fast &gt; normal &gt; default<br>有效载荷比:<br>default &gt; normal &gt; fast &gt; [fast2] &gt; fast3<br>中间mode参数比较均衡，总之就是越快越浪费带宽，推荐模式 fast2<br>其他参数，请使用 ./server_linux_amd64 -h 查看，更深层次的参数调整需要理解 KCP 协议。<br>创建 stop.sh</p>

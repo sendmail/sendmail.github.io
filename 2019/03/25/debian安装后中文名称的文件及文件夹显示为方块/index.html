@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下： 使用apt-get install ttf-arphic-uming xfonts-intl-ch">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T01:57:42.002Z">
+<meta property="og:updated_time" content="2019-03-25T07:20:06.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="乱码等">
 <meta name="twitter:description" content="在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下： 使用apt-get install ttf-arphic-uming xfonts-intl-ch">
@@ -300,8 +300,7 @@
 
       
         <p>在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下：</p>
-<p>使用apt-get install ttf-arphic-uming xfonts-intl-chinese 或apt-get install ttf-wqy-microhei命令来获取字体包并安装即可。但我使用这种方法无法成功，总是找不到软件包，从安装盘中找不到，配置好debian的网络使其可以上网，然后修改/etc/apt/sources.list文件使其从网上搜索也依然找不到，于是放弃此方法。</p>
-<p>debian系统中文显示方块数字字母及黑块问号<br>debian系统中文显示方块数字字母及黑块问号</p>
+<p>使用apt-get install ttf-arphic-uming xfonts-intl-chinese 或apt-get install ttf-wqy-microhei命令来获取字体包并安装即可。但我使用这种方法无法成功，总是找不到软件包，从安装盘中找不到，配置好debian的网络使其可以上网，然后修改/etc/apt/sources.list文件使其从网上搜索也依然找不到，于是放弃此方法。<br><a id="more"></a><br>debian系统中文显示方块数字字母及黑块问号<br>debian系统中文显示方块数字字母及黑块问号</p>
 <p>经过搜索，找到一个很简单并有效的方法，就是直接把windows的简体中文字体文件复制到debian的字体目录下，具体操作方法如下：</p>
 <p>从windows的字体目录中找到simsun.ttc文件，通过WinSCP工具连接上debian系统，把该文件传送到该系统中的/usr/share/fonts/truetype目录下，注意要进行该操作，当前用户一定要具有管理员权限，否则会复制失败。</p>
 <p>debian系统无法显示中文，中文显示方块的解决办法</p>

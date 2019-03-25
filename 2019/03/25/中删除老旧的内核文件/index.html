@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。 dpkg –list|grep linux-imagedpkg –list|grep linux-headers在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。">
+<meta name="description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="中删除老旧的内核文件">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/中删除老旧的内核文件/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。 dpkg –list|grep linux-imagedpkg –list|grep linux-headers在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。">
+<meta property="og:description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T02:54:55.070Z">
+<meta property="og:updated_time" content="2019-03-25T07:17:58.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中删除老旧的内核文件">
-<meta name="twitter:description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。 dpkg –list|grep linux-imagedpkg –list|grep linux-headers在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。">
+<meta name="twitter:description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 
 
 
@@ -305,8 +305,7 @@
 linux-image-extra-: 额外的内核模块
 
 linux-headers-: 内核头文件
-</code></pre><p>首先检查系统中安装的内核镜像。</p>
-<p>dpkg –list|grep linux-image<br>dpkg –list|grep linux-headers<br>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</p>
+</code></pre><p>首先检查系统中安装的内核镜像。<br><a id="more"></a><br>dpkg –list|grep linux-image<br>dpkg –list|grep linux-headers<br>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</p>
 <p>apt-get purge linux-image-3.19.0-15<br>apt-get purge linux-headers-3.19.0-15<br>上面的命令会删除内核镜像和它相关联的内核模块和头文件。</p>
 
       
