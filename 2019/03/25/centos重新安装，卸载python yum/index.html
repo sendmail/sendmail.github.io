@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="公司测试机环境不知道给我卸了什么包，导致yum运行报错状况： 系统版本：Red Hat Enterprise Linux Server release 6.2 (Santiago) 内核版本：2.6.32-220.el6.x86_64 报错情况： There was a problem importing one of the Python modulesrequired to run yum.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yum">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/centos重新安装，卸载python yum/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="公司测试机环境不知道给我卸了什么包，导致yum运行报错状况： 系统版本：Red Hat Enterprise Linux Server release 6.2 (Santiago) 内核版本：2.6.32-220.el6.x86_64 报错情况： There was a problem importing one of the Python modulesrequired to run yum.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-25T02:45:01.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="yum">
+<meta name="twitter:description" content="公司测试机环境不知道给我卸了什么包，导致yum运行报错状况： 系统版本：Red Hat Enterprise Linux Server release 6.2 (Santiago) 内核版本：2.6.32-220.el6.x86_64 报错情况： There was a problem importing one of the Python modulesrequired to run yum.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/centos重新安装，卸载python yum/">
+
+
+
+
+
+  <title>yum | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/centos重新安装，卸载python yum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">yum</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:40:24+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>公司测试机环境不知道给我卸了什么包，导致yum运行报错状况：</p>
+<p>系统版本：Red Hat Enterprise Linux Server release 6.2 (Santiago)</p>
+<p>内核版本：2.6.32-220.el6.x86_64</p>
+<p>报错情况：</p>
+<p>There was a problem importing one of the Python modules<br>required to run yum. The error leading to this problem was:</p>
+<p>  No module named sqlite</p>
+<p>Please install a package which provides this module, or<br>verify that the module is installed correctly.</p>
+<p>It’s possible that the above module doesn’t match the<br>current version of Python, which is:</p>
+<p>一、升级或卸载Python导致：</p>
+<p>Bash<br>1、查看已安装python的版本，可能是当前系统存在多个python导致<br>[root@test ~]# whereis python<br>python: /usr/bin/python2.6 /usr/bin/python /usr/bin/python2.6-config /usr/lib/python2.6 /usr/lib64/python2.6 /usr/include/python2.6 /usr/share/man/man1/python.1.gz<br>[root@test ~]# vi /usr/bin/yum<br>将 #!/usr/bin/python 修改为 #!/usr/bin/python2.6<br>如果是源代码安装的，默认路径是/usr/local/bin/python2.6,做个软链接即可<br>rm -rf /usr/bin/python<br>ln -s /usr/local/bin/python2.6 /usr/bin/python<br>二、完全重装python和yum</p>
+<p>Bash<br>1、删除现有Python<br>[root@test ~]# rpm -qa|grep python|xargs rpm -ev –allmatches –nodeps ##强制删除已安装程序及其关联<br>[root@test ~]# whereis python |xargs rm -frv ##删除所有残余文件 ##xargs，允许你对输出执行其他某些命令<br>[root@test ~]# whereis python ##验证删除，返回无结果<br>2、删除现有的yum<br>[root@test ~]# rpm -qa|grep yum|xargs rpm -ev –allmatches –nodeps<br>[root@test ~]# whereis yum |xargs rm -frv<br>3、从<a href="http://mirrors.ustc.edu.cn/centos/6.4/os/x86_64/Packages/下载相应的包" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/centos/6.4/os/x86_64/Packages/下载相应的包</a><br>python-2.6.6-36.el6.x86_64.rpm<br>python-devel-2.6.6-36.el6.x86_64.rpm<br>python-libs-2.6.6-36.el6.x86_64.rpm<br>python-pycurl-7.19.0-8.el6.x86_64.rpm<br>python-setuptools-0.6.10-3.el6.noarch.rpm<br>python-urlgrabber-3.9.1-8.el6.noarch.rpm<br>python-iniparse-0.3.1-2.1.el6.noarch.rpm<br>rpm-python-4.8.0-32.el6.x86_64.rpm<br>yum-3.2.29-40.el6.centos.noarch.rpm<br>yum-metadata-parser-1.1.2-16.el6.x86_64.rpm<br>yum-utils-1.1.30-14.el6.noarch.rpm<br>yum-plugin-fastestmirror-1.1.30-14.el6.noarch.rpm<br>yum-plugin-protectbase-1.1.30-14.el6.noarch.rpm<br>yum-plugin-aliases-1.1.30-14.el6.noarch.rpm<br>yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm<br>由于源中版本会更新，具体请查看URL中的版本再下载下来！<br>[root@test ~]# rpm -Uvh –replacepkgs python<em>.rpm<br>[root@test ~]# rpm -Uvh –replacepkgs rpm-python</em>.rpm yum*.rpm<br>可能之间还需要zlib和zlib-devel包，根据情况下载并安装！<br>三、运行python进行测试</p>
+<p>Bash<br>[root@test ~]# python<br>Python 2.6.6 (r266:84292, Feb 22 2013, 00:00:18)<br>[GCC 4.4.7 20120313 (Red Hat 4.4.7-3)] on linux2<br>Type “help”, “copyright”, “credits” or “license” for more information.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import yum</p>
+</blockquote>
+<p>如上，要是什么都没报，则说明OK啦~</p>
+</blockquote>
+</blockquote>
+<p>本文出自 “SmilePad” 博客，请务必保留此出处<a href="http://smilepad.blog.51cto.com/6094369/1333478" target="_blank" rel="noopener">http://smilepad.blog.51cto.com/6094369/1333478</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/25/python3安装pip3/" rel="next" title="python3安装pip3">
+                <i class="fa fa-chevron-left"></i> python3安装pip3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/25/超级暴力版魔改BBR一键脚本 for Debian/" rel="prev" title="Debian">
+                Debian <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

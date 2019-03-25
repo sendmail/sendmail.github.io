@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/修改Linux系统VPS主机的DNS的方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/hexo博客插入图片/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/修改Linux系统VPS主机的DNS的方法/" itemprop="url">修改Linux系统VPS主机的DNS的方法</a></h1>
+                <a class="post-title-link" href="/2019/03/25/hexo博客插入图片/" itemprop="url">hexo博客插入图片</a></h1>
         
 
         <div class="post-meta">
@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:21:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T13:04:32+08:00">
                 2019-03-25
               </time>
             
@@ -300,35 +300,12 @@
       
         
           
-            <p>一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。</p>
-<p>所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS的过程，一般我平时使用的时候也是用的临时修改方法，但为了确保以后不再麻烦更换，也可以采用永久更换。</p>
-<p>第一、临时修改当前DNS</p>
-<p>代码如下:</p>
-<p>vi /etc/resolv.conf</p>
-<p>然后将默认的文件都修改成如下图所示。</p>
-<p><img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg" alt></p>
-<p>修改完毕之后，然后:wq保存退出，然后再执行我们需要的脚本安装应该没有多大问题。比如在阿里云、Linode上安装一些环境包的时候，不修改DNS还真安装不了。</p>
-<p>第二、永久修改DNS方法</p>
-<p>使用上面的方法，如果我们重启VPS之后，会又是原来的默认DNS，如果我们需要永久的修改DNS，那如何操作呢?这里，老左拿CentOS系统测试。</p>
-<p>1、centos</p>
-<p>代码如下:</p>
-<p>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<p>在最后两行添加：</p>
-<p>代码如下:</p>
-<p>DNS1=8.8.8.8</p>
-<p>DNS2=8.8.4.4</p>
-<p><img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg" alt></p>
-<p>修改保存退出之后，我们在重启VPS，会看到在/etc/resolv.conf文件中的DNS就是我们设置固定的DNS。</p>
-<p>2、debian</p>
-<p>网上大部分的方法还是基于centos的，这里整理到debian发行版本的方法。</p>
-<p>代码如下:</p>
-<p>vi /etc/dhcp/dhclient.conf</p>
-<p>然后在dhclient.conf最后一行添加</p>
-<p>代码如下:</p>
-<p>prepend domain-name-servers 8.8.8.8, 8.8.4.4;</p>
-<p>然后我们再保存退出。</p>
-<p><img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg" alt></p>
-<p>总结，通过上面的方法，我们可以根据需要临时或者永久修改DNS，小伙伴们再也不用担心wget的时候出现连接不上的问题了。</p>
+            <p>1.首先确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，如此一来，您便可以更方便的使用资源。<br>2.在hexo的目录下执行npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> –save（需要等待一段时间）。<br>3.完成安装后用hexo新建文章的时候会发现_posts目录下面会多出一个和文章名字一样的文件夹。图片就可以放在文件夹下面。结构如下：<br>本地图片测试<br>├── apppicker.jpg<br>├── logo.jpg<br>└── rules.jpg<br>本地图片测试.md</p>
+<p>这样的目录结构（目录名和文章名一致），只要使用 <img src="/2019/03/25/hexo博客插入图片/logo.jpg" alt="logo"> 就可以插入图片。其中[]里面不写文字则没有图片标题。<br>生成的结构为<br>public/2016/3/9/本地图片测试<br>├── apppicker.jpg<br>├── index.html<br>├── logo.jpg<br>└── rules.jpg</p>
+<p>同时，生成的 html 是<br><img src="/2016/3/9/本地图片测试/logo.jpg" alt="logo"><br>而不是愚蠢的<br><img src="/2019/03/25/hexo博客插入图片/logo.jpg" alt="logo"><br>注意:<br>通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。在Hexo2时代，社区创建了很多插件来解决这个问题。但是，随着Hexo3的发布，许多新的标签插件被加入到了核心代码中。这使得你可以更简单地在文章中引用你的资源。</p>
+<p>比如说：当你打开文章资源文件夹功能后，你把一个 example.jpg图片放在了你的资源文件夹中，如果通过使用相对路径的常规 markdown 语法 <a href="/example.jpg"></a>，它将 不会 出现在首页上。（但是它会在文章中按你期待的方式工作）<br>正确的引用图片方式是使用下列的标签插件而不是markdown</p>
+
+<p>作者：TSimeon<br>链接：<a href="https://www.jianshu.com/p/c2ba9533088a" target="_blank" rel="noopener">https://www.jianshu.com/p/c2ba9533088a</a><br>来源：简书</p>
 
           
         
@@ -377,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/Linux中iptables设置详细/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/github搭建自己的博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -396,7 +373,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/Linux中iptables设置详细/" itemprop="url">Linux中iptables设置详细</a></h1>
+                <a class="post-title-link" href="/2019/03/25/github搭建自己的博客/" itemprop="url">github搭建自己的博客</a></h1>
         
 
         <div class="post-meta">
@@ -408,7 +385,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:17:33+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:58:33+08:00">
                 2019-03-25
               </time>
             
@@ -448,124 +425,85 @@
       
         
           
-            <p>iptables是一个需要特别谨慎设置的东西，万一服务器不在你身边，而你贸然设置导致无法SSH，那就等着被老板骂吧，呵呵。。。</p>
-<p>一下内容是为了防止这种情况发生而写的，当然很初级，不过一般服务器也够用了：</p>
-<p>1.首先介绍一下指令和相关配置文件</p>
-<p>启动指令:service iptables start   </p>
-<p>重启指令:service iptables restart   </p>
-<p>关闭指令:service iptables stop   </p>
-<p>然后是相关配置:/etc/sysconfig/iptables   </p>
-<p>如何操作该配置呢？   </p>
-<p>vim /etc/sysconfig/iptables   </p>
-<p>然后进去修改即可，修改完了怎么办？这里很多人会想到/etc/rc.d/init.d/iptables save指令，但是一旦你这么干了你刚才的修改内容就白做了。。。   </p>
-<p>具体方法是：   </p>
-<p>只修改/etc/sysconfig/iptables 使其生效的办法是修改好后先service iptables restart，然后才调用/etc/rc.d/init.d/iptables save，   </p>
-<p>因为/etc/rc.d/init.d/iptables save会在iptables服务启动时重新加载，要是在重启之前直接先调用了/etc/rc.d/init.d/iptables save那么你   </p>
-<p>的/etc/sysconfig/iptables 配置就回滚到上次启动服务的配置了，这点必须注意！！！  </p>
-<p>2.下面介绍一些指令用法（主要还是man iptables看下相关资料才行）</p>
-<p>-A：指定链名   </p>
-<p>-p：指定协议类型   </p>
-<p>-d：指定目标地址   </p>
-<p>–dport：指定目标端口（destination port 目的端口）   </p>
-<p>–sport：指定源端口（source port 源端口）   </p>
-<p>-j：指定动作类型  </p>
-<p>3.如果我不像修改文件直接打命令可以吗，当然没问题，步骤如下:</p>
-<p>例如我给SSH加放行的语句：   </p>
-<p>添加input记录： iptables -A INPUT -p tcp –dport 22 -j ACCEPT   </p>
-<p>添加output记录： iptables -A OUTPUT -p tcp –sport 22 -j ACCEPT   </p>
-<p>最后注意需要再执行一下 /etc/init.d/iptables save，这样这两条语句就保存到刚才那个/etc/sysconfig/iptables 文件中了。  </p>
-<p>4.接下来说明一下步骤，如果机器不在我身边，我只能SSH进去做iptables规则，那么我必须注意每一步，千万别搞错了，否则就SSH链接不上都有可能！</p>
-<p>首先要做的是给咱的SSH进行ACCEPT配置，以免直接无法连接的情况发生:   </p>
-<p>1.如果SSH端口是22（这里不建议用默认端口最好改掉SSH端口）   </p>
-<p>iptables -A INPUT -p tcp –dport 22 -j ACCEPT   </p>
-<p>iptables -A OUTPUT -p tcp –sport 22 -j ACCEPT   </p>
-<p>注意要/etc/rc.d/init.d/iptables save，以下每一步都最好执行一遍此语句，以下不再累述。   </p>
-<p>2.vim /etc/sysconfig/iptables确定是否已经加入配置，可以的话执行service iptables restart重启后生效   </p>
-<p>3.下面是很危险的操作，如果你第一步没做就会直接可能导致你连不上SSH，此步骤前切记执行第一步！！！   </p>
-<p>iptables -P INPUT DROP    </p>
-<p>iptables -P OUTPUT DROP    </p>
-<p>iptables -P FORWARD DROP   </p>
-<p>这个步骤是把所有不符合自己配置的规则ACCEPT的连接全部DROP掉，执行完以后如果咱SSH还没掉，那么谢天谢地，安全了，重启下iptables后继续下面的配置！   </p>
-<p>4.下面咱就不细说了，具体就是看自己服务器要开放哪些端口或者是要访问哪些端口来做具体的配置，下面是我自己的机器的配置：   </p>
-<p>/etc/sysconfig/iptables文件配置如下:   </p>
-<h1 id="Generated-by-iptables-save-v1-4-7-on-Fri-Mar-2-19-59-43-2012"><a href="#Generated-by-iptables-save-v1-4-7-on-Fri-Mar-2-19-59-43-2012" class="headerlink" title="Generated by iptables-save v1.4.7 on Fri Mar  2 19:59:43 2012"></a>Generated by iptables-save v1.4.7 on Fri Mar  2 19:59:43 2012</h1><p>*filter   </p>
-<p>:INPUT DROP [0:0]   </p>
-<p>:FORWARD DROP [0:0]   </p>
-<p>:OUTPUT DROP [8:496]   </p>
-<p>-A INPUT -m state –state RELATED,ESTABLISHED -j ACCEPT   </p>
-<p>#ping使用的端口   </p>
-<p>-A INPUT -p icmp -j ACCEPT   </p>
-<p>-A INPUT -i lo -j ACCEPT   </p>
-<p>-A INPUT -s 127.0.0.1/32 -d 127.0.0.1/32 -j ACCEPT   </p>
-<p>-A INPUT -s 192.168.2.200/32 -d 192.168.2.200/32 -j ACCEPT   </p>
-<p>#允许服务器自己的SSH（对外部请求来说服务器是目标所以使用–dport）   </p>
-<p>-A INPUT -p tcp -m tcp –dport 22 -j ACCEPT   </p>
-<p>#80端口不用说了吧，服务器网站访问端口   </p>
-<p>-A INPUT -p tcp -m tcp –dport 80 -j ACCEPT   </p>
-<p>-A INPUT -p tcp -m tcp –dport 3306 -j ACCEPT   </p>
-<p>-A INPUT -p tcp -m tcp –dport 11211 -j ACCEPT   </p>
-<p>-A INPUT -p tcp -m tcp –dport 11212 -j ACCEPT   </p>
-<p>-A FORWARD -j REJECT –reject-with icmp-host-prohibited   </p>
-<p>#53端口是DNS相关，TCP和UDP都要配置   </p>
-<p>-A INPUT -p tcp -m tcp –dport 53 -j ACCEPT   </p>
-<p>-A INPUT -p udp -m udp –dport 53 -j ACCEPT   </p>
-<p>#ping使用的端口   </p>
-<p>-A OUTPUT -p icmp -j ACCEPT   </p>
-<p>-A OUTPUT -s 127.0.0.1/32 -d 127.0.0.1/32 -j ACCEPT   </p>
-<p>-A OUTPUT -s 192.168.2.200/32 -d 192.168.2.200/32 -j ACCEPT   </p>
-<p>#允许服务器SSH到其他机器（使用外部端口就使用–dport）   </p>
-<p>-A OUTPUT -p tcp -m tcp –dport 22 -j ACCEPT   </p>
-<p>#允许服务器自己的SSH（自已为源输出就使用–sport）   </p>
-<p>-A OUTPUT -p tcp -m tcp –sport 22 -j ACCEPT   </p>
-<p>#访问外部网站80端口（使用外部端口就使用–dport）   </p>
-<p>-A OUTPUT -p tcp -m tcp –dport 80 -j ACCEPT   </p>
-<p>#如果服务器需要访问外部网站，那么OUTPUT也需要配置53端口（使用外部端口就使用–dport）   </p>
-<p>-A OUTPUT -p tcp -m tcp –dport 53 -j ACCEPT   </p>
-<p>-A OUTPUT -p udp -m udp –dport 53 -j ACCEPT   </p>
-<p>#如果有访问外部邮箱，那么打开邮箱相关端口（使用外部端口就使用–dport）   </p>
-<p>-A OUTPUT -p tcp -m tcp –dport 465 -j ACCEPT   </p>
-<p>-A OUTPUT -p tcp -m tcp –dport 25 -j ACCEPT   </p>
-<p>-A OUTPUT -p tcp -m tcp –dport 110 -j ACCEPT   </p>
-<p>#服务器网站访问端口（自已为源输出就使用–sport）   </p>
-<p>-A OUTPUT -p tcp -m tcp –sport 80 -j ACCEPT   </p>
-<p>-A OUTPUT -p tcp -m tcp –sport 3306 -j ACCEPT   </p>
-<p>-A OUTPUT -p tcp -m tcp –sport 11211 -j ACCEPT   </p>
-<p>-A OUTPUT -p tcp -m tcp –sport 11212 -j ACCEPT   </p>
-<p>COMMIT   </p>
-<h1 id="Completed-on-Fri-Mar-2-19-59-43-2012"><a href="#Completed-on-Fri-Mar-2-19-59-43-2012" class="headerlink" title="Completed on Fri Mar  2 19:59:43 2012"></a>Completed on Fri Mar  2 19:59:43 2012</h1><p>5.可能有时候需要删除规则，最简单就是修改一下/etc/sysconfig/iptables然后service iptables restart,最后/etc/rc.d/init.d/iptables save即可。</p>
-<p>当然也可以使用指令完成:</p>
-<p>在网上找了一下，删除规则的方法：   </p>
-<p>语法是： iptables -D chain rulenum [options]   </p>
-<p>其中： chain 是链的意思，就是INPUT FORWARD 之类的   </p>
-<pre><code>rulenum 是规则的编号。从1 开始。可以使用  --line-numbers 列出规则的编号   
-</code></pre><p>所以，例如上面要删除一个INPUT链的规则的话可以这样：iptables -D INPUT 3   </p>
-<p>意思是删除第3条规则。   </p>
-<p>还有第二种方法。第二种办法是 -A 命令的映射，不过用-D替换-A。当你的链中规则很复杂，而你不想计算它们的编号的时候这就十分有用了。也就是说，你如何用iptables -A…. 语句定义了一个规则，则删除此规则时就用 -D 来代替- A  其余的都不变即可。   </p>
-<p>======================   </p>
-<p>说一下上面的 –line-numbers 选项，如下面的命令：   </p>
-<p>iptables -L INPUT –line-numbers   列出INPUT 链所有的规则   </p>
-<p>num  target     prot opt source               destination            </p>
-<p>1    REJECT     tcp  –  anywhere             anywhere            tcp dpt:microsoft-ds reject-with icmp-port-unreachable   </p>
-<p>2    REJECT     tcp  –  anywhere             anywhere            tcp dpt:135 reject-with icmp-port-unreachable   </p>
-<p>3    REJECT     tcp  –  anywhere             anywhere            tcp dpt:netbios-ssn reject-with icmp-port-unreachable   </p>
-<p>…   </p>
-<p>…   </p>
-<p>删除指定行规则：   </p>
-<p>[root@localhost rc.d]# iptables -D INPUT 4  </p>
-<p>  6.最后补充一下，如果想针对某IP进行单独开放端口可以如下配置：</p>
-<p>如果我需要对内网某机器单独开放mysql端口，应该如下配置：   </p>
-<p>iptables -A INPUT -s 192.168.2.6 -p tcp -m tcp –dport 3306 -j ACCEPT   </p>
-<p>iptables -A OUTPUT -s 192.168.2.6 -p tcp -m tcp –sport 3306 -j ACCEPT  </p>
-<p>7.彻底禁止某IP访问:</p>
-<p>#屏蔽单个IP的命令是   </p>
-<p>iptables -I INPUT -s 123.45.6.7 -j DROP   </p>
-<p>#封整个段即从123.0.0.1到123.255.255.254的命令   </p>
-<p>iptables -I INPUT -s 123.0.0.0/8 -j DROP   </p>
-<p>#封IP段即从123.45.0.1到123.45.255.254的命令   </p>
-<p>iptables -I INPUT -s 124.45.0.0/16 -j DROP   </p>
-<p>#封IP段即从123.45.6.1到123.45.6.254的命令是   </p>
-<p>iptables -I INPUT -s 123.45.6.0/24 -j DROP   </p>
-<p>指令I是insert指令 但是该指令会insert在正确位置并不像A指令看你自己的排序位置，因此用屏蔽因为必须在一开始就要加载屏蔽IP，所以必须使用I命令加载，然后注意执行/etc/rc.d/init.d/iptables save进行保存后重启服务即可  </p>
+            <p>用Hexo在本地搭建一个博客<br>安装Hexo<br>安装nodejs</p>
+<p><a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a> 丢个链接自己装，傻瓜式安装</p>
+<p>安装git</p>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> 安装毫无技术含量</p>
+<p>使用npm安装Hexo</p>
+<p>   npm install -g hexo-cli<br>  //一键搞定<br>1<br>2<br>1<br>2<br>快速开始<br>1 随便找个文件夹下打开终端,输入</p>
+<pre><code>hexo i blog //init的缩写 blog是项目名
+cd blog //切换到站点根目录
+hexo g //generetor的缩写
+hexo s //server的缩写
+</code></pre><p>2 打开浏览器输入localhost:4000查看：</p>
+<p><img src="/2019/03/25/github搭建自己的博客/1.jpg" alt></p>
+<p>看到这个样子就说明成功了，这个就是hexo默认的博客主题。现在你已经可以在这个主题下写博客了。</p>
+<p>当然，我是不喜欢这样的，幸好，github上有大量的主题可供选择，这里我选择使用nexT主题。</p>
+<p>选择主题–nexT<br>1 . 在站点根目录输入</p>
+<p>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next</p>
+<p>2 . 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next</p>
+<p>配置文件就是根目录下的_config.yml文件<br><img src="/2019/03/25/github搭建自己的博客/2.jpg" alt></p>
+<p>把landscape改为next<br> language: zh-CN ：修改为中文</p>
+<p>3 . 在终端输入</p>
+<p>hexo clean  //清除缓存<br>hexo g  //重新生成代码<br>hexo s  //部署到本地</p>
+<p>//然后打开浏览器访问 localhost:4000 查看效果</p>
+<p><img src="/2019/03/25/github搭建自己的博客/3.jpg" alt></p>
+<p>nexT主题有三种选择，这个只是最简洁的一种，我们选择最好看的那个。</p>
+<p>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br>Mist - Muse 的紧凑版本，整洁有序的单栏外观<br>Pisces - 双栏 Scheme，小家碧玉似的清新<br>4 . 配置nexT<br><img src="/2019/03/25/github搭建自己的博客/4.jpg" alt></p>
+<p>在 站点根目录/themes/next/_congig.yml 文件中修改</p>
+<p>然后重新clean，generator，查看效果:</p>
+<p><img src="/2019/03/25/github搭建自己的博客/5.jpg" alt></p>
+<p>当然，你完全可以进行很多的自定义设置甚至修改源码，定制自己的主题。更多的设置请移步官方文档</p>
+<p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
+<p>将本地博客上传到github<br>话不多做，直接开始。</p>
+<p>1 . 注册github账号</p>
+<p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a> 甩个链接自己看着办</p>
+<p>2 . 创建一个新项目</p>
+<p><img src="/2019/03/25/github搭建自己的博客/6.jpg" alt></p>
+<p>3 . 按格式输入项目名称</p>
+<p><img src="/2019/03/25/github搭建自己的博客/7.jpg" alt></p>
+<p>注意规范！！</p>
+<p>4 . 点击设置 创建一个page</p>
+<p><img src="/2019/03/25/github搭建自己的博客/8.jpg" alt></p>
+<p><img src="/2019/03/25/github搭建自己的博客/9.jpg" alt></p>
+<p><img src="/2019/03/25/github搭建自己的博客/10.jpg" alt></p>
+<p>5 . 选择一个主题，没什么用，反正马上就被覆盖掉了。。</p>
+<p><img src="/2019/03/25/github搭建自己的博客/11.jpg" alt></p>
+<p>这个时候访问一下你的链接，应该可以看到效果：<br><img src="/2019/03/25/github搭建自己的博客/12.jpg" alt></p>
+<p>接下来将我们Hexo的代码部署到github上。</p>
+<p>6 . 修改hexo站点的配置文件</p>
+<p><img src="/2019/03/25/github搭建自己的博客/13.jpg" alt></p>
+<p>改成这样就好了，记得保存。</p>
+<p>注意！！！冒号的后面一定一定一定要有一个空格！！</p>
+<p>7 . 部署一下就好了</p>
+<p>npm install hexo-deployer-git –save</p>
+<p>//先装个插件压压惊</p>
+<p>hexo d  //  部署的命令</p>
+<p>//等一会就好了</p>
+<p>当然，你可能会很奇怪，我没输密码，没输用户名，就这么部署上去了，这不是很不安全？<br>事实上，一般来说是要输入用户名和密码的（别人的教程都是这么说的），如果不想每次都输，就需要配置ssh啥的。不过我并不需要这一步，大概，是我下载了github客户端吧。<br>所以，如果你不想每次都输密码，也懒得搞复杂的ssh，就在你的电脑下一个github客户端吧，而且我觉得，这个东西是必备的。。。</p>
+<p>再次访问你的网站：</p>
+<p><img src="/2019/03/25/github搭建自己的博客/14.jpg" alt></p>
+<p>perfect！</p>
+<p>发布你的第一篇博客<br>根目录下输入 ：</p>
+<p>hexo new “postName”<br> //hexo n 也可以<br> //你自己的博客名称，名为postName.md的文件会建在目<br> //录/blog/source/_posts下。</p>
+<p>文章编辑完成后，终端在根目录文件夹下，执行如下命令来发布:</p>
+<p>hexo g //生成静态页面<br>hexo d //发布</p>
+<p>现在查看一下：</p>
+<p><img src="/2019/03/25/github搭建自己的博客/15.jpg" alt></p>
+<p>已经发布上去咯。</p>
+<p>后记<br>本次的教程就先到这里，这只是最基础的，对于主题，你还有更多的选择更多的设置，甚至自己写一个静态博客界面。撤了Hexo，你还可以用其他的方式来搭建。如果你不喜欢github提供的域名，你可以自己买一个域名做绑定，不过我觉得没啥必要，所以我就不写了，毕竟很多大的组织也直接用github.io。生活嘛，就是用来折腾的。</p>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a> 更多hexo主题</p>
+<p><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">https://www.zhihu.com/question/24422335</a> 知乎上的hexo主题</p>
+<p>或者直接github搜hexo</p>
+<p><a href="https://github.com/CleverFan" target="_blank" rel="noopener">https://github.com/CleverFan</a> 我的github</p>
+<p><a href="https://cleverfan.github.io/" target="_blank" rel="noopener">https://cleverfan.github.io/</a> 我的博客主页</p>
+<p><a href="http://blog.improvecfan.cn/" target="_blank" rel="noopener">http://blog.improvecfan.cn/</a> 这个是解析后的地址</p>
+<p>域名绑定<br>万万没想到，我还是写了。。</p>
+<p>首先你得有一个域名，我用的腾讯的域名，因为我是学生，可以免费使用，不过需要实名认证和备案，挺麻烦的。</p>
+<p>实名认证和备案都搞定以后。到域名解析页面添加一条解析：</p>
+<p><img src="/2019/03/25/github搭建自己的博客/16.jpg" alt></p>
+<p>然后到你博客 根目录/source 目录下创建一个新文件CNAME<br>在里面写上你刚刚配置的路径，比如我的是blog.improvecfan.cn，就直接在CNAME文件中写上这个地址就好了。</p>
+<p>然后执行以下hexo g,hexo d，让后访问你自己的地址就可以跳转到博客了。</p>
 
           
         
@@ -614,7 +552,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/防SSH-FTP暴破，一键安装fail2ban安装脚本/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/apt-get升级的各种区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -633,7 +571,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/防SSH-FTP暴破，一键安装fail2ban安装脚本/" itemprop="url">防SSH/FTP暴破，一键安装fail2ban安装脚本</a></h1>
+                <a class="post-title-link" href="/2019/03/25/apt-get升级的各种区别/" itemprop="url">apt-get升级的各种区别</a></h1>
         
 
         <div class="post-meta">
@@ -645,7 +583,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:02:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:55:43+08:00">
                 2019-03-25
               </time>
             
@@ -685,19 +623,13 @@
       
         
           
-            <p>Centos安装fail2ban，Debian安装fail2ban<br>暴破的危害：<br>1、很占资源。  我的VPs、服务器经常被这些暴破搞得连接数过多，负载过高。<br>2、影响安全。 再强的密码都有可能被穷举暴破的一天，只是时间问题。</p>
-<p>防SSH/FTP暴破，请装 fail2ban， 非常给力。</p>
-<p>wget <a href="http://ppbox.free.fr/fail2ban.sh;sh" target="_blank" rel="noopener">http://ppbox.free.fr/fail2ban.sh;sh</a> fail2ban.sh</p>
-<p>或者 </p>
-<p>wget <a href="http://vps.idc886.com/fail2ban.sh;sh" target="_blank" rel="noopener">http://vps.idc886.com/fail2ban.sh;sh</a> fail2ban.sh</p>
-<p>执行一键安装后，可按 0,1,2,3，来下一步。<br>0 为删除卸载 fail2ban<br>1 为设置封禁IP 600秒 （10分钟） 默认1<br>2 为设置封禁IP 6000秒   100分钟<br>3 为设置封禁IP 60000秒 1000分钟</p>
-<p>自动检测 Debian 采用 apt-get install,    安装 </p>
-<p>自动检测 Centos 采用 先创建源，再 yum install, 安装<br>目前在以上两系统上测试通过。其它系统未测试。<br>安装的版号在0.8.4 或 0.8.6</p>
-<p>相关命令：</p>
-<p>service fail2ban stop       停止<br>service fail2ban start       启动<br>service fail2ban restart    重启</p>
-<p>fail2ban-client status      查看状态是否运行了<br>fail2ban-client                最上面能看到fail2ban版号<br>ps -ef | grep fail2ban     查看是否有fail2ban进程</p>
-<p>安装fail2ban，fail2ban默认启动了，也加入了随系统启动。<br>安装fail2ban，默认只开启了 SSH暴破检测。其它FTP暴破检测需手动修改文件开启。<br>安装fail2ban，资源占用并不多的，进程占几M内存，如日志更大或许占用更多。如果重启了iptables， fail2ban将失效，请重启fail2ban生效。</p>
-<p>配制文件：/etc/fail2ban/jail.conf<br>如修改配制后需重启一下。<br>配制中常用的  [ssh]或[ssh-iptables] , [pure-ftpd] 或 [proftpd-iptables]<br>除SSH外，其它默认都是没开启的 enabled  = false ，<br>把需要的改为开启，换成 enabled  = true<br>再重启  fail2ban  即可。</p>
+            <p>安装或升级系统分下面几个步骤。</p>
+<p>第一步，获得最近的软件包的列表；列表中包含一些包的信息，比如这个包是否更新过。</p>
+<p>第二步，如果这个包没有发布更新，就不管它；如果发布了更新，就把包下载到电脑上，并安装。</p>
+<p>apt-get update对应的就是第一步，得到软件包的列表。</p>
+<p>apt-get upgrade 与apt-get dist-upgrade对应的是第二步。</p>
+<p>由于包与包之间存在各种依赖关系。upgrade只是简单的更新包，不管这些依赖，它不和添加包，或是删除包；而dist-upgrade可以根据依赖关系的变化，添加包，删除包。</p>
+<p>一般在运行upgrade或dist-upgrade之前，先要运行update。</p>
 
           
         
@@ -746,7 +678,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/64MB内存的VPS上搭建WordPress/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/中删除老旧的内核文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -765,7 +697,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/64MB内存的VPS上搭建WordPress/" itemprop="url">64MB内存的VPS上搭建WordPress</a></h1>
+                <a class="post-title-link" href="/2019/03/25/中删除老旧的内核文件/" itemprop="url">中删除老旧的内核文件</a></h1>
         
 
         <div class="post-meta">
@@ -777,7 +709,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:01:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:54:36+08:00">
                 2019-03-25
               </time>
             
@@ -817,37 +749,15 @@
       
         
           
-            <p>在64MB内存的VPS上搭建WordPress，这显然是一件让人非常捉急的事情，众多的Web环境一键安装包一般只支持最小128MB内存。考虑到内存只有64MB，Apache和MySQL就不用想了；HTTP服务器可以用Lighttpd或Nginx代替，数据库也可以使用轻量级的SQLite。</p>
-<p>考虑到Lighttpd官方有这么一句：</p>
-<p>NOTE: url rewriting does not work within a $HTTP[“url”] conditional, but fixed in v1.4.34 (see #2526).</p>
-<p>链接重写（伪静态）的规则，在不同的版本之间有差异；再考虑目前Nginx算是比较主流的。所以最终的搭建方案就出炉了：</p>
-<p>系统：Debian 7.0 x86 minimal；</p>
-<p>HTTP服务器：Nginx + PHP；</p>
-<p>数据库：SQLite。</p>
-<p>那么咱们就开始吧。</p>
-<p>添加最新版本的源<br>也许随着时间的推移，安装的软件包版本会有所变化，本篇教程的设置可能有些不同。我这里安装之后的PHP版本为5.4，Nginx版本为1.8。</p>
-<p>echo deb <a href="http://packages.dotdeb.org" target="_blank" rel="noopener">http://packages.dotdeb.org</a> wheezy all &gt;&gt; /etc/apt/sources.list<br>echo deb-src <a href="http://packages.dotdeb.org" target="_blank" rel="noopener">http://packages.dotdeb.org</a> wheezy all &gt;&gt; /etc/apt/sources.list<br>wget <a href="http://www.dotdeb.org/dotdeb.gpg" target="_blank" rel="noopener">http://www.dotdeb.org/dotdeb.gpg</a><br>apt-key add dotdeb.gpg &amp;&amp; rm dotdeb.gpg<br>apt-get update<br>安装软件包<br>apt-get install sqlite3<br>apt-get install nginx<br>apt-get install php5-fpm php5-curl php5-gd php5-imap php5-sqlite php5-xmlrpc<br>计划目录、配置文件<br>计划一下网站文件和数据库存放的目录：</p>
-<p>mkdir -p /home/64mb/web<br>mkdir /home/64mb/db<br>添加虚拟主机配置文件：</p>
-<p>wget -O /etc/nginx/sites-available/default <a href="http://x.weishimi.com/64mb/conf/default.conf" target="_blank" rel="noopener">http://x.weishimi.com/64mb/conf/default.conf</a><br>wget -P /etc/nginx/sites-enabled <a href="http://x.weishimi.com/64mb/conf/64mb.wp.conf" target="_blank" rel="noopener">http://x.weishimi.com/64mb/conf/64mb.wp.conf</a><br>再编辑一下该配置文件：</p>
-<p>vi /etc/nginx/sites-enabled/64mb.wp.conf<br>在第3行修改域名；在第10、22行修改站点文件目录；在第17行修改数据库文件目录。</p>
-<p>重载Nginx：</p>
-<p>nginx -t<br>nginx -s reload<br>配置PHP：</p>
-<p>vi /etc/php5/fpm/php.ini<br>找到cgi.fix_pathinfo=1这一行，修改1为0，并去掉行首的分号。</p>
-<p>vi /etc/php5/fpm/pool.d/<a href="http://www.conf" target="_blank" rel="noopener">www.conf</a></p>
-<p>修改pm = dynamic为pm = static；</p>
-<p>修改pm.max_children = 5为pm.max_children = 1。</p>
-<p>重载PHP-FPM：</p>
-<p>service php5-fpm restart<br>到这里Web环境就已经搭建了起来，且新建了一个虚拟主机。</p>
-<p>安装WordPress<br>下载并解压WordPress文件：</p>
-<p>apt-get install unzip<br>cd /home/64mb/web<br>wget <a href="http://cn.wordpress.org/latest-zh_CN.zip" target="_blank" rel="noopener">http://cn.wordpress.org/latest-zh_CN.zip</a><br>unzip <em>.zip<br>mv wordpress/</em> ./<br>rm -rf *.zip wordpress<br>让WordPress支持SQLite数据库，插件SQLite Integration：</p>
-<p>cd /home/64mb/web<br>wget <a href="https://downloads.wordpress.org/plugin/sqlite-integration.1.8.1.zip" target="_blank" rel="noopener">https://downloads.wordpress.org/plugin/sqlite-integration.1.8.1.zip</a><br>unzip <em>.zip<br>mv sqlite-integration wp-content/plugins<br>cp wp-content/plugins/sqlite-integration/db.php wp-content<br>rm </em>.zip<br>修改WordPress配置文件：</p>
-<p>cp wp-config-sample.php wp-config.php<br>vi wp-config.php<br>把下面几行注释或删除掉：</p>
-<p>define(‘DB_NAME’, ‘database_name_here’);<br>define(‘DB_USER’, ‘username_here’);<br>define(‘DB_PASSWORD’, ‘password_here’);<br>define(‘DB_HOST’, ‘localhost’);<br>替换或添加上：</p>
-<p>define(‘DB_FILE’, ‘64mb’);<br>define(‘DB_DIR’, ‘/home/64mb/db’);<br>重置站点目录、数据库目录用户和用户组：</p>
-<p>chown -R www-data.www-data /home/64mb<br>浏览器中打开域名，填写博客名称等信息安装就可以了。</p>
-<p>安装之后有下面的提示，无视之（默认已经在虚拟主机配置文件中做了安全配置）：</p>
-<p>Your webserver doesn’t seem to be Apache. So the database directory access restriction by the .htaccess file may not function. We strongly recommend that you should restrict the access to the directory /home/64mb/db/ in some other way.<br>END..<br>不出意外你的WordPress程序就已经运行在64MB内存的VPS上了！</p>
-<p>原文在：<a href="https://64mb.win/howto/" target="_blank" rel="noopener">https://64mb.win/howto/</a></p>
+            <p>在Ubuntu内核镜像包含了以下的包。</p>
+<pre><code>linux-image-: 内核镜像
+
+linux-image-extra-: 额外的内核模块
+
+linux-headers-: 内核头文件
+</code></pre><p>首先检查系统中安装的内核镜像。</p>
+<p>dpkg –list|grep linux-image<br>dpkg –list|grep linux-headers<br>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</p>
+<p>apt-get purge linux-image-3.19.0-15<br>apt-get purge linux-headers-3.19.0-15<br>上面的命令会删除内核镜像和它相关联的内核模块和头文件。</p>
 
           
         
@@ -896,7 +806,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/在VPS上安装btsync/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/wget下载脚本的时候出现错误/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -915,7 +825,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/在VPS上安装btsync/" itemprop="url">在VPS上安装btsync</a></h1>
+                <a class="post-title-link" href="/2019/03/25/wget下载脚本的时候出现错误/" itemprop="url">wget下载脚本的时候出现错误</a></h1>
         
 
         <div class="post-meta">
@@ -927,7 +837,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:00:36+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:53:41+08:00">
                 2019-03-25
               </time>
             
@@ -967,32 +877,14 @@
       
         
           
-            <p>BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向外提供密钥，就没有第二个人能够获取这些文件，即使它们在整个互联网范围内都是流通的。另外，由于传输过程完全建立在两个终端之间，文件传输速度理论上就是带宽允许的速度。</p>
-<p>第一、操作环境</p>
-<p>以下内容的操作环境为：32位 CentOS6.5，20GB SSD Disk；如果用的是其他 Linux 方法也大同小异，DO 官方就有说明。本地 Windows 需安装 BTSync 的客户端；SSH 客户端用的是 PuTTY。</p>
-<p>第二、创建安装目录</p>
-<p>在 PuTTY 中以 root 登陆，在服务器上新建一个文件夹用来存放待同步的数据，比如在 /usr 下新建一个名为 BTSyncStorage 的文件夹：</p>
-<p>在 PuTTY 中以 root 登陆，在服务器上新建一个文件夹用来存放待同步的数据，比如在 /usr 下新建一个名为 BTSyncStorage 的文件夹：</p>
-<p>mkdir /usr/BTSyncStorage/</p>
-<p>然后进入该路径：</p>
-<p>cd /usr/BTSyncStorage/</p>
-<p>第三、安装软件</p>
-<p>首先需要确定自己的 Linux 版本，从这里获取的链接中下载 BTSync，以32位 CentOS6.5 为例：</p>
-<p>wget <a href="http://download-new.utorrent.com/endpoint/btsync/os/linux-i386/track/stable" target="_blank" rel="noopener">http://download-new.utorrent.com/endpoint/btsync/os/linux-i386/track/stable</a></p>
-<p>在 /usr/BTSyncStorage/ 中解压：</p>
-<p>tar -zxvf stable</p>
-<p>执行程序：</p>
-<p>./btsync</p>
-<p>这个时候会得到一个端口号 PID=xxxx，最好记下这个数字，等等结束进程时需要用到。</p>
-<p>把配置文件保存到当前路径：</p>
-<p>./btsync –dump-sample-config &gt; sync.conf</p>
-<p>第四、修改端口号以及登陆账号密码</p>
-<p>然后编辑这个配置文件，需要修改一下端口号以及登陆的账号密码：</p>
-<p>vi sync.conf</p>
-<p>端口号只要不与其他程序冲突即可，我用的8089；登陆的账号密码自己设定，去掉前方的注释符。</p>
-<p>保存 sync.conf 后需要杀掉进程后重启一次，这里的xxxx就是前面记下的 PID：</p>
-<p>kill -9 xxxx<br>./btsync –config sync.conf<br>第五、登录WebUI设置共享文件<br>到这里命令行的配置就结束了，接下来的操作可以直接在浏览器中可视化完成。浏览器中输入 <a href="http://VPS&#39;s" target="_blank" rel="noopener">http://VPS&#39;s</a> IP:Port/gui/，比如我的是 <a href="http://162.243.xxx.xxx:8089/gui/。然后输入刚才在配置文件中设定的登陆账号和密码。" target="_blank" rel="noopener">http://162.243.xxx.xxx:8089/gui/。然后输入刚才在配置文件中设定的登陆账号和密码。</a></p>
-<p>到此为止，服务器端已经安装完成。<br>如果本地与 VPS 之间的通讯有问题，可以开启代理。我用的是虚幻账号的全局代理，跟浏览器插件 Foxyproxy 一样设置就行了。</p>
+            <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.</p>
+<p>Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …<br>Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443… connected.<br>ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.<br>ERROR: The certificate of ‘raw.githubusercontent.com’ hasn’t got a known issuer</p>
+<p>错误非常常见,主要是系统过于精简所以很多包没有安装。</p>
+<p>解决方法<br>在Wget后面添加”–no-check-certificate”如下所示:</p>
+<p>wget –no-check-certificate<br>你要下载的SSL网址</p>
+<p>第二种解决办法就是<br>安装ca-certificates</p>
+<p>apt-get install ca-certificates -y<br>或者是</p>
+<p>apt-get install ssl-cert</p>
 
           
         
@@ -1041,7 +933,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/这是一个Debian系统下一键安装Caddy-PHP7-Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/libev版优化、实现多端口多用户、同端口多用户多密码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1060,7 +952,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/这是一个Debian系统下一键安装Caddy-PHP7-Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。/" itemprop="url">这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。</a></h1>
+                <a class="post-title-link" href="/2019/03/25/libev版优化、实现多端口多用户、同端口多用户多密码/" itemprop="url">libev版优化、实现多端口多用户、同端口多用户多密码</a></h1>
         
 
         <div class="post-meta">
@@ -1072,7 +964,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T09:59:55+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:52:42+08:00">
                 2019-03-25
               </time>
             
@@ -1112,150 +1004,9 @@
       
         
           
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/小内存一键安装 Caddy+PHP7+Sqlite3 脚本/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小强">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/25/小内存一键安装 Caddy+PHP7+Sqlite3 脚本/" itemprop="url">脚本</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T09:58:11+08:00">
-                2019-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。</p>
-<p>脚本特性<br>小内存VPS一键安装Caddy、PHP7、Sqlite3环境（支持VPS最小内存64M）。</p>
-<p>一键绑定域名自动生成SSL证书开启https（ssl自动续期）。</p>
-<p>支持IPv6（AAAA记录）如果本地网络不支持IPv6可以通过cloudflare CDN转换为IP4。</p>
-<p>一键安装Tpecho、WordPress、Zblog、Kodexplorer、Laverna、一键整站备份。</p>
-<p>一键安装V2ra*、Rinetdbbr。</p>
-<p>安装<br>Github地址：<a href="https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3" target="_blank" rel="noopener">https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3</a></p>
-<p>支持系统：Debian 8、9。如果你内存实在太小，建议使用mini系统。且使用前请提前解析好域名，不然签发SSL会失败。</p>
-<p>1、下载脚本</p>
-<p>wget -N –no-check-certificate git.io/c.sh<br>如果你是Debian 9，则需要先编辑脚本，删掉以下2行代码：</p>
-<p>#添加源<br>echo “deb <a href="http://packages.dotdeb.org" target="_blank" rel="noopener">http://packages.dotdeb.org</a> jessie all” | tee –append /etc/apt/sources.list<br>echo “deb-src <a href="http://packages.dotdeb.org" target="_blank" rel="noopener">http://packages.dotdeb.org</a> jessie all” | tee –append /etc/apt/sources.list<br>2、安装脚本</p>
-<p>chmod +x c.sh &amp;&amp; bash c.sh<br>此时会很快的给你安装好Caddy、PHP7、Sqlite3环境。</p>
-<p>程序安装<br>安装好环境后，再使用以下命令安装所需要的程序。</p>
-<p>#一键安装typecho博客<br> bash c.sh -t</p>
-<p>#一键安装wordpress博客<br>bash c.sh -w</p>
-<p>#一键安装zblog博客<br>bash c.sh -z</p>
-<p>#一键安装kodexplorer可道云<br>bash c.sh -k</p>
-<p>#一键安装laverna印象笔记<br>bash c.sh -l</p>
-<p>#一键整站备份（一键打包/www网站目录、含数据库）<br>bash c.sh -a</p>
-<p>#一键安装v2ra*<br>bash c.sh -v</p>
-<p>#一键安装rinetd bbr端口加速<br> bash c.sh -b<br>程序卸载</p>
-<p>#卸载caddy<br>bash c.sh -unc</p>
-<p>#卸载php+sqlite<br>bash c.sh -unp</p>
-<p>#卸载v2ra*<br>bash c.sh -unv</p>
-<p>#卸载rinetdbbr<br>bash c.sh -unb<br>相关命令/目录<br>启动：/etc/init.d/caddy start<br> 停止：/etc/init.d/caddy stop<br>重启：/etc/init.d/caddy restart<br>查看状态：/etc/init.d/caddy status<br>查看Caddy启动日志：tail -f /tmp/caddy.log<br> Caddy安装目录：/usr/local/caddy<br>Caddy配置文件位置：/usr/local/caddy/Caddyfile<br>网站目录：/www<br>参考链接：<a href="https://www.moerats.com/archives/749/" target="_blank" rel="noopener">https://www.moerats.com/archives/749/</a></p>
+            <p>自动加载配置文件夹内除config-obfs.json的配置文件.</p>
+<p>如需新建一个用户,直接创建一个 config_NAME.json 文件即可.(NAME自行替换)</p>
+<h1 id="一键安装wget-–no-check-certificate-qO-‘https-moeclub-github-io-ss-install-sh-39-bash"><a href="#一键安装wget-–no-check-certificate-qO-‘https-moeclub-github-io-ss-install-sh-39-bash" class="headerlink" title="一键安装wget –no-check-certificate -qO- ‘https://moeclub.github.io/ss/install.sh&#39; |bash"></a>一键安装wget –no-check-certificate -qO- ‘<a href="https://moeclub.github.io/ss/install.sh&#39;" target="_blank" rel="noopener">https://moeclub.github.io/ss/install.sh&#39;</a> |bash</h1><h1 id="多进程wget-–no-check-certificate-qO-‘https-moeclub-org-attachment-LinuxShell-multi-for-libev-sh-39-bash"><a href="#多进程wget-–no-check-certificate-qO-‘https-moeclub-org-attachment-LinuxShell-multi-for-libev-sh-39-bash" class="headerlink" title="多进程wget –no-check-certificate -qO- ‘https://moeclub.org/attachment/LinuxShell/multi-for-libev.sh&#39; |bash"></a>多进程wget –no-check-certificate -qO- ‘<a href="https://moeclub.org/attachment/LinuxShell/multi-for-libev.sh&#39;" target="_blank" rel="noopener">https://moeclub.org/attachment/LinuxShell/multi-for-libev.sh&#39;</a> |bash</h1><p>文章转自：<a href="https://moeclub.org/2018/02/19/570/" target="_blank" rel="noopener">https://moeclub.org/2018/02/19/570/</a></p>
 
           
         
@@ -1304,7 +1055,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/debian安装后中文名称的文件及文件夹显示为方块/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/自动释放内存脚本-小内存VPS的福音/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1323,7 +1074,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/debian安装后中文名称的文件及文件夹显示为方块/" itemprop="url">乱码等</a></h1>
+                <a class="post-title-link" href="/2019/03/25/自动释放内存脚本-小内存VPS的福音/" itemprop="url">自动释放内存脚本.小内存VPS的福音</a></h1>
         
 
         <div class="post-meta">
@@ -1335,7 +1086,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T09:57:03+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:50:54+08:00">
                 2019-03-25
               </time>
             
@@ -1375,42 +1126,21 @@
       
         
           
-            <p>在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下：</p>
-<p>使用apt-get install ttf-arphic-uming xfonts-intl-chinese 或apt-get install ttf-wqy-microhei命令来获取字体包并安装即可。但我使用这种方法无法成功，总是找不到软件包，从安装盘中找不到，配置好debian的网络使其可以上网，然后修改/etc/apt/sources.list文件使其从网上搜索也依然找不到，于是放弃此方法。</p>
-<p>debian系统中文显示方块数字字母及黑块问号<br>debian系统中文显示方块数字字母及黑块问号</p>
-<p>经过搜索，找到一个很简单并有效的方法，就是直接把windows的简体中文字体文件复制到debian的字体目录下，具体操作方法如下：</p>
-<p>从windows的字体目录中找到simsun.ttc文件，通过WinSCP工具连接上debian系统，把该文件传送到该系统中的/usr/share/fonts/truetype目录下，注意要进行该操作，当前用户一定要具有管理员权限，否则会复制失败。</p>
-<p>debian系统无法显示中文，中文显示方块的解决办法</p>
-<p>然后进入到debian系统中，以管理员身份运行dpkg-reconfigure locales命令来设置系统的字体，选中zh_con.UTF-8区域设置并让其在系统中生成。</p>
-<p>debian系统无法显示中文，中文显示方块的解决办法</p>
-<p>然后将默认字体设置为zh_con.UTF-8。</p>
-<p>debian系统无法显示中文，中文显示方块的解决办法</p>
-<p>最后重新启动debian系统，并在登录界面选中要使用的语言为汉语即可。</p>
-<p>debian系统无法显示中文，中文显示方块的解决办法</p>
-<p>现在进入系统后，中文字体就可以显示出来了。</p>
-<p>debian系统无法显示中文，中文显示方块的解决办法</p>
-<p>区域设置框也没有乱码了。</p>
-<p>debian系统无法显示中文，中文显示方块的解决办法</p>
-<p>进过以上的处理，就可以使debian系统正确显示汉字了，不过对于debian终端控制台来说，遇到中文的时候还是会显示乱码，那么可以采用以下的方法解决（摘自网上）。</p>
-<p>Debian中文设置<br>解决 Debian 字符终端中文乱码、方块问题，是我初次安装 debian 后第一个棘手问题。最后结论是：目前 Debian 无法解决该问题，必须安装 zhcon 工具来解决。</p>
-<p>配置 Local</p>
-<p>aptitude install locales<br>dpkg-reconfigure locales</p>
-<p>跳出一个文字选择界面（如果安装时选择中文，此时文字全是乱码），page up/dn 翻页、空格键选择以下编码</p>
-<p>en_US.UTF-8 UTF-8<br>zh_CN.GBK GBK<br>zh_CN.GB2312<br>zh_CN.UTF-8 UTF-8</p>
-<p>然后 Tab 鍵切换到 OK，最后默认语言选择 en_US.UTF-8<br>编辑 locale 文件，检查 lang 是否设置为 en_US.UTF-8 了，没有则修改。</p>
-<p>vim /etc/default/locale</p>
-<p>关于Local默认语言选择</p>
-<p>建议 Local 默认语言选择 en_US.UTF-8，</p>
-<p>选择 zh_CN.UTF-8 那么字符终端，会出现方块中文提示（<a href="http://www.debianedu.org/shells/tools/zhcon）。" target="_blank" rel="noopener">http://www.debianedu.org/shells/tools/zhcon）。</a><br>选择 en_US.UTF-8 那么字符终端，全英文提示。<br>选择 en_US.UTF-8 那么 Gnome 启动后也是英文（注：在 zhcon 中启动 gnome 是中文）。</p>
-<p>安装配置 zhcon</p>
-<p>目前 Debian 不能解决字符终端中文显示问题，必须安装 zhcon 工具来解决。详细方法见：字符终端中文显示输入工具zhcon</p>
-<p>aptitude install zhcon #安装<br>zhcon –utf8 –drv=vga #启动（ctrl + d 退出）<br>vim /root/.’bash’rc<br>添加 alias zhcon=’zhcon –utf8 –drv=vga’</p>
-<p>特别提醒！进入 zhcon 必须以 root 身份，或者 sudo 获得权限，否则进入的 zhcon 是中文乱码提示，即便 local 设置为 en_US.UTF-8。</p>
-<p>在Ubuntu下打开fonts目录下的truetype文件夹，然后新建一个文件夹，命名为Windows-Fonts（名字随便)，然后把字体复制进来。当然你也可以Link双系统的Windows字体。</p>
-<p>再刷新字体缓存，命令如下，</p>
-<p>＃ sudo mkfontscale</p>
-<p>＃ sudo mkfontdir</p>
-<p>＃ sudo fc-cache -fv</p>
+            <p>第一种:手动释放,不想用脚本的,自己折腾的用户</p>
+<p>free -m /查看当前可用内存/<br>cat /proc/sys/vm/drop_caches<br>/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的 i-node、已延迟的块 I/O 和读写映射文件/</p>
+<p>echo 3 &gt; /proc/sys/vm/drop_caches<br>呐,数字3的含义在此了,释放pagecache, dentries and inodes这三个家伙/</p>
+<p>cat /proc/sys/vm/drop_caches<br>同上,查看是否修改正确啦,返回一个3,证明成功啦/</p>
+<p>free -m<br>查看下可用内存是不是增加了不少/<br>到这就结束了,只是敲了几个命令..重启后就该怎样还怎样了..需要开机或者定时释放内存的请往下看喽..<br>第二种脚本释放方法,定时清理内存</p>
+<p>vi /home/sh/god.sh</p>
+<hr>
+<p>#!/bin/bash<br>used=<code>free -m | awk &#39;NR==2&#39; | awk &#39;{print $3}&#39;</code><br>free=<code>free -m | awk &#39;NR==2&#39; | awk &#39;{print $4}&#39;</code><br>echo “===========================” &gt;&gt; /var/log/mem.log<br>date &gt;&gt; /var/log/mem.log<br>echo “Memory usage | [Use：${used}MB][Free：${free}MB]” &gt;&gt; /var/log/mem.log<br>if [ $free -le 100 ] ; then<br>sync &amp;&amp; echo 1 &gt; /proc/sys/vm/drop_caches<br>sync &amp;&amp; echo 2 &gt; /proc/sys/vm/drop_caches<br>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches<br>echo “OK” &gt;&gt; /var/log/mem.log<br>else<br>echo “Not required” &gt;&gt; /var/log/mem.log<br>fi</p>
+<hr>
+<p>以上星号间的复制进去…然后保存..VI命令应该都会的吧.不行就WINSCP自己按路径建立也可以.</p>
+<p>继续敲命令</p>
+<p>chmod +x /home/sh/god.sh<br>(这行是为了避免有些人执行的时候提示权限不足,permin dennied类似这种错误提示.有报错就加.没有可不用)</p>
+<p>crontab -e<br>/也许有人会在/etc/crontab里改,但试过后发现开机并没有效果…这个有些VPS可能没有预装..自己安装先./<br>最后一行加入</p>
+<p>/1 <em> </em> <em> </em> /home/sh/god.sh /*<br>意思是每一分钟执行下脚本清理下内存,自行设置间隔,具体用法自行谷歌啦,嫌麻烦斜杠后面的1改0~59之间的数字即可/<br>完毕,reboot重启…然后等个1分钟后..free -m查看下即可..记得对比下.小内存的特别明显..没有优化前,群主我的used行,free只有6,cache到是很多..但锐速就是提示不能分配嘛..有啥办法捏..用此脚本一劳永逸..128M也能在锐速界横着走了好嘛<br>第三种<br>前面都一样,只不过脚本内容变了…<br>改为</p>
+<p>free -m |grep -i mem |awk ‘{if($4 &lt; 100){ printf(“3”) &gt; “/proc/sys/vm/drop_caches”}}’;<br>含义是,先用free -m查看可用内存,如果可用小于100M(聪明的同学看粗来了,数字100可以自行更改呦),则执行清理操作.</p>
 
           
         
@@ -1459,7 +1189,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/宝塔面板专业版破解补丁/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/kcptun-ss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1478,7 +1208,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/宝塔面板专业版破解补丁/" itemprop="url">宝塔面板专业版破解补丁</a></h1>
+                <a class="post-title-link" href="/2019/03/25/kcptun-ss/" itemprop="url">kcptun+ss</a></h1>
         
 
         <div class="post-meta">
@@ -1490,7 +1220,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T09:55:43+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:50:06+08:00">
                 2019-03-25
               </time>
             
@@ -1530,47 +1260,24 @@
       
         
           
-            <p>1、安装面板免费板<br>安装命令 yum install -y wget &amp;&amp; wget -O install.sh <a href="http://download.bt.cn/install/install.sh" target="_blank" rel="noopener">http://download.bt.cn/install/install.sh</a> &amp;&amp; sh install.sh</p>
-<p>2、升级专业版<br>wget -O update.sh <a href="http://download.bt.cn/install/update_pro.sh" target="_blank" rel="noopener">http://download.bt.cn/install/update_pro.sh</a> &amp;&amp; bash update.sh pro</p>
-<p>3、找到路径/www/server/panel/class 找到文件名或者直接搜索：common.py</p>
-<p>搜索代码164行<br>data = panelAuth().get_order_status(None)<br>替换下面<br>data = {‘status’ : True,’msg’ : {‘endtime’ : 32503651199}};</p>
-<p>4、完成后，进入 /www/server/panel/data 新建一个文件 文件名为：userInfo.json 内容空的，如果存在这个文件的删掉重新新建文件。</p>
-<p>5、最后输入命令 /etc/init.d/bt restart 重启宝塔</p>
-<p>common.7z</p>
-<p>查看当前面板端口</p>
-<p>cat /www/server/panel/data/port.pl<br>修改面板端口，如要改成8881（centos 6 系统）</p>
-<p>echo ‘8881’ &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart<br>iptables -I INPUT -p tcp -m state –state NEW -m tcp –dport 8881 -j ACCEPT<br>service iptables save<br>service iptables restart<br>修改面板端口，如要改成8881（centos 7 系统）</p>
-<p>echo ‘8881’ &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart<br>firewall-cmd –permanent –zone=public –add-port=8881/tcp<br>firewall-cmd –reload<br>强制修改MySQL管理(root)密码，如要改成123456</p>
-<p>cd /www/server/panel &amp;&amp; python tools.pyc root 123456<br>修改面板密码，如要改成123456</p>
-<p>cd /www/server/panel &amp;&amp; python tools.pyc panel 123456<br>查看宝塔日志</p>
-<p>cat /tmp/panelBoot.pl<br>查看软件安装日志</p>
-<p>cat /tmp/panelExec.log<br>站点配置文件位置</p>
-<p>/www/server/panel/vhost<br>删除域名绑定面板</p>
-<p>rm -f /www/server/panel/data/domain.conf<br>清理登陆限制</p>
-<p>rm -f /www/server/panel/data/*.login<br>查看面板授权IP</p>
-<p>cat /www/server/panel/data/limitip.conf<br>关闭访问限制</p>
-<p>rm -f /www/server/panel/data/limitip.conf<br>查看许可域名</p>
-<p>cat /www/server/panel/data/domain.conf<br>关闭面板SSL</p>
-<p>rm -f /www/server/panel/data/ssl.pl &amp;&amp; /etc/init.d/bt restart<br>查看面板错误日志</p>
-<p>cat /tmp/panelBoot<br>查看数据库错误日志</p>
-<p>cat /www/server/data/*.err<br>站点配置文件目录(nginx)</p>
-<p>/www/server/panel/vhost/nginx<br>站点配置文件目录(apache)</p>
-<p>/www/server/panel/vhost/apache<br>站点默认目录</p>
-<p>/www/wwwroot<br>数据库备份目录</p>
-<p>/www/backup/database<br>站点备份目录</p>
-<p>/www/backup/site<br>站点日志</p>
-<p>/www/wwwlogs</p>
-<p>nginx配置文件<br>/www/server/nginx/conf/nginx.conf<br>手动更新let证书</p>
-<p>“/root/.acme.sh”/acme.sh –cron –home “/root/.acme.sh”<br>强制更新所有let证书<br>“/root/.acme.sh”/acme.sh –cron –home “/root/.acme.sh” –force<br>Redis服务管理<br>redis安装目录</p>
-<p>/www/server/redis<br>启动</p>
-<p>/etc/init.d/redis start<br>停止</p>
-<p>/etc/init.d/redis stop<br>redis配置文件</p>
-<p>/www/server/redis/redis.conf<br>Memcached服务管理<br>memcached安装目录</p>
-<p>/usr/local/memcached<br>启动</p>
-<p>/etc/init.d/memcached start<br>停止</p>
-<p>/etc/init.d/memcached stop<br>重启</p>
-<p>/etc/init.d/memcached restart<br>启载</p>
-<p>/etc/init.d/memcached reload</p>
+            <p>部署Kcptun<br>本教程以 CentOS 6.5 64位为例。</p>
+<p>首先下载 Kcptun，可以到 GitHub 上获取最新版：<a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases</a><br>用 Xshell 或者 Putty 登陆服务器，下载 Kcptun 的预编译版因为我用的时候还是比较早的版本最新版的在上面的连接查询：</p>
+<p>Bash<br>mkdir kcptun<br>cd kcptun<br>wget <a href="https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-linux-amd64-20160612.tar.gz" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-linux-amd64-20160612.tar.gz</a><br>tar –zxf kcptun–linux–amd64–<em>.tar.gz<br>注：请根据你的系统下载对应版本。32位系统下载 kcptun-linux-386-</em>.tar.gz，64位系统下载 kcptun-linux-amd64-*.tar.gz<br>解压之后有两个文件：client_linux_amd64 和 server_linux_amd64，一个用于服务器，一个用于客户端。<br>这个项目目前还没有 init 脚本，也还不支持配置文件，于是我写了两个简单的 sh 脚本，用于启动和关闭服务端。请在服务端程序相同目录下新建两个文件 start.sh 和 stop.sh。<br>创建 start.sh</p>
+<p>Bash<br>vi start.sh<br>写入以下内容：</p>
+<p>./server_linux_amd64 –l “:29900” –t “127.0.0.1:8388” —key “test” —mode “fast2” &gt; kcptun.log 2&gt;&amp;1 &amp;</p>
+<p>server_linux_amd64 对应服务端文件名，请对应修改。<br>解释一下参数：-l 表示 Kcptun 的服务端监听端口，用于接收外部请求和发送数据，默认 29900；-t 表示要加速的地址，我这里设置的是我服务器的 Shadowsocks 端口；–key 是 Kcptun 的验证密钥，服务端和本地必须一致才能通过验证，请自行设置；–mode 为加速模式，默认 fast。<br>响应速度:<br>fast3 &gt; [fast2] &gt; fast &gt; normal &gt; default<br>有效载荷比:<br>default &gt; normal &gt; fast &gt; [fast2] &gt; fast3<br>中间mode参数比较均衡，总之就是越快越浪费带宽，推荐模式 fast2<br>其他参数，请使用 ./server_linux_amd64 -h 查看，更深层次的参数调整需要理解 KCP 协议。<br>创建 stop.sh</p>
+<p>vi stop.sh</p>
+<p>写入以下内容：</p>
+<p>Bash<br>PID=<code>ps –ef | grep server_linux_amd64 | grep –v grep | awk ‘{print $2}’</code><br>if [[ “” !=  “$PID” ]]; then<br>  echo “killing $PID”<br>  kill –9 $PID<br>fi<br>然后可以启动服务端：</p>
+<p>sh start.sh</p>
+<p>kcptun.log 为日志信息。<br>停止服务端请使用：</p>
+<p>sh stop.sh</p>
+<p> 配置客户端<br>  以本地 Windows 64位系统为例，首先下载 Kcptun 的 Windows 版本。<br>  我这里先新建一个文件夹，命名为 Kcptun，然后下载：</p>
+<p>Markup<br><a href="https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-windows-amd64-20160612.tar.gz" target="_blank" rel="noopener">https://github.com/xtaci/kcptun/releases/download/v20160612/kcptun-windows-amd64-20160612.tar.gz</a><br>解压到文件夹下。<br>由于 Kcptun 是控制台程序，所以我选择使用 vbs 脚本，来达到后台运行的目的：<br>新建 run.bat</p>
+<p>BASIC<br>start /b client_windows_amd64.exe –l “:12948” –r “10.10.10.10:29900” —key “test” —mode “fast2” &gt; kcptun.log 2&gt;&amp;1</p>
+<p>本地监听端口为 12948；服务器 IP 地址 10.10.10.10 端口 29900；验证密钥和服务端一致。<br>新建 run.vbs</p>
+<p>ActionScript<br>Set WshShell = WScript.CreateObject(“WScript.Shell”)<br>WshShell.Run (“run.bat”), 0, False<br>Set WshShell = Nothing<br>新建 stop.bat</p>
+<p>Bash<br>taskkill /im client_windows_amd64.exe<br>然后双击 run.vbs 运行程序，使用 stop.bat 来停止程序，kcptun.log 为输出的日志信息。<br>Shadowsocks 客户端配置<br>在客户端中新建服务器：<br>服务器 IP 填写本机：127.0.0.1<br>服务器端口填写：12948<br>正确填写你的 Shadowsocks 密码，加密方式，协议和混淆方式。<br>切换到该服务器上，测试是否正确运行。</p>
 
           
         
@@ -1619,7 +1326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/V2基于Nginx的VMess-WS-TLS-Website一键安装脚本/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/Linux下清除系统日志方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1638,7 +1345,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/V2基于Nginx的VMess-WS-TLS-Website一键安装脚本/" itemprop="url">V2基于Nginx的VMess+WS+TLS+Website一键安装脚本</a></h1>
+                <a class="post-title-link" href="/2019/03/25/Linux下清除系统日志方法/" itemprop="url">Linux下清除系统日志方法</a></h1>
         
 
         <div class="post-meta">
@@ -1650,7 +1357,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T09:49:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:49:25+08:00">
                 2019-03-25
               </time>
             
@@ -1690,17 +1397,206 @@
       
         
           
-            <p>说明：本脚本采用HTTP Header分流，随机生成Header，自带Website伪装站点、使用Html背景音乐源码，并自动生成SSL证书，并自动续签。支持CDN嵌套，支持ssl非443端口。http强制跳转https，自动生成客户端config.json配置文件，重装自动清除残余的Http服务，每天自动升级最新的V2内核。</p>
-<p>截图<br>请输入图片描述</p>
-<p>更新</p>
-<p>#作者更新增加脚本重装判断自动跳过ssl重复申请及一些功能#根据有人反映，博主修改了点去掉了些功能，如BBR安装。<br>修改了SSH客户端提示字体颜色，可以看的更清楚。<br>修改了音乐播放器里的音乐。<br>增加了一键启动Nginx和V2<br>安装<br>提示：本教程只作分享，不提供相关问题的解答，有问题的请去作者Github项目下Issues里提问。<br>Github地址：<a href="https://github.com/dylanbai8" target="_blank" rel="noopener">https://github.com/dylanbai8</a></p>
-<p>系统要求： Debian 7+/Ubuntu 14.04+/Centos 7，建议使用Debian 8，且为纯净的系统，安装前需要解析好域名。</p>
-<p>运行命令：</p>
-<p>wget <a href="https://www.moerats.com/usr/shell/V2_NG/V2.sh" target="_blank" rel="noopener">https://www.moerats.com/usr/shell/V2_NG/V2.sh</a> &amp;&amp; bash V2.sh<br>直到看到输出结果就安装完成了。</p>
-<p>相关操作</p>
-<p>#一键启动Nginx和V2bash V2.sh -s#一键更换新的UUIDbash V2.sh -n#建议下载config.json文件后，运行命令删除该文件bash V2.sh -r<br>CDN说明<br>嵌套cloudflare(fullSSL+CDN)节省资源、人人有责、如果你的ip没有被Q，请勿开启。</p>
-<p>#提前准备购买域名、VPS；<br>注册cloudflare，提前24小时配置NS并解析域名。<br>确保所解析的域名Status位置关闭默认的cdn加速，变为灰色云朵状态。#开启cloudflare(fullssl+cdn)安装完毕一键脚本，并测试V2可以正常使用之后。<br>注意：在此步骤之前，勿必保持所解析的域名Status处为灰色云朵（及关闭cdn）。重做系统或重新安装时也勿必关闭此处设置。1、开启全程ssl加密<br>在Cloudflare的Crypto那里设置SSL为Full。2、开启cdn隐藏ip地址<br>返回Status点击灰色云朵图标 将其变成橙色云朵状态开启cdn，即是DNS and HTTP proxy(CDN)3、开启Always use HTTPS<br>开启http强制https跳转<br>版权声明：本文为原创文章，版权归 Rat’s Blog 所有，转载请注明出处！</p>
-<p>本文链接：<a href="https://www.moerats.com/archives/548/" target="_blank" rel="noopener">https://www.moerats.com/archives/548/</a></p>
+            <p>错误</p>
+<p>rm -f logfile</p>
+<p>原因</p>
+<p>应用已经打开文件句柄，直接删除会造成：</p>
+<p>1.应用无法正确释放日志文件和写入</p>
+<p>2.显示磁盘空间未释放</p>
+<p>正确</p>
+<p>Bash<br>cat /dev/null &gt; logfile<br>把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志</p>
+<p>Bash</p>
+<p>#!/bin/sh<br>cat /dev/null &gt; /var/log/syslog<br>cat /dev/null &gt; /var/adm/sylog<br>cat /dev/null &gt; /var/log/wtmp<br>cat /dev/null &gt; /var/log/maillog<br>cat /dev/null &gt; /var/log/messages<br>cat /dev/null &gt; /var/log/openwebmail.log<br>cat /dev/null &gt; /var/log/maillog<br>cat /dev/null &gt; /var/log/secure<br>cat /dev/null &gt; /var/log/httpd/error_log<br>cat /dev/null &gt; /var/log/httpd/ssl_error_log<br>cat /dev/null &gt; /var/log/httpd/ssl_request_log<br>cat /dev/null &gt; /var/log/httpd/ssl_access_log<br>另外清理linux系统垃圾还有以下命令</p>
+<p>Bash<br>sudo apt-get autoclean<br>清理旧版本的软件缓存</p>
+<p>Bash<br>sudo apt-get clean<br> 清理所有软件缓存</p>
+<p>Bash<br>sudo apt-get autoremove<br>删除系统不再使用的孤立软件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/如何启动、关闭和设置ubuntu防火墙/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/如何启动、关闭和设置ubuntu防火墙/" itemprop="url">如何启动、关闭和设置ubuntu防火墙</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T10:48:30+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>引自：<a href="http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html" target="_blank" rel="noopener">http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html</a></p>
+<p>就这句话就够了，下面的可以不看</p>
+<p>sudo ufw enable|disable</p>
+<p>由于LInux原始的防火墙工具iptables过于繁琐，所以ubuntu默认提供了一个基于iptable之上的防火墙工具ufw。</p>
+<p>ubuntu 9.10默认的便是UFW防火墙，它已经支持界面操作了。在命令行运行ufw命令就可以看到提示的一系列可进行的操作。</p>
+<p>最简单的一个操作：sudo ufw status可检查防火墙的状态，我的返回的是：不活动</p>
+<p>sudo ufw version防火墙版本：<br>ufw 0.29-4ubuntu1<br>Copyright 2008-2009 Canonical Ltd.</p>
+<p>ubuntu 系统默认已安装ufw.</p>
+<p>1.安装</p>
+<p>sudo apt-get install ufw<br>2.启用</p>
+<p>sudo ufw enable<br>sudo ufw default deny<br>运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常。</p>
+<p>3.开启/禁用</p>
+<p>sudo ufw allow|deny [service]</p>
+<p>打开或关闭某个端口，例如：</p>
+<p>sudo ufw allow smtp　允许所有的外部IP访问本机的25/tcp (smtp)端口</p>
+<p>sudo ufw allow 22/tcp 允许所有的外部IP访问本机的22/tcp (ssh)端口</p>
+<p>sudo ufw allow 53 允许外部访问53端口(tcp/udp)</p>
+<p>sudo ufw allow from 192.168.1.100 允许此IP访问所有的本机端口</p>
+<p>sudo ufw allow proto udp 192.168.0.1 port 53 to 192.168.0.2 port 53</p>
+<p>sudo ufw deny smtp 禁止外部访问smtp服务</p>
+<p>sudo ufw delete allow smtp 删除上面建立的某条规则</p>
+<p>4.查看防火墙状态</p>
+<p>sudo ufw status</p>
+<p>一般用户，只需如下设置：</p>
+<p>sudo apt-get install ufw</p>
+<p>sudo ufw enable</p>
+<p>sudo ufw default deny<br>以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。</p>
+<p>开启/关闭防火墙 (默认设置是’disable’)</p>
+<p>sudo ufw enable|disable</p>
+<p>转换日志状态</p>
+<p>sudo ufw logging on|off</p>
+<p>设置默认策略 (比如 “mostly open” vs “mostly closed”)</p>
+<p>sudo ufw default allow|deny</p>
+<p>许 可或者屏蔽端口 (可以在“status” 中查看到服务列表)。可以用“协议：端口”的方式指定一个存在于/etc/services中的服务名称，也可以通过包的meta-data。 ‘allow’ 参数将把条目加入 /etc/ufw/maps ，而 ‘deny’ 则相反。基本语法如下：</p>
+<p>sudo ufw allow|deny [service]</p>
+<p>显示防火墙和端口的侦听状态，参见 /var/lib/ufw/maps。括号中的数字将不会被显示出来。</p>
+<p>sudo ufw status</p>
+<p>UFW 使用范例：</p>
+<p>允许 53 端口</p>
+<p>$ sudo ufw allow 53</p>
+<p>禁用 53 端口</p>
+<p>$ sudo ufw delete allow 53</p>
+<p>允许 80 端口</p>
+<p>$ sudo ufw allow 80/tcp</p>
+<p>禁用 80 端口</p>
+<p>$ sudo ufw delete allow 80/tcp</p>
+<p>允许 smtp 端口</p>
+<p>$ sudo ufw allow smtp</p>
+<p>删除 smtp 端口的许可</p>
+<p>$ sudo ufw delete allow smtp</p>
+<p>允许某特定 IP</p>
+<p>$ sudo ufw allow from 192.168.254.254</p>
+<p>删除上面的规则</p>
+<p>$ sudo ufw delete allow from 192.168.254.254</p>
+<p>linux 2.4内核以后提供了一个非常优秀的防火墙工具：netfilter/iptables,他免费且功能强大，可以对流入、流出的信息进行细化控制，它可以 实现防火墙、NAT（网络地址翻译）和数据包的分割等功能。netfilter工作在内核内部，而iptables则是让用户定义规则集的表结构。</p>
+<p>但是iptables的规则稍微有些“复杂”，因此ubuntu提供了ufw这个设定工具，以简化iptables的某些设定，其后台仍然是 iptables。ufw 即uncomplicated firewall的简称，一些复杂的设定还是要去iptables。</p>
+<p>ufw相关的文件和文件夹有：</p>
+<p>/etc /ufw/：里面是一些ufw的环境设定文件，如 before.rules、after.rules、sysctl.conf、ufw.conf，及 for ip6 的 before6.rule 及 after6.rules。这些文件一般按照默认的设置进行就ok。</p>
+<p>若开启ufw之 后，/etc/ufw/sysctl.conf会覆盖默认的/etc/sysctl.conf文件，若你原来的/etc/sysctl.conf做了修 改，启动ufw后，若/etc/ufw/sysctl.conf中有新赋值，则会覆盖/etc/sysctl.conf的，否则还以/etc /sysctl.conf为准。当然你可以通过修改/etc/default/ufw中的“IPT_SYSCTL=”条目来设置使用哪个 sysctrl.conf.</p>
+<p>/var/lib/ufw/user.rules 这个文件中是我们设置的一些防火墙规则，打开大概就能看明白，有时我们可以直接修改这个文件，不用使用命令来设定。修改后记得ufw reload重启ufw使得新规则生效。</p>
+<p>下面是ufw命令行的一些示例：</p>
+<p>ufw enable/disable:打开/关闭ufw</p>
+<p>ufw status：查看已经定义的ufw规则</p>
+<p>ufw default allow/deny:外来访问默认允许/拒绝</p>
+<p>ufw allow/deny 20：允许/拒绝 访问20端口,20后可跟/tcp或/udp，表示tcp或udp封包。</p>
+<p>ufw allow/deny servicename:ufw从/etc/services中找到对应service的端口，进行过滤。</p>
+<p>ufw allow proto tcp from 10.0.1.0/10 to 本机ip port 25:允许自10.0.1.0/10的tcp封包访问本机的25端口。</p>
+<p>ufw delete allow/deny 20:删除以前定义的”允许/拒绝访问20端口”的规则</p>
 
           
         
@@ -1739,6 +1635,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1782,7 +1682,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
