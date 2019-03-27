@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/3.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/4.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/5.jpg">
-<meta property="og:updated_time" content="2019-03-27T00:41:30.032Z">
+<meta property="og:updated_time" content="2019-03-27T00:45:20.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斐讯P1降级恢复线刷功能">
 <meta name="twitter:description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级 以下操作仅覆盖boot分区，所以操作完毕再次启动盒子后系统版本号是不">
@@ -315,6 +315,7 @@
 <p>将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，<br>然后可用adb脚本进入线刷模式，从而烧录官改线刷包: <a href="https://right.com.cn/forum/thread-338759-1-1.html" target="_blank" rel="noopener">N1 —&gt;</a>    <a href="https://www.right.com.cn/forum/thread-320013-1-1.html" target="_blank" rel="noopener">T1 —&gt;</a></p>
 <p>另外可参考需要手动操作的 <a href="https://www.right.com.cn/forum/thread-322223-1-1.html" target="_blank" rel="noopener">–&gt;fastboot 方式降级</a></p>
 <p>以下操作仅覆盖boot分区，所以操作完毕再次启动盒子后系统版本号是不会有变化的！</p>
+<p>若在windows命令行运行 adb 、 fastboot 等命令出错或无法找到运行库，<br>可将adb.exe、 AdbWinApi.dll 、AdbWinUsbApi.dll、 fastboot.exe 四个文件<br>复制到 c:\windows\ 路径中 或  c:\windows\system32\ 等环境参数path包含的任意路径中；</p>
 <p>步骤</p>
 <p>1、盒子插网线接入和电脑同一局域网，记下盒子获得的内网IP地址；<br>T1在设置中开启远程调试，N1在主界面使用鼠标点击四次固件版本号打开adb：<br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/2.jpg" title="image"><br>2、在电脑端保持目录结构解压 斐讯T1、N1官方系统降级工具.zip；</p>
 <p>3、电脑端运行 onekey 子目录下的 run.bat ，按提示操作：<br>实测官方 1.6T57 版本 T1  降级后即可线刷<br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/3.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/4.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/5.jpg" title="image"></p>
