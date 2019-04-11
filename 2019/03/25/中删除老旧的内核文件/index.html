@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
+<meta name="description" content="在Ubuntu内核镜像包含了以下的包。linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中删除老旧的内核文件">
+<meta property="og:title" content="删除老旧的内核文件">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/中删除老旧的内核文件/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
+<meta property="og:description" content="在Ubuntu内核镜像包含了以下的包。linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:17:58.149Z">
+<meta property="og:updated_time" content="2019-04-11T08:50:22.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中删除老旧的内核文件">
-<meta name="twitter:description" content="在Ubuntu内核镜像包含了以下的包。 linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
+<meta name="twitter:title" content="删除老旧的内核文件">
+<meta name="twitter:description" content="在Ubuntu内核镜像包含了以下的包。linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>中删除老旧的内核文件 | 小强</title>
+  <title>删除老旧的内核文件 | 小强</title>
   
 
 
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">中删除老旧的内核文件</h1>
+          <h1 class="post-title" itemprop="name headline">删除老旧的内核文件</h1>
         
 
         <div class="post-meta">
@@ -304,14 +304,17 @@
       
 
       
-        <p>在Ubuntu内核镜像包含了以下的包。</p>
-<pre><code>linux-image-: 内核镜像
+        <h4 id="在Ubuntu内核镜像包含了以下的包。"><a href="#在Ubuntu内核镜像包含了以下的包。" class="headerlink" title="在Ubuntu内核镜像包含了以下的包。"></a>在Ubuntu内核镜像包含了以下的包。</h4><pre><code>linux-image-: 内核镜像
 
 linux-image-extra-: 额外的内核模块
 
 linux-headers-: 内核头文件
-</code></pre><p>首先检查系统中安装的内核镜像。<br><a id="more"></a><br>dpkg –list|grep linux-image<br>dpkg –list|grep linux-headers<br>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</p>
-<p>apt-get purge linux-image-3.19.0-15<br>apt-get purge linux-headers-3.19.0-15<br>上面的命令会删除内核镜像和它相关联的内核模块和头文件。</p>
+</code></pre><h4 id="首先检查系统中安装的内核镜像。"><a href="#首先检查系统中安装的内核镜像。" class="headerlink" title="首先检查系统中安装的内核镜像。"></a>首先检查系统中安装的内核镜像。</h4><a id="more"></a>
+<pre><code>dpkg --list|grep linux-image
+dpkg --list|grep linux-headers
+</code></pre><h4 id="在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。"><a href="#在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。" class="headerlink" title="在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。"></a>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</h4><pre><code>apt-get purge linux-image-3.19.0-15
+apt-get purge linux-headers-3.19.0-15
+</code></pre><p>上面的命令会删除内核镜像和它相关联的内核模块和头文件。</p>
 
       
     </div>
@@ -400,8 +403,17 @@ linux-headers-: 内核头文件
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -418,7 +430,7 @@ linux-headers-: 内核头文件
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -454,6 +466,22 @@ linux-headers-: 内核头文件
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#在Ubuntu内核镜像包含了以下的包。"><span class="nav-number">1.</span> <span class="nav-text">在Ubuntu内核镜像包含了以下的包。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首先检查系统中安装的内核镜像。"><span class="nav-number">2.</span> <span class="nav-text">首先检查系统中安装的内核镜像。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。"><span class="nav-number">3.</span> <span class="nav-text">在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

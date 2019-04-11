@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="一。先安装python3安装python3.x 这里不多赘述，so easzy！！  先到官方网站下载python3的安装包  https://www.python.org/downloads/source/  上传包到服务器  3.解压">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:19:20.869Z">
+<meta property="og:updated_time" content="2019-04-11T09:56:22.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python3安装pip3">
 <meta name="twitter:description" content="一。先安装python3安装python3.x 这里不多赘述，so easzy！！  先到官方网站下载python3的安装包  https://www.python.org/downloads/source/  上传包到服务器  3.解压">
@@ -318,25 +318,29 @@
 <p>yum install openssl-devel   -y</p>
 <p>yum install zlib-devel  -y<br>好了现在可以安心的编译咯：</p>
 <p>cd Python-3.5.2<br>./configure –prefix=/opt/Python     #安装目录可以自己定义无所谓。<br>make<br>make install<br>编译完成后会在如 /opt/下生成Python的文件夹 ，没错这就是编译完成的python  －－为了方便之行小伙伴们可以自己定义一个软连接如下：</p>
-<h1 id="ln-s-opt-Python-bin-python3-usr-bin-python3"><a href="#ln-s-opt-Python-bin-python3-usr-bin-python3" class="headerlink" title="ln -s /opt/Python/bin/python3 /usr/bin/python3"></a>ln -s /opt/Python/bin/python3 /usr/bin/python3</h1><p>这样就可以直接食用python3了如下：</p>
+<pre><code>ln -s /opt/Python/bin/python3 /usr/bin/python3
+</code></pre><p>这样就可以直接食用python3了如下：</p>
 <p>好到目前为止，我们在linux下安装python3的任务已经完成，下面进入关键的地方，给python3安装pip3</p>
 <p>二.install pip for python3.x<br>其实这也不难。。下载量个包，执行两个命令搞定。</p>
 <p>1.首先安装setuptools</p>
 <p>小伙伴们可以通过官方模块库来下载：<a href="https://pypi.python.org/pypi" target="_blank" rel="noopener">https://pypi.python.org/pypi</a></p>
 <p>这里我就直接用wget到服务器上下载了版本为19.6（小伙伴们可以尝试新的版本奥。。）</p>
-<p>wget –no-check-certificate  <a href="https://pypi.python.org/packages/source/s/setuptools/setuptools-19.6.tar.gz#md5=c607dd118eae682c44ed146367a17e26" target="_blank" rel="noopener">https://pypi.python.org/packages/source/s/setuptools/setuptools-19.6.tar.gz#md5=c607dd118eae682c44ed146367a17e26</a></p>
-<p>tar -zxvf setuptools-19.6.tar.gz</p>
-<p>cd setuptools-19.6.tar.gz</p>
-<p>python3 setup.py build</p>
-<p>python3 setup.py install</p>
-<p>2.然后直接安装pip就搞定了。。</p>
+<pre><code>wget --no-check-certificate  https://pypi.python.org/packages/source/s/setuptools/setuptools-19.6.tar.gz#md5=c607dd118eae682c44ed146367a17e26
+
+
+tar -zxvf setuptools-19.6.tar.gz
+cd setuptools-19.6.tar.gz
+python3 setup.py build
+python3 setup.py install
+</code></pre><p>2.然后直接安装pip就搞定了。。</p>
 <p>同样先下载然后在执行命令搞定！！</p>
-<p>wget –no-check-certificate  <a href="https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz#md5=3a73c4188f8dbad6a1e6f6d44d117eeb" target="_blank" rel="noopener">https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz#md5=3a73c4188f8dbad6a1e6f6d44d117eeb</a></p>
-<p>tar -zxvf pip-8.0.2.tar.gz</p>
-<p>cd pip-8.0.2</p>
-<p>python3 setup.py build</p>
-<p>python3 setup.py install</p>
-<p>安装完成之后我们再来看下python的bin目录下都有什么东西吧</p>
+<pre><code>wget --no-check-certificate  https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz#md5=3a73c4188f8dbad6a1e6f6d44d117eeb
+
+tar -zxvf pip-8.0.2.tar.gz
+cd pip-8.0.2
+python3 setup.py build
+python3 setup.py install
+</code></pre><p>安装完成之后我们再来看下python的bin目录下都有什么东西吧</p>
 <p>哈哈。。通过以上我们已经给python3安装好了 pip3了。。。（小伙伴们也可以做个软连接，来方便实用奥。。）</p>
 <p>三。来做个测试吧<br>1.首先我们进入pytho3</p>
 <p>[root@centos3 bin]# python3<br>Python 3.5.2 (default, Jul 27 2016, 03:36:56)<br>[GCC 4.4.7 20120313 (Red Hat 4.4.7-4)] on linux<br>Type “help”, “copyright”, “credits” or “license” for more information.</p>
@@ -448,17 +452,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -475,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -511,22 +506,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ln-s-opt-Python-bin-python3-usr-bin-python3"><span class="nav-number">1.</span> <span class="nav-text">ln -s /opt/Python/bin/python3 /usr/bin/python3</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

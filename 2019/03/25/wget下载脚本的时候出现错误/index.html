@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …Connecting to raw.githubusercontent.com (raw.gith">
+<meta name="description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wget下载脚本的时候出现错误">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/wget下载脚本的时候出现错误/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …Connecting to raw.githubusercontent.com (raw.gith">
+<meta property="og:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:17:25.019Z">
+<meta property="og:updated_time" content="2019-04-11T09:53:30.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wget下载脚本的时候出现错误">
-<meta name="twitter:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …Connecting to raw.githubusercontent.com (raw.gith">
+<meta name="twitter:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ... Connecting to raw.githubusercontent.com (raw">
 
 
 
@@ -305,14 +305,18 @@
 
       
         <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.</p>
-<p>Resolving raw.githubusercontent.com (raw.githubusercontent.com)… 151.101.0.133, 151.101.64.133, 151.101.128.133, …<br>Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443… connected.<br>ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.<br>ERROR: The certificate of ‘raw.githubusercontent.com’ hasn’t got a known issuer</p>
+<p><code>Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
+ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.
+ERROR: The certificate of ‘raw.githubusercontent.com’ hasn&#39;t got a known issuer</code></p>
 <a id="more"></a>
 <p>错误非常常见,主要是系统过于精简所以很多包没有安装。</p>
-<p>解决方法<br>在Wget后面添加”–no-check-certificate”如下所示:</p>
-<p>wget –no-check-certificate<br>你要下载的SSL网址</p>
-<p>第二种解决办法就是<br>安装ca-certificates</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>在Wget后面添加”–no-check-certificate”如下所示:</p>
+<pre><code>wget --no-check-certificate
+</code></pre><p>你要下载的SSL网址</p>
+<h4 id="第二种解决办法就是"><a href="#第二种解决办法就是" class="headerlink" title="第二种解决办法就是"></a>第二种解决办法就是</h4><p>`安装ca-certificates</p>
 <p>apt-get install ca-certificates -y<br>或者是</p>
-<p>apt-get install ssl-cert</p>
+<p>apt-get install ssl-cert`</p>
 
       
     </div>
@@ -347,8 +351,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/25/中删除老旧的内核文件/" rel="prev" title="中删除老旧的内核文件">
-                中删除老旧的内核文件 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/25/中删除老旧的内核文件/" rel="prev" title="删除老旧的内核文件">
+                删除老旧的内核文件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -401,8 +405,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -419,7 +432,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -455,6 +468,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">1.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种解决办法就是"><span class="nav-number">2.</span> <span class="nav-text">第二种解决办法就是</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

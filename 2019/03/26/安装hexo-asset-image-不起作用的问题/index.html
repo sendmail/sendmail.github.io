@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/1.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/2.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/3.png">
-<meta property="og:updated_time" content="2019-03-27T00:50:26.808Z">
+<meta property="og:updated_time" content="2019-04-11T09:52:27.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装hexo-asset-image,不起作用的问题">
 <meta name="twitter:description" content="使用Hexo和github搭建博客，真是挺有趣的事情，因为对于我们来说，随便敲几行代码，就可以拥有一个非常漂亮的博客。 但在写作的过程中，使用Typora(一个markdown编辑器)插入图片的时候，非常不顺手。后来了解到用hexo-asset-image可以提升我的写作效率,,所以开始吧。 安装插件在nodejs里边安装">
@@ -309,17 +309,17 @@
 
       
         <p>使用Hexo和github搭建博客，真是挺有趣的事情，因为对于我们来说，随便敲几行代码，就可以拥有一个非常漂亮的博客。 但在写作的过程中，使用Typora(一个markdown编辑器)插入图片的时候，非常不顺手。后来了解到用hexo-asset-image可以提升我的写作效率,,所以开始吧。</p>
-<p>安装插件<br>在nodejs里边安装<br><a id="more"></a><br>npm install hexo-asset-image –save</p>
+<p>安装插件<br>在nodejs里边安装<br><a id="more"></a><br>    npm install hexo-asset-image –save</p>
 <img src="/2019/03/26/安装hexo-asset-image-不起作用的问题/1.png" title="image">
 <p>把在hexo根目下的_config.yml设置</p>
-<p>post_asset_folder: true</p>
-<p>新建文章<br>安装完了之后，新建一篇名为test-img的文章</p>
+<pre><code>post_asset_folder: true
+</code></pre><p>新建文章<br>安装完了之后，新建一篇名为test-img的文章</p>
 <p>hexo new [layout] test-img<br><img src="/2019/03/26/安装hexo-asset-image-不起作用的问题/2.png" title="image"></p>
 <p>现在可以看到source/_posts里边，除了有test-img.md，还多一个文件夹 test-img</p>
 <img src="/2019/03/26/安装hexo-asset-image-不起作用的问题/3.png" title="image">
 <p>在里边我放一张名为me.jpg的图片, 插入图片的时候，输入</p>
 <p><code>![](test-img/me.jpg)</code></p>
-<p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：<br> 这里还有代码，代码不显示。<br><code></code></p>
+<p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：<br> 这里还有代码，代码不显示。<br>    </p>
 <p>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
 
       
@@ -427,7 +427,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

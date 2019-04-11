@@ -87,7 +87,7 @@
 <meta property="og:description" content="说明：关于FileManager安装方法之前说过，参考：一个基于GO的轻量级文件管理系统：FileManager安装教程，不过对于小白来说，还是有点麻烦，刚刚看到逗比那里也有个安装方法，很方便。 截图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/利用Caddy扩展快速安装FileManager私人网盘-在线文件管理器/在线文件管理器%20/1.gif">
-<meta property="og:updated_time" content="2019-03-25T07:16:44.266Z">
+<meta property="og:updated_time" content="2019-04-11T09:46:38.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Caddy扩展快速安装FileManager私人网盘&#x2F;在线文件管理器">
 <meta name="twitter:description" content="说明：关于FileManager安装方法之前说过，参考：一个基于GO的轻量级文件管理系统：FileManager安装教程，不过对于小白来说，还是有点麻烦，刚刚看到逗比那里也有个安装方法，很方便。 截图">
@@ -319,22 +319,25 @@
 <p>支持 新建/重命名/移动/删除 文件和文件夹等</p>
 <p>部署简单，几步完成，无需任何依赖环境</p>
 <p>等等 …</p>
-<p>安装Caddy<br>Caddy文档：<a href="https://caddyserver.com/docs/http.filemanager" target="_blank" rel="noopener">https://caddyserver.com/docs/http.filemanager</a><br>Github项目：<a href="https://github.com/hacdias/filemanager" target="_blank" rel="noopener">https://github.com/hacdias/filemanager</a></p>
-<p>运行以下命令：</p>
-<p>wget -N –no-check-certificate <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh</a> &amp;&amp; chmod +x caddy_install.sh &amp;&amp; bash caddy_install.sh install http.filemanager </p>
-<p>#备用地址 wget -N –no-check-certificate <a href="https://www.moerats.com/usr/shell/Caddy/caddy_install.sh" target="_blank" rel="noopener">https://www.moerats.com/usr/shell/Caddy/caddy_install.sh</a> &amp;&amp; chmod +x caddy_install.sh &amp;&amp; bash caddy_install.sh install http.filemanager</p>
-<p>安装成功后，继续新建一个用于使用的虚拟主机文件夹，例如file（可以自己改）：</p>
-<p>mkdir /usr/local/caddy/www &amp;&amp; mkdir /usr/local/caddy/www/file<br>配置<br>1、IP访问<br>绑定虚拟主机为IP（即通过IP访问），HTTP协议（80端口）。</p>
-<h1 id="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！-echo-“-80"><a href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！-echo-“-80" class="headerlink" title="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！ echo “:80 {"></a>以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！ echo “:80 {</h1><p> root /usr/local/caddy/www/file<br> timeouts none<br> gzip<br> filemanager / /usr/local/caddy/www/file {<br>  database /usr/local/caddy/filemanager.db<br> }<br>}” &gt; /usr/local/caddy/Caddyfile<br>2、域名HTTP访问<br>本示例是，绑定虚拟主机为域名（即通过域名访问），HTTP协议（80端口）。</p>
-<h1 id="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“http-moerats-com"><a href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“http-moerats-com" class="headerlink" title="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “http://moerats.com {"></a>以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “<a href="http://moerats.com" target="_blank" rel="noopener">http://moerats.com</a> {</h1><p> root /usr/local/caddy/www/file<br> timeouts none<br> gzip<br> filemanager / /usr/local/caddy/www/file {<br>  database /usr/local/caddy/filemanager.db<br> }<br>}” &gt; /usr/local/caddy/Caddyfile<br>3、域名HTTPS访问<br>本示例是，绑定虚拟主机为域名（即通过域名访问），HTTPS协议（443端口）。</p>
+<h4 id="安装Caddy"><a href="#安装Caddy" class="headerlink" title="安装Caddy"></a>安装Caddy</h4><pre><code>Caddy文档：https://caddyserver.com/docs/http.filemanager
+Github项目：https://github.com/hacdias/filemanager
+</code></pre><p>运行以下命令：</p>
+<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/caddy_install.sh &amp;&amp; chmod +x caddy_install.sh &amp;&amp; bash caddy_install.sh install http.filemanager
+
+备用地址 wget -N --no-check-certificate https://www.moerats.com/usr/shell/Caddy/caddy_install.sh &amp;&amp; chmod +x caddy_install.sh &amp;&amp; bash caddy_install.sh install http.filemanager
+</code></pre><p>安装成功后，继续新建一个用于使用的虚拟主机文件夹，例如file（可以自己改）：</p>
+<pre><code>mkdir /usr/local/caddy/www &amp;&amp; mkdir /usr/local/caddy/www/file
+</code></pre><p>配置<br>1、IP访问<br>绑定虚拟主机为IP（即通过IP访问），HTTP协议（80端口）。</p>
+<p> 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！<br>    echo “:80 {<br>     root /usr/local/caddy/www/file<br>     timeouts none<br>     gzip<br>     filemanager / /usr/local/caddy/www/file {<br>      database /usr/local/caddy/filemanager.db<br>     }<br>    }” &gt; /usr/local/caddy/Caddyfile<br>2、域名HTTP访问<br>本示例是，绑定虚拟主机为域名（即通过域名访问），HTTP协议（80端口）。</p>
+<p> 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！<br>    echo “<a href="http://moerats.com" target="_blank" rel="noopener">http://moerats.com</a> {<br>     root /usr/local/caddy/www/file<br>     timeouts none<br>     gzip<br>     filemanager / /usr/local/caddy/www/file {<br>      database /usr/local/caddy/filemanager.db<br>     }<br>    }” &gt; /usr/local/caddy/Caddyfile<br>3、域名HTTPS访问<br>本示例是，绑定虚拟主机为域名（即通过域名访问），HTTPS协议（443端口）。</p>
 <p>如果你有SSL证书和密匙的话，把SSL证书(xxx.crt)和密匙(xxx.key)文件放到/root文件夹下（也可以是其他文件夹，自己改下面代码），然后这样做：</p>
-<h1 id="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“https-moerats-com"><a href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“https-moerats-com" class="headerlink" title="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “https://moerats.com {"></a>以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “<a href="https://moerats.com" target="_blank" rel="noopener">https://moerats.com</a> {</h1><p> root /usr/local/caddy/www/file<br> timeouts none<br> tls /root/xxx.crt /root/xxx.key<br> gzip<br> filemanager / /usr/local/caddy/www/file {<br>  database /usr/local/caddy/filemanager.db<br> }<br>}” &gt; /usr/local/caddy/Caddyfile<br>如果你没有SSL证书和密匙，那么你可以这样做：</p>
+<p> 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！<br>     echo “<a href="https://moerats.com" target="_blank" rel="noopener">https://moerats.com</a> {<br>     root /usr/local/caddy/www/file<br>     timeouts none<br>     tls /root/xxx.crt /root/xxx.key<br>     gzip<br>     filemanager / /usr/local/caddy/www/file {<br>      database /usr/local/caddy/filemanager.db<br>     }<br>    }” &gt; /usr/local/caddy/Caddyfile<br>如果你没有SSL证书和密匙，那么你可以这样做：</p>
 <p>下面的<a href="mailto:xxxx@xxx.xx" target="_blank" rel="noopener">xxxx@xxx.xx</a>改成你的邮箱，同时需要注意的是，申请SSL证书前，请务必提前解析好域名记录(解析后最好等一会，以全球生效)，否则Caddy会申请并配置失败！</p>
-<h1 id="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“https-moerats-com-1"><a href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“https-moerats-com-1" class="headerlink" title="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “https://moerats.com {"></a>以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “<a href="https://moerats.com" target="_blank" rel="noopener">https://moerats.com</a> {</h1><p> root /usr/local/caddy/www/file<br> timeouts none<br> tls <a href="mailto:xxxx@xxx.xx" target="_blank" rel="noopener">xxxx@xxx.xx</a><br> gzip<br> filemanager / /usr/local/caddy/www/file {<br>  database /usr/local/caddy/filemanager.db<br> }<br>}” &gt; /usr/local/caddy/Caddyfile<br>4、域名HTTP重定向HTTPS<br>本示例是，域名HTTP重定向为HTTPS。</p>
+<p> 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！<br>    echo “<a href="https://moerats.com" target="_blank" rel="noopener">https://moerats.com</a> {<br>     root /usr/local/caddy/www/file<br>     timeouts none<br>     tls <a href="mailto:xxxx@xxx.xx" target="_blank" rel="noopener">xxxx@xxx.xx</a><br>     gzip<br>     filemanager / /usr/local/caddy/www/file {<br>      database /usr/local/caddy/filemanager.db<br>     }<br>    }” &gt; /usr/local/caddy/Caddyfile<br>4、域名HTTP重定向HTTPS<br>本示例是，域名HTTP重定向为HTTPS。</p>
 <p>当你是手动指定SSL证书和密匙 来配置的话，Caddy只会监听443端口(https)，并不会自动设置80端口(http)的重定向，如果要做重定向的话，可以这样做：</p>
 <p>下面的示例代码中，是把<a href="http://moerats.com重定向到了https://moerats.com。" target="_blank" rel="noopener">http://moerats.com重定向到了https://moerats.com。</a></p>
-<h1 id="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“http-moerats-com-1"><a href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“http-moerats-com-1" class="headerlink" title="以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “http://moerats.com {"></a>以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “<a href="http://moerats.com" target="_blank" rel="noopener">http://moerats.com</a> {</h1><p> timeouts none<br> redir <a href="https://moerats.com{url}" target="_blank" rel="noopener">https://moerats.com{url}</a><br>}<br><a href="https://moerats.com" target="_blank" rel="noopener">https://moerats.com</a> {<br> root /usr/local/caddy/www/file<br> timeouts none<br> tls /root/xxx.crt /root/xxx.key<br> gzip<br> filemanager / /usr/local/caddy/www/file {<br>  database /usr/local/caddy/filemanager.db<br> }<br>}” &gt; /usr/local/caddy/Caddyfile<br>当你已经配置完上面步骤后，那就需要启动Caddy了。</p>
-<p>/etc/init.d/caddy start # 如果启动失败可以看Caddy日志： tail -f /tmp/caddy.log<br>最后就可以通过ip访问filemanager了，用户名和密码均为admin。</p>
+<p> 以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！<br>    echo “<a href="http://moerats.com" target="_blank" rel="noopener">http://moerats.com</a> {<br>     timeouts none<br>     redir <a href="https://moerats.com{url}" target="_blank" rel="noopener">https://moerats.com{url}</a><br>    }<br>    <a href="https://moerats.com" target="_blank" rel="noopener">https://moerats.com</a> {<br>     root /usr/local/caddy/www/file<br>     timeouts none<br>     tls /root/xxx.crt /root/xxx.key<br>     gzip<br>     filemanager / /usr/local/caddy/www/file {<br>      database /usr/local/caddy/filemanager.db<br>     }<br>    }” &gt; /usr/local/caddy/Caddyfile<br>当你已经配置完上面步骤后，那就需要启动Caddy了。</p>
+<p><code>/etc/init.d/caddy start</code> # 如果启动失败可以看Caddy日志： <code>tail -f /tmp/caddy.log</code><br>最后就可以通过ip访问filemanager了，用户名和密码均为admin。</p>
 <p>更多配置方法请参考原文：<a href="https://doub.io/jzzy-3/。" target="_blank" rel="noopener">https://doub.io/jzzy-3/。</a></p>
 
       
@@ -451,7 +454,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -497,7 +500,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！-echo-“-80"><span class="nav-number">1.</span> <span class="nav-text">以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行！ echo “:80 {</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“http-moerats-com"><span class="nav-number">2.</span> <span class="nav-text">以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “http://moerats.com {</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“https-moerats-com"><span class="nav-number">3.</span> <span class="nav-text">以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “https://moerats.com {</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“https-moerats-com-1"><span class="nav-number">4.</span> <span class="nav-text">以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “https://moerats.com {</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！-echo-“http-moerats-com-1"><span class="nav-number">5.</span> <span class="nav-text">以下全部内容是一个整体，是一个命令，全部复制粘贴到SSH软件中并一起执行（注意替换示例域名）！ echo “http://moerats.com {</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Caddy"><span class="nav-number">1.</span> <span class="nav-text">安装Caddy</span></a></li></ol></div>
             
 
           </div>

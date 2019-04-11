@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。 脚本特性小内存VPS一键安装Caddy、PHP7、Sqlite3环境（支持VPS最小内存64M）。 一键绑定域名自动生成SSL证书开启https（ssl自动续期）。 支持IPv6（AAAA记录）如果本地网络不支">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:16:07.314Z">
+<meta property="og:updated_time" content="2019-04-11T09:30:04.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="脚本">
 <meta name="twitter:description" content="这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。 脚本特性小内存VPS一键安装Caddy、PHP7、Sqlite3环境（支持VPS最小内存64M）。 一键绑定域名自动生成SSL证书开启https（ssl自动续期）。 支持IPv6（AAAA记录）如果本地网络不支">
@@ -309,25 +309,29 @@
 <p>一键绑定域名自动生成SSL证书开启https（ssl自动续期）。</p>
 <p>支持IPv6（AAAA记录）如果本地网络不支持IPv6可以通过cloudflare CDN转换为IP4。</p>
 <p>一键安装Tpecho、WordPress、Zblog、Kodexplorer、Laverna、一键整站备份。</p>
-<p>一键安装V2ra*、Rinetdbbr。<br><a id="more"></a><br>安装<br>Github地址：<a href="https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3" target="_blank" rel="noopener">https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3</a></p>
+<p>一键安装V2ra*、Rinetdbbr。<br><a id="more"></a><br>安装<br>Github地址：<code>https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3</code></p>
 <p>支持系统：Debian 8、9。如果你内存实在太小，建议使用mini系统。且使用前请提前解析好域名，不然签发SSL会失败。</p>
 <p>1、下载脚本</p>
-<p>wget -N –no-check-certificate git.io/c.sh<br>如果你是Debian 9，则需要先编辑脚本，删掉以下2行代码：</p>
-<p>#添加源<br>echo “deb <a href="http://packages.dotdeb.org" target="_blank" rel="noopener">http://packages.dotdeb.org</a> jessie all” | tee –append /etc/apt/sources.list<br>echo “deb-src <a href="http://packages.dotdeb.org" target="_blank" rel="noopener">http://packages.dotdeb.org</a> jessie all” | tee –append /etc/apt/sources.list<br>2、安装脚本</p>
-<p>chmod +x c.sh &amp;&amp; bash c.sh<br>此时会很快的给你安装好Caddy、PHP7、Sqlite3环境。</p>
+<pre><code>wget -N --no-check-certificate git.io/c.sh
+</code></pre><p>如果你是Debian 9，则需要先编辑脚本，删掉以下2行代码：</p>
+<pre><code>添加源
+echo &quot;deb http://packages.dotdeb.org jessie all&quot; | tee --append /etc/apt/sources.list
+echo &quot;deb-src http://packages.dotdeb.org jessie all&quot; | tee --append /etc/apt/sources.list
+</code></pre><p>2、安装脚本</p>
+<pre><code>chmod +x c.sh &amp;&amp; bash c.sh
+</code></pre><p>此时会很快的给你安装好Caddy、PHP7、Sqlite3环境。</p>
 <p>程序安装<br>安装好环境后，再使用以下命令安装所需要的程序。</p>
-<p>#一键安装typecho博客<br> bash c.sh -t</p>
-<p>#一键安装wordpress博客<br>bash c.sh -w</p>
-<p>#一键安装zblog博客<br>bash c.sh -z</p>
-<p>#一键安装kodexplorer可道云<br>bash c.sh -k</p>
-<p>#一键安装laverna印象笔记<br>bash c.sh -l</p>
-<p>#一键整站备份（一键打包/www网站目录、含数据库）<br>bash c.sh -a</p>
-<p>#一键安装v2ra*<br>bash c.sh -v</p>
-<p>#一键安装rinetd bbr端口加速<br> bash c.sh -b<br>程序卸载</p>
-<p>#卸载caddy<br>bash c.sh -unc</p>
-<p>#卸载php+sqlite<br>bash c.sh -unp</p>
-<p>#卸载v2ra*<br>bash c.sh -unv</p>
-<p>#卸载rinetdbbr<br>bash c.sh -unb<br>相关命令/目录<br>启动：/etc/init.d/caddy start<br> 停止：/etc/init.d/caddy stop<br>重启：/etc/init.d/caddy restart<br>查看状态：/etc/init.d/caddy status<br>查看Caddy启动日志：tail -f /tmp/caddy.log<br> Caddy安装目录：/usr/local/caddy<br>Caddy配置文件位置：/usr/local/caddy/Caddyfile<br>网站目录：/www<br>参考链接：<a href="https://www.moerats.com/archives/749/" target="_blank" rel="noopener">https://www.moerats.com/archives/749/</a></p>
+<h5 id="一键安装typecho博客"><a href="#一键安装typecho博客" class="headerlink" title="一键安装typecho博客"></a>一键安装typecho博客</h5><pre><code>bash c.sh -t
+</code></pre><h5 id="一键安装wordpress博客"><a href="#一键安装wordpress博客" class="headerlink" title="一键安装wordpress博客"></a>一键安装wordpress博客</h5><pre><code>bash c.sh -w
+</code></pre><h4 id="一键安装zblog博客"><a href="#一键安装zblog博客" class="headerlink" title="一键安装zblog博客"></a>一键安装zblog博客</h4><pre><code>bash c.sh -z
+</code></pre><h4 id="一键安装kodexplorer可道云"><a href="#一键安装kodexplorer可道云" class="headerlink" title="#一键安装kodexplorer可道云"></a>#一键安装kodexplorer可道云</h4><pre><code>bash c.sh -k
+</code></pre><h4 id="一键安装laverna印象笔记"><a href="#一键安装laverna印象笔记" class="headerlink" title="一键安装laverna印象笔记"></a>一键安装laverna印象笔记</h4><pre><code>bash c.sh -l
+</code></pre><h4 id="一键整站备份（一键打包-www网站目录、含数据库）"><a href="#一键整站备份（一键打包-www网站目录、含数据库）" class="headerlink" title="一键整站备份（一键打包/www网站目录、含数据库）"></a>一键整站备份（一键打包/www网站目录、含数据库）</h4><pre><code>bash c.sh -a
+</code></pre><h4 id="一键安装v2ra"><a href="#一键安装v2ra" class="headerlink" title="一键安装v2ra*"></a>一键安装v2ra*</h4><pre><code>bash c.sh -v
+</code></pre><h4 id="一键安装rinetd-bbr端口加速"><a href="#一键安装rinetd-bbr端口加速" class="headerlink" title="一键安装rinetd bbr端口加速"></a>一键安装rinetd bbr端口加速</h4><p> <code>bash c.sh -b</code></p>
+<h4 id="程序卸载"><a href="#程序卸载" class="headerlink" title="程序卸载"></a>程序卸载</h4><p>卸载caddy</p>
+<pre><code>bash c.sh -unc
+</code></pre><p>卸载php+sqlite<br>    bash c.sh -unp<br>卸载v2ra*<br>    bash c.sh -unv<br>卸载rinetdbbr<br>    bash c.sh -unb<br>相关命令/目录<br>    启动：/etc/init.d/caddy start<br>     停止：/etc/init.d/caddy stop<br>    重启：/etc/init.d/caddy restart<br>    查看状态：/etc/init.d/caddy status<br>    查看Caddy启动日志：tail -f /tmp/caddy.log<br>     Caddy安装目录：/usr/local/caddy<br>    Caddy配置文件位置：/usr/local/caddy/Caddyfile<br>    网站目录：/www<br>参考链接：<a href="https://www.moerats.com/archives/749/" target="_blank" rel="noopener">https://www.moerats.com/archives/749/</a></p>
 
       
     </div>
@@ -362,8 +366,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/25/这是一个Debian系统下一键安装Caddy-PHP7-Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。/" rel="prev" title="这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。">
-                这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/25/在VPS上安装btsync/" rel="prev" title="在VPS上安装btsync">
+                在VPS上安装btsync <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -416,8 +420,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -434,7 +447,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -470,6 +483,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一键安装typecho博客"><span class="nav-number">1.</span> <span class="nav-text">一键安装typecho博客</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一键安装wordpress博客"><span class="nav-number">2.</span> <span class="nav-text">一键安装wordpress博客</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#一键安装zblog博客"><span class="nav-number"></span> <span class="nav-text">一键安装zblog博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一键安装kodexplorer可道云"><span class="nav-number"></span> <span class="nav-text">#一键安装kodexplorer可道云</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一键安装laverna印象笔记"><span class="nav-number"></span> <span class="nav-text">一键安装laverna印象笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一键整站备份（一键打包-www网站目录、含数据库）"><span class="nav-number"></span> <span class="nav-text">一键整站备份（一键打包/www网站目录、含数据库）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一键安装v2ra"><span class="nav-number"></span> <span class="nav-text">一键安装v2ra*</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一键安装rinetd-bbr端口加速"><span class="nav-number"></span> <span class="nav-text">一键安装rinetd bbr端口加速</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序卸载"><span class="nav-number"></span> <span class="nav-text">程序卸载</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

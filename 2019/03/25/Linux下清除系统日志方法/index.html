@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:19:31.058Z">
+<meta property="og:updated_time" content="2019-04-11T09:58:52.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下清除系统日志方法">
 <meta name="twitter:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
@@ -311,11 +311,30 @@
 <p>1.应用无法正确释放日志文件和写入</p>
 <p>2.显示磁盘空间未释放<br><a id="more"></a><br>正确</p>
 <p>Bash<br>cat /dev/null &gt; logfile<br>把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志</p>
-<p>Bash</p>
-<p>#!/bin/sh<br>cat /dev/null &gt; /var/log/syslog<br>cat /dev/null &gt; /var/adm/sylog<br>cat /dev/null &gt; /var/log/wtmp<br>cat /dev/null &gt; /var/log/maillog<br>cat /dev/null &gt; /var/log/messages<br>cat /dev/null &gt; /var/log/openwebmail.log<br>cat /dev/null &gt; /var/log/maillog<br>cat /dev/null &gt; /var/log/secure<br>cat /dev/null &gt; /var/log/httpd/error_log<br>cat /dev/null &gt; /var/log/httpd/ssl_error_log<br>cat /dev/null &gt; /var/log/httpd/ssl_request_log<br>cat /dev/null &gt; /var/log/httpd/ssl_access_log<br>另外清理linux系统垃圾还有以下命令</p>
-<p>Bash<br>sudo apt-get autoclean<br>清理旧版本的软件缓存</p>
-<p>Bash<br>sudo apt-get clean<br> 清理所有软件缓存</p>
-<p>Bash<br>sudo apt-get autoremove<br>删除系统不再使用的孤立软件</p>
+<pre><code>Bash
+!/bin/sh
+cat /dev/null &gt; /var/log/syslog
+cat /dev/null &gt; /var/adm/sylog
+cat /dev/null &gt; /var/log/wtmp
+cat /dev/null &gt; /var/log/maillog
+cat /dev/null &gt; /var/log/messages
+cat /dev/null &gt; /var/log/openwebmail.log
+cat /dev/null &gt; /var/log/maillog
+cat /dev/null &gt; /var/log/secure
+cat /dev/null &gt; /var/log/httpd/error_log
+cat /dev/null &gt; /var/log/httpd/ssl_error_log
+cat /dev/null &gt; /var/log/httpd/ssl_request_log
+cat /dev/null &gt; /var/log/httpd/ssl_access_log
+</code></pre><p>另外清理linux系统垃圾还有以下命令</p>
+<pre><code>Bash
+sudo apt-get autoclean
+</code></pre><p>清理旧版本的软件缓存</p>
+<pre><code>Bash
+sudo apt-get clean
+</code></pre><p> 清理所有软件缓存</p>
+<pre><code>Bash
+sudo apt-get autoremove
+</code></pre><p>删除系统不再使用的孤立软件</p>
 
       
     </div>
@@ -422,7 +441,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
