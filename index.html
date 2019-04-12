@@ -299,26 +299,15 @@
 
       
         
-          
-            <p>我是在恩山了解到斐讯N1盒子，超高性价比，可以刷成服务器、游戏机、小型NAS甚至还可以当路由器使用，本着折腾的心态。</p>
-<p>入手之后，我先完成了版本降级和刷入Armbian系统，因为我的需求是想把N1刷成路由器跑酸酸乳，但是在这之前还没比较成熟的方案，已有的方案又十分复杂，所以之后我就搁置了几天。直到最近，我访问恩山论坛的时候，发现了这两个帖子，大神们终于把Openwrt集成出来了，我立马尝试刷机，在一番尝试后，成功把N1设置为旁路由，解放了硬路由的压力，愉快的跑起了酸酸乳。<br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/1.jpg" title="image"><br>我的网络环境是这样的：因为我使用的是100M闪讯电信宽带，因此必须使用h大的Padavan固件拨号上网，但是MTK7621的性能有限，跑酸酸乳的话只能够在40M左右徘徊，因此我需要一个设备来单独跑酸酸乳，那N1就是在这里扮演了一个旁路由的角色，用来解析网络流量，事实证明，在我100M的网络环境中，N1跑酸酸乳可以跑满带宽，相当给力。因此，在这篇文章中，我梳理了下从入手N1到刷入Openwrt，以及设置旁路由的过程，以方便有同样需求的朋友，能够准确无误的达成目的。</p>
-<h4 id="事前准备"><a href="#事前准备" class="headerlink" title="事前准备"></a>事前准备</h4><p>斐讯N1一台<br>双公头USB数据线一根<br>8GB以上U盘一枚（读写性能稍好一些的）<br>HDMI线一根（一般商家会送）<br>USB 键盘鼠标一套<br><a href="https://pan.baidu.com/s/1T1uD3qbJAHb1gGqleUcr_g" target="_blank" rel="noopener">刷机包一份</a>（USB刷录工具、ADB调试工具）提取码: hiq7</p>
-<h4 id="降级"><a href="#降级" class="headerlink" title="降级"></a>降级</h4><p>现在一般拿到手的N1版本都会比较新，我们需要先把版本降到2.19以下，降级步骤如下：</p>
-<p>网络准备<br>首先为了避免N1在连接网络时自动更新，我们暂时先把路由器的外部网络断开，然后从路由器LAN口接出，接入N1背面的网口，插上HDMI和鼠标，通电开机。</p>
-<h4 id="开启-ADB-调试"><a href="#开启-ADB-调试" class="headerlink" title="开启 ADB 调试"></a>开启 ADB 调试</h4><p>N1开机后，会显示天天链盒子的页面，鼠标点击官方固件版本号4次，下方会出现「ADB调试开启」字样即可。<br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/2.jpg" title="image"></p>
-<h4 id="重启至-fastboot-模式"><a href="#重启至-fastboot-模式" class="headerlink" title="重启至 fastboot 模式"></a>重启至 fastboot 模式</h4><p>因为我使用的是 OS X 平台，所以我直接通过「终端」进行了操作，如果是Windows 平台的朋友，请自行搜索相关教程。<br>首先，我们现在「终端」中安装 ADB 调试工具：<br>    brew cask install android-platform-tools<br>测试是否正常安装<br>    adb devices<br>应该会检测到 N1 的设备信息，然后我们连接 N1<br>输入<code>adb connect %IP%</code>(此处替换为N1的IP)<br>如果返回类似<code>connected to %IP%</code>，即表示连接成功<br>连接成功后输入<code>adb shell reboot fastboot</code>，重启至 fastboot 模式。</p>
-<h4 id="刷入降级关键分区"><a href="#刷入降级关键分区" class="headerlink" title="刷入降级关键分区"></a>刷入降级关键分区</h4><p>将你的 N1 用双公头 USB 数据线与电脑连接，务必连接至靠近 HDMI 接口的那个 USB 接口。</p>
-<p>输入<code>fastboot devices</code>查看 fastboot 工具是否已识别设备。<br>如果返回类似XXXXXXXXXX（该为序列号） fastboot这样的提示，即表示成功识别。<br>然后就可以刷入降级分区了<br>依次输入命令刷入各个分区，OS X用户在输入指令后，可把相应文件直接拖入「终端」，避免手动输入路径的麻烦<br>    fastboot flash boot boot.img<br>    fastboot flash bootloader bootloader.img<br>    fastboot flash recovery recovery.img<br>如果没有返回任何错误信息，即表示降级成功。<br>输入 <code>fastboot reboot</code> 重启设备<br>重启完成之后，重复步骤 2 开启 ADB 调试<br>输入<code>adb shell reboot update</code>，重启即进入刷机模式。</p>
-<p>至此，降级步骤完成，可以放心的刷各种固件了。</p>
-<h4 id="刷入Openwrt固件"><a href="#刷入Openwrt固件" class="headerlink" title="刷入Openwrt固件"></a>刷入Openwrt固件</h4><p>该步骤同样适用于各类固件，在这里只以Openwrt固件为例。</p>
-<p>Windows系统用户可以直接使用USB烧录工具，OS X用户的话，需要双系统或者虚拟机实现。插入U盘后，选中Openwrt固件的img文件，然后点击「Restore」，等待刷入完成后，弹出U盘，此时启动盘就完成了。</p>
-<p>把U盘插入N1，然后通电开机。</p>
-<h4 id="旁路由设置"><a href="#旁路由设置" class="headerlink" title="旁路由设置"></a>旁路由设置</h4><p>固件默认的IP地址是192.168.1.1，因此我们在路由器上得先做如下动作：</p>
-<h4 id="修改主路由IP地址"><a href="#修改主路由IP地址" class="headerlink" title="修改主路由IP地址"></a>修改主路由IP地址</h4><p>进入主路由后台设置页面，在「内部网络LAN」中，将IP地址修改为192.168.1.2，保存设置。此时等待网络刷新后，即可通过192.168.1.1进入N1 Openwrt后台，默认账户名root，密码password<br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/3.jpg" title="image"><br>这里的IP地址可以自定义，不过得先修改N1的LAN地址，然后在修改主路由的IP地址，以我为例，我使用的是10.1.1.1，因此，我先将N1从192.168.1.1修改为10.1.1.1并保存，然后登录192.168.1.2，进入主路由后台，修改192.168.1.2为10.1.1.2并保存，这样就实现了IP地址的替换。</p>
-<h4 id="修改DNS配置"><a href="#修改DNS配置" class="headerlink" title="修改DNS配置"></a>修改DNS配置</h4><p>主路由中，将DHCP的默认网关设置为10.1.1.1，同时将DNS服务器也修改为10.1.1.1<br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/4.jpg" title="image"><br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/5.jpg" title="image"><br>N1旁路由中，将LAN网关设置为10.1.1.2，广播设置为10.1.1.255，DNS服务器根据网络环境情况自行填入，同时将DHCP服务器关闭。<br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/6.jpg" title="image"><br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/7.jpg" title="image"><br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/8.jpg" title="image"></p>
-<h2 id="至此，如果没问题的话，旁路由即设置好了。"><a href="#至此，如果没问题的话，旁路由即设置好了。" class="headerlink" title="至此，如果没问题的话，旁路由即设置好了。"></a>至此，如果没问题的话，旁路由即设置好了。</h2><p>作者：Osirisw<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/osirisw/article/details/87988574" target="_blank" rel="noopener">https://blog.csdn.net/osirisw/article/details/87988574</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
-
-          
+          <p>我是在恩山了解到斐讯N1盒子，超高性价比，可以刷成服务器、游戏机、小型NAS甚至还可以当路由器使用，本着折腾的心态。</p>
+<p>入手之后，我先完成了版本降级和刷入Armbian系统，因为我的需求是想把N1刷成路由器跑酸酸乳，但是在这之前还没比较成熟的方案，已有的方案又十分复杂，所以之后我就搁置了几天。直到最近，我访问恩山论坛的时候，发现了这两个帖子，大神们终于把Openwrt集成出来了，我立马尝试刷机，在一番尝试后，成功把N1设置为旁路由，解放了硬路由的压力，愉快的跑起了酸酸乳。<br><img src="/2019/04/12/斐讯N1刷Openwrt后做旁路由/1.jpg" title="image"><br>我的网络环境是这样的：因为我使用的是100M闪讯电信宽带，因此必须使用h大的Padavan固件拨号上网，但是MTK7621的性能有限，跑酸酸乳的话只能够在40M左右徘徊，因此我需要一个设备来单独跑酸酸乳，那N1就是在这里扮演了一个旁路由的角色，用来解析网络流量，事实证明，在我100M的网络环境中，N1跑酸酸乳可以跑满带宽，相当给力。因此，在这篇文章中，我梳理了下从入手N1到刷入Openwrt，以及设置旁路由的过程，以方便有同样需求的朋友，能够准确无误的达成目的。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/12/斐讯N1刷Openwrt后做旁路由/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
