@@ -79,24 +79,18 @@
 
 
 
-<meta name="description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级">
+<meta name="description" content="连接WIFI在ssh连接后，执行 nmtui 选择第二个Activate a connection，按提示选择并输入密码即可">
 <meta name="keywords" content="N1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="斐讯P1降级恢复线刷功能">
-<meta property="og:url" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/index.html">
+<meta property="og:title" content="斐讯N1Armbian部署环境及开启WIFI">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/04/22/斐讯N1Armbian部署环境及开启WIFI/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级">
+<meta property="og:description" content="连接WIFI在ssh连接后，执行 nmtui 选择第二个Activate a connection，按提示选择并输入密码即可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/2.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/3.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/4.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/5.jpg">
-<meta property="og:updated_time" content="2019-04-14T03:41:30.913Z">
+<meta property="og:updated_time" content="2019-04-22T07:39:22.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="斐讯P1降级恢复线刷功能">
-<meta name="twitter:description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级">
-<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg">
+<meta name="twitter:title" content="斐讯N1Armbian部署环境及开启WIFI">
+<meta name="twitter:description" content="连接WIFI在ssh连接后，执行 nmtui 选择第二个Activate a connection，按提示选择并输入密码即可">
 
 
 
@@ -126,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/">
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/04/22/斐讯N1Armbian部署环境及开启WIFI/">
 
 
 
 
 
-  <title>斐讯P1降级恢复线刷功能 | 小强</title>
+  <title>斐讯N1Armbian部署环境及开启WIFI | 小强</title>
   
 
 
@@ -239,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/04/22/斐讯N1Armbian部署环境及开启WIFI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -256,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">斐讯P1降级恢复线刷功能</h1>
+          <h1 class="post-title" itemprop="name headline">斐讯N1Armbian部署环境及开启WIFI</h1>
         
 
         <div class="post-meta">
@@ -268,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T08:19:29+08:00">
-                2019-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T15:11:18+08:00">
+                2019-04-22
               </time>
             
 
@@ -311,20 +305,44 @@
       
 
       
-        <p>此教程用的是恩山w大神的，然后通过自己实际使用过程修改。</p>
-<p>用途</p>
-<p>将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，<br>然后可用adb脚本进入线刷模式，从而烧录官改线刷包: <a href="https://right.com.cn/forum/thread-338759-1-1.html" target="_blank" rel="noopener">N1 —&gt;</a>    <a href="https://www.right.com.cn/forum/thread-320013-1-1.html" target="_blank" rel="noopener">T1 —&gt;</a></p>
-<p>另外可参考需要手动操作的 <a href="https://www.right.com.cn/forum/thread-322223-1-1.html" target="_blank" rel="noopener">–&gt;fastboot 方式降级</a><br><a id="more"></a><br>以下操作仅覆盖boot分区，所以操作完毕再次启动盒子后系统版本号是不会有变化的！<br><strong>电脑安装线刷工具USB_Burning_Tool,已经安装过的可以跳过。<br>注意！！ 安装过程中会安装驱动，不要跳过！！！</strong></p>
-<p>若在windows命令行运行 adb 、 fastboot 等命令出错或无法找到运行库，<br>可将adb.exe、 AdbWinApi.dll 、AdbWinUsbApi.dll、 fastboot.exe 四个文件<br>复制到 c:\windows\ 路径中 或  c:\windows\system32\ 等环境参数path包含的任意路径中；</p>
-<p>步骤</p>
-<p>1、盒子插网线接入和电脑同一局域网，记下盒子获得的内网IP地址；<br>T1在设置中开启远程调试，N1在主界面使用鼠标点击四次固件版本号打开adb：<br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/2.jpg" title="image"><br>2、在电脑端保持目录结构解压 斐讯T1、N1官方系统降级工具.zip；</p>
-<p>3、电脑端运行 onekey 子目录下的 run.bat ，按提示操作：<br>实测官方 1.6T57 版本 T1  降级后即可线刷<br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/3.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/4.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/5.jpg" title="image"></p>
-<p>4、<strong>机器用第二步刷机降级后，按3盒子进入线刷模式，批处理命令，输入盒子的IP地址，不要按回车！！！<br>打开线刷工具软件，加载刷机包，去除双钩，先不要点击开始键！！!</strong></p>
-<p>点击进入“进入线刷.bat”窗口，按电脑回车键，一旦看到电视出现黑屏后，马上鼠标点击刷机工具的“开始”键，<br>刷机自动开始，出现刷机进度条以及显示百分比。等待3-4分钟后刷机完成。</p>
-<p><strong>静默root授权、telnet 服务端口2323 ，adb shell 直接为root权限；</strong></p>
-<p>T1/N1强制输出4K分辨率，应为我的电视好像不支持4K所以就没试。<br>    <code>adb connect 192.168.x.x（盒子的ip）</code><br>    <code>adb shell</code><br>    <code>wm size 3840x2160</code></p>
-<p><strong>百度云</strong><br>链接：<a href="https://pan.baidu.com/s/1XjK-5seZyOGkt1GA4AmGDg" target="_blank" rel="noopener">https://pan.baidu.com/s/1XjK-5seZyOGkt1GA4AmGDg</a><br>提取码：89k2 </p>
-<p>w大的微云<br>链接：<a href="https://share.weiyun.com/5klmuxd" target="_blank" rel="noopener">https://share.weiyun.com/5klmuxd</a><br>密码：yaefa9</p>
+        <h4 id="连接WIFI"><a href="#连接WIFI" class="headerlink" title="连接WIFI"></a>连接WIFI</h4><p>在ssh连接后，执行</p>
+<pre><code>nmtui
+</code></pre><p>选择第二个Activate a connection，按提示选择并输入密码即可<br><a id="more"></a><br>若Activate a connection中没有Wi-Fi选项卡则说明内核尚未开启wifi_dummy和dhd模块，执行如下指令即可<br>    modprobe dnd &amp;&amp; echo dnd &gt;&gt; /etc/modules<br>    modprobe wifi_dummy &amp;&amp; echo wifi_dummy &gt;&gt; /etc/modules</p>
+<h4 id="更换apt-yum为国内源"><a href="#更换apt-yum为国内源" class="headerlink" title="更换apt/yum为国内源"></a>更换apt/yum为国内源</h4><p>首先登录armbian，看一下自己装的Linux发行版本<br>我们可以看到我们的系统版本是Debian9（部分Armbian是Ubuntu14.04）</p>
+<p>使用vi指令或者WinSCP编辑/etc/apt/sources.list，替换内容如下</p>
+<p>debian9 清华tuna源<br>    deb [ arch=arm64,armhf ] <a href="https://mirrors.tuna.tsinghua.edu.cn/debian/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/debian/</a> stretch main contrib non-free</p>
+<pre><code>#deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
+deb [ arch=arm64,armhf ] https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
+deb [ arch=arm64,armhf ] https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
+deb [ arch=arm64,armhf ] https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main contrib non-free
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security/ stretch/updates main contrib non-free
+#deb [ arch=arm64,armhf ] https://mirrors.tuna.tsinghua.edu.cn/debian/ sid main contrib non-free
+</code></pre><p>（请不要随意替换成其他的Debian9源，很多商业源如阿里等并没有收录arm架构）</p>
+<p>debian源</p>
+<pre><code># 默认注释了源码仓库，如有需要可自行取消注释
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial main restricted universe multiverse
+# deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial main main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main restricted universe multiverse
+# deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-backports main restricted universe multiverse
+# deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-security main restricted universe multiverse
+# deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-proposed main restricted universe multiverse
+# deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-proposed main restricted universe multiverse
+</code></pre><p>修改完成后，执行更新命令更新索引<br>    apt-get update<br>    apt-get upgrade</p>
+<h4 id="部署LNMP环境"><a href="#部署LNMP环境" class="headerlink" title="部署LNMP环境"></a>部署LNMP环境</h4><p>很多人问我armbian能否正常使用宝塔，我的测试结果是不能（也不排除这么多aembian系统里确实有可以正常安装的），错误日志大概是gcc编译并没有正确识别aarch64的架构使编译stop。</p>
+<p>就算是能够用宝塔安装NGINX等，它只能单核心编译，实测大概需要三个小时才能完成PHP的安装。当然你可以通过安装宝塔面板来简化crontab自动任务或者config文件的编辑，但是用它来部署环境就是无稽之谈了。</p>
+<p>在这里我选择的是军哥的lnmp一键包，当然你可以直接选择apt安装速度会快很多，只是性能和稳定性以及易用性差点。<br>军哥LNMP一键包主页：<a href="https://lnmp.org/install.html" target="_blank" rel="noopener">https://lnmp.org/install.html</a><br>    wget <a href="http://soft.vpser.net/lnmp/lnmp1.5.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/lnmp/lnmp1.5.tar.gz</a> -cO lnmp1.5.tar.gz &amp;&amp; tar zxf lnmp1.5.tar.gz &amp;&amp; cd lnmp1.5 &amp;&amp; ./install.sh lnmp</p>
+<p>推荐安装MySQL5.5和PHP7.2，整个编译过程大概需要40分钟，需要保持ssh连接不中断，若要无人值守请使用screen在执行上一条之前执行</p>
+<pre><code>screen -S lnmp
+</code></pre><h4 id="FRP外网映射"><a href="#FRP外网映射" class="headerlink" title="FRP外网映射"></a>FRP外网映射</h4><p><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">https://github.com/fatedier/frp</a></p>
+<h4 id="ddns映射IPv4-amp-IPv6"><a href="#ddns映射IPv4-amp-IPv6" class="headerlink" title="ddns映射IPv4&amp;IPv6"></a>ddns映射IPv4&amp;IPv6</h4><p>服务商支持:</p>
+<p> <a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSPOD</a><br> <a href="http://www.alidns.com/" target="_blank" rel="noopener">阿里DNS</a><br> <a href="https://www.dns.com/" target="_blank" rel="noopener">DNS.COM</a><br> <a href="https://www.dnspod.com/" target="_blank" rel="noopener">DNSPOD国际版</a><br> <a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a><br><a href="https://github.com/NewFuture/DDNS" target="_blank" rel="noopener">https://github.com/NewFuture/DDNS</a></p>
 
       
     </div>
@@ -355,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/26/安装hexo-asset-image-不起作用的问题/" rel="next" title="安装hexo-asset-image,不起作用的问题">
-                <i class="fa fa-chevron-left"></i> 安装hexo-asset-image,不起作用的问题
+              <a href="/2019/04/22/斐讯N1使用ddbr恢复官改系统/" rel="next" title="斐讯N1使用ddbr恢复官改系统">
+                <i class="fa fa-chevron-left"></i> 斐讯N1使用ddbr恢复官改系统
               </a>
             
           </div>
@@ -364,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/02/网络搜索的手机卡混淆/" rel="prev" title="网络搜索的手机卡混淆">
-                网络搜索的手机卡混淆 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -419,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -473,6 +496,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#连接WIFI"><span class="nav-number">1.</span> <span class="nav-text">连接WIFI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更换apt-yum为国内源"><span class="nav-number">2.</span> <span class="nav-text">更换apt/yum为国内源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署LNMP环境"><span class="nav-number">3.</span> <span class="nav-text">部署LNMP环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FRP外网映射"><span class="nav-number">4.</span> <span class="nav-text">FRP外网映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ddns映射IPv4-amp-IPv6"><span class="nav-number">5.</span> <span class="nav-text">ddns映射IPv4&amp;IPv6</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

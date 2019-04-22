@@ -79,24 +79,22 @@
 
 
 
-<meta name="description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级">
+<meta name="description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令    ddbr">
 <meta name="keywords" content="N1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="斐讯P1降级恢复线刷功能">
-<meta property="og:url" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/index.html">
+<meta property="og:title" content="斐讯N1使用ddbr恢复官改系统">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级">
+<meta property="og:description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令    ddbr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/2.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/3.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/4.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/5.jpg">
-<meta property="og:updated_time" content="2019-04-14T03:41:30.913Z">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/2.jpg">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/3.jpg">
+<meta property="og:updated_time" content="2019-04-22T07:06:09.232Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="斐讯P1降级恢复线刷功能">
-<meta name="twitter:description" content="此教程用的是恩山w大神的，然后通过自己实际使用过程修改。 用途 将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，然后可用adb脚本进入线刷模式，从而烧录官改线刷包: N1 —&amp;gt;    T1 —&amp;gt; 另外可参考需要手动操作的 –&amp;gt;fastboot 方式降级">
-<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg">
+<meta name="twitter:title" content="斐讯N1使用ddbr恢复官改系统">
+<meta name="twitter:description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令    ddbr">
+<meta name="twitter:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg">
 
 
 
@@ -126,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/">
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/">
 
 
 
 
 
-  <title>斐讯P1降级恢复线刷功能 | 小强</title>
+  <title>斐讯N1使用ddbr恢复官改系统 | 小强</title>
   
 
 
@@ -239,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/03/27/斐讯P1降级恢复线刷功能/">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -256,7 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">斐讯P1降级恢复线刷功能</h1>
+          <h1 class="post-title" itemprop="name headline">斐讯N1使用ddbr恢复官改系统</h1>
         
 
         <div class="post-meta">
@@ -268,8 +266,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T08:19:29+08:00">
-                2019-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T14:54:43+08:00">
+                2019-04-22
               </time>
             
 
@@ -311,20 +309,7 @@
       
 
       
-        <p>此教程用的是恩山w大神的，然后通过自己实际使用过程修改。</p>
-<p>用途</p>
-<p>将 N1官方V2.22~V2.32、T1官方1.4T51 ~ 1.6T57 的 boot 分区降级到低版本，<br>然后可用adb脚本进入线刷模式，从而烧录官改线刷包: <a href="https://right.com.cn/forum/thread-338759-1-1.html" target="_blank" rel="noopener">N1 —&gt;</a>    <a href="https://www.right.com.cn/forum/thread-320013-1-1.html" target="_blank" rel="noopener">T1 —&gt;</a></p>
-<p>另外可参考需要手动操作的 <a href="https://www.right.com.cn/forum/thread-322223-1-1.html" target="_blank" rel="noopener">–&gt;fastboot 方式降级</a><br><a id="more"></a><br>以下操作仅覆盖boot分区，所以操作完毕再次启动盒子后系统版本号是不会有变化的！<br><strong>电脑安装线刷工具USB_Burning_Tool,已经安装过的可以跳过。<br>注意！！ 安装过程中会安装驱动，不要跳过！！！</strong></p>
-<p>若在windows命令行运行 adb 、 fastboot 等命令出错或无法找到运行库，<br>可将adb.exe、 AdbWinApi.dll 、AdbWinUsbApi.dll、 fastboot.exe 四个文件<br>复制到 c:\windows\ 路径中 或  c:\windows\system32\ 等环境参数path包含的任意路径中；</p>
-<p>步骤</p>
-<p>1、盒子插网线接入和电脑同一局域网，记下盒子获得的内网IP地址；<br>T1在设置中开启远程调试，N1在主界面使用鼠标点击四次固件版本号打开adb：<br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/1.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/2.jpg" title="image"><br>2、在电脑端保持目录结构解压 斐讯T1、N1官方系统降级工具.zip；</p>
-<p>3、电脑端运行 onekey 子目录下的 run.bat ，按提示操作：<br>实测官方 1.6T57 版本 T1  降级后即可线刷<br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/3.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/4.jpg" title="image"><br><img src="/2019/03/27/斐讯P1降级恢复线刷功能/5.jpg" title="image"></p>
-<p>4、<strong>机器用第二步刷机降级后，按3盒子进入线刷模式，批处理命令，输入盒子的IP地址，不要按回车！！！<br>打开线刷工具软件，加载刷机包，去除双钩，先不要点击开始键！！!</strong></p>
-<p>点击进入“进入线刷.bat”窗口，按电脑回车键，一旦看到电视出现黑屏后，马上鼠标点击刷机工具的“开始”键，<br>刷机自动开始，出现刷机进度条以及显示百分比。等待3-4分钟后刷机完成。</p>
-<p><strong>静默root授权、telnet 服务端口2323 ，adb shell 直接为root权限；</strong></p>
-<p>T1/N1强制输出4K分辨率，应为我的电视好像不支持4K所以就没试。<br>    <code>adb connect 192.168.x.x（盒子的ip）</code><br>    <code>adb shell</code><br>    <code>wm size 3840x2160</code></p>
-<p><strong>百度云</strong><br>链接：<a href="https://pan.baidu.com/s/1XjK-5seZyOGkt1GA4AmGDg" target="_blank" rel="noopener">https://pan.baidu.com/s/1XjK-5seZyOGkt1GA4AmGDg</a><br>提取码：89k2 </p>
-<p>w大的微云<br>链接：<a href="https://share.weiyun.com/5klmuxd" target="_blank" rel="noopener">https://share.weiyun.com/5klmuxd</a><br>密码：yaefa9</p>
+        <h4 id="ddbr恢复"><a href="#ddbr恢复" class="headerlink" title="ddbr恢复"></a>ddbr恢复</h4><p>先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令<br>    ddbr<br><a id="more"></a><br>首先输入b（backup），在进度条开始后即可Ctrl+C取消。这样可以获取到ddbr备份的文件的名称（不同版本的Armbian备份出来的包名有不同）<br><img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg"><br>打开winscp用sftp加你的ssh登录信息登陆，进入/ddbr目录，可以看到一个*-emmc.img.gz文件，将它的文件名复制下来然后删除该文件。把从网盘下载的原版系统ddbr包上传到该目录，上传完成后把文件名改成刚才复制的文件名。<br><img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/2.jpg"><br>然后回到Xshell，输入ddbr指令，这回键入r（restore），它会询问你是否使用了压缩（DID YOU USED COMPRESSION），选择y即可<br><img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/3.jpg"><br>成功后直接键入<br>    poweroff<br>拔电拔U盘重启,恢复进去的系统本身已经开启adb.<br><a href="https://one.cn.lty.fun/%E5%B7%A5%E5%85%B7%E5%BA%93/N1/ddbr/" target="_blank" rel="noopener">ddbr原版恢复包</a></p>
 
       
     </div>
@@ -355,8 +340,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/26/安装hexo-asset-image-不起作用的问题/" rel="next" title="安装hexo-asset-image,不起作用的问题">
-                <i class="fa fa-chevron-left"></i> 安装hexo-asset-image,不起作用的问题
+              <a href="/2019/04/18/为N1旁路由openwrt安装KoolProxy-已上传openwrt/" rel="next" title="为N1旁路由openwrt安装KoolProxy.已上传openwrt">
+                <i class="fa fa-chevron-left"></i> 为N1旁路由openwrt安装KoolProxy.已上传openwrt
               </a>
             
           </div>
@@ -365,8 +350,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/02/网络搜索的手机卡混淆/" rel="prev" title="网络搜索的手机卡混淆">
-                网络搜索的手机卡混淆 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/22/斐讯N1Armbian部署环境及开启WIFI/" rel="prev" title="斐讯N1Armbian部署环境及开启WIFI">
+                斐讯N1Armbian部署环境及开启WIFI <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -419,8 +404,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -473,6 +467,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ddbr恢复"><span class="nav-number">1.</span> <span class="nav-text">ddbr恢复</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
