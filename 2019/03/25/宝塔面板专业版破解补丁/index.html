@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="1、安装面板免费板安装命令1yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-23T02:16:39.679Z">
+<meta property="og:updated_time" content="2019-04-23T04:55:44.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="宝塔面板专业版破解补丁">
 <meta name="twitter:description" content="1、安装面板免费板安装命令1yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
@@ -310,92 +310,34 @@
 <p>3、找到路径/www/server/panel/class 找到文件名或者直接搜索：common.py</p>
 <p>搜索代码164行<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HASKELL"><figure class="iseeu highlight /haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">data</span> = panelAuth().get_order_status(<span class="type">None</span>)</span></span><br><span class="line">替换下面</span><br><span class="line">    <span class="class"><span class="keyword">data</span> = &#123;'<span class="title">status'</span> : <span class="type">True</span>,'<span class="title">msg'</span> : &#123;'<span class="title">endtime'</span> : 32503651199&#125;&#125;;</span></span><br></pre></td></tr></table></figure></div></p>
 <p>4、完成后，进入 /www/server/panel/data 新建一个文件 文件名为：userInfo.json 内容空的，如果存在这个文件的删掉重新新建文件。</p>
-<p>5、最后输入命令<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><figcaption><span>restart</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"> 重启宝塔</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 查看当前面板端口 ####</span><br></pre></td></tr></table></figure></div></p>
-<pre><code>cat /www/server/panel/data/port.pl
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改面板端口，如要改成<span class="number">8881</span>（centos <span class="number">6</span> 系统）</span><br></pre></td></tr></table></figure></div>
-<pre><code>echo &apos;8881&apos; &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart
-
-iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 8881 -j ACCEPT
-
-service iptables save
-
-service iptables restart
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改面板端口，如要改成<span class="number">8881</span>（centos <span class="number">7</span> 系统）</span><br></pre></td></tr></table></figure></div>
-<pre><code>echo &apos;8881&apos; &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart
-firewall-cmd --permanent --zone=public --add-port=8881/tcp
-firewall-cmd --reload
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GCODE"><figure class="iseeu highlight /gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">强制修改MySQL管理<span class="comment">(root)</span>密码，如要改成<span class="number">123456</span></span><br></pre></td></tr></table></figure></div>
-<pre><code>cd /www/server/panel &amp;&amp; python tools.pyc root 123456
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改面板密码，如要改成<span class="number">123456</span></span><br></pre></td></tr></table></figure></div>
-<pre><code>cd /www/server/panel &amp;&amp; python tools.pyc panel 123456
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看宝塔日志</span><br></pre></td></tr></table></figure></div>
-<pre><code>cat /tmp/panelBoot.pl
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看软件安装日志</span><br></pre></td></tr></table></figure></div>
-<pre><code>cat /tmp/panelExec.log
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点配置文件位置</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/server/panel/vhost
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除域名绑定面板</span><br></pre></td></tr></table></figure></div>
-<pre><code>rm -f /www/server/panel/data/domain.conf
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">清理登陆限制</span><br></pre></td></tr></table></figure></div>
-<pre><code>rm -f /www/server/panel/data/*.login
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="ARMASM"><figure class="iseeu highlight /armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看面板授权<span class="built_in">IP</span></span><br></pre></td></tr></table></figure></div>
-<pre><code>cat /www/server/panel/data/limitip.conf
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭访问限制</span><br></pre></td></tr></table></figure></div>
-<pre><code>rm -f /www/server/panel/data/limitip.conf
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看许可域名</span><br></pre></td></tr></table></figure></div>
-<pre><code>cat /www/server/panel/data/domain.conf
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭面板SSL</span><br></pre></td></tr></table></figure></div>
-<pre><code>rm -f /www/server/panel/data/ssl.pl &amp;&amp; /etc/init.d/bt restart
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看面板错误日志</span><br></pre></td></tr></table></figure></div>
-<pre><code>cat /tmp/panelBoot
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看数据库错误日志</span><br></pre></td></tr></table></figure></div>
-<pre><code>cat /www/server/data/*.err
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GCODE"><figure class="iseeu highlight /gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点配置文件目录<span class="comment">(nginx)</span></span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/server/panel/vhost/nginx
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GCODE"><figure class="iseeu highlight /gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点配置文件目录<span class="comment">(apache)</span></span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/server/panel/vhost/apache
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点默认目录</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/wwwroot
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库备份目录</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/backup/database
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点备份目录</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/backup/site
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点日志</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/wwwlogs
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nginx配置文件</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/server/nginx/conf/nginx.conf
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">手动更新<span class="built_in">let</span>证书</span><br></pre></td></tr></table></figure></div>
-<pre><code>&quot;/root/.acme.sh&quot;/acme.sh --cron --home &quot;/root/.acme.sh&quot;
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">强制更新所有<span class="built_in">let</span>证书</span><br></pre></td></tr></table></figure></div>
-<pre><code>&quot;/root/.acme.sh&quot;/acme.sh --cron --home &quot;/root/.acme.sh&quot; --force
-</code></pre><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CLEAN"><figure class="iseeu highlight /clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### Redis服务管理</span><br><span class="line"> ####redis安装目录 ####</span><br></pre></td></tr></table></figure></div>
-<pre><code>/www/server/redis
-启动
-
-/etc/init.d/redis start
-停止
-
-/etc/init.d/redis stop
-redis配置文件
-
-/www/server/redis/redis.conf
-Memcached服务管理
-memcached安装目录
-
-/usr/local/memcached
-启动
-
-/etc/init.d/memcached start
-停止
-
-/etc/init.d/memcached stop
-重启
-
-/etc/init.d/memcached restart
-启载
-
-/etc/init.d/memcached reload
-</code></pre><p><code>`</code></p>
+<p>5、最后输入命令<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="ARMASM"><figure class="iseeu highlight /armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/<span class="keyword">bt </span>restart</span><br></pre></td></tr></table></figure></div></p>
+<p> 重启宝塔</p>
+<h4 id="查看当前面板端口"><a href="#查看当前面板端口" class="headerlink" title="查看当前面板端口"></a>查看当前面板端口</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/port.pl</span></span><br></pre></td></tr></table></figure></div>
+<p>修改面板端口，如要改成8881（centos 6 系统）<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GRADLE"><figure class="iseeu highlight /gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">'8881'</span> &gt; <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/port.pl &amp;&amp; /</span>etc<span class="regexp">/init.d/</span>bt restart</span><br><span class="line"></span><br><span class="line">iptables -I INPUT -p tcp -m state --state <span class="keyword">NEW</span> -m tcp --dport <span class="number">8881</span> -j ACCEPT</span><br><span class="line"></span><br><span class="line">service iptables save</span><br><span class="line"></span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure></div></p>
+<p>修改面板端口，如要改成8881（centos 7 系统）<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> '8881' &gt; <span class="string">/www/server/panel/data/port.pl</span> &amp;&amp; <span class="string">/etc/init.d/bt</span> restart</span><br><span class="line">firewall-cmd <span class="params">--permanent</span> <span class="params">--zone=public</span> <span class="params">--add-port=8881/tcp</span></span><br><span class="line">firewall-cmd <span class="params">--reload</span></span><br></pre></td></tr></table></figure></p>
+<p>强制修改MySQL管理(root)密码，如要改成123456<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/www/server/panel</span> &amp;&amp; python tools.pyc root 123456</span><br></pre></td></tr></table></figure></p>
+<p>修改面板密码，如要改成123456<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="MEL"><figure class="iseeu highlight /mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /www/server/<span class="keyword">panel</span> &amp;&amp; <span class="keyword">python</span> tools.pyc <span class="keyword">panel</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure></div></p>
+<p>查看宝塔日志<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STATA"><figure class="iseeu highlight /stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /tmp/panelBoot.<span class="keyword">pl</span></span><br></pre></td></tr></table></figure></div></p>
+<p>查看软件安装日志<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STATA"><figure class="iseeu highlight /stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /tmp/panelExec.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></div></p>
+<p>站点配置文件位置<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>server<span class="regexp">/panel/</span>vhost</span><br></pre></td></tr></table></figure></div></p>
+<p>删除域名绑定面板<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/domain.conf</span></span><br></pre></td></tr></table></figure></div></p>
+<p>清理登陆限制<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/*.login</span></span><br></pre></td></tr></table></figure></div></p>
+<p>查看面板授权IP<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/limitip.conf</span></span><br></pre></td></tr></table></figure></div></p>
+<p>关闭访问限制<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/limitip.conf</span></span><br></pre></td></tr></table></figure></div></p>
+<p>查看许可域名<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/domain.conf</span></span><br></pre></td></tr></table></figure></div></p>
+<p>关闭面板SSL<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f <span class="regexp">/www/</span>server<span class="regexp">/panel/</span>data<span class="regexp">/ssl.pl &amp;&amp; /</span>etc<span class="regexp">/init.d/</span>bt restart</span><br></pre></td></tr></table></figure></div></p>
+<p>查看面板错误日志<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/tmp/</span>panelBoot</span><br></pre></td></tr></table></figure></div></p>
+<p>查看数据库错误日志<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/www/</span>server<span class="regexp">/data/</span>*.err</span><br></pre></td></tr></table></figure></div></p>
+<p>站点配置文件目录(nginx)<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>server<span class="regexp">/panel/</span>vhost<span class="regexp">/nginx</span></span><br></pre></td></tr></table></figure></div></p>
+<p>站点配置文件目录(apache)<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>server<span class="regexp">/panel/</span>vhost<span class="regexp">/apache</span></span><br></pre></td></tr></table></figure></div></p>
+<p>站点默认目录<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>wwwroot</span><br></pre></td></tr></table></figure></div></p>
+<p>数据库备份目录<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SQL"><figure class="iseeu highlight /sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/www/<span class="keyword">backup</span>/<span class="keyword">database</span></span><br></pre></td></tr></table></figure></div></p>
+<p>站点备份目录<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>backup<span class="regexp">/site</span></span><br></pre></td></tr></table></figure></div></p>
+<p>站点日志<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>wwwlogs</span><br></pre></td></tr></table></figure></div></p>
+<p>nginx配置文件<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="AWK"><figure class="iseeu highlight /awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/www/</span>server<span class="regexp">/nginx/</span>conf<span class="regexp">/nginx.conf</span></span><br></pre></td></tr></table></figure></div></p>
+<p>手动更新let证书<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"/root/.acme.sh"</span><span class="string">/acme.sh</span> <span class="params">--cron</span> <span class="params">--home</span> <span class="string">"/root/.acme.sh"</span></span><br></pre></td></tr></table></figure></p>
+<p>强制更新所有let证书<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"/root/.acme.sh"</span><span class="string">/acme.sh</span> <span class="params">--cron</span> <span class="params">--home</span> <span class="string">"/root/.acme.sh"</span> <span class="params">--force</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Redis服务管理"><a href="#Redis服务管理" class="headerlink" title="Redis服务管理"></a>Redis服务管理</h4><p> ####redis安装目录 ####<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRYSTAL"><figure class="iseeu highlight /crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/www/server/redis</span><br><span class="line">启动</span><br><span class="line"></span><br><span class="line">/etc/init.d/redis start</span><br><span class="line">停止</span><br><span class="line"></span><br><span class="line">/etc/init.d/redis stop</span><br><span class="line">redis配置文件</span><br><span class="line"></span><br><span class="line">/www/server/redis/redis.conf</span><br><span class="line">Memcached服务管理</span><br><span class="line">memcached安装目录</span><br><span class="line"></span><br><span class="line">/usr/local/memcached</span><br><span class="line">启动</span><br><span class="line"></span><br><span class="line">/etc/init.d/memcached start</span><br><span class="line">停止</span><br><span class="line"></span><br><span class="line">/etc/init.d/memcached stop</span><br><span class="line">重启</span><br><span class="line"></span><br><span class="line">/etc/init.d/memcached restart</span><br><span class="line">启载</span><br><span class="line"></span><br><span class="line">/etc/init.d/memcached reload</span><br></pre></td></tr></table></figure></div></p>
 
       
     </div>
@@ -430,8 +372,8 @@ memcached安装目录
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/25/debian安装后中文名称的文件及文件夹显示为方块/" rel="prev" title="乱码等">
-                乱码等 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/25/debian安装后中文名称的文件及文件夹显示为方块/" rel="prev" title="debian安装后中文名称的文件及文件夹显示为方块 乱码等">
+                debian安装后中文名称的文件及文件夹显示为方块 乱码等 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,8 +426,17 @@ memcached安装目录
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -538,6 +489,22 @@ memcached安装目录
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看当前面板端口"><span class="nav-number">1.</span> <span class="nav-text">查看当前面板端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis服务管理"><span class="nav-number">2.</span> <span class="nav-text">Redis服务管理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

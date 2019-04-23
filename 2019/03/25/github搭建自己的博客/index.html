@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/github搭建自己的博客/14.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/github搭建自己的博客/15.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/github搭建自己的博客/16.jpg">
-<meta property="og:updated_time" content="2019-04-23T02:28:00.612Z">
+<meta property="og:updated_time" content="2019-04-23T04:04:08.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github搭建自己的博客">
 <meta name="twitter:description" content="用Hexo在本地搭建一个博客安装Hexo安装nodejs http://nodejs.cn/ 丢个链接自己装，傻瓜式安装 安装git https://git-scm.com/downloads 安装毫无技术含量">
@@ -324,8 +324,7 @@
         <p>用Hexo在本地搭建一个博客<br>安装Hexo<br>安装nodejs</p>
 <p><a href="http://nodejs.cn/" target="_blank" rel="noopener">http://nodejs.cn/</a> 丢个链接自己装，傻瓜式安装</p>
 <p>安装git</p>
-<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> 安装毫无技术含量<br><a id="more"></a><br>使用npm安装Hexo</p>
-<p>   npm install -g hexo-cli<br>  //一键搞定</p>
+<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> 安装毫无技术含量<br><a id="more"></a><br>使用npm安装Hexo<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STATA"><figure class="iseeu highlight /stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> npm install -<span class="keyword">g</span> hexo-<span class="keyword">cli</span></span><br><span class="line"><span class="comment">//一键搞定</span></span><br></pre></td></tr></table></figure></div></p>
 <p>快速开始<br>1 随便找个文件夹下打开终端,输入<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="selector-tag">i</span> blog <span class="comment">//init的缩写 blog是项目名</span></span><br><span class="line">cd blog <span class="comment">//切换到站点根目录</span></span><br><span class="line">hexo g <span class="comment">//generetor的缩写</span></span><br><span class="line">hexo s <span class="comment">//server的缩写</span></span><br></pre></td></tr></table></figure></div></p>
 <p>2 打开浏览器输入localhost:4000查看：</p>
 <p><img src="/2019/03/25/github搭建自己的博客/1.jpg" alt></p>
@@ -334,7 +333,8 @@
 <p>选择主题–nexT<br>1 . 在站点根目录输入<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="VIM"><figure class="iseeu highlight /vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure></div></p>
 <p>2 . 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next</p>
 <p>配置文件就是根目录下的_config.yml文件<br><img src="/2019/03/25/github搭建自己的博客/2.jpg" alt><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="VIM"><figure class="iseeu highlight /vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把landscape改为<span class="keyword">next</span></span><br><span class="line"> <span class="keyword">language</span>: zh-CN ：修改为中文</span><br></pre></td></tr></table></figure></div></p>
-<p>3 . 在终端输入<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  <span class="comment">//清除缓存</span></span><br><span class="line">hexo g  <span class="comment">//重新生成代码</span></span><br><span class="line">hexo s  <span class="comment">//部署到本地</span></span><br></pre></td></tr></table></figure></p>
+<p>3 . 在终端输入</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  <span class="comment">//清除缓存</span></span><br><span class="line">hexo g  <span class="comment">//重新生成代码</span></span><br><span class="line">hexo s  <span class="comment">//部署到本地</span></span><br></pre></td></tr></table></figure>
 <p>//然后打开浏览器访问 localhost:4000 查看效果</p>
 <p><img src="/2019/03/25/github搭建自己的博客/3.jpg" alt></p>
 <p>nexT主题有三种选择，这个只是最简洁的一种，我们选择最好看的那个。<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="COQ"><figure class="iseeu highlight /coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Muse - 默认 <span class="keyword">Scheme</span>，这是 NexT 最初的版本，黑白主调，大量留白</span><br><span class="line">Mist - Muse 的紧凑版本，整洁有序的单栏外观</span><br><span class="line">Pisces - 双栏 <span class="keyword">Scheme</span>，小家碧玉似的清新</span><br></pre></td></tr></table></figure></div></p>
