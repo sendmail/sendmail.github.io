@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下： 使用apt-get install ttf-arphic-uming xfonts-intl-ch">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T10:03:38.471Z">
+<meta property="og:updated_time" content="2019-04-23T02:28:39.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="乱码等">
 <meta name="twitter:description" content="在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下： 使用apt-get install ttf-arphic-uming xfonts-intl-ch">
@@ -321,34 +321,17 @@
 <p>debian系统无法显示中文，中文显示方块的解决办法</p>
 <p>进过以上的处理，就可以使debian系统正确显示汉字了，不过对于debian终端控制台来说，遇到中文的时候还是会显示乱码，那么可以采用以下的方法解决（摘自网上）。</p>
 <p>Debian中文设置<br>解决 Debian 字符终端中文乱码、方块问题，是我初次安装 debian 后第一个棘手问题。最后结论是：目前 Debian 无法解决该问题，必须安装 zhcon 工具来解决。</p>
-<p>配置 Local</p>
-<pre><code>aptitude install locales
-dpkg-reconfigure locales
-</code></pre><p>跳出一个文字选择界面（如果安装时选择中文，此时文字全是乱码），page up/dn 翻页、空格键选择以下编码</p>
-<pre><code>en_US.UTF-8 UTF-8
-zh_CN.GBK GBK
-zh_CN.GB2312
-zh_CN.UTF-8 UTF-8
-</code></pre><p>然后 Tab 鍵切换到 OK，最后默认语言选择 en_US.UTF-8<br>编辑 locale 文件，检查 lang 是否设置为 en_US.UTF-8 了，没有则修改。</p>
-<pre><code>vim /etc/default/locale
-</code></pre><p>关于Local默认语言选择</p>
-<p>建议 Local 默认语言选择 en_US.UTF-8，</p>
-<p>选择 zh_CN.UTF-8 那么字符终端，会出现方块中文提示（<a href="http://www.debianedu.org/shells/tools/zhcon）。" target="_blank" rel="noopener">http://www.debianedu.org/shells/tools/zhcon）。</a><br>选择 en_US.UTF-8 那么字符终端，全英文提示。<br>选择 en_US.UTF-8 那么 Gnome 启动后也是英文（注：在 zhcon 中启动 gnome 是中文）。</p>
+<p>配置 Local<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aptitude <span class="keyword">install</span> locales</span><br><span class="line">dpkg-reconfigure locales</span><br></pre></td></tr></table></figure></p>
+<p>跳出一个文字选择界面（如果安装时选择中文，此时文字全是乱码），page up/dn 翻页、空格键选择以下编码<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">en_US<span class="selector-class">.UTF-8</span> UTF-<span class="number">8</span></span><br><span class="line">zh_CN<span class="selector-class">.GBK</span> GBK</span><br><span class="line">zh_CN.GB2312</span><br><span class="line">zh_CN<span class="selector-class">.UTF-8</span> UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure></p>
+<p>然后 Tab 鍵切换到 OK，最后默认语言选择 en_US.UTF-8<br>编辑 locale 文件，检查 lang 是否设置为 en_US.UTF-8 了，没有则修改。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span><span class="keyword">default</span><span class="regexp">/locale</span></span><br></pre></td></tr></table></figure></p>
+<p>关于Local默认语言选择</p>
+<p>建议 Local 默认语言选择 en_US.UTF-8，<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择 zh_CN<span class="selector-class">.UTF-8</span> 那么字符终端，会出现方块中文提示（http:<span class="comment">//www.debianedu.org/shells/tools/zhcon）。</span></span><br><span class="line">选择 en_US<span class="selector-class">.UTF-8</span> 那么字符终端，全英文提示。</span><br><span class="line">选择 en_US<span class="selector-class">.UTF-8</span> 那么 Gnome 启动后也是英文（注：在 zhcon 中启动 gnome 是中文）。</span><br></pre></td></tr></table></figure></p>
 <p>安装配置 zhcon</p>
-<p>目前 Debian 不能解决字符终端中文显示问题，必须安装 zhcon 工具来解决。详细方法见：字符终端中文显示输入工具zhcon</p>
-<pre><code>aptitude install zhcon #安装
-zhcon –utf8 –drv=vga #启动（ctrl + d 退出）
-vim /root/.’bash’rc
-添加 alias zhcon=’zhcon –utf8 –drv=vga’
-</code></pre><p>特别提醒！进入 zhcon 必须以 root 身份，或者 sudo 获得权限，否则进入的 zhcon 是中文乱码提示，即便 local 设置为 en_US.UTF-8。</p>
+<p>目前 Debian 不能解决字符终端中文显示问题，必须安装 zhcon 工具来解决。详细方法见：字符终端中文显示输入工具zhcon<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">aptitude install zhcon #安装</span><br><span class="line">zhcon –utf8 –<span class="attribute">drv</span>=vga #启动（ctrl + d 退出）</span><br><span class="line">vim /root/.’bash’rc</span><br><span class="line">添加 alias <span class="attribute">zhcon</span>=’zhcon –utf8 –<span class="attribute">drv</span>=vga’</span><br></pre></td></tr></table></figure></p>
+<p>特别提醒！进入 zhcon 必须以 root 身份，或者 sudo 获得权限，否则进入的 zhcon 是中文乱码提示，即便 local 设置为 en_US.UTF-8。</p>
 <p>在Ubuntu下打开fonts目录下的truetype文件夹，然后新建一个文件夹，命名为Windows-Fonts（名字随便)，然后把字体复制进来。当然你也可以Link双系统的Windows字体。</p>
-<p>再刷新字体缓存，命令如下，</p>
-<pre><code>＃ sudo mkfontscale
+<p>再刷新字体缓存，命令如下，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">＃ sudo mkfontscale</span><br><span class="line"></span><br><span class="line">＃ sudo mkfontdir</span><br><span class="line"></span><br><span class="line">＃ sudo <span class="built_in">fc</span>-cache -fv</span><br></pre></td></tr></table></figure></p>
 
-＃ sudo mkfontdir
-
-＃ sudo fc-cache -fv
-</code></pre>
       
     </div>
     

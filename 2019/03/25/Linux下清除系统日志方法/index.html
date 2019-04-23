@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
+<meta name="description" content="错误1rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下清除系统日志方法">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/Linux下清除系统日志方法/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
+<meta property="og:description" content="错误1rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T09:58:52.295Z">
+<meta property="og:updated_time" content="2019-04-23T02:24:43.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下清除系统日志方法">
-<meta name="twitter:description" content="错误 rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
+<meta name="twitter:description" content="错误1rm -f logfile 原因 应用已经打开文件句柄，直接删除会造成： 1.应用无法正确释放日志文件和写入 2.显示磁盘空间未释放">
 
 
 
@@ -304,37 +304,16 @@
       
 
       
-        <p>错误</p>
-<p>rm -f logfile</p>
+        <p>错误<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rm -f logfile</span></span><br></pre></td></tr></table></figure></p>
 <p>原因</p>
 <p>应用已经打开文件句柄，直接删除会造成：</p>
 <p>1.应用无法正确释放日志文件和写入</p>
 <p>2.显示磁盘空间未释放<br><a id="more"></a><br>正确</p>
-<p>Bash<br>cat /dev/null &gt; logfile<br>把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志</p>
-<pre><code>Bash
-!/bin/sh
-cat /dev/null &gt; /var/log/syslog
-cat /dev/null &gt; /var/adm/sylog
-cat /dev/null &gt; /var/log/wtmp
-cat /dev/null &gt; /var/log/maillog
-cat /dev/null &gt; /var/log/messages
-cat /dev/null &gt; /var/log/openwebmail.log
-cat /dev/null &gt; /var/log/maillog
-cat /dev/null &gt; /var/log/secure
-cat /dev/null &gt; /var/log/httpd/error_log
-cat /dev/null &gt; /var/log/httpd/ssl_error_log
-cat /dev/null &gt; /var/log/httpd/ssl_request_log
-cat /dev/null &gt; /var/log/httpd/ssl_access_log
-</code></pre><p>另外清理linux系统垃圾还有以下命令</p>
-<pre><code>Bash
-sudo apt-get autoclean
-</code></pre><p>清理旧版本的软件缓存</p>
-<pre><code>Bash
-sudo apt-get clean
-</code></pre><p> 清理所有软件缓存</p>
-<pre><code>Bash
-sudo apt-get autoremove
-</code></pre><p>删除系统不再使用的孤立软件</p>
+<p>Bash<br>cat /dev/null &gt; logfile<br>把一下代码保存为.sh后缀脚本来运行即可清除Linux系统日志<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Bash</span><br><span class="line">!<span class="regexp">/bin/</span>sh</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/syslog</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>adm/sylog</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/wtmp</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/maillog</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/messages</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/openwebmail.log</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/maillog</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log/secure</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log<span class="regexp">/httpd/</span>error_log</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log<span class="regexp">/httpd/</span>ssl_error_log</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log<span class="regexp">/httpd/</span>ssl_request_log</span><br><span class="line">cat <span class="regexp">/dev/</span><span class="literal">null</span> &gt; <span class="regexp">/var/</span>log<span class="regexp">/httpd/</span>ssl_access_log</span><br></pre></td></tr></table></figure></p>
+<p>另外清理linux系统垃圾还有以下命令<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Bash</span></span><br><span class="line"><span class="keyword">sudo </span>apt-<span class="meta">get</span> autoclean</span><br></pre></td></tr></table></figure></p>
+<p>清理旧版本的软件缓存<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Bash</span></span><br><span class="line"><span class="keyword">sudo </span>apt-<span class="meta">get</span> clean</span><br></pre></td></tr></table></figure></p>
+<p> 清理所有软件缓存<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Bash</span></span><br><span class="line"><span class="keyword">sudo </span>apt-<span class="meta">get</span> autoremove</span><br></pre></td></tr></table></figure></p>
+<p>删除系统不再使用的孤立软件</p>
 
       
     </div>

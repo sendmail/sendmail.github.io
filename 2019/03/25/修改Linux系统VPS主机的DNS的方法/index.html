@@ -86,14 +86,12 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。 所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg">
-<meta property="og:updated_time" content="2019-04-11T09:27:08.439Z">
+<meta property="og:updated_time" content="2019-04-23T02:01:10.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改Linux系统VPS主机的DNS的方法">
 <meta name="twitter:description" content="一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。 所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS">
-<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
+<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg">
 
 
 
@@ -310,28 +308,17 @@
       
         <p>一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。</p>
 <p>所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS的过程，一般我平时使用的时候也是用的临时修改方法，但为了确保以后不再麻烦更换，也可以采用永久更换。</p>
-<h4 id="第一、临时修改当前DNS"><a href="#第一、临时修改当前DNS" class="headerlink" title="第一、临时修改当前DNS"></a>第一、临时修改当前DNS</h4><p>代码如下:<br><a id="more"></a><br>    vi /etc/resolv.conf</p>
-<p>然后将默认的文件都修改成如下图所示。</p>
-<p><img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg" alt></p>
-<p>修改完毕之后，然后:wq保存退出，然后再执行我们需要的脚本安装应该没有多大问题。比如在阿里云、Linode上安装一些环境包的时候，不修改DNS还真安装不了。</p>
-<pre><code>第二、永久修改DNS方法
-</code></pre><p>使用上面的方法，如果我们重启VPS之后，会又是原来的默认DNS，如果我们需要永久的修改DNS，那如何操作呢?这里，老左拿CentOS系统测试。</p>
-<h4 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h4><p>代码如下:</p>
+<h4 id="第一、临时修改当前DNS"><a href="#第一、临时修改当前DNS" class="headerlink" title="第一、临时修改当前DNS"></a>第一、临时修改当前DNS</h4><p>代码如下:<br><a id="more"></a><br> <figure class="highlight plain"><figcaption><span>/etc/resolv.conf ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后将默认的文件都修改成如下图所示。</span><br><span class="line"></span><br><span class="line">![](修改Linux系统VPS主机的DNS的方法/1.jpg)</span><br><span class="line"></span><br><span class="line">修改完毕之后，然后:wq保存退出，然后再执行我们需要的脚本安装应该没有多大问题。比如在阿里云、Linode上安装一些环境包的时候，不修改DNS还真安装不了。</span><br><span class="line"></span><br><span class="line">#### 第二、永久修改DNS方法 ####</span><br><span class="line"></span><br><span class="line">使用上面的方法，如果我们重启VPS之后，会又是原来的默认DNS，如果我们需要永久的修改DNS，那如何操作呢?这里，拿CentOS系统测试。</span><br><span class="line"></span><br><span class="line">#### centos  ####</span><br><span class="line"></span><br><span class="line">代码如下:</span><br></pre></td></tr></table></figure></p>
 <pre><code>vi /etc/sysconfig/network-scripts/ifcfg-eth0
-</code></pre><p>在最后两行添加：</p>
-<p>代码如下:</p>
+</code></pre><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在最后两行添加：</span><br><span class="line"></span><br><span class="line"><span class="section">代码如下:</span></span><br></pre></td></tr></table></figure>
 <pre><code>DNS1=8.8.8.8
 
 DNS2=8.8.4.4
-</code></pre><p><img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg" alt></p>
-<p>修改保存退出之后，我们在重启VPS，会看到在/etc/resolv.conf文件中的DNS就是我们设置固定的DNS。</p>
-<h4 id="debian"><a href="#debian" class="headerlink" title="debian"></a>debian</h4><p>网上大部分的方法还是基于centos的，这里整理到debian发行版本的方法。</p>
-<p>代码如下:</p>
+</code></pre><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">![](修改Linux系统VPS主机的DNS的方法/<span class="number">2.</span>jpg)</span><br><span class="line"></span><br><span class="line">修改保存退出之后，我们在重启VPS，会看到在/etc/resolv.conf文件中的DNS就是我们设置固定的DNS。</span><br><span class="line"></span><br><span class="line"> #### debian ####</span><br><span class="line"></span><br><span class="line">网上大部分的方法还是基于centos的，这里整理到debian发行版本的方法。</span><br><span class="line"></span><br><span class="line">代码如下:</span><br></pre></td></tr></table></figure>
 <pre><code>vi /etc/dhcp/dhclient.conf
-</code></pre><p>然后在dhclient.conf最后一行添加</p>
-<p>代码如下:</p>
+</code></pre><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">然后在<span class="selector-tag">dhclient</span><span class="selector-class">.conf</span>最后一行添加</span><br><span class="line"></span><br><span class="line">代码如下:</span><br></pre></td></tr></table></figure>
 <pre><code>prepend domain-name-servers 8.8.8.8, 8.8.4.4;
-</code></pre><p>然后我们再保存退出。</p>
+</code></pre><p><code>`</code><br>然后我们再保存退出。</p>
 <p><img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg" alt></p>
 <p>总结，通过上面的方法，我们可以根据需要临时或者永久修改DNS，小伙伴们再也不用担心wget的时候出现连接不上的问题了。</p>
 
@@ -495,7 +482,7 @@ DNS2=8.8.4.4
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一、临时修改当前DNS"><span class="nav-number">1.</span> <span class="nav-text">第一、临时修改当前DNS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#centos"><span class="nav-number">2.</span> <span class="nav-text">centos</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#debian"><span class="nav-number">3.</span> <span class="nav-text">debian</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一、临时修改当前DNS"><span class="nav-number">1.</span> <span class="nav-text">第一、临时修改当前DNS</span></a></li></ol></div>
             
 
           </div>

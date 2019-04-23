@@ -86,14 +86,10 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="使用Hexo和github搭建博客，真是挺有趣的事情，因为对于我们来说，随便敲几行代码，就可以拥有一个非常漂亮的博客。 但在写作的过程中，使用Typora(一个markdown编辑器)插入图片的时候，非常不顺手。后来了解到用hexo-asset-image可以提升我的写作效率,,所以开始吧。 安装插件在nodejs里边安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/1.png">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/2.png">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/3.png">
-<meta property="og:updated_time" content="2019-04-11T09:52:27.530Z">
+<meta property="og:updated_time" content="2019-04-23T02:17:14.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装hexo-asset-image,不起作用的问题">
 <meta name="twitter:description" content="使用Hexo和github搭建博客，真是挺有趣的事情，因为对于我们来说，随便敲几行代码，就可以拥有一个非常漂亮的博客。 但在写作的过程中，使用Typora(一个markdown编辑器)插入图片的时候，非常不顺手。后来了解到用hexo-asset-image可以提升我的写作效率,,所以开始吧。 安装插件在nodejs里边安装">
-<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/26/安装hexo-asset-image-不起作用的问题/1.png">
 
 
 
@@ -309,17 +305,11 @@
 
       
         <p>使用Hexo和github搭建博客，真是挺有趣的事情，因为对于我们来说，随便敲几行代码，就可以拥有一个非常漂亮的博客。 但在写作的过程中，使用Typora(一个markdown编辑器)插入图片的时候，非常不顺手。后来了解到用hexo-asset-image可以提升我的写作效率,,所以开始吧。</p>
-<p>安装插件<br>在nodejs里边安装<br><a id="more"></a><br>    npm install hexo-asset-image –save</p>
-<img src="/2019/03/26/安装hexo-asset-image-不起作用的问题/1.png" title="image">
-<p>把在hexo根目下的_config.yml设置</p>
+<p>安装插件<br>在nodejs里边安装<br><a id="more"></a><br><figure class="highlight plain"><figcaption><span>install hexo-asset-image --save</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">&#123;% asset_img 1.png image %&#125;</span><br><span class="line"></span><br><span class="line">把在hexo根目下的_config.yml设置</span><br></pre></td></tr></table></figure></p>
 <pre><code>post_asset_folder: true
-</code></pre><p>新建文章<br>安装完了之后，新建一篇名为test-img的文章</p>
-<p>hexo new [layout] test-img<br><img src="/2019/03/26/安装hexo-asset-image-不起作用的问题/2.png" title="image"></p>
-<p>现在可以看到source/_posts里边，除了有test-img.md，还多一个文件夹 test-img</p>
-<img src="/2019/03/26/安装hexo-asset-image-不起作用的问题/3.png" title="image">
-<p>在里边我放一张名为me.jpg的图片, 插入图片的时候，输入</p>
-<p><code>![](test-img/me.jpg)</code></p>
-<p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：<br> 这里还有代码，代码不显示。<br>    </p>
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">新建文章</span><br><span class="line">安装完了之后，新建一篇名为<span class="built_in">test</span>-img的文章</span><br></pre></td></tr></table></figure>
+<p>hexo new [layout] test-img<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img <span class="number">2.</span>png <span class="keyword">image</span> %&#125;</span><br><span class="line"></span><br><span class="line">现在可以看到<span class="keyword">source</span>/_posts里边，除了有test-img.md，还多一个文件夹 test-img</span><br><span class="line"></span><br><span class="line">&#123;% asset_img <span class="number">3.</span>png <span class="keyword">image</span> %&#125;</span><br><span class="line"></span><br><span class="line">在里边我放一张名为me.jpg的图片, 插入图片的时候，输入</span><br><span class="line"></span><br><span class="line"><span class="string">``</span><span class="string">` ![](test-img/me.jpg)</span></span><br></pre></td></tr></table></figure></p>
+<p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：<br> 这里还有代码，代码不显示。<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="symbol">%</span> asset_img <span class="built_in">example</span>.jpg This <span class="built_in">is</span> an <span class="built_in">example</span> <span class="built_in">image</span> <span class="symbol">%</span>&#125;</span><br></pre></td></tr></table></figure></p>
 <p>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
 
       

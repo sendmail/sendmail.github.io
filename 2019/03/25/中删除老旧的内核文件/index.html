@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="在Ubuntu内核镜像包含了以下的包。linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
+<meta name="description" content="在Ubuntu内核镜像包含了以下的包。12345linux-image-: 内核镜像linux-image-extra-: 额外的内核模块linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="删除老旧的内核文件">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/中删除老旧的内核文件/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="在Ubuntu内核镜像包含了以下的包。linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
+<meta property="og:description" content="在Ubuntu内核镜像包含了以下的包。12345linux-image-: 内核镜像linux-image-extra-: 额外的内核模块linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T08:50:22.797Z">
+<meta property="og:updated_time" content="2019-04-23T02:01:16.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="删除老旧的内核文件">
-<meta name="twitter:description" content="在Ubuntu内核镜像包含了以下的包。linux-image-: 内核镜像  linux-image-extra-: 额外的内核模块  linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
+<meta name="twitter:description" content="在Ubuntu内核镜像包含了以下的包。12345linux-image-: 内核镜像linux-image-extra-: 额外的内核模块linux-headers-: 内核头文件 首先检查系统中安装的内核镜像。">
 
 
 
@@ -304,17 +304,11 @@
       
 
       
-        <h4 id="在Ubuntu内核镜像包含了以下的包。"><a href="#在Ubuntu内核镜像包含了以下的包。" class="headerlink" title="在Ubuntu内核镜像包含了以下的包。"></a>在Ubuntu内核镜像包含了以下的包。</h4><pre><code>linux-image-: 内核镜像
-
-linux-image-extra-: 额外的内核模块
-
-linux-headers-: 内核头文件
-</code></pre><h4 id="首先检查系统中安装的内核镜像。"><a href="#首先检查系统中安装的内核镜像。" class="headerlink" title="首先检查系统中安装的内核镜像。"></a>首先检查系统中安装的内核镜像。</h4><a id="more"></a>
-<pre><code>dpkg --list|grep linux-image
-dpkg --list|grep linux-headers
-</code></pre><h4 id="在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。"><a href="#在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。" class="headerlink" title="在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。"></a>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</h4><pre><code>apt-get purge linux-image-3.19.0-15
-apt-get purge linux-headers-3.19.0-15
-</code></pre><p>上面的命令会删除内核镜像和它相关联的内核模块和头文件。</p>
+        <h4 id="在Ubuntu内核镜像包含了以下的包。"><a href="#在Ubuntu内核镜像包含了以下的包。" class="headerlink" title="在Ubuntu内核镜像包含了以下的包。"></a>在Ubuntu内核镜像包含了以下的包。</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">linux-image-</span>: 内核镜像</span><br><span class="line"></span><br><span class="line"><span class="attribute">linux-image-extra-</span>: 额外的内核模块</span><br><span class="line"></span><br><span class="line"><span class="attribute">linux-headers-</span>: 内核头文件</span><br></pre></td></tr></table></figure>
+<h4 id="首先检查系统中安装的内核镜像。"><a href="#首先检查系统中安装的内核镜像。" class="headerlink" title="首先检查系统中安装的内核镜像。"></a>首先检查系统中安装的内核镜像。</h4><a id="more"></a>
+<figure class="highlight plain"><figcaption><span>--list|grep linux-image</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --list|grep linux-headers</span><br></pre></td></tr></table></figure>
+<h4 id="在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。"><a href="#在列出的内核镜像中，你可以移除一个特定的版本（比如3-19-0-15）。" class="headerlink" title="在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。"></a>在列出的内核镜像中，你可以移除一个特定的版本（比如3.19.0-15）。</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get purge linux-image<span class="number">-3.19</span><span class="number">.0</span><span class="number">-15</span></span><br><span class="line">apt-get purge linux-headers<span class="number">-3.19</span><span class="number">.0</span><span class="number">-15</span></span><br></pre></td></tr></table></figure>
+<p>上面的命令会删除内核镜像和它相关联的内核模块和头文件。</p>
 
       
     </div>

@@ -801,12 +801,8 @@
 
       
         
-          <h4 id="在Ubuntu内核镜像包含了以下的包。"><a href="#在Ubuntu内核镜像包含了以下的包。" class="headerlink" title="在Ubuntu内核镜像包含了以下的包。"></a>在Ubuntu内核镜像包含了以下的包。</h4><pre><code>linux-image-: 内核镜像
-
-linux-image-extra-: 额外的内核模块
-
-linux-headers-: 内核头文件
-</code></pre><h4 id="首先检查系统中安装的内核镜像。"><a href="#首先检查系统中安装的内核镜像。" class="headerlink" title="首先检查系统中安装的内核镜像。"></a>首先检查系统中安装的内核镜像。</h4>
+          <h4 id="在Ubuntu内核镜像包含了以下的包。"><a href="#在Ubuntu内核镜像包含了以下的包。" class="headerlink" title="在Ubuntu内核镜像包含了以下的包。"></a>在Ubuntu内核镜像包含了以下的包。</h4><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">linux-image-</span>: 内核镜像</span><br><span class="line"></span><br><span class="line"><span class="attribute">linux-image-extra-</span>: 额外的内核模块</span><br><span class="line"></span><br><span class="line"><span class="attribute">linux-headers-</span>: 内核头文件</span><br></pre></td></tr></table></figure>
+<h4 id="首先检查系统中安装的内核镜像。"><a href="#首先检查系统中安装的内核镜像。" class="headerlink" title="首先检查系统中安装的内核镜像。"></a>首先检查系统中安装的内核镜像。</h4>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/中删除老旧的内核文件/#more" rel="contents">
@@ -930,11 +926,7 @@ linux-headers-: 内核头文件
 
       
         
-          <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.</p>
-<p><code>Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
-ERROR: The certificate of ‘raw.githubusercontent.com’ is not trusted.
-ERROR: The certificate of ‘raw.githubusercontent.com’ hasn&#39;t got a known issuer</code></p>
+          <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...</span><br><span class="line">Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.</span><br><span class="line"><span class="keyword">ERROR: </span>The certificate of ‘raw.githubusercontent.com’ is not trusted.</span><br><span class="line"><span class="keyword">ERROR: </span>The certificate of ‘raw.githubusercontent.com’ hasn't got a known issuer</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/wget下载脚本的时候出现错误/#more" rel="contents">
@@ -1059,11 +1051,8 @@ ERROR: The certificate of ‘raw.githubusercontent.com’ hasn&#39;t got a known
       
         
           
-            <h4 id="自动加载配置文件夹内除config-obfs-json的配置文件"><a href="#自动加载配置文件夹内除config-obfs-json的配置文件" class="headerlink" title="自动加载配置文件夹内除config-obfs.json的配置文件."></a>自动加载配置文件夹内除config-obfs.json的配置文件.</h4><p>如需新建一个用户,直接创建一个 config_NAME.json 文件即可.(NAME自行替换)</p>
-<pre><code>一键安装:wget --no-check-certificate -qO- &apos;https://moeclub.github.io/ss/install.sh&apos; |bash
-
-多进程:wget --no-check-certificate -qO- &apos;https://moeclub.org/attachment/LinuxShell/multi-for-libev.sh&apos; |bash
-</code></pre><p>文章转自：<a href="https://moeclub.org/2018/02/19/570/" target="_blank" rel="noopener">https://moeclub.org/2018/02/19/570/</a></p>
+            <h4 id="自动加载配置文件夹内除config-obfs-json的配置文件"><a href="#自动加载配置文件夹内除config-obfs-json的配置文件" class="headerlink" title="自动加载配置文件夹内除config-obfs.json的配置文件."></a>自动加载配置文件夹内除config-obfs.json的配置文件.</h4><p>如需新建一个用户,直接创建一个 config_NAME.json 文件即可.(NAME自行替换)<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一键安装:wget --no-check-certificate -qO- 'https://moeclub.github.io/ss/install.sh' <span class="string">|bash</span></span><br><span class="line"></span><br><span class="line">多进程:wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/multi-for-libev.sh' <span class="string">|bash</span></span><br></pre></td></tr></table></figure></p>
+<p>文章转自：<a href="https://moeclub.org/2018/02/19/570/" target="_blank" rel="noopener">https://moeclub.org/2018/02/19/570/</a></p>
 
           
         
@@ -1182,7 +1171,8 @@ ERROR: The certificate of ‘raw.githubusercontent.com’ hasn&#39;t got a known
 
       
         
-          <h4 id="第一种-手动释放-不想用脚本的-自己折腾的用户"><a href="#第一种-手动释放-不想用脚本的-自己折腾的用户" class="headerlink" title="第一种:手动释放,不想用脚本的,自己折腾的用户"></a>第一种:手动释放,不想用脚本的,自己折腾的用户</h4><p><code>free -m</code>/查看当前可用内存/<br>    cat /proc/sys/vm/drop_caches<br>/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的 i-node、已延迟的块 I/O 和读写映射文件/</p>
+          <h4 id="第一种-手动释放-不想用脚本的-自己折腾的用户"><a href="#第一种-手动释放-不想用脚本的-自己折腾的用户" class="headerlink" title="第一种:手动释放,不想用脚本的,自己折腾的用户"></a>第一种:手动释放,不想用脚本的,自己折腾的用户</h4><figure class="highlight plain"><figcaption><span>-m ```/查看当前可用内存/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">``` cat /proc/sys/vm/drop_caches</span><br></pre></td></tr></table></figure>
+<p>/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的 i-node、已延迟的块 I/O 和读写映射文件/</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/自动释放内存脚本-小内存VPS的福音/#more" rel="contents">
@@ -1431,8 +1421,7 @@ ERROR: The certificate of ‘raw.githubusercontent.com’ hasn&#39;t got a known
 
       
         
-          <p>错误</p>
-<p>rm -f logfile</p>
+          <p>错误<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rm -f logfile</span></span><br></pre></td></tr></table></figure></p>
 <p>原因</p>
 <p>应用已经打开文件句柄，直接删除会造成：</p>
 <p>1.应用无法正确释放日志文件和写入</p>

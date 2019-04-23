@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="第一种:手动释放,不想用脚本的,自己折腾的用户free -m/查看当前可用内存/    cat /proc/sys/vm/drop_caches/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的">
+<meta name="description" content="第一种:手动释放,不想用脚本的,自己折腾的用户-m ```/查看当前可用内存/1``` cat /proc/sys/vm/drop_caches /proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动释放内存脚本.小内存VPS的福音">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/自动释放内存脚本-小内存VPS的福音/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="第一种:手动释放,不想用脚本的,自己折腾的用户free -m/查看当前可用内存/    cat /proc/sys/vm/drop_caches/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的">
+<meta property="og:description" content="第一种:手动释放,不想用脚本的,自己折腾的用户-m ```/查看当前可用内存/1``` cat /proc/sys/vm/drop_caches /proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T08:49:14.696Z">
+<meta property="og:updated_time" content="2019-04-23T02:01:16.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自动释放内存脚本.小内存VPS的福音">
-<meta name="twitter:description" content="第一种:手动释放,不想用脚本的,自己折腾的用户free -m/查看当前可用内存/    cat /proc/sys/vm/drop_caches/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的">
+<meta name="twitter:description" content="第一种:手动释放,不想用脚本的,自己折腾的用户-m ```/查看当前可用内存/1``` cat /proc/sys/vm/drop_caches /proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的">
 
 
 
@@ -304,29 +304,21 @@
       
 
       
-        <h4 id="第一种-手动释放-不想用脚本的-自己折腾的用户"><a href="#第一种-手动释放-不想用脚本的-自己折腾的用户" class="headerlink" title="第一种:手动释放,不想用脚本的,自己折腾的用户"></a>第一种:手动释放,不想用脚本的,自己折腾的用户</h4><p><code>free -m</code>/查看当前可用内存/<br>    cat /proc/sys/vm/drop_caches<br>/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的 i-node、已延迟的块 I/O 和读写映射文件/</p>
+        <h4 id="第一种-手动释放-不想用脚本的-自己折腾的用户"><a href="#第一种-手动释放-不想用脚本的-自己折腾的用户" class="headerlink" title="第一种:手动释放,不想用脚本的,自己折腾的用户"></a>第一种:手动释放,不想用脚本的,自己折腾的用户</h4><figure class="highlight plain"><figcaption><span>-m ```/查看当前可用内存/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">``` cat /proc/sys/vm/drop_caches</span><br></pre></td></tr></table></figure>
+<p>/proc是一个虚拟文件系统,可以通过修改/proc中的文件，来对当前kernel的行为做出调整,cat命令只是显示当前释放内存等级,一共三级.也就是数字3,等级最高..释放最彻底/sync /sync 命令将所有未写的系统缓冲区写到磁盘中，包含已修改的 i-node、已延迟的块 I/O 和读写映射文件/</p>
 <a id="more"></a>
-<pre><code>echo 3 &amp;gt; /proc/sys/vm/drop_caches
-</code></pre><p>呐,数字3的含义在此了,释放pagecache, dentries and inodes这三个家伙/</p>
-<pre><code>cat /proc/sys/vm/drop_caches
-</code></pre><p>同上,查看是否修改正确啦,返回一个3,证明成功啦/</p>
-<pre><code>free -m
+<figure class="highlight plain"><figcaption><span>3 &gt;</span><a href="/proc/sys/vm/drop_caches```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">呐,数字3的含义在此了,释放pagecache, dentries and inodes这三个家伙/</span><br></pre></td></tr></table></figure>
+<pre><code>cat /proc/sys/vm/drop_caches<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同上,查看是否修改正确啦,返回一个<span class="number">3</span>,证明成功啦/</span><br><span class="line"></span><br><span class="line">```free -m</span><br></pre></td></tr></table></figure>
 </code></pre><p>查看下可用内存是不是增加了不少/<br>到这就结束了,只是敲了几个命令..重启后就该怎样还怎样了..需要开机或者定时释放内存的请往下看喽..</p>
-<h4 id="第二种脚本释放方法-定时清理内存"><a href="#第二种脚本释放方法-定时清理内存" class="headerlink" title="第二种脚本释放方法,定时清理内存"></a>第二种脚本释放方法,定时清理内存</h4><pre><code>vi /home/sh/god.sh
-</code></pre><hr>
-<p>#!/bin/bash<br>used=<code>free -m | awk &#39;NR==2&#39; | awk &#39;{print $3}&#39;</code><br>free=<code>free -m | awk &#39;NR==2&#39; | awk &#39;{print $4}&#39;</code><br>echo “===========================” &gt;&gt; /var/log/mem.log<br>date &gt;&gt; /var/log/mem.log<br>echo “Memory usage | [Use：${used}MB][Free：${free}MB]” &gt;&gt; /var/log/mem.log<br>if [ $free -le 100 ] ; then<br>sync &amp;&amp; echo 1 &gt; /proc/sys/vm/drop_caches<br>sync &amp;&amp; echo 2 &gt; /proc/sys/vm/drop_caches<br>sync &amp;&amp; echo 3 &gt; /proc/sys/vm/drop_caches<br>echo “OK” &gt;&gt; /var/log/mem.log<br>else<br>echo “Not required” &gt;&gt; /var/log/mem.log<br>fi</p>
-<hr>
+<h4 id="第二种脚本释放方法-定时清理内存"><a href="#第二种脚本释放方法-定时清理内存" class="headerlink" title="第二种脚本释放方法,定时清理内存"></a>第二种脚本释放方法,定时清理内存</h4><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    vi /home/sh/god.sh</span><br><span class="line"><span class="comment">****************************************************</span></span><br><span class="line">#!/bin/bash </span><br><span class="line">used=`<span class="keyword">free</span> -m | awk <span class="string">'NR==2'</span> | awk <span class="string">'&#123;print $3&#125;'</span>`</span><br><span class="line"><span class="keyword">free</span>=`<span class="keyword">free</span> -m | awk <span class="string">'NR==2'</span> | awk <span class="string">'&#123;print $4&#125;'</span>` </span><br><span class="line">echo <span class="string">"==========================="</span> &amp;<span class="keyword">gt</span>;&amp;<span class="keyword">gt</span>; /var/<span class="built-in">log</span>/mem.<span class="built-in">log</span></span><br><span class="line">date &amp;<span class="keyword">gt</span>;&amp;<span class="keyword">gt</span>; /var/<span class="built-in">log</span>/mem.<span class="built-in">log</span></span><br><span class="line">echo <span class="string">"Memory usage | [Use：$&#123;used&#125;MB][Free：$&#123;free&#125;MB]"</span> &amp;<span class="keyword">gt</span>;&amp;<span class="keyword">gt</span>; /var/<span class="built-in">log</span>/mem.<span class="built-in">log</span> </span><br><span class="line"><span class="keyword">if</span> [ <span class="symbol">$</span><span class="keyword">free</span> -<span class="keyword">le</span> <span class="number">100</span> ] ; <span class="keyword">then</span></span><br><span class="line">sync &amp;amp;&amp;amp; echo <span class="number">1</span> &amp;<span class="keyword">gt</span>; /proc/sys/vm/drop_caches</span><br><span class="line">sync &amp;amp;&amp;amp; echo <span class="number">2</span> &amp;<span class="keyword">gt</span>; /proc/sys/vm/drop_caches</span><br><span class="line">sync &amp;amp;&amp;amp; echo <span class="number">3</span> &amp;<span class="keyword">gt</span>; /proc/sys/vm/drop_caches</span><br><span class="line">echo <span class="string">"OK"</span> &amp;<span class="keyword">gt</span>;&amp;<span class="keyword">gt</span>; /var/<span class="built-in">log</span>/mem.<span class="built-in">log</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">echo <span class="string">"Not required"</span> &amp;<span class="keyword">gt</span>;&amp;<span class="keyword">gt</span>; /var/<span class="built-in">log</span>/mem.<span class="built-in">log</span></span><br><span class="line">fi</span><br><span class="line"><span class="comment">****************************************************</span></span><br></pre></td></tr></table></figure>
 <p>以上星号间的复制进去…然后保存..VI命令应该都会的吧.不行就WINSCP自己按路径建立也可以.</p>
 <p>继续敲命令</p>
-<pre><code>chmod +x /home/sh/god.sh
-</code></pre><p>(这行是为了避免有些人执行的时候提示权限不足,permin dennied类似这种错误提示.有报错就加.没有可不用)</p>
-<pre><code>crontab -e
-</code></pre><p>/也许有人会在/etc/crontab里改,但试过后发现开机并没有效果…这个有些VPS可能没有预装..自己安装先./<br>最后一行加入</p>
-<pre><code>/1 * * * * /home/sh/god.sh /*
-</code></pre><p>意思是每一分钟执行下脚本清理下内存,自行设置间隔,具体用法自行谷歌啦,嫌麻烦斜杠后面的1改0~59之间的数字即可/<br>完毕,reboot重启…然后等个1分钟后..free -m查看下即可..记得对比下.小内存的特别明显..没有优化前,群主我的used行,free只有6,cache到是很多..但锐速就是提示不能分配嘛..有啥办法捏..用此脚本一劳永逸..128M也能在锐速界横着走了好嘛</p>
-<h4 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h4><p>前面都一样,只不过脚本内容变了…<br>改为</p>
-<pre><code>free -m |grep -i mem |awk &apos;{if($4 &amp;lt; 100){ printf(&quot;3&quot;) &amp;gt; &quot;/proc/sys/vm/drop_caches&quot;}}&apos;;
-</code></pre><p>含义是,先用free -m查看可用内存,如果可用小于100M(聪明的同学看粗来了,数字100可以自行更改呦),则执行清理操作.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /home/<span class="keyword">sh</span>/god.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+<p>(这行是为了避免有些人执行的时候提示权限不足,permin dennied类似这种错误提示.有报错就加.没有可不用)<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">crontab -e</span></span><br></pre></td></tr></table></figure></p>
+<p>/也许有人会在/etc/crontab里改,但试过后发现开机并没有效果…这个有些VPS可能没有预装..自己安装先./<br>最后一行加入<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/1 * * * * /</span>home<span class="regexp">/sh/g</span>od.sh <span class="regexp">/*</span></span><br></pre></td></tr></table></figure></p>
+<p>意思是每一分钟执行下脚本清理下内存,自行设置间隔,具体用法自行谷歌啦,嫌麻烦斜杠后面的1改0~59之间的数字即可/<br>完毕,reboot重启…然后等个1分钟后..free -m查看下即可..记得对比下.小内存的特别明显..没有优化前,群主我的used行,free只有6,cache到是很多..但锐速就是提示不能分配嘛..有啥办法捏..用此脚本一劳永逸..128M也能在锐速界横着走了好嘛</p>
+<h4 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h4><p>前面都一样,只不过脚本内容变了…<br>改为<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m |<span class="type">grep</span> -i mem |<span class="type">awk</span> '&#123;<span class="keyword">if</span>($<span class="number">4</span> &amp;lt; <span class="number">100</span>)&#123; printf(<span class="string">"3"</span>) &amp;gt; <span class="string">"/proc/sys/vm/drop_caches"</span>&#125;&#125;';</span><br></pre></td></tr></table></figure></p>
+<p>含义是,先用free -m查看可用内存,如果可用小于100M(聪明的同学看粗来了,数字100可以自行更改呦),则执行清理操作.</p>
 
       
     </div>

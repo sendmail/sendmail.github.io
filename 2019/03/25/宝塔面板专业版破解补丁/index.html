@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1、安装面板免费板安装命令yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
+<meta name="description" content="1、安装面板免费板安装命令1yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="宝塔面板专业版破解补丁">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/宝塔面板专业版破解补丁/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="1、安装面板免费板安装命令yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
+<meta property="og:description" content="1、安装面板免费板安装命令1yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-11T09:51:43.689Z">
+<meta property="og:updated_time" content="2019-04-23T02:16:39.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="宝塔面板专业版破解补丁">
-<meta name="twitter:description" content="1、安装面板免费板安装命令yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
+<meta name="twitter:description" content="1、安装面板免费板安装命令1yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;amp;&amp;amp; sh install.sh">
 
 
 
@@ -304,15 +304,15 @@
       
 
       
-        <p>1、安装面板免费板<br>安装命令<code>yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; sh install.sh</code><br><a id="more"></a><br>2、升级专业版<br>    wget -O update.sh <a href="http://download.bt.cn/install/update_pro.sh" target="_blank" rel="noopener">http://download.bt.cn/install/update_pro.sh</a> &amp;&amp; bash update.sh pro</p>
+        <p>1、安装面板免费板<br>安装命令<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y wget &amp;&amp; wget -O <span class="keyword">install</span>.sh http://download.bt.cn/<span class="keyword">install</span>/<span class="keyword">install</span>.sh &amp;&amp; sh <span class="keyword">install</span>.sh</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2、升级专业版<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O <span class="keyword">update</span>.<span class="keyword">sh</span> http://download.bt.<span class="keyword">cn</span>/install/update_pro.<span class="keyword">sh</span> &amp;&amp; bash <span class="keyword">update</span>.<span class="keyword">sh</span> <span class="keyword">pro</span></span><br></pre></td></tr></table></figure></p>
 <p>3、找到路径/www/server/panel/class 找到文件名或者直接搜索：common.py</p>
-<p>搜索代码164行</p>
-<pre><code>data = panelAuth().get_order_status(None)
-</code></pre><p>替换下面<br>    data = {‘status’ : True,’msg’ : {‘endtime’ : 32503651199}};</p>
+<p>搜索代码164行<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">data</span> = panelAuth().get_order_status(<span class="type">None</span>)</span></span><br><span class="line">替换下面</span><br><span class="line">    <span class="class"><span class="keyword">data</span> = &#123;'<span class="title">status'</span> : <span class="type">True</span>,'<span class="title">msg'</span> : &#123;'<span class="title">endtime'</span> : 32503651199&#125;&#125;;</span></span><br></pre></td></tr></table></figure></p>
 <p>4、完成后，进入 /www/server/panel/data 新建一个文件 文件名为：userInfo.json 内容空的，如果存在这个文件的删掉重新新建文件。</p>
-<p>5、最后输入命令 <code>/etc/init.d/bt restart</code> 重启宝塔</p>
-<h4 id="查看当前面板端口"><a href="#查看当前面板端口" class="headerlink" title="查看当前面板端口"></a>查看当前面板端口</h4><pre><code>cat /www/server/panel/data/port.pl
-</code></pre><p>修改面板端口，如要改成8881（centos 6 系统）</p>
+<p>5、最后输入命令<br><figure class="highlight plain"><figcaption><span>restart</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"> 重启宝塔</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 查看当前面板端口 ####</span><br></pre></td></tr></table></figure></p>
+<pre><code>cat /www/server/panel/data/port.pl
+</code></pre><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改面板端口，如要改成<span class="number">8881</span>（centos <span class="number">6</span> 系统）</span><br></pre></td></tr></table></figure>
 <pre><code>echo &apos;8881&apos; &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart
 
 iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 8881 -j ACCEPT
@@ -320,52 +320,55 @@ iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 8881 -j ACCEPT
 service iptables save
 
 service iptables restart
-</code></pre><p>修改面板端口，如要改成8881（centos 7 系统）</p>
+</code></pre><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改面板端口，如要改成<span class="number">8881</span>（centos <span class="number">7</span> 系统）</span><br></pre></td></tr></table></figure>
 <pre><code>echo &apos;8881&apos; &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart
 firewall-cmd --permanent --zone=public --add-port=8881/tcp
 firewall-cmd --reload
-</code></pre><p>强制修改MySQL管理(root)密码，如要改成123456</p>
+</code></pre><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">强制修改MySQL管理<span class="comment">(root)</span>密码，如要改成<span class="number">123456</span></span><br></pre></td></tr></table></figure>
 <pre><code>cd /www/server/panel &amp;&amp; python tools.pyc root 123456
-</code></pre><p>修改面板密码，如要改成123456</p>
+</code></pre><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改面板密码，如要改成<span class="number">123456</span></span><br></pre></td></tr></table></figure>
 <pre><code>cd /www/server/panel &amp;&amp; python tools.pyc panel 123456
-</code></pre><p>查看宝塔日志</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看宝塔日志</span><br></pre></td></tr></table></figure>
 <pre><code>cat /tmp/panelBoot.pl
-</code></pre><p>查看软件安装日志</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看软件安装日志</span><br></pre></td></tr></table></figure>
 <pre><code>cat /tmp/panelExec.log
-</code></pre><p>站点配置文件位置</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点配置文件位置</span><br></pre></td></tr></table></figure>
 <pre><code>/www/server/panel/vhost
-</code></pre><p>删除域名绑定面板</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除域名绑定面板</span><br></pre></td></tr></table></figure>
 <pre><code>rm -f /www/server/panel/data/domain.conf
-</code></pre><p>清理登陆限制</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">清理登陆限制</span><br></pre></td></tr></table></figure>
 <pre><code>rm -f /www/server/panel/data/*.login
-</code></pre><p>查看面板授权IP</p>
+</code></pre><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看面板授权<span class="built_in">IP</span></span><br></pre></td></tr></table></figure>
 <pre><code>cat /www/server/panel/data/limitip.conf
-</code></pre><p>关闭访问限制</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭访问限制</span><br></pre></td></tr></table></figure>
 <pre><code>rm -f /www/server/panel/data/limitip.conf
-</code></pre><p>查看许可域名</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看许可域名</span><br></pre></td></tr></table></figure>
 <pre><code>cat /www/server/panel/data/domain.conf
-</code></pre><p>关闭面板SSL</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭面板SSL</span><br></pre></td></tr></table></figure>
 <pre><code>rm -f /www/server/panel/data/ssl.pl &amp;&amp; /etc/init.d/bt restart
-</code></pre><p>查看面板错误日志</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看面板错误日志</span><br></pre></td></tr></table></figure>
 <pre><code>cat /tmp/panelBoot
-</code></pre><p>查看数据库错误日志</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看数据库错误日志</span><br></pre></td></tr></table></figure>
 <pre><code>cat /www/server/data/*.err
-</code></pre><p>站点配置文件目录(nginx)</p>
+</code></pre><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点配置文件目录<span class="comment">(nginx)</span></span><br></pre></td></tr></table></figure>
 <pre><code>/www/server/panel/vhost/nginx
-</code></pre><p>站点配置文件目录(apache)</p>
+</code></pre><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点配置文件目录<span class="comment">(apache)</span></span><br></pre></td></tr></table></figure>
 <pre><code>/www/server/panel/vhost/apache
-</code></pre><p>站点默认目录</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点默认目录</span><br></pre></td></tr></table></figure>
 <pre><code>/www/wwwroot
-</code></pre><p>数据库备份目录</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库备份目录</span><br></pre></td></tr></table></figure>
 <pre><code>/www/backup/database
-</code></pre><p>站点备份目录</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点备份目录</span><br></pre></td></tr></table></figure>
 <pre><code>/www/backup/site
-</code></pre><p>站点日志</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">站点日志</span><br></pre></td></tr></table></figure>
 <pre><code>/www/wwwlogs
-</code></pre><p>nginx配置文件<br>    /www/server/nginx/conf/nginx.conf<br>手动更新let证书</p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nginx配置文件</span><br></pre></td></tr></table></figure>
+<pre><code>/www/server/nginx/conf/nginx.conf
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">手动更新<span class="built_in">let</span>证书</span><br></pre></td></tr></table></figure>
 <pre><code>&quot;/root/.acme.sh&quot;/acme.sh --cron --home &quot;/root/.acme.sh&quot;
-</code></pre><p>强制更新所有let证书<br>    “/root/.acme.sh”/acme.sh –cron –home “/root/.acme.sh” –force</p>
-<h4 id="Redis服务管理"><a href="#Redis服务管理" class="headerlink" title="Redis服务管理"></a>Redis服务管理</h4><p> ####redis安装目录 ####</p>
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">强制更新所有<span class="built_in">let</span>证书</span><br></pre></td></tr></table></figure>
+<pre><code>&quot;/root/.acme.sh&quot;/acme.sh --cron --home &quot;/root/.acme.sh&quot; --force
+</code></pre><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### Redis服务管理</span><br><span class="line"> ####redis安装目录 ####</span><br></pre></td></tr></table></figure>
 <pre><code>/www/server/redis
 启动
 
@@ -392,7 +395,8 @@ memcached安装目录
 启载
 
 /etc/init.d/memcached reload
-</code></pre>
+</code></pre><p><code>`</code></p>
+
       
     </div>
     
@@ -480,17 +484,8 @@ memcached安装目录
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -543,22 +538,6 @@ memcached安装目录
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看当前面板端口"><span class="nav-number">1.</span> <span class="nav-text">查看当前面板端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis服务管理"><span class="nav-number">2.</span> <span class="nav-text">Redis服务管理</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
