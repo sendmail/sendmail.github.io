@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="手动BBR,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="个人感觉手动的要比自动脚本的好，可能是心里原因。 安装系统要求：Debian/Ubuntu系统，内核版本v4.9.3-v4.12.x。得安装gcc，Makefile默认只支持gcc 6，你可以修改它（例如）gcc-4.9。 1、更换内核并开启BBR这里手动安装，方法从BBR刚出来时就在博客说过，这里再说一次。内核下载地址：http://kernel.ubuntu.com/~kernel-ppa/m">
+<meta name="keywords" content="手动BBR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian&#x2F;Ubuntu手动开启超级暴力版魔改BBR教程">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/05/03/Debian-Ubuntu手动开启超级暴力版魔改BBR教程/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="个人感觉手动的要比自动脚本的好，可能是心里原因。 安装系统要求：Debian/Ubuntu系统，内核版本v4.9.3-v4.12.x。得安装gcc，Makefile默认只支持gcc 6，你可以修改它（例如）gcc-4.9。 1、更换内核并开启BBR这里手动安装，方法从BBR刚出来时就在博客说过，这里再说一次。内核下载地址：http://kernel.ubuntu.com/~kernel-ppa/m">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-03T00:37:37.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Debian&#x2F;Ubuntu手动开启超级暴力版魔改BBR教程">
+<meta name="twitter:description" content="个人感觉手动的要比自动脚本的好，可能是心里原因。 安装系统要求：Debian/Ubuntu系统，内核版本v4.9.3-v4.12.x。得安装gcc，Makefile默认只支持gcc 6，你可以修改它（例如）gcc-4.9。 1、更换内核并开启BBR这里手动安装，方法从BBR刚出来时就在博客说过，这里再说一次。内核下载地址：http://kernel.ubuntu.com/~kernel-ppa/m">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/05/03/Debian-Ubuntu手动开启超级暴力版魔改BBR教程/">
+
+
+
+
+
+  <title>Debian/Ubuntu手动开启超级暴力版魔改BBR教程 | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/05/03/Debian-Ubuntu手动开启超级暴力版魔改BBR教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Debian/Ubuntu手动开启超级暴力版魔改BBR教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-03T08:31:16+08:00">
+                2019-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>个人感觉手动的要比自动脚本的好，可能是心里原因。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>系统要求：Debian/Ubuntu系统，内核版本v4.9.3-v4.12.x。得安装gcc，Makefile默认只支持gcc 6，你可以修改它（例如）gcc-4.9。</p>
+<p>1、更换内核并开启BBR<br>这里手动安装，方法从BBR刚出来时就在博客说过，这里再说一次。内核下载地址：<a href="http://kernel.ubuntu.com/~kernel-ppa/mainline/。且魔改BBR需要3个内核linux-image、linux-headers-all、linux-headers-$bit，这里以v4.10.1为例。" target="_blank" rel="noopener">http://kernel.ubuntu.com/~kernel-ppa/mainline/。且魔改BBR需要3个内核linux-image、linux-headers-all、linux-headers-$bit，这里以v4.10.1为例。</a><br><a id="more"></a><br>内核下载<br><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#<span class="number">64</span>位系统</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4<span class="meta">.10</span><span class="meta">.1</span>/linux-headers-<span class="number">4.10</span><span class="meta">.1</span>-<span class="number">041001</span>-generic_4<span class="meta">.10</span><span class="meta">.1</span>-<span class="number">041001.</span>201702260735_amd64.deb</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4<span class="meta">.10</span><span class="meta">.1</span>/linux-headers-<span class="number">4.10</span><span class="meta">.1</span>-<span class="number">041001_4.10</span><span class="meta">.1</span>-<span class="number">041001.</span>201702260735_all.deb</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4<span class="meta">.10</span><span class="meta">.1</span>/linux-image-<span class="number">4.10</span><span class="meta">.1</span>-<span class="number">041001</span>-generic_4<span class="meta">.10</span><span class="meta">.1</span>-<span class="number">041001.</span>201702260735_amd64.deb</span><br><span class="line"></span><br><span class="line">#<span class="number">32</span>位系统</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4<span class="meta">.10</span><span class="meta">.1</span>/linux-headers-<span class="number">4.10</span><span class="meta">.1</span>-<span class="number">041001</span>-generic_4<span class="meta">.10</span><span class="meta">.1</span>-<span class="number">041001.</span>201702260735_i386.deb</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4<span class="meta">.10</span><span class="meta">.1</span>/linux-headers-<span class="number">4.10</span><span class="meta">.1</span>-<span class="number">041001_4.10</span><span class="meta">.1</span>-<span class="number">041001.</span>201702260735_all.deb</span><br><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4<span class="meta">.10</span><span class="meta">.1</span>/linux-image-<span class="number">4.10</span><span class="meta">.1</span>-<span class="number">041001</span>-generic_4<span class="meta">.10</span><span class="meta">.1</span>-<span class="number">041001.</span>201702260735_i386.deb</span><br></pre></td></tr></table></figure></p>
+<p>内核安装，且安装顺序不要变，依次image、headers_all、headers，不然会出错。<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CSS"><figure class="iseeu highlight /css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">dpkg</span> <span class="selector-tag">-i</span> <span class="selector-tag">linux-image-4</span><span class="selector-class">.10</span><span class="selector-class">.1-041001-generic_4</span><span class="selector-class">.10</span><span class="selector-class">.1-041001</span><span class="selector-class">.201702260735_i386</span><span class="selector-class">.deb</span></span><br><span class="line"><span class="selector-tag">dpkg</span> <span class="selector-tag">-i</span> <span class="selector-tag">linux-headers-4</span><span class="selector-class">.10</span><span class="selector-class">.1-041001_4</span><span class="selector-class">.10</span><span class="selector-class">.1-041001</span><span class="selector-class">.201702260735_all</span><span class="selector-class">.deb</span></span><br><span class="line"><span class="selector-tag">dpkg</span> <span class="selector-tag">-i</span> <span class="selector-tag">linux-headers-4</span><span class="selector-class">.10</span><span class="selector-class">.1-041001-generic_4</span><span class="selector-class">.10</span><span class="selector-class">.1-041001</span><span class="selector-class">.201702260735_i386</span><span class="selector-class">.deb</span></span><br></pre></td></tr></table></figure></div></p>
+<p>查看内核<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l<span class="string">|grep linux-image</span></span><br><span class="line">dpkg -l<span class="string">|grep linux-headers</span></span><br></pre></td></tr></table></figure></p>
+<p>删除旧内核<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> purge （旧内核名称）</span><br></pre></td></tr></table></figure></div></p>
+<p>内核更新<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">update-grub</span></span><br></pre></td></tr></table></figure></div></p>
+<p>重启<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">reboot</span></span><br></pre></td></tr></table></figure></div></p>
+<p>保存生效<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="RUBY"><figure class="iseeu highlight /ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"net.core.default_qdisc=fq"</span> <span class="meta">&gt;&gt; </span>/etc/sysctl.conf</span><br><span class="line">echo <span class="string">"net.ipv4.tcp_congestion_control=bbr"</span> <span class="meta">&gt;&gt; </span>/etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></div></p>
+<p>查看内核是否已开启BBR<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_available_congestion_control</span></span><br></pre></td></tr></table></figure></div></p>
+<p>显示以下即启动成功<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="LSL"><figure class="iseeu highlight /lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># lsmod | grep bbr</span><br><span class="line">tcp_bbr                <span class="number">20480</span>  <span class="number">14</span></span><br></pre></td></tr></table></figure></div></p>
+<h4 id="安装超级暴力版魔改BBR"><a href="#安装超级暴力版魔改BBR" class="headerlink" title="安装超级暴力版魔改BBR"></a>安装超级暴力版魔改BBR</h4><p>安装环境<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CMAKE"><figure class="iseeu highlight /cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt <span class="keyword">install</span> -y gcc git make</span><br></pre></td></tr></table></figure></div></p>
+<p>下载暴力魔改BBR源码<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/nanqinlang/tcp_nanqinlang-test.git</span><br></pre></td></tr></table></figure></div></p>
+<p>查看/usr/bin文件夹gcc文件。<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GRADLE"><figure class="iseeu highlight /gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">find</span> <span class="regexp">/usr/</span>bin<span class="regexp">/gcc*</span></span><br></pre></td></tr></table></figure></div></p>
+<p>此时可以看到几个文件，找到gcc-5，也可以是6，具体自己看着办。如果没看到gcc-6，则需要编辑Makefile文件。<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> tcp_nanqinlang*</span><br><span class="line">nano Makefile</span><br></pre></td></tr></table></figure></div></p>
+<p>将modules CC=/usr/bin/gcc-6后面的gcc修改成刚刚看到的gcc版本文件，如gcc-5。</p>
+<p>安装暴力魔改BBR<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GAUSS"><figure class="iseeu highlight /gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span></span><br><span class="line"><span class="built_in">make</span> install</span><br></pre></td></tr></table></figure></div></p>
+<p>有问题请咨询大佬，南琴浪博客：<a href="https://sometimesnaive.org/。" target="_blank" rel="noopener">https://sometimesnaive.org/。</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/手动BBR/" rel="tag"># 手动BBR</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/02/设置Debian-ubuntu选择最快源/" rel="next" title="设置Debian,ubuntu选择最快源">
+                <i class="fa fa-chevron-left"></i> 设置Debian,ubuntu选择最快源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John Doe">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装超级暴力版魔改BBR"><span class="nav-number">2.</span> <span class="nav-text">安装超级暴力版魔改BBR</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
