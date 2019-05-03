@@ -299,39 +299,19 @@
 
       
         
-          
-            <h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><p>Debian下的Netselect-apt是一款很有用的插件，可帮助Debian自动选择最快镜像来下载升级软件包。</p>
+          <h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><p>Debian下的Netselect-apt是一款很有用的插件，可帮助Debian自动选择最快镜像来下载升级软件包。</p>
 <p>安装：</p>
 <p>apt-get install netselect-apt</p>
 <p>netselect-apt 相关参数介绍：</p>
 <p>-f : 使用FTP镜像代替HTTP镜像；</p>
-<p>-n : 给选择的最快镜像添加非自由软件源</p>
-<p>使用netslect-apt之后，会在目录下面生产source.list，可以用它来代替目前使用的source.list</p>
-<p>命令：</p>
-<p>mv  /etc/apt/sources.list /etc/apt/sources.list.save</p>
-<p>cp  $HOME/sources.list /etc/apt/</p>
-<p>apt-get update</p>
-<p>$HOME指的是你的主目录，netselect-apt产生的source.list在主目录下。</p>
-<h4 id="Gentoo"><a href="#Gentoo" class="headerlink" title="Gentoo"></a>Gentoo</h4><p>Gentoo下面，大家可以使用mirroselect这个工具帮助你自动选择最快镜像。</p>
-<p>安装：</p>
-<p>emerge app-portage/mirrorselect</p>
-<p>完整完成后，可使用下面命令自动选择最快镜像：</p>
-<p>mirrorselect -i -o &gt;&gt; /mnt/gentoo/etc/make.conf</p>
-<p>或</p>
-<p>mirrorselect -i -r -o &gt;&gt; /mnt/gentoo/etc/make.conf</p>
-<p>若是选择rsync-mirror,找到最快源服务器，可使用下面命令</p>
-<p>mirrorselect -s3 -b10 -o -D &gt;&gt; /etc/make.conf</p>
-<h4 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h4><p>Ubuntu下面可以使用Ubuntu mirror这一图形界面。</p>
-<p>首先，从‘系统—-管理—–启动新立得软件管理器’。选择‘设置—升级源（Repositories）’。Select Ubuntu Software tab In the Download From drop down, choose Other -&gt;</p>
-<p>Click the Select Best Server button in the resulting dialog.Wait until all the tests are done.</p>
-<p>测试完毕后，最快服务器会高亮显示，选择即可，重新加载软件列表即可。</p>
-<p>然后，使用下面命令可将生成的最快软件源替代目前使用的软件源列表：</p>
-<p>mv  /etc/apt/sources.list /etc/apt/sources.list.save</p>
-<p>cp  $HOME/sources.list /etc/apt/</p>
-<p>apt-get update</p>
-<p>其中，生成的最快软件列表在$HOME下。</p>
-
-          
+<p>-n : 给选择的最快镜像添加非自由软件源<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/02/设置Debian-ubuntu选择最快源/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
