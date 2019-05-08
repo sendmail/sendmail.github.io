@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Openwrt,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="官方源：1git clone https://github.com/lede-project/source.git lean源：1git clone https://github.com/coolsnowwolf/lede.git">
+<meta name="keywords" content="Openwrt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openwrt编译时用官方原版的源，然后加入lean的插件源">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="官方源：1git clone https://github.com/lede-project/source.git lean源：1git clone https://github.com/coolsnowwolf/lede.git">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/1.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/2.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/3.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/4.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/5.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/6.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/7.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/8.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/9.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/10.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/11.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/12.png">
+<meta property="og:updated_time" content="2019-05-08T03:09:59.678Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Openwrt编译时用官方原版的源，然后加入lean的插件源">
+<meta name="twitter:description" content="官方源：1git clone https://github.com/lede-project/source.git lean源：1git clone https://github.com/coolsnowwolf/lede.git">
+<meta name="twitter:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/">
+
+
+
+
+
+  <title>Openwrt编译时用官方原版的源，然后加入lean的插件源 | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Openwrt编译时用官方原版的源，然后加入lean的插件源</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T10:59:07+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="官方源："><a href="#官方源：" class="headerlink" title="官方源："></a>官方源：</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/lede-project/source.git</span><br></pre></td></tr></table></figure></div>
+<p>lean源：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/coolsnowwolf/lede.git</span><br></pre></td></tr></table></figure></div></p>
+<a id="more"></a>
+<h4 id="一、将lean的插件包拷贝至官方openwrt的package里面"><a href="#一、将lean的插件包拷贝至官方openwrt的package里面" class="headerlink" title="一、将lean的插件包拷贝至官方openwrt的package里面"></a>一、将lean的插件包拷贝至官方openwrt的package里面</h4><p>这里的lede文件夹和source文件夹分别是lean的编译包和官方原版的编译包<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/1.png"><br>①找的lede编译包里面的lean复制，路径：lede-package-lean<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/2.png"><br>②拷贝到官方编译包里的package目录，路径：source-package<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/3.png"></p>
+<h4 id="二、配置编译环境"><a href="#二、配置编译环境" class="headerlink" title="二、配置编译环境"></a>二、配置编译环境</h4><p>①更新一下源<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="Q"><figure class="iseeu highlight /q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure></div></p>
+<p>②安装openwrt编译需要的环境，这里两种安装方式（两种方式二选一）<br>1.一建安装全部编译所需的依赖<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="Q"><figure class="iseeu highlight /q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-<span class="built_in">dev</span> libz-<span class="built_in">dev</span> patch unzip zlib1g-<span class="built_in">dev</span> lib32gcc1 libc6-<span class="built_in">dev</span>-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-<span class="built_in">dev</span> texinfo libglib2<span class="number">.0</span>-<span class="built_in">dev</span> xmlto qemu-utils upx</span><br></pre></td></tr></table></figure></div></p>
+<p>2.手动一个一个的添加安装依赖<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install build-essential</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install subversion</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install git-core</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install libncurses5-dev</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install zlib1g-dev</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install gawk</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install flex</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install quilt</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install libssl-dev</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install xsltproc</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install libxml-parser-perl</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install mercurial</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install bzr</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install ecj</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install cvs</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install unzip</span><br></pre></td></tr></table></figure></div></p>
+<h4 id="三、终端进入官方源进行更新feeds"><a href="#三、终端进入官方源进行更新feeds" class="headerlink" title="三、终端进入官方源进行更新feeds"></a>三、终端进入官方源进行更新feeds</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="GRADLE"><figure class="iseeu highlight /gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">source</span></span><br><span class="line">.<span class="regexp">/scripts/</span>feeds update -a</span><br><span class="line">.<span class="regexp">/scripts/</span>feeds install -a</span><br></pre></td></tr></table></figure></div>
+<h4 id="四、测试一下编译环境"><a href="#四、测试一下编译环境" class="headerlink" title="四、测试一下编译环境"></a>四、测试一下编译环境</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make  defconfig</span></span><br></pre></td></tr></table></figure></div>
+<img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/4.png">
+<h4 id="五、进入编译主界面"><a href="#五、进入编译主界面" class="headerlink" title="五、进入编译主界面"></a>五、进入编译主界面</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="EBNF"><figure class="iseeu highlight /ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">make menuconfig</span></span><br></pre></td></tr></table></figure></div>
+<img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/5.png">
+<p>第一选项进去选择你对应的CPU型号，我是编译X86平台的所以我选X86<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/6.png"><br>为原版openwrt安装界面框架找到LuCI-Collections在里面选择你要安装的后台界面框架<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/7.png"><br>安装中文语言LuCI-Modules-Translations选择Chines(zh-cn)<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/8.png"><br>安装所需的应用LuCI-Applications<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/9.png"><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STATA"><figure class="iseeu highlight /stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">luci-<span class="keyword">app</span>-accesscontrol</span><br><span class="line">luci-<span class="keyword">app</span>-adbyby-lpus</span><br><span class="line">luci-<span class="keyword">app</span>-arpbind</span><br><span class="line">luci-<span class="keyword">app</span>-autoreboot</span><br><span class="line">luci-<span class="keyword">app</span>-ddns</span><br><span class="line">luci-<span class="keyword">app</span>-filetransfer</span><br><span class="line">luci-<span class="keyword">app</span>-firewall</span><br><span class="line">luci-<span class="keyword">app</span>-nlbwmon</span><br><span class="line">luci-<span class="keyword">app</span>-pptp-swrver</span><br><span class="line">luci-<span class="keyword">app</span>-ramfree</span><br><span class="line">luci-<span class="keyword">app</span>-sfe</span><br><span class="line">luci-<span class="keyword">app</span>-sqm</span><br><span class="line">luci-<span class="keyword">app</span>-ssr-plus</span><br><span class="line">luci-<span class="keyword">app</span>-upnp</span><br><span class="line">luci-<span class="keyword">app</span>-usb-printer</span><br><span class="line">luci-<span class="keyword">app</span>-vlmcsd</span><br><span class="line">luci-<span class="keyword">app</span>-watchcat</span><br><span class="line">luci-<span class="keyword">app</span>-wifischedule</span><br><span class="line">luci-<span class="keyword">app</span>-wol</span><br><span class="line">luci-<span class="keyword">app</span>-wrtbwmon</span><br></pre></td></tr></table></figure></div></p>
+<p>选择一个主题LuCI-Themes<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/10.png"><br>安装dnsmasq-full,在base system知道nsmasq-full安装，取消dnsmasq<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/11.png"></p>
+<h4 id="六、选择需要编译的格式，Target-Images"><a href="#六、选择需要编译的格式，Target-Images" class="headerlink" title="六、选择需要编译的格式，Target Images"></a>六、选择需要编译的格式，Target Images</h4><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/12.png">
+<h4 id="七、开始编译"><a href="#七、开始编译" class="headerlink" title="七、开始编译"></a>七、开始编译</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j1 <span class="attribute">V</span>=s  -j1 后面是线程数。第一次编译推荐用make <span class="attribute">V</span>=99，国内请尽量全局科学上网）</span><br></pre></td></tr></table></figure></div>
+<h4 id="八、需要修改固件等信息在package-lean-default-settings-files-zzz-default-settings"><a href="#八、需要修改固件等信息在package-lean-default-settings-files-zzz-default-settings" class="headerlink" title="八、需要修改固件等信息在package-lean-default-settings-files-zzz-default-settings"></a>八、需要修改固件等信息在package-lean-default-settings-files-zzz-default-settings</h4><h4 id="九、SSR-PLLUS被隐藏了，编译好后装好机，输入以下命令即可出来"><a href="#九、SSR-PLLUS被隐藏了，编译好后装好机，输入以下命令即可出来" class="headerlink" title="九、SSR-PLLUS被隐藏了，编译好后装好机，输入以下命令即可出来"></a>九、SSR-PLLUS被隐藏了，编译好后装好机，输入以下命令即可出来</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> 0xDEADBEEF &gt; <span class="string">/etc/config/google_fu_mode</span></span><br></pre></td></tr></table></figure>
+<p>————————————————————————————————————————————————————————<br>LuCI —&gt; Applications —&gt; luci-app-accesscontrol  #访问时间控制<br>LuCI —&gt; Applications —&gt; luci-app-adblock   #ADB广告过滤<br>LuCI —&gt; Applications —&gt; luci-app-adbyby-plus  #广告屏蔽大师Plus +<br>LuCI —&gt; Applications —&gt; luci-app-adbyby   #广告过滤大师（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-adkill   #广告过滤（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-advanced-reboot  #Linksys高级重启<br>LuCI —&gt; Applications —&gt; luci-app-ahcp  #支持AHCPd<br>LuCI —&gt; Applications —&gt; luci-app-aliddns   #阿里DDNS客户端<br>LuCI —&gt; Applications —&gt; luci-app-amule  #aMule下载工具<br>LuCI —&gt; Applications —&gt; luci-app-aria2 # Aria2下载工具<br>LuCI —&gt; Applications —&gt; luci-app-arpbind  #IP/MAC绑定<br>LuCI —&gt; Applications —&gt; luci-app-asterisk  #支持Asterisk电话服务器<br>LuCI —&gt; Applications —&gt; luci-app-attendedsysupgrade  #固件更新升级相关<br>LuCI —&gt; Applications —&gt; luci-app-autoreboot  #支持计划重启<br>LuCI —&gt; Applications —&gt; luci-app-bcp38  #BCP38网络入口过滤(不确定)<br>LuCI —&gt; Applications —&gt; luci-app-bird4   #Bird 4(未知)<br>LuCI —&gt; Applications —&gt; luci-app-bird6   #Bird 6(未知)<br>LuCI —&gt; Applications —&gt; luci-app-bmx6  #BMX6路由协议<br>LuCI —&gt; Applications —&gt; luci-app-bmx7  #BMX7路由协议<br>LuCI —&gt; Applications —&gt; luci-app-caldav  #联系人<br>LuCI —&gt; Applications —&gt; luci-app-cjdns  #加密IPV6网络相关<br>LuCI —&gt; Applications —&gt; luci-app-clamav  #ClamAV杀毒软件<br>LuCI —&gt; Applications —&gt; luci-app-commands   #Shell命令模块<br>LuCI —&gt; Applications —&gt; luci-app-cshark   #CloudShark捕获工具<br>LuCI —&gt; Applications —&gt; luci-app-ddns   #动态域名 DNS<br>LuCI —&gt; Applications —&gt; luci-app-diag-core   #core诊断工具<br>LuCI —&gt; Applications —&gt; luci-app-dnscrypt-proxy  #DNSCrypt解决DNS污染<br>LuCI —&gt; Applications —&gt; luci-app-dnscrypt-dnsforwarder  #DNSForwarder防DNS污染<br>LuCI —&gt; Applications —&gt; luci-app-dnspod  #DNSPod<br>LuCI —&gt; Applications —&gt; luci-app-dump1090  #民航无线频率(不确定)<br>LuCI —&gt; Applications —&gt; luci-app-dynapoint  #DynaPoint(未知)<br>LuCI —&gt; Applications —&gt; luci-app-e2guardian   #Web内容过滤器<br>LuCI —&gt; Applications —&gt; luci-app-filetransfer  #文件传输<br>LuCI —&gt; Applications —&gt; luci-app-firewall   #添加防火墙<br>LuCI —&gt; Applications —&gt; luci-app-flowoffload   #Turbo ACC  FLOW转发加速<br>LuCI —&gt; Applications —&gt; luci-app-freifunk-diagnostics   #freifunk组件 诊断(未知)<br>LuCI —&gt; Applications —&gt; luci-app-freifunk-policyrouting  #freifunk组件 策略路由(未知)<br>LuCI —&gt; Applications —&gt; luci-app-freifunk-widgets  #freifunk组件 索引(未知)<br>LuCI —&gt; Applications —&gt; luci-app-frpc   #内网穿透 Frp<br>LuCI —&gt; Applications —&gt; luci-app-fwknopd  #Firewall Knock Operator服务器<br>LuCI —&gt; Applications —&gt; luci-app-guest-wifi   #WiFi访客网络<br>LuCI —&gt; Applications —&gt; luci-app-hd-idle  #硬盘休眠<br>LuCI —&gt; Applications —&gt; luci-app-hnet  #Homenet Status家庭网络控制协议<br>LuCI —&gt; Applications —&gt; luci-app-kooldns  #virtual<strong>服务器 ddns替代方案（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-koolproxy  #KP去广告（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-lxc   #LXC容器管理<br>LuCI —&gt; Applications —&gt; luci-app-meshwizard #网络设置向导<br>LuCI —&gt; Applications —&gt; luci-app-minidlna   #完全兼容DLNA / UPnP-AV客户端的服务器软件<br>LuCI —&gt; Applications —&gt; luci-app-mjpg-streamer   #兼容Linux-UVC的摄像头程序<br>LuCI —&gt; Applications —&gt; luci-app-mmc-over-gpio   #添加SD卡操作界面（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-multiwan   #多拨虚拟网卡（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-mwan   #MWAN负载均衡<br>LuCI —&gt; Applications —&gt; luci-app-mwan3   #MWAN3分流助手<br>LuCI —&gt; Applications —&gt; luci-app-n2n_v2   #N2N内网穿透 N2N v2 virtual</strong>服务<br>LuCI —&gt; Applications —&gt; luci-app-nft-qos  #QOS流控 Nftables版（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-ngrokc  #Ngrok 内网穿透（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-nlbwmon   #网络带宽监视器<br>LuCI —&gt; Applications —&gt; luci-app-noddos  #NodDOS Clients 阻止DDoS攻击<br>LuCI —&gt; Applications —&gt; luci-app-ntpc   #NTP时间同步服务器<br>LuCI —&gt; Applications —&gt; luci-app-ocserv  #OpenConnect virtual<strong>服务<br>LuCI —&gt; Applications —&gt; luci-app-olsr  #OLSR配置和状态模块<br>LuCI —&gt; Applications —&gt; luci-app-olsr-services  #OLSR服务器<br>LuCI —&gt; Applications —&gt; luci-app-olsr-viz   #OLSR可视化<br>LuCI —&gt; Applications —&gt; luci-app-ocserv   #OpenConnect virtual</strong>服务（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-openvirtual<strong>  #Openvirtual</strong>客户端<br>LuCI —&gt; Applications —&gt; luci-app-openvirtual<strong>-server  #易于使用的Openvirtual</strong>服务器 Web-UI<br>LuCI —&gt; Applications —&gt; luci-app-oscam   #OSCAM服务器（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-p910nd   #打印服务器模块<br>LuCI —&gt; Applications —&gt; luci-app-pagekitee   #Pagekite内网穿透客户端<br>LuCI —&gt; Applications —&gt; luci-app-polipo  #Polipo代理(是一个小型且快速的网页缓存代理)<br>LuCI —&gt; Applications —&gt; luci-app-pppoe-relay  #PPPoE NAT穿透 点对点协议(PPP)<br>LuCI —&gt; Applications —&gt; luci-app-p p t p-server  #virtual<strong>服务器 p p t p<br>LuCI —&gt; Applications —&gt; luci-app-privoxy  #Privoxy网络代理(带过滤无缓存)<br>LuCI —&gt; Applications —&gt; luci-app-qos   #流量服务质量(QoS)流控<br>LuCI —&gt; Applications —&gt; luci-app-radicale   #CalDAV/CardDAV同步工具<br>LuCI —&gt; Applications —&gt; luci-app-ramfree  #释放内存<br>LuCI —&gt; Applications —&gt; luci-app-rp-pppoe-server  #Roaring Penguin PPPoE Server 服务器<br>LuCI —&gt; Applications —&gt; luci-app-samba   #网络共享(Samba)<br>LuCI —&gt; Applications —&gt; luci-app-samba4   #网络共享(Samba4)<br>LuCI —&gt; Applications —&gt; luci-app-sfe  #Turbo ACC网络加速(开启Fast Path转发加速)<br>LuCI —&gt; Applications —&gt; luci-app-s-s   #SS兲朝上网（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-s-s-libes  #SS-libev服务端<br>LuCI —&gt; Applications —&gt; luci-app-shairplay  #支持AirPlay功能<br>LuCI —&gt; Applications —&gt; luci-app-siitwizard  #SIIT配置向导  SIIT-Wizzard<br>LuCI —&gt; Applications —&gt; luci-app-simple-adblock  #简单的广告拦截<br>LuCI —&gt; Applications —&gt; luci-app-simple-softethervirtual</strong>  #SoftEther virtual<strong>服务器  NAT穿透（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-splash  #Client-Splash是无线MESH网络的一个热点认证系统<br>LuCI —&gt; Applications —&gt; luci-app-sqm  #流量智能队列管理(QOS)<br>LuCI —&gt; Applications —&gt; luci-app-squid   #Squid代理服务器<br>——————————————————————————————-<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-plus   #S-S R兲朝上网Plus+<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-plus —&gt; Include s-s New Versiong  #新SS代理<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-plus —&gt; Include V2ray  #V2Ray透明代理<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-plus —&gt; Include Kcptun  #Kcptun代理<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-plus —&gt; Include s-sR Server  #S-S R客户端<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-plus —&gt; Include s-sR Socks and Tunnel  #S-S R代理<br>——————————————————————————————-<br>LuCI —&gt; Applications —&gt; luci-app-S-S R-pro  #S-S R-Pro<br>LuCI —&gt; Applications —&gt; luci-app-S-S Rserver-python  #s-sR Python服务器<br>LuCI —&gt; Applications —&gt; luci-app-statistics  #流量监控工具<br>LuCI —&gt; Applications —&gt; luci-app-syncdial  #多拨虚拟网卡(原macvlan)<br>LuCI —&gt; Applications —&gt; luci-app-tinyproxy  #Tinyproxy是 HTTP(S)代理服务器<br>LuCI —&gt; Applications —&gt; luci-app-transmission   #BT下载工具<br>LuCI —&gt; Applications —&gt; luci-app-travelmate  #旅行路由器<br>LuCI —&gt; Applications —&gt; luci-app-ttyd   #网页终端命令行<br>LuCI —&gt; Applications —&gt; luci-app-udpxy  #udpxy做组播服务器<br>LuCI —&gt; Applications —&gt; luci-app-uhttpd  #uHTTPd Web服务器<br>LuCI —&gt; Applications —&gt; luci-app-unbound  #Unbound DNS解析器<br>LuCI —&gt; Applications —&gt; luci-app-upnp   #通用即插即用UPnP(端口自动转发)<br>LuCI —&gt; Applications —&gt; luci-app-usb-printer   #USB 打印服务器<br>LuCI —&gt; Applications —&gt; luci-app-v2ray-pro  #V2Ray透明代理<br>LuCI —&gt; Applications —&gt; luci-app-vlmcsd  #KMS服务器设置<br>LuCI —&gt; Applications —&gt; luci-app-vnstat   #vnStat网络监控(图表)<br>LuCI —&gt; Applications —&gt; luci-app-virtual</strong>bypass  #virtual<strong> BypassWebUI  绕过virtual</strong>设置<br>LuCI —&gt; Applications —&gt; luci-app-vsftpd  #FTP服务器<br>LuCI —&gt; Applications —&gt; luci-app-watchcat  #断网检测功能与定时重启<br>LuCI —&gt; Applications —&gt; luci-app-webadmin  #Web管理页面设置<br>LuCI —&gt; Applications —&gt; luci-app-webshell  #网页命令行终端（已弃）<br>LuCI —&gt; Applications —&gt; luci-app-wifischedule  #WiFi 计划<br>LuCI —&gt; Applications —&gt; luci-app-wireguard  #virtual**服务器 WireGuard状态<br>LuCI —&gt; Applications —&gt; luci-app-wireless-regdb  #WiFi无线<br>LuCI —&gt; Applications —&gt; luci-app-wol   #WOL网络唤醒<br>LuCI —&gt; Applications —&gt; luci-app-wrtbwmon  #实时流量监测<br>LuCI —&gt; Applications —&gt; luci-app-xlnetacc  #迅雷快鸟<br>LuCI —&gt; Applications —&gt; luci-app-zerotier  #ZeroTier内网穿透<br>——————————————————————————————-<br>支持 iPv6：<br>Extra packages  —&gt;  ipv6helper  （选定这个后下面几项自动选择了）<br>Network  —&gt;  odhcp6c<br>Network  —&gt;  odhcpd-ipv6only<br>LuCI  —&gt;  Protocols  —&gt;  luci-proto-ipv6<br>LuCI  —&gt;  Protocols  —&gt;  luci-proto-ppp</p>
+<p>转载原创文章请注明，转载自: Vedio Talk</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Openwrt/" rel="tag"># Openwrt</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/03/N1小钢炮固件安装说明/" rel="next" title="N1小钢炮固件安装说明">
+                <i class="fa fa-chevron-left"></i> N1小钢炮固件安装说明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/08/LEDE-SSR插件里面规则不能更新，还停留在4月10日的解决方法/" rel="prev" title="LEDE-SSR插件里面规则不能更新，还停留在4月10日的解决方法">
+                LEDE-SSR插件里面规则不能更新，还停留在4月10日的解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John Doe">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#官方源："><span class="nav-number">1.</span> <span class="nav-text">官方源：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、将lean的插件包拷贝至官方openwrt的package里面"><span class="nav-number">2.</span> <span class="nav-text">一、将lean的插件包拷贝至官方openwrt的package里面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、配置编译环境"><span class="nav-number">3.</span> <span class="nav-text">二、配置编译环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、终端进入官方源进行更新feeds"><span class="nav-number">4.</span> <span class="nav-text">三、终端进入官方源进行更新feeds</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、测试一下编译环境"><span class="nav-number">5.</span> <span class="nav-text">四、测试一下编译环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、进入编译主界面"><span class="nav-number">6.</span> <span class="nav-text">五、进入编译主界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、选择需要编译的格式，Target-Images"><span class="nav-number">7.</span> <span class="nav-text">六、选择需要编译的格式，Target Images</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、开始编译"><span class="nav-number">8.</span> <span class="nav-text">七、开始编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、需要修改固件等信息在package-lean-default-settings-files-zzz-default-settings"><span class="nav-number">9.</span> <span class="nav-text">八、需要修改固件等信息在package-lean-default-settings-files-zzz-default-settings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九、SSR-PLLUS被隐藏了，编译好后装好机，输入以下命令即可出来"><span class="nav-number">10.</span> <span class="nav-text">九、SSR-PLLUS被隐藏了，编译好后装好机，输入以下命令即可出来</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
