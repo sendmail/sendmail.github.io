@@ -299,21 +299,15 @@
 
       
         
-          
-            <h4 id="一、插件源码下载"><a href="#一、插件源码下载" class="headerlink" title="一、插件源码下载"></a>一、插件源码下载</h4><p>1.锐捷<br>git clone <a href="https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk" target="_blank" rel="noopener">https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk</a><br>git clone <a href="https://github.com/BoringCat/luci-app-mentohust.git" target="_blank" rel="noopener">https://github.com/BoringCat/luci-app-mentohust.git</a><br>2.Rosy主题<br>git clone <a href="https://github.com/rosywrt/luci-theme-rosy.git" target="_blank" rel="noopener">https://github.com/rosywrt/luci-theme-rosy.git</a></p>
-<h4 id="二、下载存放路径"><a href="#二、下载存放路径" class="headerlink" title="二、下载存放路径"></a>二、下载存放路径</h4><p>/home/cheng/openwrt/lede/package</p>
-<h4 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h4><p>make menuconfig</p>
-<h4 id="选中，但不编译进固件"><a href="#选中，但不编译进固件" class="headerlink" title=" 选中，但不编译进固件"></a><m> 选中，但不编译进固件</m></h4><p>1.锐捷<br>-&gt; Network<br>-&gt; Ruijie</p>
-<p><m> mentohust………………………………….. A Ruijie Client Daemon<br>-&gt; LuCI<br>-&gt; 3. Applications</m></p>
-<p><m> luci-app-mentohust…………………. MentoHUST 802.1X Client for LuCI</m></p>
-<p>2.Rosy主题<br>-&gt; LuCI<br>-&gt; 4. Themes</p>
-<p><m> luci-theme-rosy……………………………………….. Rosy Theme</m></p>
-<h4 id="四、编译"><a href="#四、编译" class="headerlink" title="四、编译"></a>四、编译</h4><p>make package/MentoHUST-OpenWrt-ipk/compile V=99<br>make package/luci-app-mentohust/compile V=99<br>make package/luci-theme-rosy/luci-theme-rosy/compile V=99</p>
-<h4 id="五、ipk生成路径"><a href="#五、ipk生成路径" class="headerlink" title="五、ipk生成路径"></a>五、ipk生成路径</h4><p>路径：<br>bin/packages/mipsel_24kc/base<br>文件名<br>mentohust_0.3.1-1_mipsel_24kc.ipk<br>luci-app-mentohust_1.1.-0_all.ipk<br>luci-theme-rosy_git-19.069.38477-5ed9705-1_all.ipk</p>
-<h4 id="六、上传ipk至路由器"><a href="#六、上传ipk至路由器" class="headerlink" title="六、上传ipk至路由器"></a>六、上传ipk至路由器</h4><p>清除原有密钥<br>ssh-keygen -f “/home/cheng/.ssh/known_hosts” -R 192.168.10.1<br>拷贝至路由器<br>scp mentohust_0.3.1-1_mipsel_24kc.ipk <a href="mailto:root@192.168.10.1" target="_blank" rel="noopener">root@192.168.10.1</a>:/tmp<br>scp luci-app-mentohust_1.1.-0_all.ipk <a href="mailto:root@192.168.10.1" target="_blank" rel="noopener">root@192.168.10.1</a>:/tmp<br>scp luci-theme-rosy_git-19.069.38477-5ed9705-1_all.ipk <a href="mailto:root@192.168.10.1" target="_blank" rel="noopener">root@192.168.10.1</a>:/tmp</p>
-<h4 id="七、安装"><a href="#七、安装" class="headerlink" title="七、安装"></a>七、安装</h4><p>ssh进入路由器<br>cd /tmp<br>opkg install mentohust_0.3.1-1_mipsel_24kc.ipk<br>opkg install luci-app-mentohust_1.1.-0_all.ipk<br>opkg install luci-theme-rosy_git-19.069.38477-5ed9705-1_all.ipk</p>
-
-          
+          <h4 id="一、插件源码下载"><a href="#一、插件源码下载" class="headerlink" title="一、插件源码下载"></a>一、插件源码下载</h4><p>1.锐捷<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk</span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/BoringCat/luci-app-mentohust.git</span><br></pre></td></tr></table></figure></p>
+<p>2.Rosy主题<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/rosywrt/luci-theme-rosy.git</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/26/用OpenWRT单独编译ipk插件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
