@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/10.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/11.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/12.png">
-<meta property="og:updated_time" content="2019-05-30T01:22:21.948Z">
+<meta property="og:updated_time" content="2019-05-30T01:31:43.393Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openwrt编译时用官方原版的源，然后加入lean的插件源">
 <meta name="twitter:description" content="虚拟机先安装Vmtools和SSH:123sudo apt-get updatesudo apt-get install openssh-server open-vm-tools-desktop -ysudo reboot 把以下地址加入自定义gfwlist可提高成功率：1234h12.iogo.starlark.netgolang.orghonnef.co">
@@ -160,7 +160,9 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
+	
+	<a href="https://github.com/you"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_red_aa0000.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+	
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -291,7 +293,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-30T09:22:21+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-30T09:31:43+08:00">
                 2019-05-30
               </time>
             
@@ -372,7 +374,7 @@
 <h4 id="以后二次编译："><a href="#以后二次编译：" class="headerlink" title="以后二次编译："></a>以后二次编译：</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="STYLUS"><figure class="iseeu highlight /stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd lede                                                          进入LEDE目录</span><br><span class="line">git pull                                                         同步更新源码</span><br><span class="line">./scripts/feeds update -<span class="selector-tag">a</span> &amp;&amp; ./scripts/feeds install -<span class="selector-tag">a</span>          更新FEEDS</span><br><span class="line">rm -rf ./tmp &amp;&amp; rm -rf <span class="selector-class">.config</span>                                   清除编译配置和缓存</span><br><span class="line">make menuconfig                                                  进入编译配置菜单</span><br><span class="line">make -jn V=s                                                     n=线程数+<span class="number">1</span>，例如<span class="number">4</span>线程的I5填-j5，开始编译</span><br></pre></td></tr></table></figure></div>
 <p>编译完成后固件输出在/lede/bin/targets</p>
 <h4 id="官方源："><a href="#官方源：" class="headerlink" title="官方源："></a>官方源：</h4><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/lede-project/source.git</span><br></pre></td></tr></table></figure></div>
-<p>lean源：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/coolsnowwolf/lede.git</span><br><span class="line">`</span><br></pre></td></tr></table></figure></div></p>
+<p>lean源：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CRMSH"><figure class="iseeu highlight /crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/coolsnowwolf/lede.git</span><br></pre></td></tr></table></figure></div></p>
 <h4 id="一、将lean的插件包拷贝至官方openwrt的package里面"><a href="#一、将lean的插件包拷贝至官方openwrt的package里面" class="headerlink" title="一、将lean的插件包拷贝至官方openwrt的package里面"></a>一、将lean的插件包拷贝至官方openwrt的package里面</h4><p>这里的lede文件夹和source文件夹分别是lean的编译包和官方原版的编译包<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/1.png"><br>①找的lede编译包里面的lean复制，路径：lede-package-lean<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/2.png"><br>②拷贝到官方编译包里的package目录，路径：source-package<br><img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/3.png"></p>
 <h4 id="二、配置编译环境"><a href="#二、配置编译环境" class="headerlink" title="二、配置编译环境"></a>二、配置编译环境</h4><p>①更新一下源<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="Q"><figure class="iseeu highlight /q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure></div></p>
 <p>②安装openwrt编译需要的环境，这里两种安装方式（两种方式二选一）<br>1.一建安装全部编译所需的依赖<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="Q"><figure class="iseeu highlight /q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-<span class="built_in">dev</span> libz-<span class="built_in">dev</span> patch unzip zlib1g-<span class="built_in">dev</span> lib32gcc1 libc6-<span class="built_in">dev</span>-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-<span class="built_in">dev</span> texinfo libglib2<span class="number">.0</span>-<span class="built_in">dev</span> xmlto qemu-utils upx</span><br></pre></td></tr></table></figure></div></p>
