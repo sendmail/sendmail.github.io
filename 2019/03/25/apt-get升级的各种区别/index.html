@@ -350,10 +350,10 @@
       
         <p>安装或升级系统分下面几个步骤。</p>
 <p>第一步，获得最近的软件包的列表；列表中包含一些包的信息，比如这个包是否更新过。</p>
-<p>第二步，如果这个包没有发布更新，就不管它；如果发布了更新，就把包下载到电脑上，并安装。<br><a id="more"></a><br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="Q"><figure class="iseeu highlight /q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure></div></p>
+<p>第二步，如果这个包没有发布更新，就不管它；如果发布了更新，就把包下载到电脑上，并安装。<br><a id="more"></a><br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure></p>
 <p>对应的就是第一步，得到软件包的列表。</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="ROUTEROS"><figure class="iseeu highlight /routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> upgrade</span><br></pre></td></tr></table></figure></div>
-<p> 与<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PROCESSING"><figure class="iseeu highlight /processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="built_in">dist</span>-upgrade</span><br></pre></td></tr></table></figure></div></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> upgrade</span><br></pre></td></tr></table></figure>
+<p> 与<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="built_in">dist</span>-upgrade</span><br></pre></td></tr></table></figure></p>
 <p>对应的是第二步。</p>
 <p>由于包与包之间存在各种依赖关系。upgrade只是简单的更新包，不管这些依赖，它不和添加包，或是删除包；而dist-upgrade可以根据依赖关系的变化，添加包，删除包。</p>
 <p>一般在运行upgrade或dist-upgrade之前，先要运行update。</p>
