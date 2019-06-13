@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="方法一： #显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID，1sudo docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125;&apos; #查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器1sudo docker rm `docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125">
+<meta name="description" content="方法一：  显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID， 1sudo docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125;&apos;  查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器 1sudo docker rm `docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#1">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker删除所有退出的容器">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/06/06/docker删除所有退出的容器/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="方法一： #显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID，1sudo docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125;&apos; #查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器1sudo docker rm `docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125">
+<meta property="og:description" content="方法一：  显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID， 1sudo docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125;&apos;  查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器 1sudo docker rm `docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-06T07:50:10.966Z">
+<meta property="og:updated_time" content="2019-06-06T07:59:23.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker删除所有退出的容器">
-<meta name="twitter:description" content="方法一： #显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID，1sudo docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125;&apos; #查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器1sudo docker rm `docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125">
+<meta name="twitter:description" content="方法一：  显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID， 1sudo docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#125;&apos;  查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器 1sudo docker rm `docker ps -a|grep Exited|awk &apos;&amp;#123;print $1&amp;#1">
 
 
 
@@ -278,7 +278,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-06T15:50:10+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-06T15:59:23+08:00">
                 2019-06-06
               </time>
             
@@ -311,7 +311,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  211
+                  210
                 </span>
               
 
@@ -349,16 +349,37 @@
 
       
         <p>方法一：</p>
-<p>#显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID，<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> docker ps -a|grep Exited|awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span></span><br></pre></td></tr></table></figure></p>
-<p>#查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> docker rm `docker ps -a|grep Exited|awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>`</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>显示所有的容器，过滤出Exited状态的容器，取出这些容器的ID，</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> docker ps -a|grep Exited|awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> docker rm `docker ps -a|grep Exited|awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>`</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <a id="more"></a>
 <p>方法二： </p>
-<p>#删除所有未运行的容器（已经运行的删除不了，未运行的就一起被删除了）<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $<span class="comment">(sudo docker ps -a -q)</span></span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>删除所有未运行的容器（已经运行的删除不了，未运行的就一起被删除了）<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $<span class="comment">(sudo docker ps -a -q)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>方法三：</p>
-<p>#根据容器的状态，删除Exited状态的容器<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $(sudo docker ps -qf <span class="attribute">status</span>=exited)</span><br></pre></td></tr></table></figure></p>
-<p>方法四：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#Docker 1.13版本以后，可以使用 docker containers prune 命令，删除孤立的容器。</span></span><br><span class="line"></span><br><span class="line">sudo docker <span class="keyword">container</span> prune</span><br></pre></td></tr></table></figure></p>
-<p>#删除所有镜像<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi <span class="variable">$(</span>docker images -q)</span><br></pre></td></tr></table></figure></p>
-<p>1.13版本以后，开始支持prune命令，快速删除已退出的容器</p>
+<ol start="4">
+<li>根据容器的状态，删除Exited状态的容器<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $(sudo docker ps -qf <span class="attribute">status</span>=exited)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>方法四：</p>
+<ol start="5">
+<li>Docker 1.13版本以后，可以使用 docker containers prune 命令，删除孤立的容器。<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="keyword">container</span> prune</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="6">
+<li>删除所有镜像<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi <span class="variable">$(</span>docker images -q)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="7">
+<li>1.13版本以后，开始支持prune命令，快速删除已退出的容器</li>
+</ol>
 
       
     </div>
@@ -398,6 +419,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/13/详细SSR脚本教程，fq，免流/" rel="prev" title="详细SSR脚本教程，fq，免流">
+                详细SSR脚本教程，fq，免流 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -467,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -480,7 +505,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
