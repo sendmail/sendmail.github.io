@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="du,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对文件和目录磁盘使用的空间的查看，还是和df命令有一些区别的. 1．命令格式：1du [选项][文件] 2．命令功能： 显示每个文件和目录的磁盘使用空间。 3．命令参数：123456789101112131415161718192021222324252627282930-a或-all  显示目录中个别文件的大小。">
+<meta name="keywords" content="du">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令之:du命令">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/06/14/Linux命令之-du命令/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="Linux du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对文件和目录磁盘使用的空间的查看，还是和df命令有一些区别的. 1．命令格式：1du [选项][文件] 2．命令功能： 显示每个文件和目录的磁盘使用空间。 3．命令参数：123456789101112131415161718192021222324252627282930-a或-all  显示目录中个别文件的大小。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-14T09:04:01.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux命令之:du命令">
+<meta name="twitter:description" content="Linux du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对文件和目录磁盘使用的空间的查看，还是和df命令有一些区别的. 1．命令格式：1du [选项][文件] 2．命令功能： 显示每个文件和目录的磁盘使用空间。 3．命令参数：123456789101112131415161718192021222324252627282930-a或-all  显示目录中个别文件的大小。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/06/14/Linux命令之-du命令/">
+
+
+
+
+
+  <title>Linux命令之:du命令 | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录技术中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/06/14/Linux命令之-du命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux命令之:du命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-14T16:59:46+08:00">
+                2019-06-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-14T17:04:01+08:00">
+                2019-06-14
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Linux du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对文件和目录磁盘使用的空间的查看，还是和df命令有一些区别的.</p>
+<p>1．命令格式：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du [<span class="string">选项</span>][<span class="symbol">文件</span>]</span><br></pre></td></tr></table></figure></p>
+<p>2．命令功能：</p>
+<p>显示每个文件和目录的磁盘使用空间。</p>
+<p>3．命令参数：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">-<span class="keyword">a</span>或-all  显示目录中个别文件的大小。   </span><br><span class="line"></span><br><span class="line">-b或-<span class="keyword">bytes</span>  显示目录或文件大小时，以<span class="keyword">byte</span>为单位。   </span><br><span class="line"></span><br><span class="line">-c或<span class="comment">--total  除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。 </span></span><br><span class="line"></span><br><span class="line">-k或<span class="comment">--kilobytes  以KB(1024bytes)为单位输出。</span></span><br><span class="line"></span><br><span class="line">-m或<span class="comment">--megabytes  以MB为单位输出。   </span></span><br><span class="line"></span><br><span class="line">-s或<span class="comment">--summarize  仅显示总计，只列出最后加总的值。</span></span><br><span class="line"></span><br><span class="line">-h或<span class="comment">--human-readable  以K，M，G为单位，提高信息的可读性。</span></span><br><span class="line"></span><br><span class="line">-x或<span class="comment">--one-file-xystem  以一开始处理时的文件系统为准，若遇上其它不同的文件系统目录则略过。 </span></span><br><span class="line"></span><br><span class="line">-L&lt;符号链接&gt;或<span class="comment">--dereference&lt;符号链接&gt; 显示选项中所指定符号链接的源文件大小。   </span></span><br><span class="line"></span><br><span class="line">-S或<span class="comment">--separate-dirs   显示个别目录的大小时，并不含其子目录的大小。 </span></span><br><span class="line"></span><br><span class="line">-X&lt;文件&gt;或<span class="comment">--exclude-from=&lt;文件&gt;  在&lt;文件&gt;指定目录或文件。   </span></span><br><span class="line"></span><br><span class="line"><span class="comment">--exclude=&lt;目录或文件&gt;         略过指定的目录或文件。    </span></span><br><span class="line"></span><br><span class="line">-D或<span class="comment">--dereference-args   显示指定符号链接的源文件大小。   </span></span><br><span class="line"></span><br><span class="line">-H或<span class="comment">--si  与-h参数相同，但是K，M，G是以1000为换算单位。   </span></span><br><span class="line"></span><br><span class="line">-l或<span class="comment">--count-links   重复计算硬件链接的文件。  </span></span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>4．使用实例：</p>
+<p>实例1：显示目录或者文件所占空间 </p>
+<p>命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">du</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test]<span class="comment"># du</span></span><br><span class="line"></span><br><span class="line"><span class="number">608</span>     ./test6</span><br><span class="line"></span><br><span class="line"><span class="number">308</span>     ./test4</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/<span class="class"><span class="keyword">lib</span></span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/service/deploy/product</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/service/deploy/info</span><br><span class="line"></span><br><span class="line"><span class="number">12</span>      ./scf/service/deploy</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>      ./scf/service</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/doc</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/bin</span><br><span class="line"></span><br><span class="line"><span class="number">32</span>      ./scf</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>       ./test3</span><br><span class="line"></span><br><span class="line"><span class="number">1288</span>    .</span><br></pre></td></tr></table></figure></p>
+<p>[root@localhost test]#</p>
+<p>说明：</p>
+<p>只显示当前目录下面的子目录的目录大小和当前目录的总的大小，最下面的1288为当前目录的总大小</p>
+<p>实例2：显示指定文件所占空间</p>
+<p>命令：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du log2012.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> test]<span class="meta"># du log2012.log </span></span><br><span class="line"></span><br><span class="line"><span class="number">300</span>     log2012.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">[root<span class="symbol">@localhost</span> test]<span class="meta">#</span></span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例3：查看指定目录的所占空间</p>
+<p>命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">du scf</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test]<span class="comment"># du scf</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       scf/<span class="class"><span class="keyword">lib</span></span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       scf/service/deploy/product</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       scf/service/deploy/info</span><br><span class="line"></span><br><span class="line"><span class="number">12</span>      scf/service/deploy</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>      scf/service</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       scf/doc</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       scf/bin</span><br><span class="line"></span><br><span class="line"><span class="number">32</span>      scf</span><br><span class="line"></span><br><span class="line">[root@localhost test]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例4：显示多个文件所占空间</p>
+<p>命令：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du log30<span class="selector-class">.tar</span><span class="selector-class">.gz</span> log31<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@localhost test]</span># <span class="selector-tag">du</span> <span class="selector-tag">log30</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> <span class="selector-tag">log31</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> </span><br><span class="line"></span><br><span class="line">4       <span class="selector-tag">log30</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">4       <span class="selector-tag">log31</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[root@localhost test]</span>#</span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例5：只显示总和的大小</p>
+<p>命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">du -s</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> test]<span class="meta"># du -s</span></span><br><span class="line"></span><br><span class="line"><span class="number">1288</span>    .</span><br><span class="line"></span><br><span class="line">[root<span class="symbol">@localhost</span> test]<span class="meta"># du -s scf</span></span><br><span class="line"></span><br><span class="line"><span class="number">32</span>      scf</span><br><span class="line"></span><br><span class="line">[root<span class="symbol">@localhost</span> test]<span class="meta"># cd ..</span></span><br><span class="line"></span><br><span class="line">[root<span class="symbol">@localhost</span> soft]<span class="meta"># du -s test</span></span><br><span class="line"></span><br><span class="line"><span class="number">1288</span>    test</span><br><span class="line"></span><br><span class="line">[root<span class="symbol">@localhost</span> soft]<span class="meta">#</span></span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例6：方便阅读的格式显示</p>
+<p>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost soft]<span class="comment"># du -h test</span></span><br><span class="line"></span><br><span class="line">608K    <span class="built_in">test</span>/test6</span><br><span class="line"></span><br><span class="line">308K    <span class="built_in">test</span>/test4</span><br><span class="line"></span><br><span class="line">4.0K    <span class="built_in">test</span>/scf/lib</span><br><span class="line"></span><br><span class="line">4.0K    <span class="built_in">test</span>/scf/service/deploy/product</span><br><span class="line"></span><br><span class="line">4.0K    <span class="built_in">test</span>/scf/service/deploy/info</span><br><span class="line"></span><br><span class="line">12K     <span class="built_in">test</span>/scf/service/deploy</span><br><span class="line"></span><br><span class="line">16K     <span class="built_in">test</span>/scf/service</span><br><span class="line"></span><br><span class="line">4.0K    <span class="built_in">test</span>/scf/doc</span><br><span class="line"></span><br><span class="line">4.0K    <span class="built_in">test</span>/scf/bin</span><br><span class="line"></span><br><span class="line">32K     <span class="built_in">test</span>/scf</span><br><span class="line"></span><br><span class="line">8.0K    <span class="built_in">test</span>/test3</span><br><span class="line"></span><br><span class="line">1.3M    <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">[root@localhost soft]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例7：文件和目录都显示</p>
+<p>命令：</p>
+<p>输出：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost soft]# du -ah <span class="keyword">test</span></span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/log31.tar.gz</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/test13.tar.gz</span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/linklog.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/test6/log2014.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">300K    <span class="keyword">test</span>/test6/linklog.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/test6/log2015.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/test6/log2013.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">300K    <span class="keyword">test</span>/test6/log2012.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/test6/log2017.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/test6/log2016.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">608K    <span class="keyword">test</span>/test6</span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/log2015.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/test4/log2014.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/test4/log2013.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">300K    <span class="keyword">test</span>/test4/log2012.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">308K    <span class="keyword">test</span>/test4</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/scf/lib</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/scf/service/deploy/product</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/scf/service/deploy/info</span><br><span class="line"></span><br><span class="line">12K     <span class="keyword">test</span>/scf/service/deploy</span><br><span class="line"></span><br><span class="line">16K     <span class="keyword">test</span>/scf/service</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/scf/doc</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/scf/bin</span><br><span class="line"></span><br><span class="line">32K     <span class="keyword">test</span>/scf</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/log2013.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">300K    <span class="keyword">test</span>/log2012.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/log2017.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/log2016.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/log30.tar.gz</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/<span class="keyword">log</span>.tar.bz2</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/<span class="keyword">log</span>.tar.gz</span><br><span class="line"></span><br><span class="line">0       <span class="keyword">test</span>/test3/log2014.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/test3/log2013.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">8.0K    <span class="keyword">test</span>/test3</span><br><span class="line"></span><br><span class="line">4.0K    <span class="keyword">test</span>/scf.tar.gz</span><br><span class="line"></span><br><span class="line">1.3M    <span class="keyword">test</span></span><br><span class="line"></span><br><span class="line">[root@localhost soft]#</span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例8：显示几个文件或目录各自占用磁盘空间的大小，还统计它们的总和</p>
+<p>命令：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -c log30<span class="selector-class">.tar</span><span class="selector-class">.gz</span> log31<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@localhost test]</span># <span class="selector-tag">du</span> <span class="selector-tag">-c</span> <span class="selector-tag">log30</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> <span class="selector-tag">log31</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span> </span><br><span class="line"></span><br><span class="line">4       <span class="selector-tag">log30</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">4       <span class="selector-tag">log31</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">8       总计</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[root@localhost test]</span>#</span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>加上-c选项后，du不仅显示两个目录各自占用磁盘空间的大小，还在最后一行统计它们的总和。</p>
+<p>实例9：按照空间大小排序</p>
+<p>命令：<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du|<span class="type">sort</span> -nr|<span class="type">more</span></span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test]<span class="comment"># du|sort -nr|more</span></span><br><span class="line"></span><br><span class="line"><span class="number">1288</span>    .</span><br><span class="line"></span><br><span class="line"><span class="number">608</span>     ./test6</span><br><span class="line"></span><br><span class="line"><span class="number">308</span>     ./test4</span><br><span class="line"></span><br><span class="line"><span class="number">32</span>      ./scf</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>      ./scf/service</span><br><span class="line"></span><br><span class="line"><span class="number">12</span>      ./scf/service/deploy</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>       ./test3</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/service/deploy/product</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/service/deploy/info</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/<span class="class"><span class="keyword">lib</span></span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/doc</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>       ./scf/bin</span><br><span class="line"></span><br><span class="line">[root@localhost test]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<p>说明：</p>
+<p>实例10：输出当前目录下各个子目录所使用的空间</p>
+<p>命令：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -h  <span class="attribute">--max-depth</span>=1</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost test]<span class="comment"># du -h  --max-depth=1</span></span><br><span class="line"></span><br><span class="line">608K    <span class="string">./test6</span></span><br><span class="line"></span><br><span class="line">308K    <span class="string">./test4</span></span><br><span class="line"></span><br><span class="line">32K     <span class="string">./scf</span></span><br><span class="line"></span><br><span class="line">8.0K    <span class="string">./test3</span></span><br><span class="line"></span><br><span class="line">1.3M    .</span><br><span class="line"></span><br><span class="line">[root@localhost test]<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/du/" rel="tag"># du</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/13/详细SSR脚本教程，fq，免流/" rel="next" title="详细SSR脚本教程，fq，免流">
+                <i class="fa fa-chevron-left"></i> 详细SSR脚本教程，fq，免流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John">
+            
+              <p class="site-author-name" itemprop="name">John</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-usr"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
