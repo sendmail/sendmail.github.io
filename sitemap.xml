@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.jiayie.xyz/2019/06/26/%E5%B0%8F%E9%92%A2%E7%82%AEdocker%E8%BF%90%E8%A1%8Cop%E4%B8%94%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2019-06-26T01:23:07.685Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.jiayie.xyz/2019/06/14/Linux%E5%91%BD%E4%BB%A4%E4%B9%8B-du%E5%91%BD%E4%BB%A4/</loc>
     
-    <lastmod>2019-06-21T02:23:48.037Z</lastmod>
+    <lastmod>2019-06-22T07:37:35.252Z</lastmod>
     
   </url>
   
@@ -303,13 +310,6 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/wget%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%AC%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF/</loc>
-    
-    <lastmod>2019-05-02T01:05:52.194Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/V2%E5%9F%BA%E4%BA%8ENginx%E7%9A%84VMess-WS-TLS-Website%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</loc>
     
     <lastmod>2019-05-02T01:05:52.194Z</lastmod>
@@ -317,9 +317,9 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/python3%E5%AE%89%E8%A3%85pip3/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/wget%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%AC%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF/</loc>
     
-    <lastmod>2019-05-02T01:05:52.192Z</lastmod>
+    <lastmod>2019-05-02T01:05:52.194Z</lastmod>
     
   </url>
   
@@ -331,14 +331,21 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/04/16/phicomm-N1-armbian%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8A%9F%E8%83%BD%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%BC%80%E6%BA%90NAS%E7%B3%BB%E7%BB%9F-OpenMediaVault/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/python3%E5%AE%89%E8%A3%85pip3/</loc>
+    
+    <lastmod>2019-05-02T01:05:52.192Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/2019/04/28/N1%E5%B0%8F%E9%92%A2%E7%82%AEdocker%EF%BC%8C%E5%AE%89%E8%A3%85openwrt/</loc>
     
     <lastmod>2019-05-02T01:05:52.190Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/04/28/N1%E5%B0%8F%E9%92%A2%E7%82%AEdocker%EF%BC%8C%E5%AE%89%E8%A3%85openwrt/</loc>
+    <loc>http://www.jiayie.xyz/2019/04/16/phicomm-N1-armbian%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8A%9F%E8%83%BD%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%BC%80%E6%BA%90NAS%E7%B3%BB%E7%BB%9F-OpenMediaVault/</loc>
     
     <lastmod>2019-05-02T01:05:52.190Z</lastmod>
     
