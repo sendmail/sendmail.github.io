@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/2.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/3.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/4.png">
-<meta property="og:updated_time" content="2019-06-26T01:33:42.870Z">
+<meta property="og:updated_time" content="2019-06-26T01:58:20.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="N1刷入Armbian后换软件源、安装Docker并提速">
 <meta name="twitter:description" content="文章转自恩山原地址： N1刷入Armbian网络环境所限，在使用Armbian的时候经常下载软件出问题，下载不到或者下载中断，所以找来了国内的源，更换一下，下载会变快很多。 假定armbian已经安装完成 1、打开putty，输入N1的IP地址连接并登陆">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-26T09:33:42+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-26T09:58:20+08:00">
                 2019-06-26
               </time>
             
@@ -315,7 +315,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  352
+                  383
                 </span>
               
 
@@ -364,7 +364,7 @@
 <p>进入容器镜像服务，得到镜像加速器地址<br><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/3.png"><br>8、putty下执行<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir -<span class="selector-tag">p</span> /etc/docker</span><br><span class="line"></span><br><span class="line">tee /etc/docker/daemon<span class="selector-class">.json</span> &lt;&lt;-<span class="string">'EOF'</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"registry-mirrors"</span>: [<span class="string">"https://加速镜像地址"</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></p>
 <p>9、安装docker图形化管理Portainer  </p>
 <p>在putty下执行<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker volume create portainer_data</span><br><span class="line"></span><br><span class="line">docker run -d -p <span class="number">9000</span>:<span class="number">9000</span> -v <span class="regexp">/var/</span>run<span class="regexp">/docker.sock:/</span>var<span class="regexp">/run/</span>docker.sock -v <span class="string">portainer_data:</span><span class="regexp">/data portainer/</span><span class="string">portainer:</span>linux-arm64</span><br></pre></td></tr></table></figure></p>
-<p>10、安装完成后可访问N1ip:9000查看图形化界面<br><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/4.png"></p>
+<p>10、安装完成后可访问N1ip:9000查看图形化界面<br><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/4.png"><br>运行镜像加入–restart=always，开机自启，已经创建容器的可以用：docker update –restart=always Portainer 更新设置</p>
 
       
     </div>
