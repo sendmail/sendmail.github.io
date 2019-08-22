@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -349,15 +349,26 @@
 
       
         <p>Centos安装fail2ban，Debian安装fail2ban<br>暴破的危害：<br>1、很占资源。  我的VPs、服务器经常被这些暴破搞得连接数过多，负载过高。<br>2、影响安全。 再强的密码都有可能被穷举暴破的一天，只是时间问题。</p>
-<p>防SSH/FTP暴破，请装 fail2ban， 非常给力。<br><a id="more"></a><br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> http://ppbox.free.fr/fail2ban.sh;<span class="attribute">sh</span> fail2ban.sh</span><br></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> http://vps.idc886.com/fail2ban.sh;<span class="attribute">sh</span> fail2ban.sh</span><br></pre></td></tr></table></figure></p>
+<p>防SSH/FTP暴破，请装 fail2ban， 非常给力。</p>
+<a id="more"></a>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> http://ppbox.free.fr/fail2ban.sh;<span class="attribute">sh</span> fail2ban.sh</span><br></pre></td></tr></table></figure>
+
+<p>或者 </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> http://vps.idc886.com/fail2ban.sh;<span class="attribute">sh</span> fail2ban.sh</span><br></pre></td></tr></table></figure>
+
 <p>执行一键安装后，可按 0,1,2,3，来下一步。<br>0 为删除卸载 fail2ban<br>1 为设置封禁IP 600秒 （10分钟） 默认1<br>2 为设置封禁IP 6000秒   100分钟<br>3 为设置封禁IP 60000秒 1000分钟</p>
-<p>自动检测 Debian 采用<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install</span><br></pre></td></tr></table></figure></p>
+<p>自动检测 Debian 采用 </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install</span><br></pre></td></tr></table></figure>
+
 <p>安装 </p>
 <p>自动检测 Centos 采用 先创建源，再 yum install, 安装<br>目前在以上两系统上测试通过。其它系统未测试。<br>安装的版号在0.8.4 或 0.8.6</p>
-<p>相关命令：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service fail2ban stop   停止</span><br><span class="line">service fail2ban start   启动</span><br><span class="line">service fail2ban restart 重启</span><br><span class="line"></span><br><span class="line">fail2ban-client status  查看状态是否运行了</span><br><span class="line">fail2ban-client		最上面能看到fail2ban版号</span><br><span class="line">ps -ef | grep fail2ban	查看是否有fail2ban进程</span><br></pre></td></tr></table></figure></p>
+<p>相关命令：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service fail2ban stop   停止</span><br><span class="line">service fail2ban start   启动</span><br><span class="line">service fail2ban restart 重启</span><br><span class="line"></span><br><span class="line">fail2ban-client status  查看状态是否运行了</span><br><span class="line">fail2ban-client		最上面能看到fail2ban版号</span><br><span class="line">ps -ef | grep fail2ban	查看是否有fail2ban进程</span><br></pre></td></tr></table></figure>
+
 <p>安装fail2ban，fail2ban默认启动了，也加入了随系统启动。<br>安装fail2ban，默认只开启了 SSH暴破检测。其它FTP暴破检测需手动修改文件开启。<br>安装fail2ban，资源占用并不多的，进程占几M内存，如日志更大或许占用更多。如果重启了iptables， fail2ban将失效，请重启fail2ban生效。</p>
-<p>配制文件：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>fail2ban<span class="regexp">/jail.conf</span></span><br></pre></td></tr></table></figure></p>
+<p>配制文件：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>fail2ban<span class="regexp">/jail.conf</span></span><br></pre></td></tr></table></figure>
+
 <p>如修改配制后需重启一下。<br>配制中常用的  [ssh]或[ssh-iptables] , [pure-ftpd] 或 [proftpd-iptables]<br>除SSH外，其它默认都是没开启的 enabled  = false ，<br>把需要的改为开启，换成 enabled  = true<br>再重启  fail2ban  即可。</p>
 
       

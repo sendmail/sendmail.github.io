@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="一： 安装 OpenwrtDocker-openwrt 镜像地址1https://hub.docker.com/r/kanshudj/n1-openwrtgateway 首先通过 SSH 登录 N1">
+<meta name="description" content="一： 安装 OpenwrtDocker-openwrt 镜像地址 1https://hub.docker.com/r/kanshudj/n1-openwrtgateway  首先通过 SSH 登录 N1">
 <meta name="keywords" content="N1小钢炮安装openwrt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="N1小钢炮docker，安装openwrt">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/04/28/N1小钢炮docker，安装openwrt/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="一： 安装 OpenwrtDocker-openwrt 镜像地址1https://hub.docker.com/r/kanshudj/n1-openwrtgateway 首先通过 SSH 登录 N1">
+<meta property="og:description" content="一： 安装 OpenwrtDocker-openwrt 镜像地址 1https://hub.docker.com/r/kanshudj/n1-openwrtgateway  首先通过 SSH 登录 N1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/1.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/2.png">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2019-05-02T01:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="N1小钢炮docker，安装openwrt">
-<meta name="twitter:description" content="一： 安装 OpenwrtDocker-openwrt 镜像地址1https://hub.docker.com/r/kanshudj/n1-openwrtgateway 首先通过 SSH 登录 N1">
+<meta name="twitter:description" content="一： 安装 OpenwrtDocker-openwrt 镜像地址 1https://hub.docker.com/r/kanshudj/n1-openwrtgateway  首先通过 SSH 登录 N1">
 <meta name="twitter:image" content="http://www.jiayie.xyz/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/1.png">
 
 
@@ -325,7 +325,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  223
+                  224
                 </span>
               
 
@@ -362,22 +362,65 @@
       
 
       
-        <h4 id="一：-安装-Openwrt"><a href="#一：-安装-Openwrt" class="headerlink" title="一： 安装 Openwrt"></a>一： 安装 Openwrt</h4><p>Docker-openwrt 镜像地址<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>hub.docker.com<span class="regexp">/r/</span>kanshudj<span class="regexp">/n1-openwrtgateway</span></span><br></pre></td></tr></table></figure></p>
-<p>首先通过 SSH 登录 N1<br><a id="more"></a><br>1、下载镜像<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> pull kanshudj/n1-openwrtgateway</span><br></pre></td></tr></table></figure></p>
+        <h4 id="一：-安装-Openwrt"><a href="#一：-安装-Openwrt" class="headerlink" title="一： 安装 Openwrt"></a>一： 安装 Openwrt</h4><p>Docker-openwrt 镜像地址</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>hub.docker.com<span class="regexp">/r/</span>kanshudj<span class="regexp">/n1-openwrtgateway</span></span><br></pre></td></tr></table></figure>
+
+<p>首先通过 SSH 登录 N1</p>
+<a id="more"></a>
+<p>1、下载镜像</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> pull kanshudj/n1-openwrtgateway</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/1.png">
-<p>2、IP 设置<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip link <span class="builtin-name">set</span> eth0 promisc on</span><br><span class="line">docker<span class="built_in"> network </span>create -d macvlan <span class="attribute">--subnet</span>=192.168.1.0/24 <span class="attribute">--gateway</span>=192.168.1.1 -o <span class="attribute">parent</span>=eth0 macnet</span><br></pre></td></tr></table></figure></p>
+
+<p>2、IP 设置</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip link <span class="builtin-name">set</span> eth0 promisc on</span><br><span class="line">docker<span class="built_in"> network </span>create -d macvlan <span class="attribute">--subnet</span>=192.168.1.0/24 <span class="attribute">--gateway</span>=192.168.1.1 -o <span class="attribute">parent</span>=eth0 macnet</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/2.png">
-<p>3、部署镜像<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="params">--restart</span> always -d <span class="params">--network</span> macnet <span class="params">--privileged</span> kanshudj/n1-openwrtgateway <span class="string">/sbin/init</span></span><br></pre></td></tr></table></figure></p>
+
+<p>3、部署镜像</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="params">--restart</span> always -d <span class="params">--network</span> macnet <span class="params">--privileged</span> kanshudj/n1-openwrtgateway <span class="string">/sbin/init</span></span><br></pre></td></tr></table></figure>
+
 <img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/3.png">
-<h4 id="二：配置-Openwrt"><a href="#二：配置-Openwrt" class="headerlink" title="二：配置 Openwrt"></a>二：配置 Openwrt</h4><p>1、打开 docker 的图形界面，设置 openwrt<br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/4.png"><br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/5.png"></p>
-<p>2、在命令配置界面输入<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/<span class="built_in">config</span>/network</span><br></pre></td></tr></table></figure></p>
-<p>更改 openwrt 网卡信息<br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/6.png"><br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/7.png"></p>
+<h4 id="二：配置-Openwrt"><a href="#二：配置-Openwrt" class="headerlink" title="二：配置 Openwrt"></a>二：配置 Openwrt</h4><p>1、打开 docker 的图形界面，设置 openwrt</p>
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/4.png">
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/5.png">
+
+<p>2、在命令配置界面输入</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/<span class="built_in">config</span>/network</span><br></pre></td></tr></table></figure>
+
+<p>更改 openwrt 网卡信息</p>
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/6.png">
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/7.png">
+
 <p>把 192.168.50.<em>改成 192.168.0.</em></p>
 <p>按 下 Esc 键 :wq</p>
-<p>3、修改Openwrt 登录密码，配置页面输入mount_roo（t  不修改也可以，原始密码好像是password）<br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/8.png"><br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/9.png"></p>
-<p>4、输入所配置 openwrt 的地址登录（本人截图是 0.2 已被占用，所以更改为了 0.107）<br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/10.png"><br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/11.png"><br><img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/12.png"></p>
+<p>3、修改Openwrt 登录密码，配置页面输入mount_roo（t  不修改也可以，原始密码好像是password）</p>
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/8.png">
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/9.png">
+
+<p>4、输入所配置 openwrt 的地址登录（本人截图是 0.2 已被占用，所以更改为了 0.107）</p>
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/10.png">
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/11.png">
+<img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/12.png">
+
 <p>5、某一设备测试不可描述功能是否正常，网卡添加网关就可以了，看效果</p>
 <img src="/2019/04/28/N1小钢炮docker，安装openwrt/04/28/N1小钢炮docker，安装openwrt/13.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>5</p>
 
       

@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -511,7 +511,7 @@
       
         
           <h4 id="本脚本适用环境"><a href="#本脚本适用环境" class="headerlink" title="本脚本适用环境"></a>本脚本适用环境</h4><p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+<br>内存要求：≥128M<br>日期　　：2019 年 01 月 11 日<br>关于本脚本<br>1、一键安装 Shadowsocks-Python， ShadowsocksR， Shadowsocks-Go， Shadowsocks-libev 版（四选一）服务端；<br>2、各版本的启动脚本及配置文件名不再重合；<br>3、每次运行可安装一种版本；<br>4、支持以多次运行来安装多个版本，且各个版本可以共存（注意端口号需设成不同）；<br>5、若已安装多个版本，则卸载时也需多次运行（每次卸载一种）；</p>
-<p>友情提示：如果你有问题，请先阅读这篇《<a href="https://teddysun.com/399.html" target="_blank" rel="noopener">Shadowsocks Troubleshooting</a>》之后再询问。<br></p>
+<p>友情提示：如果你有问题，请先阅读这篇《<a href="https://teddysun.com/399.html" target="_blank" rel="noopener">Shadowsocks Troubleshooting</a>》之后再询问。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/27/Shadowsocks一键安装脚本（四合一）-秋水逸冰/#more" rel="contents">
@@ -640,7 +640,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  383
+                  388
                 </span>
               
 
@@ -680,7 +680,8 @@
         
           <p>文章转自恩山原地址： <a href="https://www.right.com.cn/forum/thread-430903-1-1.html" target="_blank" rel="noopener">N1刷入Armbian</a><br>网络环境所限，在使用Armbian的时候经常下载软件出问题，下载不到或者下载中断，所以找来了国内的源，更换一下，下载会变快很多。</p>
 <p>假定armbian已经安装完成</p>
-<p>1、打开putty，输入N1的IP地址连接并登陆<br><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/06/26/N1刷入Armbian后换软件源、安装Docker并提速/1.png"><br></p>
+<p>1、打开putty，输入N1的IP地址连接并登陆</p>
+<img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/06/26/N1刷入Armbian后换软件源、安装Docker并提速/1.png">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/#more" rel="contents">
@@ -809,7 +810,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  440
+                  439
                 </span>
               
 
@@ -850,7 +851,8 @@
           
             <ol>
 <li>刷入小钢炮并开启DOCKER，这个在灯大的网站里有详细的步骤，我就不赘述了</li>
-<li>拉取op进Docker，可分为5小步：<br>1）SSH登录小钢炮ip，运行 docker pull kanshudj/n1-openwrtgateway<br>2）运行 ip link set eth0 promisc on<br>3）运行 docker network create -d macvlan –subnet=192.168.1.0/24 –gateway=192.168.1.1 -o parent=eth0 macnet<br>注意将上述192.168.1.0及192.168.1.1替换为你的主路由网段，如192.168.2.0与192.168.2.1<br>4）运行 docker run –restart always -d –network macnet –privileged kanshudj/n1-openwrtgateway /sbin/init<br>5）进docker管理页面里的命令输入行，运行vi /etc/config/network<br>按一下i键编辑网络参数，将其中倒数第五行192.168.0.2替换为你想登录op的ip，注意其应在主路由网段内，如192.168.2.2，最后两行中的192.168.0.1替换为192.168.2.1<br>依次按esc : w q 后回车，restart一下op进入op管理页面（如192.168.2.2）<br>3.路由模式设置<br>1）主路由<br>接口—LAN—修改—DHCP服务器—高级设置—DHCP选项添加以下两行：3,192.168.2.2与6,192.168.2.2<br>2）N1 op<br>接口—LAN—编辑—物理设置—取消桥接接口<br>重启主路由及N1，电脑重新获取ip，查看网关及DNS服务器为op地址则成功，小钢炮功能正常使用！3</li>
+<li>拉取op进Docker，可分为5小步：<br>1）SSH登录小钢炮ip，运行 docker pull kanshudj/n1-openwrtgateway<br>2）运行 ip link set eth0 promisc on<br>3）运行 docker network create -d macvlan –subnet=192.168.1.0/24 –gateway=192.168.1.1 -o parent=eth0 macnet<br>注意将上述192.168.1.0及192.168.1.1替换为你的主路由网段，如192.168.2.0与192.168.2.1<br>4）运行 docker run –restart always -d –network macnet –privileged kanshudj/n1-openwrtgateway /sbin/init<br>5）进docker管理页面里的命令输入行，运行vi /etc/config/network<br>按一下i键编辑网络参数，将其中倒数第五行192.168.0.2替换为你想登录op的ip，注意其应在主路由网段内，如192.168.2.2，最后两行中的192.168.0.1替换为192.168.2.1<br>依次按esc : w q 后回车，restart一下op进入op管理页面（如192.168.2.2）</li>
+<li>路由模式设置<br>1）主路由<br>接口—LAN—修改—DHCP服务器—高级设置—DHCP选项添加以下两行：3,192.168.2.2与6,192.168.2.2<br>2）N1 op<br>接口—LAN—编辑—物理设置—取消桥接接口<br>重启主路由及N1，电脑重新获取ip，查看网关及DNS服务器为op地址则成功，小钢炮功能正常使用！3</li>
 </ol>
 <p>上述方法设置会让小钢炮使用docker里op的网关导致小钢炮的下载工具没有下载速度，<br>方法如下：<br>小钢炮管理—SYSTEM—NETWORK，选择固定IP，将ipv4设置为固定值（如你管理小钢炮的ip），将路由（routers）与DNS指向主路由的ip（如192.168.2.1），重启小钢炮与主路由。<br>不足：小钢炮仅可正常下载国内资源。</p>
 
@@ -976,7 +978,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  405
+                  414
                 </span>
               
 
@@ -1014,7 +1016,11 @@
 
       
         
-          <p><strong>编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹</strong><br><img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/1.jpg"><br><strong>解压N1 openwr固件到openwrt目录</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf openwrt-armvirt-<span class="number">64</span>-default-rootfs<span class="selector-class">.tar</span><span class="selector-class">.gz</span> -C openwrt</span><br></pre></td></tr></table></figure></p>
+          <p><strong>编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹</strong></p>
+<img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/1.jpg">
+<p><strong>解压N1 openwr固件到openwrt目录</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf openwrt-armvirt-<span class="number">64</span>-default-rootfs<span class="selector-class">.tar</span><span class="selector-class">.gz</span> -C openwrt</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/2.jpg">
           <!--noindex-->
           <div class="post-button text-center">
@@ -1183,7 +1189,8 @@
       
         
           <h4 id="编译-N1-openwrt固件教程"><a href="#编译-N1-openwrt固件教程" class="headerlink" title="编译 N1 openwrt固件教程"></a>编译 N1 openwrt固件教程</h4><img src="/2019/06/21/N1-openwrt固件编译教程/06/21/N1-openwrt固件编译教程/1.jpg">
-<p><strong>Firmware 选择如下驱动</strong><br>brcmfmac-firmware-43430-sdio<br>brcmfmac-firmware-43455-sdio<br>brcmfmac-firmware-usb<br>wireless-regdb<br></p>
+
+<p><strong>Firmware 选择如下驱动</strong><br>brcmfmac-firmware-43430-sdio<br>brcmfmac-firmware-43455-sdio<br>brcmfmac-firmware-usb<br>wireless-regdb</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/21/N1-openwrt固件编译教程/#more" rel="contents">
@@ -1352,7 +1359,9 @@
         
           
             <p>   每次打开都需要重新配置为什么？</p>
-<p>　　打开命令运行框，用win+r就可以打开，然后输入<br><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKCU<span class="symbol">\S</span>oftware<span class="symbol">\M</span>icrosoft<span class="symbol">\O</span>ffice<span class="symbol">\1</span>4.0<span class="symbol">\W</span>ord<span class="symbol">\O</span>ptions /v NoReReg /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure></p>
+<p>　　打开命令运行框，用win+r就可以打开，然后输入</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKCU<span class="symbol">\S</span>oftware<span class="symbol">\M</span>icrosoft<span class="symbol">\O</span>ffice<span class="symbol">\1</span>4.0<span class="symbol">\W</span>ord<span class="symbol">\O</span>ptions /v NoReReg /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+
 <p>按回车就可以了。<br><a href="https://pmjs-my.sharepoint.com/:u:/g/personal/sy2slru5m_my365_tw/EQbPDGYKsahAr6Gmge1Rp0kBMi0qldHjEAVUgPqwf329Rg?e=Z0k7d1" target="_blank" rel="noopener">office2010下载地址</a><br><a href="https://pmjs-my.sharepoint.com/:u:/g/personal/sy2slru5m_my365_tw/Eay-3O-2uP1BresUVwi2qFsBfFsdQYUaXWDeB2mqzIOamQ?e=ewvosM" target="_blank" rel="noopener">Office强力卸载工具</a></p>
 
           
@@ -1516,8 +1525,10 @@
       
         
           <p>Linux du命令也是查看使用空间的，但是与df命令不同的是Linux du命令是对文件和目录磁盘使用的空间的查看，还是和df命令有一些区别的.<br>查看磁盘空间： df -h </p>
-<p>1．命令格式：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du [<span class="string">选项</span>][<span class="symbol">文件</span>]</span><br></pre></td></tr></table></figure></p>
-<p>2．命令功能：<br></p>
+<p>1．命令格式：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du [<span class="string">选项</span>][<span class="symbol">文件</span>]</span><br></pre></td></tr></table></figure>
+
+<p>2．命令功能：</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/14/Linux命令之-du命令/#more" rel="contents">
@@ -1646,7 +1657,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  989
+                  984
                 </span>
               
 
@@ -1863,6 +1874,7 @@
 </li>
 <li><p>查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> docker rm `docker ps -a|grep Exited|awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>`</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
           <!--noindex-->

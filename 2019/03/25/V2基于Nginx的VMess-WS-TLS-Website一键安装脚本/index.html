@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -311,7 +311,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  590
+                  591
                 </span>
               
 
@@ -349,14 +349,22 @@
 
       
         <p>说明：本脚本采用HTTP Header分流，随机生成Header，自带Website伪装站点、使用Html背景音乐源码，并自动生成SSL证书，并自动续签。支持CDN嵌套，支持ssl非443端口。http强制跳转https，自动生成客户端config.json配置文件，重装自动清除残余的Http服务，每天自动升级最新的V2内核。</p>
-<p>更新<br>作者更新增加脚本重装判断自动跳过ssl重复申请及一些功能#根据有人反映，博主修改了点去掉了些功能，如BBR安装。<br>修改了SSH客户端提示字体颜色，可以看的更清楚。<br>修改了音乐播放器里的音乐。<br>增加了一键启动Nginx和V2<br><a id="more"></a><br>安装<br>提示：本教程只作分享，不提供相关问题的解答，有问题的请去作者Github项目下Issues里提问。<br>Github地址：<a href="https://github.com/dylanbai8" target="_blank" rel="noopener">https://github.com/dylanbai8</a></p>
+<p>更新<br>作者更新增加脚本重装判断自动跳过ssl重复申请及一些功能#根据有人反映，博主修改了点去掉了些功能，如BBR安装。<br>修改了SSH客户端提示字体颜色，可以看的更清楚。<br>修改了音乐播放器里的音乐。<br>增加了一键启动Nginx和V2</p>
+<a id="more"></a>
+<p>安装<br>提示：本教程只作分享，不提供相关问题的解答，有问题的请去作者Github项目下Issues里提问。<br>Github地址：<a href="https://github.com/dylanbai8" target="_blank" rel="noopener">https://github.com/dylanbai8</a></p>
 <p>系统要求： Debian 7+/Ubuntu 14.04+/Centos 7，建议使用Debian 8，且为纯净的系统，安装前需要解析好域名。</p>
-<p>运行命令：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//www.moerats.<span class="keyword">com</span>/usr/<span class="keyword">shell</span>/V2_NG/V2.<span class="keyword">sh</span> &amp;&amp; bash V2.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
+<p>运行命令：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//www.moerats.<span class="keyword">com</span>/usr/<span class="keyword">shell</span>/V2_NG/V2.<span class="keyword">sh</span> &amp;&amp; bash V2.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+
 <p>直到看到输出结果就安装完成了。</p>
-<p>相关操作<br>一键启动Nginx和V2bash<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V2.<span class="keyword">sh</span> -<span class="built_in">s</span></span><br></pre></td></tr></table></figure></p>
-<pre><code>一键更换新的UUIDbash
-</code></pre><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V2<span class="selector-class">.sh</span> -n</span><br></pre></td></tr></table></figure>
-<p> 建议下载config.json文件后，运行命令删除该文件bash<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V2.<span class="keyword">sh</span> -<span class="built_in">r</span></span><br></pre></td></tr></table></figure></p>
+<p>相关操作<br>一键启动Nginx和V2bash</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V2.<span class="keyword">sh</span> -<span class="built_in">s</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>一键更换新的UUIDbash</code></pre><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V2<span class="selector-class">.sh</span> -n</span><br></pre></td></tr></table></figure>
+
+<p> 建议下载config.json文件后，运行命令删除该文件bash </p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V2.<span class="keyword">sh</span> -<span class="built_in">r</span></span><br></pre></td></tr></table></figure>
+
 <p>CDN说明<br>嵌套cloudflare(fullSSL+CDN)节省资源、人人有责、如果你的ip没有被Q，请勿开启。</p>
 <p>提前准备购买域名、VPS；<br>注册cloudflare，提前24小时配置NS并解析域名。<br>确保所解析的域名Status位置关闭默认的cdn加速，变为灰色云朵状态。<br>开启cloudflare(fullssl+cdn)安装完毕一键脚本，并测试V2可以正常使用之后。<br>注意：在此步骤之前，勿必保持所解析的域名Status处为灰色云朵（及关闭cdn）。重做系统或重新安装时也勿必关闭此处设置。</p>
 <ol>

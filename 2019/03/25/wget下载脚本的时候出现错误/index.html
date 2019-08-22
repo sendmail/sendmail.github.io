@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误.1234Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...Connecting to raw.githubusercontent.com (r">
+<meta name="description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. 1234Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...Connecting to raw.githubusercontent.com (">
 <meta name="keywords" content="wget下载错误">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wget下载脚本的时候出现错误">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/wget下载脚本的时候出现错误/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误.1234Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...Connecting to raw.githubusercontent.com (r">
+<meta property="og:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. 1234Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...Connecting to raw.githubusercontent.com (">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-05-02T01:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wget下载脚本的时候出现错误">
-<meta name="twitter:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误.1234Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...Connecting to raw.githubusercontent.com (r">
+<meta name="twitter:description" content="今天使用debian下载github上的脚本的时候出现了下图一样的错误. 1234Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...Connecting to raw.githubusercontent.com (">
 
 
 
@@ -348,13 +348,20 @@
       
 
       
-        <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...</span><br><span class="line">Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.</span><br><span class="line"><span class="keyword">ERROR: </span>The certificate of ‘raw.githubusercontent.com’ is not trusted.</span><br><span class="line"><span class="keyword">ERROR: </span>The certificate of ‘raw.githubusercontent.com’ hasn't got a known issuer</span><br></pre></td></tr></table></figure></p>
+        <p>今天使用debian下载github上的脚本的时候出现了下图一样的错误.</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...</span><br><span class="line">Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.</span><br><span class="line"><span class="keyword">ERROR: </span>The certificate of ‘raw.githubusercontent.com’ is not trusted.</span><br><span class="line"><span class="keyword">ERROR: </span>The certificate of ‘raw.githubusercontent.com’ hasn't got a known issuer</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 <p>错误非常常见,主要是系统过于精简所以很多包没有安装。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>在Wget后面添加”–no-check-certificate”如下所示:<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> --<span class="literal">no</span>-check-certificate</span><br></pre></td></tr></table></figure></p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>在Wget后面添加”–no-check-certificate”如下所示:</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wget</span> --<span class="literal">no</span>-check-certificate</span><br></pre></td></tr></table></figure>
+
 <p>你要下载的SSL网址</p>
 <h4 id="第二种解决办法就是"><a href="#第二种解决办法就是" class="headerlink" title="第二种解决办法就是"></a>第二种解决办法就是</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">安装<span class="keyword">ca</span>-certificates</span><br><span class="line"></span><br><span class="line">apt-get install <span class="keyword">ca</span>-certificates -<span class="built_in">y</span></span><br></pre></td></tr></table></figure>
-<p>或者是<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install ssl-cert</span><br></pre></td></tr></table></figure></p>
+
+<p>或者是</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install ssl-cert</span><br></pre></td></tr></table></figure>
+
 
       
     </div>

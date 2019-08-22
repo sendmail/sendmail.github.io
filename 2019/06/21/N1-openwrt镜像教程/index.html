@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹解压N1 openwr固件到openwrt目录1tar xvf openwrt-armvirt-64-default-rootfs.tar.gz -C openwrt">
+<meta name="description" content="编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹  解压N1 openwr固件到openwrt目录 1tar xvf openwrt-armvirt-64-default-rootfs.tar.gz -C openwrt">
 <meta name="keywords" content="N1 镜像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="N1-openwrt镜像教程">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/06/21/N1-openwrt镜像教程/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹解压N1 openwr固件到openwrt目录1tar xvf openwrt-armvirt-64-default-rootfs.tar.gz -C openwrt">
+<meta property="og:description" content="编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹  解压N1 openwr固件到openwrt目录 1tar xvf openwrt-armvirt-64-default-rootfs.tar.gz -C openwrt">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/1.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/2.jpg">
@@ -104,7 +104,7 @@
 <meta property="og:updated_time" content="2019-06-21T02:22:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="N1-openwrt镜像教程">
-<meta name="twitter:description" content="编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹解压N1 openwr固件到openwrt目录1tar xvf openwrt-armvirt-64-default-rootfs.tar.gz -C openwrt">
+<meta name="twitter:description" content="编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹  解压N1 openwr固件到openwrt目录 1tar xvf openwrt-armvirt-64-default-rootfs.tar.gz -C openwrt">
 <meta name="twitter:image" content="http://www.jiayie.xyz/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/1.jpg">
 
 
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  405
+                  414
                 </span>
               
 
@@ -363,37 +363,69 @@
       
 
       
-        <p><strong>编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹</strong><br><img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/1.jpg"><br><strong>解压N1 openwr固件到openwrt目录</strong><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf openwrt-armvirt-<span class="number">64</span>-default-rootfs<span class="selector-class">.tar</span><span class="selector-class">.gz</span> -C openwrt</span><br></pre></td></tr></table></figure></p>
+        <p><strong>编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹</strong></p>
+<img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/1.jpg">
+<p><strong>解压N1 openwr固件到openwrt目录</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf openwrt-armvirt-<span class="number">64</span>-default-rootfs<span class="selector-class">.tar</span><span class="selector-class">.gz</span> -C openwrt</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/2.jpg">
 <a id="more"></a>
 <h4 id="挂载-Armbian-镜像文件"><a href="#挂载-Armbian-镜像文件" class="headerlink" title="挂载 Armbian 镜像文件"></a>挂载 Armbian 镜像文件</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f <span class="comment">--show Armbian.img</span></span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/3.jpg">
-<p><strong>挂载镜像分区到文件夹</strong><br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount <span class="string">/dev/loop11p2</span> <span class="string">/media</span>  【<span class="string">/devloop11</span> 换成你自己的】</span><br></pre></td></tr></table></figure></p>
+<p><strong>挂载镜像分区到文件夹</strong></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount <span class="string">/dev/loop11p2</span> <span class="string">/media</span>  【<span class="string">/devloop11</span> 换成你自己的】</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/4.jpg">
 <h4 id="把armbian的文件拉到openwrt里"><a href="#把armbian的文件拉到openwrt里" class="headerlink" title="把armbian的文件拉到openwrt里"></a>把armbian的文件拉到openwrt里</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">firmware</span>/</span></span><br><span class="line">sudo rm -rf openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/</span></span><br><span class="line">sudo mv /media/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/ <span class="title">openwrt</span>/<span class="title">lib</span>/</span></span><br><span class="line">sudo mv /media/<span class="class"><span class="keyword">lib</span>/<span class="title">firmware</span>/ <span class="title">openwrt</span>/<span class="title">lib</span>/</span></span><br><span class="line">sudo mv /media/etc/modprobe.d/ openwrt/etc/</span><br><span class="line">sudo mv /media/etc/fstab openwrt/etc/</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/5.jpg">
-<p><strong>到openwrt/lib/modules/4.18.7-aml-s9xxx目录下创建一个脚本文件</strong><br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/4.18.7-<span class="title">aml</span>-<span class="title">s9xxx</span></span></span><br><span class="line">执行 sudo vi link-ko.sh</span><br></pre></td></tr></table></figure></p>
+<p><strong>到openwrt/lib/modules/4.18.7-aml-s9xxx目录下创建一个脚本文件</strong></p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/4.18.7-<span class="title">aml</span>-<span class="title">s9xxx</span></span></span><br><span class="line">执行 sudo vi link-ko.sh</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/6.jpg">
-<p><strong>添加脚本</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> `<span class="builtin-name">find</span> -name *.ko`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ln -s <span class="variable">$x</span> .</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加脚本</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> `<span class="builtin-name">find</span> -name *.ko`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ln -s <span class="variable">$x</span> .</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/7.jpg">
-<p><strong>保存退出  设置文件权限和链接命令</strong><br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chmod</span> +<span class="keyword">x</span> <span class="keyword">link</span>-ko.sh</span><br><span class="line">sudo ./<span class="keyword">link</span>-ko.sh</span><br></pre></td></tr></table></figure></p>
+<p><strong>保存退出  设置文件权限和链接命令</strong></p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chmod</span> +<span class="keyword">x</span> <span class="keyword">link</span>-ko.sh</span><br><span class="line">sudo ./<span class="keyword">link</span>-ko.sh</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/8.jpg">
-<p><strong>回到目录编辑openwrt/etc/init.d/boot文件</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi openwrt<span class="regexp">/etc/i</span>nit.d<span class="regexp">/boot</span></span><br></pre></td></tr></table></figure></p>
-<p>第38行添加叫脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -n 51200</span><br></pre></td></tr></table></figure></p>
+<p><strong>回到目录编辑openwrt/etc/init.d/boot文件</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi openwrt<span class="regexp">/etc/i</span>nit.d<span class="regexp">/boot</span></span><br></pre></td></tr></table></figure>
+
+<p>第38行添加叫脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -n 51200</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/9.jpg">
 <p><strong>保存退出</strong></p>
-<p><strong>删除armbian镜像所有文件</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="regexp">/media/</span>*</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除armbian镜像所有文件</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="regexp">/media/</span>*</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/10.jpg">
-<p><strong>将openwrt中的所有文件移动到media文件夹</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv openwrt<span class="regexp">/* /m</span>edia</span><br><span class="line">sudo mkdir <span class="regexp">/media/</span>boot</span><br></pre></td></tr></table></figure></p>
+<p><strong>将openwrt中的所有文件移动到media文件夹</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv openwrt<span class="regexp">/* /m</span>edia</span><br><span class="line">sudo mkdir <span class="regexp">/media/</span>boot</span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/11.jpg">
 <h4 id="执行-刷新命令-sync-并卸载刚刚挂载的镜像"><a href="#执行-刷新命令-sync-并卸载刚刚挂载的镜像" class="headerlink" title="执行 刷新命令 sync  并卸载刚刚挂载的镜像"></a>执行 刷新命令 sync  并卸载刚刚挂载的镜像</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="string">/media</span>      </span><br><span class="line">sudo losetup -d <span class="string">/dev/loop11</span></span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/12.jpg">
 <h4 id="下载启动wifi-脚本文件"><a href="#下载启动wifi-脚本文件" class="headerlink" title="下载启动wifi 脚本文件"></a><strong>下载启动wifi 脚本文件</strong></h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/maxlicheng/phicomm-n1-wireless.git</span><br></pre></td></tr></table></figure>
-<p><strong>重新挂载刚刚移植好的openwrt镜像</strong><br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f <span class="comment">--show armbian.img</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>将启动脚本移动到镜像 /media/etc/modules.d 下</strong><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv phicomm-n1-wireless<span class="regexp">/wireless_enable /m</span>edia<span class="regexp">/etc/m</span>odules.d<span class="regexp">/wireless_enable</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>并查看 该文件是否移动到该目录下</strong><br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/media/etc/modules.d</span></span><br></pre></td></tr></table></figure></p>
+
+<p><strong>重新挂载刚刚移植好的openwrt镜像</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f <span class="comment">--show armbian.img</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>将启动脚本移动到镜像 /media/etc/modules.d 下</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv phicomm-n1-wireless<span class="regexp">/wireless_enable /m</span>edia<span class="regexp">/etc/m</span>odules.d<span class="regexp">/wireless_enable</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>并查看 该文件是否移动到该目录下</strong></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/media/etc/modules.d</span></span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/13.jpg">
-<p><strong>刷新 sync</strong><br><strong>卸载挂载的镜像</strong><br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="string">/media</span></span><br><span class="line">sudo losetup -d <span class="string">/dev/loop11</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>刷新 sync</strong><br><strong>卸载挂载的镜像</strong></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="string">/media</span></span><br><span class="line">sudo losetup -d <span class="string">/dev/loop11</span></span><br></pre></td></tr></table></figure>
+
 <img src="/2019/06/21/N1-openwrt镜像教程/06/21/N1-openwrt镜像教程/14.jpg">
 <p><strong>到此openwrt固件就制作完成了</strong></p>
 

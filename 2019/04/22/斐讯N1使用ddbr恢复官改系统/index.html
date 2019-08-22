@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令1ddbr">
+<meta name="description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令 1ddbr">
 <meta name="keywords" content="N1官改">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斐讯N1使用ddbr恢复官改系统">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令1ddbr">
+<meta property="og:description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令 1ddbr">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/2.jpg">
@@ -93,7 +93,7 @@
 <meta property="og:updated_time" content="2019-05-02T01:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斐讯N1使用ddbr恢复官改系统">
-<meta name="twitter:description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令1ddbr">
+<meta name="twitter:description" content="ddbr恢复先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令 1ddbr">
 <meta name="twitter:image" content="http://www.jiayie.xyz/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg">
 
 
@@ -315,7 +315,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  269
+                  270
                 </span>
               
 
@@ -352,9 +352,19 @@
       
 
       
-        <h4 id="ddbr恢复"><a href="#ddbr恢复" class="headerlink" title="ddbr恢复"></a>ddbr恢复</h4><p>先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ddbr</span></span><br></pre></td></tr></table></figure></p>
+        <h4 id="ddbr恢复"><a href="#ddbr恢复" class="headerlink" title="ddbr恢复"></a>ddbr恢复</h4><p>先制作一个能够从U盘正常启动的armbian系统（注意系统尽量选择3.x内核的系统，4.x部分需要打dtb网络补丁也可能无法挂载eMMC），进入后系统后执行指令</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ddbr</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
-<p>首先输入b（backup），在进度条开始后即可Ctrl+C取消。这样可以获取到ddbr备份的文件的名称（不同版本的Armbian备份出来的包名有不同）<br><img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg"><br>打开winscp用sftp加你的ssh登录信息登陆，进入/ddbr目录，可以看到一个*-emmc.img.gz文件，将它的文件名复制下来然后删除该文件。把从网盘下载的原版系统ddbr包上传到该目录，上传完成后把文件名改成刚才复制的文件名。<br><img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/2.jpg"><br>然后回到Xshell，输入ddbr指令，这回键入r（restore），它会询问你是否使用了压缩（DID YOU USED COMPRESSION），选择y即可<br><img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/3.jpg"><br>成功后直接键入<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">poweroff</span></span><br></pre></td></tr></table></figure></p>
+<p>首先输入b（backup），在进度条开始后即可Ctrl+C取消。这样可以获取到ddbr备份的文件的名称（不同版本的Armbian备份出来的包名有不同）</p>
+<img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/1.jpg">
+<p>打开winscp用sftp加你的ssh登录信息登陆，进入/ddbr目录，可以看到一个*-emmc.img.gz文件，将它的文件名复制下来然后删除该文件。把从网盘下载的原版系统ddbr包上传到该目录，上传完成后把文件名改成刚才复制的文件名。</p>
+<img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/2.jpg">
+<p>然后回到Xshell，输入ddbr指令，这回键入r（restore），它会询问你是否使用了压缩（DID YOU USED COMPRESSION），选择y即可</p>
+<img src="/2019/04/22/斐讯N1使用ddbr恢复官改系统/04/22/斐讯N1使用ddbr恢复官改系统/3.jpg">
+<p>成功后直接键入</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">poweroff</span></span><br></pre></td></tr></table></figure>
+
 <p>拔电拔U盘重启,恢复进去的系统本身已经开启adb.<br><a href="https://one.cn.lty.fun/%E5%B7%A5%E5%85%B7%E5%BA%93/N1/ddbr/" target="_blank" rel="noopener">ddbr原版恢复包</a></p>
 
       

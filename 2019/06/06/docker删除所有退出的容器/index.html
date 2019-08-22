@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -355,26 +355,41 @@
 </li>
 <li><p>查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> docker rm `docker ps -a|grep Exited|awk <span class="string">'&#123;print <span class="variable">$1</span>&#125;'</span>`</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <a id="more"></a>
+
 <p>方法二： </p>
 <ol start="3">
 <li>删除所有未运行的容器（已经运行的删除不了，未运行的就一起被删除了）<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $<span class="comment">(sudo docker ps -a -q)</span></span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 <p>方法三：</p>
 <ol start="4">
 <li>根据容器的状态，删除Exited状态的容器<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $(sudo docker ps -qf <span class="attribute">status</span>=exited)</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 <p>方法四：</p>
 <ol start="5">
 <li>Docker 1.13版本以后，可以使用 docker containers prune 命令，删除孤立的容器。<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="keyword">container</span> prune</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 <ol start="6">
 <li>删除所有镜像<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi <span class="variable">$(</span>docker images -q)</span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ol>
 <ol start="7">

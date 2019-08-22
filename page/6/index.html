@@ -6,7 +6,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -304,7 +304,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  262
+                  263
                 </span>
               
 
@@ -343,7 +343,8 @@
       
         
           <p>1.{}和之间有一个空格<br>2.find . -name 之间也有空格<br>3.exec 是一个后续的命令,{}内的内容代表前面查找出来的文件</p>
-<p>linux下批量删除空文件（大小等于0的文件）的方法<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">name</span> <span class="string">"*"</span> -<span class="built_in">type</span> f -<span class="built_in">size</span> <span class="number">0</span>c | xargs -n <span class="number">1</span> rm -f</span><br></pre></td></tr></table></figure></p>
+<p>linux下批量删除空文件（大小等于0的文件）的方法</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">name</span> <span class="string">"*"</span> -<span class="built_in">type</span> f -<span class="built_in">size</span> <span class="number">0</span>c | xargs -n <span class="number">1</span> rm -f</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/linux-inux中find批量删除空文件及空文件夹脚本/#more" rel="contents">
@@ -512,7 +513,7 @@
         
           <p>一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。</p>
 <p>所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS的过程，一般我平时使用的时候也是用的临时修改方法，但为了确保以后不再麻烦更换，也可以采用永久更换。</p>
-<h4 id="第一、临时修改当前DNS"><a href="#第一、临时修改当前DNS" class="headerlink" title="第一、临时修改当前DNS"></a>第一、临时修改当前DNS</h4><p>代码如下:<br></p>
+<h4 id="第一、临时修改当前DNS"><a href="#第一、临时修改当前DNS" class="headerlink" title="第一、临时修改当前DNS"></a>第一、临时修改当前DNS</h4><p>代码如下:</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/修改Linux系统VPS主机的DNS的方法/#more" rel="contents">
@@ -849,7 +850,7 @@
       
         
           <p>Centos安装fail2ban，Debian安装fail2ban<br>暴破的危害：<br>1、很占资源。  我的VPs、服务器经常被这些暴破搞得连接数过多，负载过高。<br>2、影响安全。 再强的密码都有可能被穷举暴破的一天，只是时间问题。</p>
-<p>防SSH/FTP暴破，请装 fail2ban， 非常给力。<br></p>
+<p>防SSH/FTP暴破，请装 fail2ban， 非常给力。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/防SSH-FTP暴破，一键安装fail2ban安装脚本/#more" rel="contents">
@@ -1023,7 +1024,7 @@
 <p>系统：Debian 7.0 x86 minimal；</p>
 <p>HTTP服务器：Nginx + PHP；</p>
 <p>数据库：SQLite。</p>
-<p>那么咱们就开始吧。<br></p>
+<p>那么咱们就开始吧。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/64MB内存的VPS上搭建WordPress/#more" rel="contents">
@@ -1190,7 +1191,7 @@
 
       
         
-          <p>BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向外提供密钥，就没有第二个人能够获取这些文件，即使它们在整个互联网范围内都是流通的。另外，由于传输过程完全建立在两个终端之间，文件传输速度理论上就是带宽允许的速度。<br></p>
+          <p>BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向外提供密钥，就没有第二个人能够获取这些文件，即使它们在整个互联网范围内都是流通的。另外，由于传输过程完全建立在两个终端之间，文件传输速度理论上就是带宽允许的速度。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/在VPS上安装btsync/#more" rel="contents">
@@ -1319,7 +1320,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  531
+                  530
                 </span>
               
 
@@ -1362,7 +1363,7 @@
 <p>一键绑定域名自动生成SSL证书开启https（ssl自动续期）。</p>
 <p>支持IPv6（AAAA记录）如果本地网络不支持IPv6可以通过cloudflare CDN转换为IP4。</p>
 <p>一键安装Tpecho、WordPress、Zblog、Kodexplorer、Laverna、一键整站备份。</p>
-<p>一键安装V2ra*、Rinetdbbr。<br></p>
+<p>一键安装V2ra*、Rinetdbbr。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/小内存一键安装 Caddy+PHP7+Sqlite3 脚本/#more" rel="contents">
@@ -1530,7 +1531,7 @@
       
         
           <p>在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下：</p>
-<p>使用apt-get install ttf-arphic-uming xfonts-intl-chinese 或apt-get install ttf-wqy-microhei命令来获取字体包并安装即可。但我使用这种方法无法成功，总是找不到软件包，从安装盘中找不到，配置好debian的网络使其可以上网，然后修改/etc/apt/sources.list文件使其从网上搜索也依然找不到，于是放弃此方法。<br></p>
+<p>使用apt-get install ttf-arphic-uming xfonts-intl-chinese 或apt-get install ttf-wqy-microhei命令来获取字体包并安装即可。但我使用这种方法无法成功，总是找不到软件包，从安装盘中找不到，配置好debian的网络使其可以上网，然后修改/etc/apt/sources.list文件使其从网上搜索也依然找不到，于是放弃此方法。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/debian安装后中文名称的文件及文件夹显示为方块/#more" rel="contents">
@@ -1659,7 +1660,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  653
+                  661
                 </span>
               
 
@@ -1697,7 +1698,8 @@
 
       
         
-          <p>1、安装面板免费板<br>安装命令<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y wget &amp;&amp; wget -O <span class="keyword">install</span>.sh http://download.bt.cn/<span class="keyword">install</span>/<span class="keyword">install</span>.sh &amp;&amp; sh <span class="keyword">install</span>.sh</span><br></pre></td></tr></table></figure></p>
+          <p>1、安装面板免费板<br>安装命令</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y wget &amp;&amp; wget -O <span class="keyword">install</span>.sh http://download.bt.cn/<span class="keyword">install</span>/<span class="keyword">install</span>.sh &amp;&amp; sh <span class="keyword">install</span>.sh</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/宝塔面板专业版破解补丁/#more" rel="contents">
@@ -1826,7 +1828,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  590
+                  591
                 </span>
               
 
@@ -1865,7 +1867,7 @@
       
         
           <p>说明：本脚本采用HTTP Header分流，随机生成Header，自带Website伪装站点、使用Html背景音乐源码，并自动生成SSL证书，并自动续签。支持CDN嵌套，支持ssl非443端口。http强制跳转https，自动生成客户端config.json配置文件，重装自动清除残余的Http服务，每天自动升级最新的V2内核。</p>
-<p>更新<br>作者更新增加脚本重装判断自动跳过ssl重复申请及一些功能#根据有人反映，博主修改了点去掉了些功能，如BBR安装。<br>修改了SSH客户端提示字体颜色，可以看的更清楚。<br>修改了音乐播放器里的音乐。<br>增加了一键启动Nginx和V2<br></p>
+<p>更新<br>作者更新增加脚本重装判断自动跳过ssl重复申请及一些功能#根据有人反映，博主修改了点去掉了些功能，如BBR安装。<br>修改了SSH客户端提示字体颜色，可以看的更清楚。<br>修改了音乐播放器里的音乐。<br>增加了一键启动Nginx和V2</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/V2基于Nginx的VMess-WS-TLS-Website一键安装脚本/#more" rel="contents">
