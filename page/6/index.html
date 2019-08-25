@@ -304,7 +304,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  263
+                  282
                 </span>
               
 
@@ -342,9 +342,9 @@
 
       
         
-          <p>1.{}和之间有一个空格<br>2.find . -name 之间也有空格<br>3.exec 是一个后续的命令,{}内的内容代表前面查找出来的文件</p>
-<p>linux下批量删除空文件（大小等于0的文件）的方法</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">name</span> <span class="string">"*"</span> -<span class="built_in">type</span> f -<span class="built_in">size</span> <span class="number">0</span>c | xargs -n <span class="number">1</span> rm -f</span><br></pre></td></tr></table></figure>
+          <p>1.{}&#x548C;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;<br>2.find . -name &#x4E4B;&#x95F4;&#x4E5F;&#x6709;&#x7A7A;&#x683C;<br>3.exec &#x662F;&#x4E00;&#x4E2A;&#x540E;&#x7EED;&#x7684;&#x547D;&#x4EE4;,{}&#x5185;&#x7684;&#x5185;&#x5BB9;&#x4EE3;&#x8868;&#x524D;&#x9762;&#x67E5;&#x627E;&#x51FA;&#x6765;&#x7684;&#x6587;&#x4EF6;</p>
+<p>linux&#x4E0B;&#x6279;&#x91CF;&#x5220;&#x9664;&#x7A7A;&#x6587;&#x4EF6;&#xFF08;&#x5927;&#x5C0F;&#x7B49;&#x4E8E;0&#x7684;&#x6587;&#x4EF6;&#xFF09;&#x7684;&#x65B9;&#x6CD5;</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> . -<span class="built_in">name</span> <span class="string">&quot;*&quot;</span> -<span class="built_in">type</span> f -<span class="built_in">size</span> <span class="number">0</span>c | xargs -n <span class="number">1</span> rm -f</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/linux-inux中find批量删除空文件及空文件夹脚本/#more" rel="contents">
@@ -473,7 +473,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  531
+                  582
                 </span>
               
 
@@ -489,7 +489,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -511,9 +511,9 @@
 
       
         
-          <p>一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。</p>
-<p>所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS的过程，一般我平时使用的时候也是用的临时修改方法，但为了确保以后不再麻烦更换，也可以采用永久更换。</p>
-<h4 id="第一、临时修改当前DNS"><a href="#第一、临时修改当前DNS" class="headerlink" title="第一、临时修改当前DNS"></a>第一、临时修改当前DNS</h4><p>代码如下:</p>
+          <p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x5F53;&#x524D;VPS&#x4E3B;&#x673A;&#x7684;/etc/resolv.conf&#x6587;&#x4EF6;&#x4E2D;&#x7684;DNS&#x4E3A;8.8.8.8&#x3001;8.8.4.4&#x8FD9;&#x4E00;&#x7EC4;DNS&#x4FDD;&#x5B58;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x80AF;&#x5B9A;&#x4E5F;&#x6709;&#x53D1;&#x73B0;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x4FEE;&#x6539;DNS&#x4E4B;&#x540E;&#x662F;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x91CD;&#x542F;VPS&#x4E4B;&#x540E;DNS&#x53C8;&#x6062;&#x590D;&#x539F;&#x6765;&#x7684;&#xFF0C;&#x6CA1;&#x6709;&#x5F7B;&#x5E95;&#x7684;&#x6539;&#x6389;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x8BB0;&#x5F55;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4FEE;&#x6539;VPS&#x4E3B;&#x673A;DNS&#x7684;&#x65F6;&#x5019;&#x4E34;&#x65F6;&#x548C;&#x6C38;&#x4E45;&#x66F4;&#x6362;DNS&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E00;&#x822C;&#x6211;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x662F;&#x7528;&#x7684;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x4EE5;&#x540E;&#x4E0D;&#x518D;&#x9EBB;&#x70E6;&#x66F4;&#x6362;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x6C38;&#x4E45;&#x66F4;&#x6362;&#x3002;</p>
+<h4 id="&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS"><a href="#&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS" class="headerlink" title="&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS"></a>&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS</h4><p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/修改Linux系统VPS主机的DNS的方法/#more" rel="contents">
@@ -642,7 +642,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k
+                  2.2k
                 </span>
               
 
@@ -658,7 +658,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  13
                 </span>
               
             </div>
@@ -680,9 +680,9 @@
 
       
         
-          <p>iptables是一个需要特别谨慎设置的东西，万一服务器不在你身边，而你贸然设置导致无法SSH，那就等着被老板骂吧，呵呵。。。</p>
-<p>一下内容是为了防止这种情况发生而写的，当然很初级，不过一般服务器也够用了：</p>
-<p>1.首先介绍一下指令和相关配置文件</p>
+          <p>iptables&#x662F;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x7279;&#x522B;&#x8C28;&#x614E;&#x8BBE;&#x7F6E;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4E07;&#x4E00;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x5728;&#x4F60;&#x8EAB;&#x8FB9;&#xFF0C;&#x800C;&#x4F60;&#x8D38;&#x7136;&#x8BBE;&#x7F6E;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;SSH&#xFF0C;&#x90A3;&#x5C31;&#x7B49;&#x7740;&#x88AB;&#x8001;&#x677F;&#x9A82;&#x5427;&#xFF0C;&#x5475;&#x5475;&#x3002;&#x3002;&#x3002;</p>
+<p>&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53D1;&#x751F;&#x800C;&#x5199;&#x7684;&#xFF0C;&#x5F53;&#x7136;&#x5F88;&#x521D;&#x7EA7;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E00;&#x822C;&#x670D;&#x52A1;&#x5668;&#x4E5F;&#x591F;&#x7528;&#x4E86;&#xFF1A;</p>
+<p>1.&#x9996;&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x6307;&#x4EE4;&#x548C;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/Linux中iptables设置详细/#more" rel="contents">
@@ -811,7 +811,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  437
+                  483
                 </span>
               
 
@@ -827,7 +827,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -849,8 +849,8 @@
 
       
         
-          <p>Centos安装fail2ban，Debian安装fail2ban<br>暴破的危害：<br>1、很占资源。  我的VPs、服务器经常被这些暴破搞得连接数过多，负载过高。<br>2、影响安全。 再强的密码都有可能被穷举暴破的一天，只是时间问题。</p>
-<p>防SSH/FTP暴破，请装 fail2ban， 非常给力。</p>
+          <p>Centos&#x5B89;&#x88C5;fail2ban&#xFF0C;Debian&#x5B89;&#x88C5;fail2ban<br>&#x66B4;&#x7834;&#x7684;&#x5371;&#x5BB3;&#xFF1A;<br>1&#x3001;&#x5F88;&#x5360;&#x8D44;&#x6E90;&#x3002;  &#x6211;&#x7684;VPs&#x3001;&#x670D;&#x52A1;&#x5668;&#x7ECF;&#x5E38;&#x88AB;&#x8FD9;&#x4E9B;&#x66B4;&#x7834;&#x641E;&#x5F97;&#x8FDE;&#x63A5;&#x6570;&#x8FC7;&#x591A;&#xFF0C;&#x8D1F;&#x8F7D;&#x8FC7;&#x9AD8;&#x3002;<br>2&#x3001;&#x5F71;&#x54CD;&#x5B89;&#x5168;&#x3002; &#x518D;&#x5F3A;&#x7684;&#x5BC6;&#x7801;&#x90FD;&#x6709;&#x53EF;&#x80FD;&#x88AB;&#x7A77;&#x4E3E;&#x66B4;&#x7834;&#x7684;&#x4E00;&#x5929;&#xFF0C;&#x53EA;&#x662F;&#x65F6;&#x95F4;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x9632;SSH/FTP&#x66B4;&#x7834;&#xFF0C;&#x8BF7;&#x88C5; fail2ban&#xFF0C; &#x975E;&#x5E38;&#x7ED9;&#x529B;&#x3002;</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/防SSH-FTP暴破，一键安装fail2ban安装脚本/#more" rel="contents">
@@ -979,7 +979,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  804
+                  906
                 </span>
               
 
@@ -995,7 +995,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -1017,14 +1017,14 @@
 
       
         
-          <p>在64MB内存的VPS上搭建WordPress，这显然是一件让人非常捉急的事情，众多的Web环境一键安装包一般只支持最小128MB内存。考虑到内存只有64MB，Apache和MySQL就不用想了；HTTP服务器可以用Lighttpd或Nginx代替，数据库也可以使用轻量级的SQLite。</p>
-<p>考虑到Lighttpd官方有这么一句：</p>
-<p>NOTE: url rewriting does not work within a $HTTP[“url”] conditional, but fixed in v1.4.34 (see #2526).</p>
-<p>链接重写（伪静态）的规则，在不同的版本之间有差异；再考虑目前Nginx算是比较主流的。所以最终的搭建方案就出炉了：</p>
-<p>系统：Debian 7.0 x86 minimal；</p>
-<p>HTTP服务器：Nginx + PHP；</p>
-<p>数据库：SQLite。</p>
-<p>那么咱们就开始吧。</p>
+          <p>&#x5728;64MB&#x5185;&#x5B58;&#x7684;VPS&#x4E0A;&#x642D;&#x5EFA;WordPress&#xFF0C;&#x8FD9;&#x663E;&#x7136;&#x662F;&#x4E00;&#x4EF6;&#x8BA9;&#x4EBA;&#x975E;&#x5E38;&#x6349;&#x6025;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x4F17;&#x591A;&#x7684;Web&#x73AF;&#x5883;&#x4E00;&#x952E;&#x5B89;&#x88C5;&#x5305;&#x4E00;&#x822C;&#x53EA;&#x652F;&#x6301;&#x6700;&#x5C0F;128MB&#x5185;&#x5B58;&#x3002;&#x8003;&#x8651;&#x5230;&#x5185;&#x5B58;&#x53EA;&#x6709;64MB&#xFF0C;Apache&#x548C;MySQL&#x5C31;&#x4E0D;&#x7528;&#x60F3;&#x4E86;&#xFF1B;HTTP&#x670D;&#x52A1;&#x5668;&#x53EF;&#x4EE5;&#x7528;Lighttpd&#x6216;Nginx&#x4EE3;&#x66FF;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;SQLite&#x3002;</p>
+<p>&#x8003;&#x8651;&#x5230;Lighttpd&#x5B98;&#x65B9;&#x6709;&#x8FD9;&#x4E48;&#x4E00;&#x53E5;&#xFF1A;</p>
+<p>NOTE: url rewriting does not work within a $HTTP[&#x201C;url&#x201D;] conditional, but fixed in v1.4.34 (see #2526).</p>
+<p>&#x94FE;&#x63A5;&#x91CD;&#x5199;&#xFF08;&#x4F2A;&#x9759;&#x6001;&#xFF09;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x6709;&#x5DEE;&#x5F02;&#xFF1B;&#x518D;&#x8003;&#x8651;&#x76EE;&#x524D;Nginx&#x7B97;&#x662F;&#x6BD4;&#x8F83;&#x4E3B;&#x6D41;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x7684;&#x642D;&#x5EFA;&#x65B9;&#x6848;&#x5C31;&#x51FA;&#x7089;&#x4E86;&#xFF1A;</p>
+<p>&#x7CFB;&#x7EDF;&#xFF1A;Debian 7.0 x86 minimal&#xFF1B;</p>
+<p>HTTP&#x670D;&#x52A1;&#x5668;&#xFF1A;Nginx + PHP&#xFF1B;</p>
+<p>&#x6570;&#x636E;&#x5E93;&#xFF1A;SQLite&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x54B1;&#x4EEC;&#x5C31;&#x5F00;&#x59CB;&#x5427;&#x3002;</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/64MB内存的VPS上搭建WordPress/#more" rel="contents">
@@ -1153,7 +1153,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  787
+                  852
                 </span>
               
 
@@ -1169,7 +1169,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -1191,7 +1191,7 @@
 
       
         
-          <p>BTSync（BitTorrent Sync）其实是一个点对点的文件传输服务，把它搭建在 VPS 上作为文件储存系统也算是一个比较另类的用法。你可以把它理解为一个私有的 Dropbox，但是它不属于任何一个公司。其所有的控制权，从文件传输到存储再到发布，都在你自己的手上。由于传输过程全程加密，且不经过任何中继服务器，这种基于 BitTorrent 协议的同步方式具有非常高的安全性。理论上只要你不向外提供密钥，就没有第二个人能够获取这些文件，即使它们在整个互联网范围内都是流通的。另外，由于传输过程完全建立在两个终端之间，文件传输速度理论上就是带宽允许的速度。</p>
+          <p>BTSync&#xFF08;BitTorrent Sync&#xFF09;&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x4E2A;&#x70B9;&#x5BF9;&#x70B9;&#x7684;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x670D;&#x52A1;&#xFF0C;&#x628A;&#x5B83;&#x642D;&#x5EFA;&#x5728; VPS &#x4E0A;&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x50A8;&#x5B58;&#x7CFB;&#x7EDF;&#x4E5F;&#x7B97;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x53E6;&#x7C7B;&#x7684;&#x7528;&#x6CD5;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x7406;&#x89E3;&#x4E3A;&#x4E00;&#x4E2A;&#x79C1;&#x6709;&#x7684; Dropbox&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x5C5E;&#x4E8E;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x516C;&#x53F8;&#x3002;&#x5176;&#x6240;&#x6709;&#x7684;&#x63A7;&#x5236;&#x6743;&#xFF0C;&#x4ECE;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x5230;&#x5B58;&#x50A8;&#x518D;&#x5230;&#x53D1;&#x5E03;&#xFF0C;&#x90FD;&#x5728;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x624B;&#x4E0A;&#x3002;&#x7531;&#x4E8E;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x5168;&#x7A0B;&#x52A0;&#x5BC6;&#xFF0C;&#x4E14;&#x4E0D;&#x7ECF;&#x8FC7;&#x4EFB;&#x4F55;&#x4E2D;&#x7EE7;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8FD9;&#x79CD;&#x57FA;&#x4E8E; BitTorrent &#x534F;&#x8BAE;&#x7684;&#x540C;&#x6B65;&#x65B9;&#x5F0F;&#x5177;&#x6709;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;&#x7406;&#x8BBA;&#x4E0A;&#x53EA;&#x8981;&#x4F60;&#x4E0D;&#x5411;&#x5916;&#x63D0;&#x4F9B;&#x5BC6;&#x94A5;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x7B2C;&#x4E8C;&#x4E2A;&#x4EBA;&#x80FD;&#x591F;&#x83B7;&#x53D6;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x5728;&#x6574;&#x4E2A;&#x4E92;&#x8054;&#x7F51;&#x8303;&#x56F4;&#x5185;&#x90FD;&#x662F;&#x6D41;&#x901A;&#x7684;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x7531;&#x4E8E;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x5B8C;&#x5168;&#x5EFA;&#x7ACB;&#x5728;&#x4E24;&#x4E2A;&#x7EC8;&#x7AEF;&#x4E4B;&#x95F4;&#xFF0C;&#x6587;&#x4EF6;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x7406;&#x8BBA;&#x4E0A;&#x5C31;&#x662F;&#x5E26;&#x5BBD;&#x5141;&#x8BB8;&#x7684;&#x901F;&#x5EA6;&#x3002;</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/在VPS上安装btsync/#more" rel="contents">
@@ -1320,7 +1320,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  530
+                  598
                 </span>
               
 
@@ -1336,7 +1336,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -1358,12 +1358,12 @@
 
       
         
-          <p>这是一个Debian系统下一键安装Caddy+PHP7+Sqlite3建站环境的脚本，最低测试可以在64M小内存VPS上通过，可谓非常给力了。如果你有小内存VPS或者想体验下的都可以试试。</p>
-<p>脚本特性<br>小内存VPS一键安装Caddy、PHP7、Sqlite3环境（支持VPS最小内存64M）。</p>
-<p>一键绑定域名自动生成SSL证书开启https（ssl自动续期）。</p>
-<p>支持IPv6（AAAA记录）如果本地网络不支持IPv6可以通过cloudflare CDN转换为IP4。</p>
-<p>一键安装Tpecho、WordPress、Zblog、Kodexplorer、Laverna、一键整站备份。</p>
-<p>一键安装V2ra*、Rinetdbbr。</p>
+          <p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;Debian&#x7CFB;&#x7EDF;&#x4E0B;&#x4E00;&#x952E;&#x5B89;&#x88C5;Caddy+PHP7+Sqlite3&#x5EFA;&#x7AD9;&#x73AF;&#x5883;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x6700;&#x4F4E;&#x6D4B;&#x8BD5;&#x53EF;&#x4EE5;&#x5728;64M&#x5C0F;&#x5185;&#x5B58;VPS&#x4E0A;&#x901A;&#x8FC7;&#xFF0C;&#x53EF;&#x8C13;&#x975E;&#x5E38;&#x7ED9;&#x529B;&#x4E86;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6709;&#x5C0F;&#x5185;&#x5B58;VPS&#x6216;&#x8005;&#x60F3;&#x4F53;&#x9A8C;&#x4E0B;&#x7684;&#x90FD;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;&#x3002;</p>
+<p>&#x811A;&#x672C;&#x7279;&#x6027;<br>&#x5C0F;&#x5185;&#x5B58;VPS&#x4E00;&#x952E;&#x5B89;&#x88C5;Caddy&#x3001;PHP7&#x3001;Sqlite3&#x73AF;&#x5883;&#xFF08;&#x652F;&#x6301;VPS&#x6700;&#x5C0F;&#x5185;&#x5B58;64M&#xFF09;&#x3002;</p>
+<p>&#x4E00;&#x952E;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;&#x81EA;&#x52A8;&#x751F;&#x6210;SSL&#x8BC1;&#x4E66;&#x5F00;&#x542F;https&#xFF08;ssl&#x81EA;&#x52A8;&#x7EED;&#x671F;&#xFF09;&#x3002;</p>
+<p>&#x652F;&#x6301;IPv6&#xFF08;AAAA&#x8BB0;&#x5F55;&#xFF09;&#x5982;&#x679C;&#x672C;&#x5730;&#x7F51;&#x7EDC;&#x4E0D;&#x652F;&#x6301;IPv6&#x53EF;&#x4EE5;&#x901A;&#x8FC7;cloudflare CDN&#x8F6C;&#x6362;&#x4E3A;IP4&#x3002;</p>
+<p>&#x4E00;&#x952E;&#x5B89;&#x88C5;Tpecho&#x3001;WordPress&#x3001;Zblog&#x3001;Kodexplorer&#x3001;Laverna&#x3001;&#x4E00;&#x952E;&#x6574;&#x7AD9;&#x5907;&#x4EFD;&#x3002;</p>
+<p>&#x4E00;&#x952E;&#x5B89;&#x88C5;V2ra*&#x3001;Rinetdbbr&#x3002;</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/小内存一键安装 Caddy+PHP7+Sqlite3 脚本/#more" rel="contents">
@@ -1492,7 +1492,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.2k
                 </span>
               
 
@@ -1508,7 +1508,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  7
                 </span>
               
             </div>
@@ -1530,8 +1530,8 @@
 
       
         
-          <p>在安装debian系统的时候如果选择使用中文作为操作系统的字体，但在安装过程中并没有联网进行同步更新，那么很可能在debian系统安装成功以后出现所有中文文字都是小方块数字字母及黑块问号的情况（如第一图所示）。出现这种情况的原因是因为系统的安装时候没有安装中文的字体库，搜了一些网上的解决方法，如下：</p>
-<p>使用apt-get install ttf-arphic-uming xfonts-intl-chinese 或apt-get install ttf-wqy-microhei命令来获取字体包并安装即可。但我使用这种方法无法成功，总是找不到软件包，从安装盘中找不到，配置好debian的网络使其可以上网，然后修改/etc/apt/sources.list文件使其从网上搜索也依然找不到，于是放弃此方法。</p>
+          <p>&#x5728;&#x5B89;&#x88C5;debian&#x7CFB;&#x7EDF;&#x7684;&#x65F6;&#x5019;&#x5982;&#x679C;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x4E2D;&#x6587;&#x4F5C;&#x4E3A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x5B57;&#x4F53;&#xFF0C;&#x4F46;&#x5728;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x8054;&#x7F51;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#x66F4;&#x65B0;&#xFF0C;&#x90A3;&#x4E48;&#x5F88;&#x53EF;&#x80FD;&#x5728;debian&#x7CFB;&#x7EDF;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x4EE5;&#x540E;&#x51FA;&#x73B0;&#x6240;&#x6709;&#x4E2D;&#x6587;&#x6587;&#x5B57;&#x90FD;&#x662F;&#x5C0F;&#x65B9;&#x5757;&#x6570;&#x5B57;&#x5B57;&#x6BCD;&#x53CA;&#x9ED1;&#x5757;&#x95EE;&#x53F7;&#x7684;&#x60C5;&#x51B5;&#xFF08;&#x5982;&#x7B2C;&#x4E00;&#x56FE;&#x6240;&#x793A;&#xFF09;&#x3002;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x7684;&#x539F;&#x56E0;&#x662F;&#x56E0;&#x4E3A;&#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x88C5;&#x65F6;&#x5019;&#x6CA1;&#x6709;&#x5B89;&#x88C5;&#x4E2D;&#x6587;&#x7684;&#x5B57;&#x4F53;&#x5E93;&#xFF0C;&#x641C;&#x4E86;&#x4E00;&#x4E9B;&#x7F51;&#x4E0A;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>&#x4F7F;&#x7528;apt-get install ttf-arphic-uming xfonts-intl-chinese &#x6216;apt-get install ttf-wqy-microhei&#x547D;&#x4EE4;&#x6765;&#x83B7;&#x53D6;&#x5B57;&#x4F53;&#x5305;&#x5E76;&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x3002;&#x4F46;&#x6211;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x6210;&#x529F;&#xFF0C;&#x603B;&#x662F;&#x627E;&#x4E0D;&#x5230;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x4ECE;&#x5B89;&#x88C5;&#x76D8;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#xFF0C;&#x914D;&#x7F6E;&#x597D;debian&#x7684;&#x7F51;&#x7EDC;&#x4F7F;&#x5176;&#x53EF;&#x4EE5;&#x4E0A;&#x7F51;&#xFF0C;&#x7136;&#x540E;&#x4FEE;&#x6539;/etc/apt/sources.list&#x6587;&#x4EF6;&#x4F7F;&#x5176;&#x4ECE;&#x7F51;&#x4E0A;&#x641C;&#x7D22;&#x4E5F;&#x4F9D;&#x7136;&#x627E;&#x4E0D;&#x5230;&#xFF0C;&#x4E8E;&#x662F;&#x653E;&#x5F03;&#x6B64;&#x65B9;&#x6CD5;&#x3002;</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/debian安装后中文名称的文件及文件夹显示为方块/#more" rel="contents">
@@ -1660,7 +1660,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  661
+                  694
                 </span>
               
 
@@ -1676,7 +1676,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -1698,7 +1698,7 @@
 
       
         
-          <p>1、安装面板免费板<br>安装命令</p>
+          <p>1&#x3001;&#x5B89;&#x88C5;&#x9762;&#x677F;&#x514D;&#x8D39;&#x677F;<br>&#x5B89;&#x88C5;&#x547D;&#x4EE4;</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y wget &amp;&amp; wget -O <span class="keyword">install</span>.sh http://download.bt.cn/<span class="keyword">install</span>/<span class="keyword">install</span>.sh &amp;&amp; sh <span class="keyword">install</span>.sh</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1828,7 +1828,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  591
+                  666
                 </span>
               
 
@@ -1844,7 +1844,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -1866,8 +1866,8 @@
 
       
         
-          <p>说明：本脚本采用HTTP Header分流，随机生成Header，自带Website伪装站点、使用Html背景音乐源码，并自动生成SSL证书，并自动续签。支持CDN嵌套，支持ssl非443端口。http强制跳转https，自动生成客户端config.json配置文件，重装自动清除残余的Http服务，每天自动升级最新的V2内核。</p>
-<p>更新<br>作者更新增加脚本重装判断自动跳过ssl重复申请及一些功能#根据有人反映，博主修改了点去掉了些功能，如BBR安装。<br>修改了SSH客户端提示字体颜色，可以看的更清楚。<br>修改了音乐播放器里的音乐。<br>增加了一键启动Nginx和V2</p>
+          <p>&#x8BF4;&#x660E;&#xFF1A;&#x672C;&#x811A;&#x672C;&#x91C7;&#x7528;HTTP Header&#x5206;&#x6D41;&#xFF0C;&#x968F;&#x673A;&#x751F;&#x6210;Header&#xFF0C;&#x81EA;&#x5E26;Website&#x4F2A;&#x88C5;&#x7AD9;&#x70B9;&#x3001;&#x4F7F;&#x7528;Html&#x80CC;&#x666F;&#x97F3;&#x4E50;&#x6E90;&#x7801;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x751F;&#x6210;SSL&#x8BC1;&#x4E66;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x7EED;&#x7B7E;&#x3002;&#x652F;&#x6301;CDN&#x5D4C;&#x5957;&#xFF0C;&#x652F;&#x6301;ssl&#x975E;443&#x7AEF;&#x53E3;&#x3002;http&#x5F3A;&#x5236;&#x8DF3;&#x8F6C;https&#xFF0C;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5BA2;&#x6237;&#x7AEF;config.json&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x91CD;&#x88C5;&#x81EA;&#x52A8;&#x6E05;&#x9664;&#x6B8B;&#x4F59;&#x7684;Http&#x670D;&#x52A1;&#xFF0C;&#x6BCF;&#x5929;&#x81EA;&#x52A8;&#x5347;&#x7EA7;&#x6700;&#x65B0;&#x7684;V2&#x5185;&#x6838;&#x3002;</p>
+<p>&#x66F4;&#x65B0;<br>&#x4F5C;&#x8005;&#x66F4;&#x65B0;&#x589E;&#x52A0;&#x811A;&#x672C;&#x91CD;&#x88C5;&#x5224;&#x65AD;&#x81EA;&#x52A8;&#x8DF3;&#x8FC7;ssl&#x91CD;&#x590D;&#x7533;&#x8BF7;&#x53CA;&#x4E00;&#x4E9B;&#x529F;&#x80FD;#&#x6839;&#x636E;&#x6709;&#x4EBA;&#x53CD;&#x6620;&#xFF0C;&#x535A;&#x4E3B;&#x4FEE;&#x6539;&#x4E86;&#x70B9;&#x53BB;&#x6389;&#x4E86;&#x4E9B;&#x529F;&#x80FD;&#xFF0C;&#x5982;BBR&#x5B89;&#x88C5;&#x3002;<br>&#x4FEE;&#x6539;&#x4E86;SSH&#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x793A;&#x5B57;&#x4F53;&#x989C;&#x8272;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x7684;&#x66F4;&#x6E05;&#x695A;&#x3002;<br>&#x4FEE;&#x6539;&#x4E86;&#x97F3;&#x4E50;&#x64AD;&#x653E;&#x5668;&#x91CC;&#x7684;&#x97F3;&#x4E50;&#x3002;<br>&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x952E;&#x542F;&#x52A8;Nginx&#x548C;V2</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/25/V2基于Nginx的VMess-WS-TLS-Website一键安装脚本/#more" rel="contents">
