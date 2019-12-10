@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小强">
 <meta property="og:description" content="经过一周的折腾,原WordPress中的内容已经完全转到Hexo了,也把博客中涉及的代码块,内链等都修正了一把. 刚好,自己google adsense中还有点钱,挂个adsense也不错,但根据Hexo博客用到的主题不同,使用的语言就不同,本站使用的是maupassant主题,简洁大气,但jade语法完全不会,直接使用google adsense将会有各种无法解析的错误. 经过一番折腾,终于搞定">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T15:44:22.752Z">
+<meta property="og:updated_time" content="2019-12-10T16:13:26.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客添加google,adsense广告">
 <meta name="twitter:description" content="经过一周的折腾,原WordPress中的内容已经完全转到Hexo了,也把博客中涉及的代码块,内链等都修正了一把. 刚好,自己google adsense中还有点钱,挂个adsense也不错,但根据Hexo博客用到的主题不同,使用的语言就不同,本站使用的是maupassant主题,简洁大气,但jade语法完全不会,直接使用google adsense将会有各种无法解析的错误. 经过一番折腾,终于搞定">
@@ -278,8 +278,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-10T23:44:22+08:00">
-                2019-12-10
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-11T00:13:26+08:00">
+                2019-12-11
               </time>
             
           </span>
@@ -354,7 +354,7 @@
 <p>在主题中添加广告位置<br>此处与自己在用的maupassant主题为例,其他的大同小异.</p>
 <a id="more"></a>
 <p>打开主题目录下的_config.yml文件,添加个广告控制开关</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">widgets_on_small_screens: false ## Set to true to enable widgets on small screens. show_ad_post: true  ##如需要开启广告位,设置为 true</span><br><span class="line">menu:</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">widgets_on_small_screens: false ## Set to true to enable widgets on small screens.</span><br><span class="line">show_ad_post: true  ##如需要开启广告位,设置为 true</span><br><span class="line">menu:</span><br></pre></td></tr></table></figure>
 
 <p>打开主题模板,在对应位置添加广告代码.我这是在文章页底部,评论框上方添加,所以打开主题目录\layout\post.jade</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#这里的代码已经是按jade语法改造后的代码</span><br><span class="line">if theme.show_ad_post == true #对应主题配置中添加的开关</span><br><span class="line">    script(async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")</span><br><span class="line">    ins.adsbygoogle(style="display:block" data-ad-client="ca-pub-7390437336363898" data-ad-slot="9075736497" data-ad-format="auto")</span><br><span class="line">    script (adsbygoogle = window.adsbygoogle || []).push(&#123;&#125;);</span><br></pre></td></tr></table></figure>
