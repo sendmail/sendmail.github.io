@@ -229,6 +229,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/12/10/给Hexo-Next设置阅读全文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/10/给Hexo-Next设置阅读全文/" itemprop="url">给Hexo,Next设置阅读全文</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-10T23:59:19+08:00">
+                2019-12-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-11T00:04:57+08:00">
+                2019-12-11
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  201
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Hexo 的 Next 主题默认是首页显示你每篇文章的全文内容，但这会使你的首页篇幅过于冗长，针对这个问题我们可以这么做：用编辑器打开themes/next 目录下的_config.yml文件
+*1找到代码：
+123auto_excerpt:      enable: false      leng
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/12/10/给Hexo-Next设置阅读全文/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/12/10/Hexo博客添加google-adsense广告/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1019,14 +1190,17 @@
       
         
           
-            <ol>
-<li>刷入小钢炮并开启DOCKER，这个在灯大的网站里有详细的步骤，我就不赘述了</li>
-<li>拉取op进Docker，可分为5小步：<br>1）SSH登录小钢炮ip，运行 docker pull kanshudj/n1-openwrtgateway<br>2）运行 ip link set eth0 promisc on<br>3）运行 docker network create -d macvlan –subnet=192.168.1.0/24 –gateway=192.168.1.1 -o parent=eth0 macnet<br>注意将上述192.168.1.0及192.168.1.1替换为你的主路由网段，如192.168.2.0与192.168.2.1<br>4）运行 docker run –restart always -d –network macnet –privileged kanshudj/n1-openwrtgateway /sbin/init<br>5）进docker管理页面里的命令输入行，运行vi /etc/config/network<br>按一下i键编辑网络参数，将其中倒数第五行192.168.0.2替换为你想登录op的ip，注意其应在主路由网段内，如192.168.2.2，最后两行中的192.168.0.1替换为192.168.2.1<br>依次按esc : w q 后回车，restart一下op进入op管理页面（如192.168.2.2）</li>
-<li>路由模式设置<br>1）主路由<br>接口—LAN—修改—DHCP服务器—高级设置—DHCP选项添加以下两行：3,192.168.2.2与6,192.168.2.2<br>2）N1 op<br>接口—LAN—编辑—物理设置—取消桥接接口<br>重启主路由及N1，电脑重新获取ip，查看网关及DNS服务器为op地址则成功，小钢炮功能正常使用！3</li>
-</ol>
-<p>上述方法设置会让小钢炮使用docker里op的网关导致小钢炮的下载工具没有下载速度，<br>方法如下：<br>小钢炮管理—SYSTEM—NETWORK，选择固定IP，将ipv4设置为固定值（如你管理小钢炮的ip），将路由（routers）与DNS指向主路由的ip（如192.168.2.1），重启小钢炮与主路由。<br>不足：小钢炮仅可正常下载国内资源。</p>
-
           
+刷入小钢炮并开启DOCKER，这个在灯大的网站里有详细的步骤，我就不赘述了
+拉取op进Docker，可分为5小步：1）SSH登录小钢炮ip，运行 docker pull kanshudj/n1-openwrtgateway2）运行 ip link set eth0 promisc on3）运行 d
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/26/小钢炮docker运行op且做旁路由的问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1528,13 +1702,19 @@
       
         
           
-            <p>   每次打开都需要重新配置为什么？</p>
-<p>　　打开命令运行框，用win+r就可以打开，然后输入</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKCU<span class="symbol">\S</span>oftware<span class="symbol">\M</span>icrosoft<span class="symbol">\O</span>ffice<span class="symbol">\1</span>4.0<span class="symbol">\W</span>ord<span class="symbol">\O</span>ptions /v NoReReg /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+             每次打开都需要重新配置为什么？
+　　打开命令运行框，用win+r就可以打开，然后输入
+1HKCU\Software\Microsoft\Office\14.0\Word\Options /v NoReReg /t REG_DWORD /d 1
 
-<p>按回车就可以了。<br><a href="https://pmjs-my.sharepoint.com/:u:/g/personal/sy2slru5m_my365_tw/EQbPDGYKsahAr6Gmge1Rp0kBMi0qldHjEAVUgPqwf329Rg?e=Z0k7d1" target="_blank" rel="noopener">office2010下载地址</a><br><a href="https://pmjs-my.sharepoint.com/:u:/g/personal/sy2slru5m_my365_tw/Eay-3O-2uP1BresUVwi2qFsBfFsdQYUaXWDeB2mqzIOamQ?e=ewvosM" target="_blank" rel="noopener">Office强力卸载工具</a></p>
-
-          
+按回车就可以了。office2010下载地址Of
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/20/office每次打开都需要重新配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1739,178 +1919,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/06/13/详细SSR脚本教程，fq，免流/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小强">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/13/详细SSR脚本教程，fq，免流/" itemprop="url">详细SSR脚本教程，fq，免流</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-13T13:18:42+08:00">
-                2019-06-13
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-06-13T14:02:54+08:00">
-                2019-06-13
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  984
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>介绍：可以看做SSR脚本版 可免流 可fq 省电 自启准备：</p>
-<ol>
-<li>手机root</li>
-<li>机场（s sr订阅）</li>
-<li>magisk</li>
-<li>mt文件管理器</li></ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/13/详细SSR脚本教程，fq，免流/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1963,7 +1971,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
