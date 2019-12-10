@@ -370,7 +370,7 @@
 
 <img src="/2019/06/21/N1-openwrt镜像教程/2.jpg">
 <a id="more"></a>
-<h4 id="挂载-Armbian-镜像文件"><a href="#挂载-Armbian-镜像文件" class="headerlink" title="挂载 Armbian 镜像文件"></a>挂载 Armbian 镜像文件</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f <span class="comment">--show Armbian.img</span></span><br></pre></td></tr></table></figure>
+<h4 id="挂载-Armbian-镜像文件"><a href="#挂载-Armbian-镜像文件" class="headerlink" title="挂载 Armbian 镜像文件"></a>挂载 Armbian 镜像文件</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f --show <span class="module-access"><span class="module"><span class="identifier">Armbian</span>.</span></span>img</span><br></pre></td></tr></table></figure>
 
 <img src="/2019/06/21/N1-openwrt镜像教程/3.jpg">
 <p><strong>挂载镜像分区到文件夹</strong></p>
@@ -396,7 +396,7 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi openwrt<span class="regexp">/etc/i</span>nit.d<span class="regexp">/boot</span></span><br></pre></td></tr></table></figure>
 
 <p>第38行添加叫脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -n 51200</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -n <span class="number">51200</span></span><br></pre></td></tr></table></figure>
 
 <img src="/2019/06/21/N1-openwrt镜像教程/9.jpg">
 <p><strong>保存退出</strong></p>
@@ -562,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

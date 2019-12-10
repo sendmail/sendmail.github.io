@@ -381,7 +381,7 @@
 <p>更新完后我们回到前台看，版本还是不变，但是实际上已经更新成功了，你再次点更新会提示最新版本了</p>
 <img src="/2019/05/08/LEDE-SSR插件里面规则不能更新，还停留在4月10日的解决方法/7.png">
 <p>现在我们来修复下前台的显示错误<br>同样在ssh里面输入如下命令</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/koolshare/</span>webs<span class="regexp">/Module_koolss.asp</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /koolshare/webs/<span class="module-access"><span class="module"><span class="identifier">Module_koolss</span>.</span></span>asp</span><br></pre></td></tr></table></figure>
 
 <img src="/2019/05/08/LEDE-SSR插件里面规则不能更新，还停留在4月10日的解决方法/8.png">
 <p>找到下图中的这个位置，输入”i”进入编辑模式</p>
@@ -527,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

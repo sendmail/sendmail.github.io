@@ -550,7 +550,7 @@
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod <span class="string">| grep bbr</span></span><br></pre></td></tr></table></figure>
 
 <p>查看是否有开启，开启返回结果如下：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root<span class="variable">@aml</span><span class="symbol">:~</span><span class="comment"># lsmod | grep bbr tcp_bbr	20480	1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">root@</span>aml:~# lsmod | grep bbr tcp_bbr	<span class="number">20480</span>	<span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>没有开启的，可通过如下脚本自动安装：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="keyword">no</span>-check-certificate http<span class="variable">s:</span>//github.<span class="keyword">com</span>/teddysun/across/raw/master/bbr.<span class="keyword">sh</span> &amp;&amp; chmod +<span class="keyword">x</span>  bbr.<span class="keyword">sh</span> &amp;&amp; ./bbr.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
@@ -603,7 +603,7 @@
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +<span class="keyword">x</span> /<span class="keyword">opt</span>/bin/<span class="built_in">add</span>-trackers-auto.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
 
 <p>设置文件中用户名密码，如果没有修改为“：” <strong>Set user and password in add-trackers-auto.sh</strong> 自启动设置：</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable transmission-tracker-<span class="built_in">add</span>.service systemctl <span class="built_in">start</span> transmission-tracker-<span class="built_in">add</span>.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl <span class="keyword">enable</span> transmission-tracker-<span class="keyword">add</span>.service systemctl <span class="keyword">start</span> transmission-tracker-<span class="keyword">add</span>.service</span><br></pre></td></tr></table></figure>
 
 <p>查看状态</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status transmission-tracker-<span class="keyword">add</span>.<span class="bash">service</span></span><br></pre></td></tr></table></figure>
@@ -822,7 +822,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

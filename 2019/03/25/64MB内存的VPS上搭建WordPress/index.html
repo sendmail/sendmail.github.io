@@ -374,7 +374,7 @@
 
 <p>在第3行修改域名；在第10、22行修改站点文件目录；在第17行修改数据库文件目录。</p>
 <p>重载Nginx：</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nginx -t</span></span><br><span class="line"><span class="attribute">nginx -s reload</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nginx</span> <span class="string">-t</span></span><br><span class="line"><span class="attr">nginx</span> <span class="string">-s reload</span></span><br></pre></td></tr></table></figure>
 
 <p>配置PHP：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>php5<span class="regexp">/fpm/</span>php.ini</span><br></pre></td></tr></table></figure>
@@ -387,7 +387,7 @@
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get install unzip</span><br><span class="line"><span class="keyword">cd</span> <span class="string">/home/64mb/web</span></span><br><span class="line">wget http:<span class="string">//cn.wordpress.org/latest-zh_CN.zip</span></span><br><span class="line">unzip *<span class="string">.zip</span></span><br><span class="line">mv wordpress/* <span class="string">./</span></span><br><span class="line">rm -rf *<span class="string">.zip</span> wordpress</span><br></pre></td></tr></table></figure>
 
 <p>让WordPress支持SQLite数据库，插件SQLite Integration： </p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /home/64mb/web</span><br><span class="line">wget https:<span class="comment">//downloads.wordpress.org/plugin/sqlite-integration.1.8.1.zip</span></span><br><span class="line">unzip *.<span class="keyword">zip</span></span><br><span class="line">mv sqlite-integration wp-content/plugins</span><br><span class="line">cp wp-content/plugins/sqlite-integration/<span class="keyword">db</span>.php wp-content</span><br><span class="line"> <span class="keyword">rm</span> *.<span class="keyword">zip</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">/home/64mb/web</span></span><br><span class="line"><span class="attr">wget</span> <span class="string">https://downloads.wordpress.org/plugin/sqlite-integration.1.8.1.zip</span></span><br><span class="line"><span class="attr">unzip</span> <span class="string">*.zip</span></span><br><span class="line"><span class="attr">mv</span> <span class="string">sqlite-integration wp-content/plugins</span></span><br><span class="line"><span class="attr">cp</span> <span class="string">wp-content/plugins/sqlite-integration/db.php wp-content</span></span><br><span class="line"> <span class="attr">rm</span> <span class="string">*.zip</span></span><br></pre></td></tr></table></figure>
 
 <p>修改WordPress配置文件：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cp</span> <span class="keyword">wp</span>-config-sample.php <span class="keyword">wp</span>-config.php</span><br><span class="line"><span class="keyword">vi</span> <span class="keyword">wp</span>-config.php</span><br></pre></td></tr></table></figure>
@@ -528,7 +528,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

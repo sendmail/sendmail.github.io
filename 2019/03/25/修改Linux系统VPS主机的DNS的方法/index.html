@@ -368,7 +368,7 @@
 
 <p>在最后两行添加：</p>
 <p>代码如下:</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DNS1=<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">    </span><br><span class="line">DNS2=<span class="number">8.8</span><span class="number">.4</span><span class="number">.4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DNS1=<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">    </span><br><span class="line">DNS2=<span class="number">8.8</span><span class="number">.4</span><span class="number">.4</span></span><br></pre></td></tr></table></figure>
 
 <img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg">
 
@@ -379,7 +379,7 @@
 
 <p>然后在dhclient.conf最后一行添加</p>
 <p>代码如下:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">prepend</span> <span class="selector-tag">domain-name-servers</span> 8<span class="selector-class">.8</span><span class="selector-class">.8</span><span class="selector-class">.8</span>, 8<span class="selector-class">.8</span><span class="selector-class">.4</span><span class="selector-class">.4</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prepend domain-name-servers <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>, <span class="number">8.8</span><span class="number">.4</span><span class="number">.4</span>;</span><br></pre></td></tr></table></figure>
 
 <p>然后我们再保存退出。</p>
 <img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg">
@@ -519,7 +519,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

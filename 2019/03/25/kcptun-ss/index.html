@@ -357,7 +357,7 @@
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vi</span> start.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
 
 <p>写入以下内容：</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./server_linux_amd64 –l “:<span class="number">29900</span>” –t “<span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">8388</span>” —key “<span class="keyword">test</span>” —mode “fast2” &gt; kcptun.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./server_linux_amd64 –l “:<span class="number">29900</span>” –t “<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8388</span>” —key “test” —mode “fast2” &gt; kcptun.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
 
 <p>server_linux_amd64 对应服务端文件名，请对应修改。<br>解释一下参数：-l 表示 Kcptun 的服务端监听端口，用于接收外部请求和发送数据，默认 29900；-t 表示要加速的地址，我这里设置的是我服务器的 Shadowsocks 端口；–key 是 Kcptun 的验证密钥，服务端和本地必须一致才能通过验证，请自行设置；–mode 为加速模式，默认 fast。<br>响应速度:</p>
 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fast</span><span class="number">3</span> &gt; [<span class="keyword">fast</span><span class="number">2</span>] &gt; <span class="keyword">fast</span> &gt; normal &gt; <span class="keyword">default</span></span><br></pre></td></tr></table></figure>
@@ -378,7 +378,7 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Markup</span><br><span class="line"></span><br><span class="line">    https:<span class="regexp">//gi</span>thub.com<span class="regexp">/xtaci/</span>kcptun<span class="regexp">/releases/</span>download<span class="regexp">/v20160612/</span>kcptun-windows-amd64-<span class="number">20160612</span>.tar.gz</span><br></pre></td></tr></table></figure>
 
 <p>解压到文件夹下。<br>由于 Kcptun 是控制台程序，所以我选择使用 vbs 脚本，来达到后台运行的目的：<br>新建 run.bat</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASIC</span><br><span class="line">start /<span class="selector-tag">b</span> client_windows_amd64<span class="selector-class">.exe</span> –l “:<span class="number">12948</span>” –r “<span class="number">10.10</span>.<span class="number">10.10</span>:<span class="number">29900</span>” —key “test” —mode “fast2” &gt; kcptun<span class="selector-class">.log</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BASIC</span><br><span class="line">start /b client_windows_amd64.exe –l “:<span class="number">12948</span>” –r “<span class="number">10.10</span><span class="number">.10</span><span class="number">.10</span>:<span class="number">29900</span>” —key “test” —mode “fast2” &gt; kcptun.log <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>本地监听端口为 12948；服务器 IP 地址 10.10.10.10 端口 29900；验证密钥和服务端一致。<br>新建 run.vbs</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionScript</span><br><span class="line"><span class="builtin-name">Set</span> WshShell = WScript.CreateObject(“WScript.Shell”)</span><br><span class="line">WshShell.<span class="builtin-name">Run</span> (“run.bat”), 0, <span class="literal">False</span></span><br><span class="line"><span class="builtin-name">Set</span> WshShell = <span class="literal">Nothing</span></span><br></pre></td></tr></table></figure>
@@ -512,7 +512,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

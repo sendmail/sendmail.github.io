@@ -361,7 +361,7 @@
       
 
       
-        <h4 id="虚拟机先安装Vmtools和SSH"><a href="#虚拟机先安装Vmtools和SSH" class="headerlink" title="虚拟机先安装Vmtools和SSH:"></a>虚拟机先安装Vmtools和SSH:</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> openssh-<span class="keyword">server</span> <span class="keyword">open</span>-vm-tools-desktop -y</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+        <h4 id="虚拟机先安装Vmtools和SSH"><a href="#虚拟机先安装Vmtools和SSH" class="headerlink" title="虚拟机先安装Vmtools和SSH:"></a>虚拟机先安装Vmtools和SSH:</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> install openssh-<span class="keyword">server</span> <span class="keyword">open</span>-vm-tools-desktop -y</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 
 <p>把以下地址加入自定义gfwlist可提高成功率：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h12.io</span><br><span class="line">go<span class="selector-class">.starlark</span><span class="selector-class">.net</span></span><br><span class="line">golang.org</span><br><span class="line">honnef.co</span><br></pre></td></tr></table></figure>
@@ -390,7 +390,7 @@
 <p>②拷贝到官方编译包里的package目录，路径：source-package</p>
 <img src="/2019/05/08/Openwrt编译时用官方原版的源，然后加入lean的插件源/3.png">
 <h4 id="二、配置编译环境"><a href="#二、配置编译环境" class="headerlink" title="二、配置编译环境"></a>二、配置编译环境</h4><p>①更新一下源</p>
-<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
 
 <p>②安装openwrt编译需要的环境，这里两种安装方式（两种方式二选一）<br>1.一建安装全部编译所需的依赖</p>
 <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-<span class="built_in">dev</span> libz-<span class="built_in">dev</span> patch unzip zlib1g-<span class="built_in">dev</span> lib32gcc1 libc6-<span class="built_in">dev</span>-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-<span class="built_in">dev</span> texinfo libglib2<span class="number">.0</span>-<span class="built_in">dev</span> xmlto qemu-utils upx</span><br></pre></td></tr></table></figure>
@@ -568,7 +568,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

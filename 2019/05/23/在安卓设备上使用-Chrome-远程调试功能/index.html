@@ -414,11 +414,11 @@
 <p>按 F5（或者在Mac上 Cmd + r）来重新加载远程页面。<br>让设备的网络处于打开状态。使用 Network 面板来查看实际移动设备的网络流状态。<br>使用 Timeline 面板来分析提交数据和 CPU 使用状态。在移动设备上运行的程序通常会比在开发机器上运行的要慢一些。<br>如果你是在本地的 web 服务器上运行的，使用端口转发或者虚拟主机映射 技术来让设备访问你的站点。</p>
 <p><strong>调试 WebViews</strong><br>在安卓 4.4 及后续版本中，你可以使用 DevTools 来调试原生安卓应用中的 WebView 的内容。</p>
 <p>将 WebViews 配置为可调试状态<br>你的应用程序必须允许调试 WebView。要开启 WebView 调试，在 WebView 类里面调用静态函数 setWebContentsDebuggingEnabled。</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (<span class="keyword">Build</span>.VERSION.SDK_INT &gt;= <span class="keyword">Build</span>.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">     WebView.setWebContentsDebuggingEnabled(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">     <span class="module-access"><span class="module"><span class="identifier">WebView</span>.</span></span>set<span class="constructor">WebContentsDebuggingEnabled(<span class="params">true</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>该设置对该应用中所有的 WebView 都会生效。</p>
 <p>提示： WebView 的调试并不会受到应用中 manifest 文件的 debuggable 标签状态的影响。如果你想只有在 debuggable 为 true 时启用 WebView 调试，请在运行的时候测试该标签的状态。</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (<span class="keyword">Build</span>.VERSION.SDK_INT &gt;= <span class="keyword">Build</span>.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> != (getApplicationInfo().flags &amp;= ApplicationInfo.FLAG_DEBUGGABLE))</span><br><span class="line">    &#123; WebView.setWebContentsDebuggingEnabled(<span class="literal">true</span>); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> != (get<span class="constructor">ApplicationInfo()</span>.flags &amp;= ApplicationInfo.FLAG_DEBUGGABLE))</span><br><span class="line">    &#123; <span class="module-access"><span class="module"><span class="identifier">WebView</span>.</span></span>set<span class="constructor">WebContentsDebuggingEnabled(<span class="params">true</span>)</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在 DevTools 中打开 WebView<br><strong>chrome://inspect</strong> 页面会显示设备中所有可调试的 WebView.</p>
 <p>要开始调试，点击你想调试的 WebView 下面的 inspect。接下来就像使用远程浏览器选项卡一样使用 DevTools。</p>
@@ -608,7 +608,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

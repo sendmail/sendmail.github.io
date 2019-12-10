@@ -362,7 +362,7 @@
 
 <p>方法二： </p>
 <ol start="3">
-<li>删除所有未运行的容器（已经运行的删除不了，未运行的就一起被删除了）<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $<span class="comment">(sudo docker ps -a -q)</span></span><br></pre></td></tr></table></figure>
+<li>删除所有未运行的容器（已经运行的删除不了，未运行的就一起被删除了）<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm <span class="constructor">$(<span class="params">sudo</span> <span class="params">docker</span> <span class="params">ps</span> -<span class="params">a</span> -<span class="params">q</span>)</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -370,7 +370,7 @@
 </ol>
 <p>方法三：</p>
 <ol start="4">
-<li>根据容器的状态，删除Exited状态的容器<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm $(sudo docker ps -qf <span class="attribute">status</span>=exited)</span><br></pre></td></tr></table></figure>
+<li>根据容器的状态，删除Exited状态的容器<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm <span class="constructor">$(<span class="params">sudo</span> <span class="params">docker</span> <span class="params">ps</span> -<span class="params">qf</span> <span class="params">status</span>=<span class="params">exited</span>)</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -385,7 +385,7 @@
 </li>
 </ol>
 <ol start="6">
-<li>删除所有镜像<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi <span class="variable">$(</span>docker images -q)</span><br></pre></td></tr></table></figure>
+<li>删除所有镜像<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi <span class="constructor">$(<span class="params">docker</span> <span class="params">images</span> -<span class="params">q</span>)</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -520,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
