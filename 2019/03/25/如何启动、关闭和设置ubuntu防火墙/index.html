@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="&amp;#x5F15;&amp;#x81EA;&amp;#xFF1A;http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html &amp;#x5C31;&amp;#x8FD9;&amp;#x53E5;&amp;#x8BDD;&amp;#x5C31;&amp;#x591F;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;">
+<meta name="description" content="引自：http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html 就这句话就够了，下面的可以不看 sudo ufw enable|disable 由于LInux原始的防火墙工具iptables过于繁琐，所以ubuntu默认提供了一个基于iptable之上的防火墙工具ufw。 ubuntu 9.10默认的便是UFW防火墙，它已经支持">
 <meta name="keywords" content="ubuntu防火墙">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何启动、关闭和设置ubuntu防火墙">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/如何启动、关闭和设置ubuntu防火墙/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="&amp;#x5F15;&amp;#x81EA;&amp;#xFF1A;http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html &amp;#x5C31;&amp;#x8FD9;&amp;#x53E5;&amp;#x8BDD;&amp;#x5C31;&amp;#x591F;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;">
+<meta property="og:description" content="引自：http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html 就这句话就够了，下面的可以不看 sudo ufw enable|disable 由于LInux原始的防火墙工具iptables过于繁琐，所以ubuntu默认提供了一个基于iptable之上的防火墙工具ufw。 ubuntu 9.10默认的便是UFW防火墙，它已经支持">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-05-02T01:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何启动、关闭和设置ubuntu防火墙">
-<meta name="twitter:description" content="&amp;#x5F15;&amp;#x81EA;&amp;#xFF1A;http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html &amp;#x5C31;&amp;#x8FD9;&amp;#x53E5;&amp;#x8BDD;&amp;#x5C31;&amp;#x591F;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;">
+<meta name="twitter:description" content="引自：http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html 就这句话就够了，下面的可以不看 sudo ufw enable|disable 由于LInux原始的防火墙工具iptables过于繁琐，所以ubuntu默认提供了一个基于iptable之上的防火墙工具ufw。 ubuntu 9.10默认的便是UFW防火墙，它已经支持">
 
 
 
@@ -311,7 +311,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.2k
                 </span>
               
 
@@ -327,7 +327,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  5
                 </span>
               
             </div>
@@ -348,61 +348,61 @@
       
 
       
-        <p>&#x5F15;&#x81EA;&#xFF1A;<a href="http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html" target="_blank" rel="noopener">http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html</a></p>
-<p>&#x5C31;&#x8FD9;&#x53E5;&#x8BDD;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x53EF;&#x4EE5;&#x4E0D;&#x770B;</p>
+        <p>引自：<a href="http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html" target="_blank" rel="noopener">http://www.cnblogs.com/jiangyao/archive/2010/05/19/1738909.html</a></p>
+<p>就这句话就够了，下面的可以不看</p>
 <p>sudo ufw enable|disable</p>
-<p>&#x7531;&#x4E8E;LInux&#x539F;&#x59CB;&#x7684;&#x9632;&#x706B;&#x5899;&#x5DE5;&#x5177;iptables&#x8FC7;&#x4E8E;&#x7E41;&#x7410;&#xFF0C;&#x6240;&#x4EE5;ubuntu&#x9ED8;&#x8BA4;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;iptable&#x4E4B;&#x4E0A;&#x7684;&#x9632;&#x706B;&#x5899;&#x5DE5;&#x5177;ufw&#x3002;</p>
-<p>ubuntu 9.10&#x9ED8;&#x8BA4;&#x7684;&#x4FBF;&#x662F;UFW&#x9632;&#x706B;&#x5899;&#xFF0C;&#x5B83;&#x5DF2;&#x7ECF;&#x652F;&#x6301;&#x754C;&#x9762;&#x64CD;&#x4F5C;&#x4E86;&#x3002;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x8FD0;&#x884C;ufw&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x63D0;&#x793A;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x53EF;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
-<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;sudo ufw status&#x53EF;&#x68C0;&#x67E5;&#x9632;&#x706B;&#x5899;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6211;&#x7684;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#xFF1A;&#x4E0D;&#x6D3B;&#x52A8;</p>
+<p>由于LInux原始的防火墙工具iptables过于繁琐，所以ubuntu默认提供了一个基于iptable之上的防火墙工具ufw。</p>
+<p>ubuntu 9.10默认的便是UFW防火墙，它已经支持界面操作了。在命令行运行ufw命令就可以看到提示的一系列可进行的操作。</p>
+<p>最简单的一个操作：sudo ufw status可检查防火墙的状态，我的返回的是：不活动</p>
 <a id="more"></a>
-<p>sudo ufw version&#x9632;&#x706B;&#x5899;&#x7248;&#x672C;&#xFF1A;<br>ufw 0.29-4ubuntu1<br>Copyright 2008-2009 Canonical Ltd.</p>
-<p>ubuntu &#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x5DF2;&#x5B89;&#x88C5;ufw.</p>
-<p>1.&#x5B89;&#x88C5;</p>
+<p>sudo ufw version防火墙版本：<br>ufw 0.29-4ubuntu1<br>Copyright 2008-2009 Canonical Ltd.</p>
+<p>ubuntu 系统默认已安装ufw.</p>
+<p>1.安装</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ufw</span><br></pre></td></tr></table></figure>
 
-<p>2.&#x542F;&#x7528;</p>
+<p>2.启用</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw<span class="built_in"> default </span>deny</span><br></pre></td></tr></table></figure>
 
-<p>&#x8FD0;&#x884C;&#x4EE5;&#x4E0A;&#x4E24;&#x6761;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x5F00;&#x542F;&#x4E86;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x5E76;&#x5728;&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x65F6;&#x81EA;&#x52A8;&#x5F00;&#x542F;&#x3002;&#x5173;&#x95ED;&#x6240;&#x6709;&#x5916;&#x90E8;&#x5BF9;&#x672C;&#x673A;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x4F46;&#x672C;&#x673A;&#x8BBF;&#x95EE;&#x5916;&#x90E8;&#x6B63;&#x5E38;&#x3002;</p>
-<p>3.&#x5F00;&#x542F;/&#x7981;&#x7528;</p>
+<p>运行以上两条命令后，开启了防火墙，并在系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常。</p>
+<p>3.开启/禁用</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow<span class="string">|deny [service]</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x6253;&#x5F00;&#x6216;&#x5173;&#x95ED;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp&#x3000;&#x5141;&#x8BB8;&#x6240;&#x6709;&#x7684;&#x5916;&#x90E8;IP&#x8BBF;&#x95EE;&#x672C;&#x673A;&#x7684;25/tcp (smtp)&#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">sudo ufw allow 22/tcp &#x5141;&#x8BB8;&#x6240;&#x6709;&#x7684;&#x5916;&#x90E8;IP&#x8BBF;&#x95EE;&#x672C;&#x673A;&#x7684;22/tcp (ssh)&#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">sudo ufw allow 53 &#x5141;&#x8BB8;&#x5916;&#x90E8;&#x8BBF;&#x95EE;53&#x7AEF;&#x53E3;(tcp/udp)</span><br><span class="line"></span><br><span class="line">sudo ufw allow <span class="keyword">from</span> 192.168.1.100 &#x5141;&#x8BB8;&#x6B64;IP&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x7684;&#x672C;&#x673A;&#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">sudo ufw allow proto udp 192.168.0.1<span class="built_in"> port </span>53 <span class="keyword">to</span> 192.168.0.2<span class="built_in"> port </span>53</span><br><span class="line"></span><br><span class="line">sudo ufw deny smtp &#x7981;&#x6B62;&#x5916;&#x90E8;&#x8BBF;&#x95EE;smtp&#x670D;&#x52A1;</span><br><span class="line"></span><br><span class="line">sudo ufw delete allow smtp &#x5220;&#x9664;&#x4E0A;&#x9762;&#x5EFA;&#x7ACB;&#x7684;&#x67D0;&#x6761;&#x89C4;&#x5219;</span><br></pre></td></tr></table></figure>
+<p>打开或关闭某个端口，例如：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　允许所有的外部IP访问本机的25/tcp (smtp)端口</span><br><span class="line"></span><br><span class="line">sudo ufw allow 22/tcp 允许所有的外部IP访问本机的22/tcp (ssh)端口</span><br><span class="line"></span><br><span class="line">sudo ufw allow 53 允许外部访问53端口(tcp/udp)</span><br><span class="line"></span><br><span class="line">sudo ufw allow <span class="keyword">from</span> 192.168.1.100 允许此IP访问所有的本机端口</span><br><span class="line"></span><br><span class="line">sudo ufw allow proto udp 192.168.0.1<span class="built_in"> port </span>53 <span class="keyword">to</span> 192.168.0.2<span class="built_in"> port </span>53</span><br><span class="line"></span><br><span class="line">sudo ufw deny smtp 禁止外部访问smtp服务</span><br><span class="line"></span><br><span class="line">sudo ufw delete allow smtp 删除上面建立的某条规则</span><br></pre></td></tr></table></figure>
 
-<p>4.&#x67E5;&#x770B;&#x9632;&#x706B;&#x5899;&#x72B6;&#x6001;</p>
+<p>4.查看防火墙状态</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo ufw status</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x4E00;&#x822C;&#x7528;&#x6237;&#xFF0C;&#x53EA;&#x9700;&#x5982;&#x4E0B;&#x8BBE;&#x7F6E;&#xFF1A;</p>
+<p>一般用户，只需如下设置：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ufw</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw<span class="built_in"> default </span>deny</span><br></pre></td></tr></table></figure>
 
-<p>&#x4EE5;&#x4E0A;&#x4E09;&#x6761;&#x547D;&#x4EE4;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x5B89;&#x5168;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x5F00;&#x653E;&#x67D0;&#x4E9B;&#x670D;&#x52A1;&#xFF0C;&#x518D;&#x4F7F;&#x7528;sudo ufw allow&#x5F00;&#x542F;&#x3002;</p>
-<p>&#x5F00;&#x542F;/&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899; (&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x662F;&#x2019;disable&#x2019;)</p>
+<p>以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。</p>
+<p>开启/关闭防火墙 (默认设置是’disable’)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span>|<span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x8F6C;&#x6362;&#x65E5;&#x5FD7;&#x72B6;&#x6001;</p>
+<p>转换日志状态</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw<span class="built_in"> logging </span>on|off</span><br></pre></td></tr></table></figure>
 
-<p>&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7B56;&#x7565; (&#x6BD4;&#x5982; &#x201C;mostly open&#x201D; vs &#x201C;mostly closed&#x201D;)</p>
+<p>设置默认策略 (比如 “mostly open” vs “mostly closed”)</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw<span class="built_in"> default </span>allow|deny</span><br></pre></td></tr></table></figure>
 
-<p>&#x8BB8; &#x53EF;&#x6216;&#x8005;&#x5C4F;&#x853D;&#x7AEF;&#x53E3; (&#x53EF;&#x4EE5;&#x5728;&#x201C;status&#x201D; &#x4E2D;&#x67E5;&#x770B;&#x5230;&#x670D;&#x52A1;&#x5217;&#x8868;)&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x201C;&#x534F;&#x8BAE;&#xFF1A;&#x7AEF;&#x53E3;&#x201D;&#x7684;&#x65B9;&#x5F0F;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5B58;&#x5728;&#x4E8E;/etc/services&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x540D;&#x79F0;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5305;&#x7684;meta-data&#x3002; &#x2018;allow&#x2019; &#x53C2;&#x6570;&#x5C06;&#x628A;&#x6761;&#x76EE;&#x52A0;&#x5165; /etc/ufw/maps &#xFF0C;&#x800C; &#x2018;deny&#x2019; &#x5219;&#x76F8;&#x53CD;&#x3002;&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>许 可或者屏蔽端口 (可以在“status” 中查看到服务列表)。可以用“协议：端口”的方式指定一个存在于/etc/services中的服务名称，也可以通过包的meta-data。 ‘allow’ 参数将把条目加入 /etc/ufw/maps ，而 ‘deny’ 则相反。基本语法如下：</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow<span class="string">|deny [service]</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x663E;&#x793A;&#x9632;&#x706B;&#x5899;&#x548C;&#x7AEF;&#x53E3;&#x7684;&#x4FA6;&#x542C;&#x72B6;&#x6001;&#xFF0C;&#x53C2;&#x89C1; /var/lib/ufw/maps&#x3002;&#x62EC;&#x53F7;&#x4E2D;&#x7684;&#x6570;&#x5B57;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;</p>
+<p>显示防火墙和端口的侦听状态，参见 /var/lib/ufw/maps。括号中的数字将不会被显示出来。</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo ufw status</span></span><br></pre></td></tr></table></figure>
 
-<p>UFW &#x4F7F;&#x7528;&#x8303;&#x4F8B;&#xFF1A;</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#x5141;&#x8BB8; <span class="number">53</span> &#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow <span class="number">53</span></span><br><span class="line"></span><br><span class="line">&#x7981;&#x7528; <span class="number">53</span> &#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow <span class="number">53</span></span><br><span class="line"></span><br><span class="line">&#x5141;&#x8BB8; <span class="number">80</span> &#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow <span class="number">80</span>/tcp</span><br><span class="line"></span><br><span class="line">&#x7981;&#x7528; <span class="number">80</span> &#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow <span class="number">80</span>/tcp</span><br><span class="line"></span><br><span class="line">&#x5141;&#x8BB8; smtp &#x7AEF;&#x53E3;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow smtp</span><br><span class="line"></span><br><span class="line">&#x5220;&#x9664; smtp &#x7AEF;&#x53E3;&#x7684;&#x8BB8;&#x53EF;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow smtp</span><br><span class="line"></span><br><span class="line">&#x5141;&#x8BB8;&#x67D0;&#x7279;&#x5B9A; IP</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow from <span class="number">192.168</span><span class="number">.254</span><span class="number">.254</span></span><br><span class="line"></span><br><span class="line">&#x5220;&#x9664;&#x4E0A;&#x9762;&#x7684;&#x89C4;&#x5219;</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow from <span class="number">192.168</span><span class="number">.254</span><span class="number">.254</span></span><br></pre></td></tr></table></figure>
+<p>UFW 使用范例：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">允许 <span class="number">53</span> 端口</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow <span class="number">53</span></span><br><span class="line"></span><br><span class="line">禁用 <span class="number">53</span> 端口</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow <span class="number">53</span></span><br><span class="line"></span><br><span class="line">允许 <span class="number">80</span> 端口</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow <span class="number">80</span>/tcp</span><br><span class="line"></span><br><span class="line">禁用 <span class="number">80</span> 端口</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow <span class="number">80</span>/tcp</span><br><span class="line"></span><br><span class="line">允许 smtp 端口</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow smtp</span><br><span class="line"></span><br><span class="line">删除 smtp 端口的许可</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow smtp</span><br><span class="line"></span><br><span class="line">允许某特定 IP</span><br><span class="line"></span><br><span class="line">    $ sudo ufw allow from <span class="number">192.168</span><span class="number">.254</span><span class="number">.254</span></span><br><span class="line"></span><br><span class="line">删除上面的规则</span><br><span class="line"></span><br><span class="line">    $ sudo ufw delete allow from <span class="number">192.168</span><span class="number">.254</span><span class="number">.254</span></span><br></pre></td></tr></table></figure>
 
-<p>linux 2.4&#x5185;&#x6838;&#x4EE5;&#x540E;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x4F18;&#x79C0;&#x7684;&#x9632;&#x706B;&#x5899;&#x5DE5;&#x5177;&#xFF1A;netfilter/iptables,&#x4ED6;&#x514D;&#x8D39;&#x4E14;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x6D41;&#x5165;&#x3001;&#x6D41;&#x51FA;&#x7684;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x7EC6;&#x5316;&#x63A7;&#x5236;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5; &#x5B9E;&#x73B0;&#x9632;&#x706B;&#x5899;&#x3001;NAT&#xFF08;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x7FFB;&#x8BD1;&#xFF09;&#x548C;&#x6570;&#x636E;&#x5305;&#x7684;&#x5206;&#x5272;&#x7B49;&#x529F;&#x80FD;&#x3002;netfilter&#x5DE5;&#x4F5C;&#x5728;&#x5185;&#x6838;&#x5185;&#x90E8;&#xFF0C;&#x800C;iptables&#x5219;&#x662F;&#x8BA9;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x89C4;&#x5219;&#x96C6;&#x7684;&#x8868;&#x7ED3;&#x6784;&#x3002;</p>
-<p>&#x4F46;&#x662F;iptables&#x7684;&#x89C4;&#x5219;&#x7A0D;&#x5FAE;&#x6709;&#x4E9B;&#x201C;&#x590D;&#x6742;&#x201D;&#xFF0C;&#x56E0;&#x6B64;ubuntu&#x63D0;&#x4F9B;&#x4E86;ufw&#x8FD9;&#x4E2A;&#x8BBE;&#x5B9A;&#x5DE5;&#x5177;&#xFF0C;&#x4EE5;&#x7B80;&#x5316;iptables&#x7684;&#x67D0;&#x4E9B;&#x8BBE;&#x5B9A;&#xFF0C;&#x5176;&#x540E;&#x53F0;&#x4ECD;&#x7136;&#x662F; iptables&#x3002;ufw &#x5373;uncomplicated firewall&#x7684;&#x7B80;&#x79F0;&#xFF0C;&#x4E00;&#x4E9B;&#x590D;&#x6742;&#x7684;&#x8BBE;&#x5B9A;&#x8FD8;&#x662F;&#x8981;&#x53BB;iptables&#x3002;</p>
-<p>ufw&#x76F8;&#x5173;&#x7684;&#x6587;&#x4EF6;&#x548C;&#x6587;&#x4EF6;&#x5939;&#x6709;&#xFF1A;</p>
-<p>/etc /ufw/&#xFF1A;&#x91CC;&#x9762;&#x662F;&#x4E00;&#x4E9B;ufw&#x7684;&#x73AF;&#x5883;&#x8BBE;&#x5B9A;&#x6587;&#x4EF6;&#xFF0C;&#x5982; before.rules&#x3001;after.rules&#x3001;sysctl.conf&#x3001;ufw.conf&#xFF0C;&#x53CA; for ip6 &#x7684; before6.rule &#x53CA; after6.rules&#x3002;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x6309;&#x7167;&#x9ED8;&#x8BA4;&#x7684;&#x8BBE;&#x7F6E;&#x8FDB;&#x884C;&#x5C31;ok&#x3002;</p>
-<p>&#x82E5;&#x5F00;&#x542F;ufw&#x4E4B; &#x540E;&#xFF0C;/etc/ufw/sysctl.conf&#x4F1A;&#x8986;&#x76D6;&#x9ED8;&#x8BA4;&#x7684;/etc/sysctl.conf&#x6587;&#x4EF6;&#xFF0C;&#x82E5;&#x4F60;&#x539F;&#x6765;&#x7684;/etc/sysctl.conf&#x505A;&#x4E86;&#x4FEE; &#x6539;&#xFF0C;&#x542F;&#x52A8;ufw&#x540E;&#xFF0C;&#x82E5;/etc/ufw/sysctl.conf&#x4E2D;&#x6709;&#x65B0;&#x8D4B;&#x503C;&#xFF0C;&#x5219;&#x4F1A;&#x8986;&#x76D6;/etc/sysctl.conf&#x7684;&#xFF0C;&#x5426;&#x5219;&#x8FD8;&#x4EE5;/etc /sysctl.conf&#x4E3A;&#x51C6;&#x3002;&#x5F53;&#x7136;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;/etc/default/ufw&#x4E2D;&#x7684;&#x201C;IPT_SYSCTL=&#x201D;&#x6761;&#x76EE;&#x6765;&#x8BBE;&#x7F6E;&#x4F7F;&#x7528;&#x54EA;&#x4E2A; sysctrl.conf.</p>
-<p>/var/lib/ufw/user.rules &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x662F;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x7684;&#x4E00;&#x4E9B;&#x9632;&#x706B;&#x5899;&#x89C4;&#x5219;&#xFF0C;&#x6253;&#x5F00;&#x5927;&#x6982;&#x5C31;&#x80FD;&#x770B;&#x660E;&#x767D;&#xFF0C;&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x7528;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x6765;&#x8BBE;&#x5B9A;&#x3002;&#x4FEE;&#x6539;&#x540E;&#x8BB0;&#x5F97;ufw reload&#x91CD;&#x542F;ufw&#x4F7F;&#x5F97;&#x65B0;&#x89C4;&#x5219;&#x751F;&#x6548;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x662F;ufw&#x547D;&#x4EE4;&#x884C;&#x7684;&#x4E00;&#x4E9B;&#x793A;&#x4F8B;&#xFF1A;</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">`ufw enable/disable:&#x6253;&#x5F00;/&#x5173;&#x95ED;ufw</span><br><span class="line"></span><br><span class="line">ufw status&#xFF1A;&#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x5B9A;&#x4E49;&#x7684;ufw&#x89C4;&#x5219;</span><br><span class="line"></span><br><span class="line">ufw<span class="built_in"> default </span>allow/deny:&#x5916;&#x6765;&#x8BBF;&#x95EE;&#x9ED8;&#x8BA4;&#x5141;&#x8BB8;/&#x62D2;&#x7EDD;</span><br><span class="line"></span><br><span class="line">ufw allow/deny 20&#xFF1A;&#x5141;&#x8BB8;/&#x62D2;&#x7EDD; &#x8BBF;&#x95EE;20&#x7AEF;&#x53E3;,20&#x540E;&#x53EF;&#x8DDF;/tcp&#x6216;/udp&#xFF0C;&#x8868;&#x793A;tcp&#x6216;udp&#x5C01;&#x5305;&#x3002;</span><br><span class="line"></span><br><span class="line">ufw allow/deny servicename:ufw&#x4ECE;/etc/services&#x4E2D;&#x627E;&#x5230;&#x5BF9;&#x5E94;service&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#x3002;</span><br><span class="line"></span><br><span class="line">ufw allow proto tcp <span class="keyword">from</span> 10.0.1.0/10 <span class="keyword">to</span> &#x672C;&#x673A;ip<span class="built_in"> port </span>25:&#x5141;&#x8BB8;&#x81EA;10.0.1.0/10&#x7684;tcp&#x5C01;&#x5305;&#x8BBF;&#x95EE;&#x672C;&#x673A;&#x7684;25&#x7AEF;&#x53E3;&#x3002;</span><br><span class="line"></span><br><span class="line">ufw delete allow/deny 20:&#x5220;&#x9664;&#x4EE5;&#x524D;&#x5B9A;&#x4E49;&#x7684;<span class="string">&quot;&#x5141;&#x8BB8;/&#x62D2;&#x7EDD;&#x8BBF;&#x95EE;20&#x7AEF;&#x53E3;&quot;</span>&#x7684;&#x89C4;&#x5219;</span><br></pre></td></tr></table></figure>
+<p>linux 2.4内核以后提供了一个非常优秀的防火墙工具：netfilter/iptables,他免费且功能强大，可以对流入、流出的信息进行细化控制，它可以 实现防火墙、NAT（网络地址翻译）和数据包的分割等功能。netfilter工作在内核内部，而iptables则是让用户定义规则集的表结构。</p>
+<p>但是iptables的规则稍微有些“复杂”，因此ubuntu提供了ufw这个设定工具，以简化iptables的某些设定，其后台仍然是 iptables。ufw 即uncomplicated firewall的简称，一些复杂的设定还是要去iptables。</p>
+<p>ufw相关的文件和文件夹有：</p>
+<p>/etc /ufw/：里面是一些ufw的环境设定文件，如 before.rules、after.rules、sysctl.conf、ufw.conf，及 for ip6 的 before6.rule 及 after6.rules。这些文件一般按照默认的设置进行就ok。</p>
+<p>若开启ufw之 后，/etc/ufw/sysctl.conf会覆盖默认的/etc/sysctl.conf文件，若你原来的/etc/sysctl.conf做了修 改，启动ufw后，若/etc/ufw/sysctl.conf中有新赋值，则会覆盖/etc/sysctl.conf的，否则还以/etc /sysctl.conf为准。当然你可以通过修改/etc/default/ufw中的“IPT_SYSCTL=”条目来设置使用哪个 sysctrl.conf.</p>
+<p>/var/lib/ufw/user.rules 这个文件中是我们设置的一些防火墙规则，打开大概就能看明白，有时我们可以直接修改这个文件，不用使用命令来设定。修改后记得ufw reload重启ufw使得新规则生效。</p>
+<p>下面是ufw命令行的一些示例：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">`ufw enable/disable:打开/关闭ufw</span><br><span class="line"></span><br><span class="line">ufw status：查看已经定义的ufw规则</span><br><span class="line"></span><br><span class="line">ufw<span class="built_in"> default </span>allow/deny:外来访问默认允许/拒绝</span><br><span class="line"></span><br><span class="line">ufw allow/deny 20：允许/拒绝 访问20端口,20后可跟/tcp或/udp，表示tcp或udp封包。</span><br><span class="line"></span><br><span class="line">ufw allow/deny servicename:ufw从/etc/services中找到对应service的端口，进行过滤。</span><br><span class="line"></span><br><span class="line">ufw allow proto tcp <span class="keyword">from</span> 10.0.1.0/10 <span class="keyword">to</span> 本机ip<span class="built_in"> port </span>25:允许自10.0.1.0/10的tcp封包访问本机的25端口。</span><br><span class="line"></span><br><span class="line">ufw delete allow/deny 20:删除以前定义的<span class="string">"允许/拒绝访问20端口"</span>的规则</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -514,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

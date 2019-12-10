@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="&amp;#x4E00;&amp;#x822C;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x4FEE;&amp;#x6539;VPS&amp;#x4E3B;&amp;#x673A;&amp;#x7684;DNS&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x89E3;&amp;#x51B3;&amp;#x8FD9;&amp;#x4E2A;&amp;#x95EE;&amp;#">
+<meta name="description" content="一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。 所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS">
 <meta name="keywords" content="DNS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修改Linux系统VPS主机的DNS的方法">
 <meta property="og:url" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/index.html">
 <meta property="og:site_name" content="小强">
-<meta property="og:description" content="&amp;#x4E00;&amp;#x822C;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x4FEE;&amp;#x6539;VPS&amp;#x4E3B;&amp;#x673A;&amp;#x7684;DNS&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x89E3;&amp;#x51B3;&amp;#x8FD9;&amp;#x4E2A;&amp;#x95EE;&amp;#">
+<meta property="og:description" content="一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。 所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg">
-<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg">
 <meta property="og:updated_time" content="2019-06-26T03:35:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改Linux系统VPS主机的DNS的方法">
-<meta name="twitter:description" content="&amp;#x4E00;&amp;#x822C;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x4FEE;&amp;#x6539;VPS&amp;#x4E3B;&amp;#x673A;&amp;#x7684;DNS&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x89E3;&amp;#x51B3;&amp;#x8FD9;&amp;#x4E2A;&amp;#x95EE;&amp;#">
-<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
+<meta name="twitter:description" content="一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。 所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS">
+<meta name="twitter:image" content="http://www.jiayie.xyz/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
 
 
 
@@ -315,7 +315,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  582
+                  531
                 </span>
               
 
@@ -331,7 +331,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -352,39 +352,39 @@
       
 
       
-        <p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x5F53;&#x524D;VPS&#x4E3B;&#x673A;&#x7684;/etc/resolv.conf&#x6587;&#x4EF6;&#x4E2D;&#x7684;DNS&#x4E3A;8.8.8.8&#x3001;8.8.4.4&#x8FD9;&#x4E00;&#x7EC4;DNS&#x4FDD;&#x5B58;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x80AF;&#x5B9A;&#x4E5F;&#x6709;&#x53D1;&#x73B0;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x4FEE;&#x6539;DNS&#x4E4B;&#x540E;&#x662F;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x91CD;&#x542F;VPS&#x4E4B;&#x540E;DNS&#x53C8;&#x6062;&#x590D;&#x539F;&#x6765;&#x7684;&#xFF0C;&#x6CA1;&#x6709;&#x5F7B;&#x5E95;&#x7684;&#x6539;&#x6389;&#x3002;</p>
-<p>&#x6240;&#x4EE5;&#xFF0C;&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x8BB0;&#x5F55;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4FEE;&#x6539;VPS&#x4E3B;&#x673A;DNS&#x7684;&#x65F6;&#x5019;&#x4E34;&#x65F6;&#x548C;&#x6C38;&#x4E45;&#x66F4;&#x6362;DNS&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E00;&#x822C;&#x6211;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x662F;&#x7528;&#x7684;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x4EE5;&#x540E;&#x4E0D;&#x518D;&#x9EBB;&#x70E6;&#x66F4;&#x6362;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x6C38;&#x4E45;&#x66F4;&#x6362;&#x3002;</p>
-<h4 id="&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS"><a href="#&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS" class="headerlink" title="&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS"></a>&#x7B2C;&#x4E00;&#x3001;&#x4E34;&#x65F6;&#x4FEE;&#x6539;&#x5F53;&#x524D;DNS</h4><p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+        <p>一般情况下，我们只需要修改VPS主机的DNS就可以解决这个问题。比如直接修改当前VPS主机的/etc/resolv.conf文件中的DNS为8.8.8.8、8.8.4.4这一组DNS保存后就可以解决问题。但是我们肯定也有发现，在我们修改DNS之后是可以解决问题的，但是重启VPS之后DNS又恢复原来的，没有彻底的改掉。</p>
+<p>所以，在这篇文章中，记录下，我们在修改VPS主机DNS的时候临时和永久更换DNS的过程，一般我平时使用的时候也是用的临时修改方法，但为了确保以后不再麻烦更换，也可以采用永久更换。</p>
+<h4 id="第一、临时修改当前DNS"><a href="#第一、临时修改当前DNS" class="headerlink" title="第一、临时修改当前DNS"></a>第一、临时修改当前DNS</h4><p>代码如下:</p>
 <a id="more"></a>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/resolv.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x7136;&#x540E;&#x5C06;&#x9ED8;&#x8BA4;&#x7684;&#x6587;&#x4EF6;&#x90FD;&#x4FEE;&#x6539;&#x6210;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
-<img src="/2019/03/25/&#x4FEE;&#x6539;Linux&#x7CFB;&#x7EDF;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x7684;&#x65B9;&#x6CD5;/2019/03/25/&#x4FEE;&#x6539;Linux&#x7CFB;&#x7EDF;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x7684;&#x65B9;&#x6CD5;/1.jpg">
+<p>然后将默认的文件都修改成如下图所示。</p>
+<img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/1.jpg">
 
-<p>&#x4FEE;&#x6539;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#xFF0C;&#x7136;&#x540E;:wq&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x811A;&#x672C;&#x5B89;&#x88C5;&#x5E94;&#x8BE5;&#x6CA1;&#x6709;&#x591A;&#x5927;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#x5728;&#x963F;&#x91CC;&#x4E91;&#x3001;Linode&#x4E0A;&#x5B89;&#x88C5;&#x4E00;&#x4E9B;&#x73AF;&#x5883;&#x5305;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x4FEE;&#x6539;DNS&#x8FD8;&#x771F;&#x5B89;&#x88C5;&#x4E0D;&#x4E86;&#x3002;</p>
-<h4 id="&#x7B2C;&#x4E8C;&#x3001;&#x6C38;&#x4E45;&#x4FEE;&#x6539;DNS&#x65B9;&#x6CD5;"><a href="#&#x7B2C;&#x4E8C;&#x3001;&#x6C38;&#x4E45;&#x4FEE;&#x6539;DNS&#x65B9;&#x6CD5;" class="headerlink" title="&#x7B2C;&#x4E8C;&#x3001;&#x6C38;&#x4E45;&#x4FEE;&#x6539;DNS&#x65B9;&#x6CD5;"></a>&#x7B2C;&#x4E8C;&#x3001;&#x6C38;&#x4E45;&#x4FEE;&#x6539;DNS&#x65B9;&#x6CD5;</h4><p>&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x91CD;&#x542F;VPS&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x53C8;&#x662F;&#x539F;&#x6765;&#x7684;&#x9ED8;&#x8BA4;DNS&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6C38;&#x4E45;&#x7684;&#x4FEE;&#x6539;DNS&#xFF0C;&#x90A3;&#x5982;&#x4F55;&#x64CD;&#x4F5C;&#x5462;?&#x8FD9;&#x91CC;&#xFF0C;&#x62FF;CentOS&#x7CFB;&#x7EDF;&#x6D4B;&#x8BD5;&#x3002;</p>
-<h4 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h4><p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<p>修改完毕之后，然后:wq保存退出，然后再执行我们需要的脚本安装应该没有多大问题。比如在阿里云、Linode上安装一些环境包的时候，不修改DNS还真安装不了。</p>
+<h4 id="第二、永久修改DNS方法"><a href="#第二、永久修改DNS方法" class="headerlink" title="第二、永久修改DNS方法"></a>第二、永久修改DNS方法</h4><p>使用上面的方法，如果我们重启VPS之后，会又是原来的默认DNS，如果我们需要永久的修改DNS，那如何操作呢?这里，拿CentOS系统测试。</p>
+<h4 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h4><p>代码如下:</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>sysconfig<span class="regexp">/network-scripts/i</span>fcfg-eth0</span><br></pre></td></tr></table></figure>
 
-<p>&#x5728;&#x6700;&#x540E;&#x4E24;&#x884C;&#x6DFB;&#x52A0;&#xFF1A;</p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<p>在最后两行添加：</p>
+<p>代码如下:</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DNS1=<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">    </span><br><span class="line">DNS2=<span class="number">8.8</span><span class="number">.4</span><span class="number">.4</span></span><br></pre></td></tr></table></figure>
 
-<img src="/2019/03/25/&#x4FEE;&#x6539;Linux&#x7CFB;&#x7EDF;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x7684;&#x65B9;&#x6CD5;/2019/03/25/&#x4FEE;&#x6539;Linux&#x7CFB;&#x7EDF;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x7684;&#x65B9;&#x6CD5;/2.jpg">
+<img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/2.jpg">
 
-<p>&#x4FEE;&#x6539;&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x91CD;&#x542F;VPS&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x5728;/etc/resolv.conf&#x6587;&#x4EF6;&#x4E2D;&#x7684;DNS&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x56FA;&#x5B9A;&#x7684;DNS&#x3002;</p>
-<h4 id="debian"><a href="#debian" class="headerlink" title="debian"></a>debian</h4><p>&#x7F51;&#x4E0A;&#x5927;&#x90E8;&#x5206;&#x7684;&#x65B9;&#x6CD5;&#x8FD8;&#x662F;&#x57FA;&#x4E8E;centos&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x6574;&#x7406;&#x5230;debian&#x53D1;&#x884C;&#x7248;&#x672C;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<p>修改保存退出之后，我们在重启VPS，会看到在/etc/resolv.conf文件中的DNS就是我们设置固定的DNS。</p>
+<h4 id="debian"><a href="#debian" class="headerlink" title="debian"></a>debian</h4><p>网上大部分的方法还是基于centos的，这里整理到debian发行版本的方法。</p>
+<p>代码如下:</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vi</span> /etc/dhcp/dhclient.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x7136;&#x540E;&#x5728;dhclient.conf&#x6700;&#x540E;&#x4E00;&#x884C;&#x6DFB;&#x52A0;</p>
-<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<p>然后在dhclient.conf最后一行添加</p>
+<p>代码如下:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">prepend</span> <span class="selector-tag">domain-name-servers</span> 8<span class="selector-class">.8</span><span class="selector-class">.8</span><span class="selector-class">.8</span>, 8<span class="selector-class">.8</span><span class="selector-class">.4</span><span class="selector-class">.4</span>;</span><br></pre></td></tr></table></figure>
 
-<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x518D;&#x4FDD;&#x5B58;&#x9000;&#x51FA;&#x3002;</p>
-<img src="/2019/03/25/&#x4FEE;&#x6539;Linux&#x7CFB;&#x7EDF;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x7684;&#x65B9;&#x6CD5;/2019/03/25/&#x4FEE;&#x6539;Linux&#x7CFB;&#x7EDF;VPS&#x4E3B;&#x673A;&#x7684;DNS&#x7684;&#x65B9;&#x6CD5;/3.jpg">
+<p>然后我们再保存退出。</p>
+<img src="/2019/03/25/修改Linux系统VPS主机的DNS的方法/3.jpg">
 
-<p>&#x603B;&#x7ED3;&#xFF0C;&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x4E34;&#x65F6;&#x6216;&#x8005;&#x6C38;&#x4E45;&#x4FEE;&#x6539;DNS&#xFF0C;&#x5C0F;&#x4F19;&#x4F34;&#x4EEC;&#x518D;&#x4E5F;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;wget&#x7684;&#x65F6;&#x5019;&#x51FA;&#x73B0;&#x8FDE;&#x63A5;&#x4E0D;&#x4E0A;&#x7684;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
+<p>总结，通过上面的方法，我们可以根据需要临时或者永久修改DNS，小伙伴们再也不用担心wget的时候出现连接不上的问题了。</p>
 
       
     </div>
@@ -506,7 +506,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
