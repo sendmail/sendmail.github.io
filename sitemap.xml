@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/12/11/hexo%E7%94%9F%E4%BA%A7sitemap%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</loc>
+    <loc>http://www.jiayie.xyz/2019/12/12/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E6%95%99%E7%A8%8B/</loc>
     
-    <lastmod>2019-12-11T04:15:55.422Z</lastmod>
+    <lastmod>2019-12-12T08:42:30.791Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/categories/index.html</loc>
+    
+    <lastmod>2019-12-12T06:37:29.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/tags/index.html</loc>
+    
+    <lastmod>2019-12-12T06:36:21.834Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.jiayie.xyz/2019/12/10/Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0google-adsense%E5%B9%BF%E5%91%8A/</loc>
     
-    <lastmod>2019-12-10T16:13:26.222Z</lastmod>
+    <lastmod>2019-12-11T04:53:33.563Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/2019/12/11/hexo%E7%94%9F%E4%BA%A7sitemap%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</loc>
+    
+    <lastmod>2019-12-11T04:51:37.039Z</lastmod>
     
   </url>
   
@@ -212,21 +233,14 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/V2%E5%9F%BA%E4%BA%8ENginx%E7%9A%84VMess-WS-TLS-Website%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</loc>
-    
-    <lastmod>2019-05-02T01:05:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/centos%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%EF%BC%8C%E5%8D%B8%E8%BD%BDpython,yum/</loc>
-    
-    <lastmod>2019-05-02T01:05:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.jiayie.xyz/2019/04/28/Phicomm%E6%96%90%E8%AE%AFN1-NAS%E6%89%93%E9%80%A0%E6%8C%87%E5%8D%97/</loc>
+    
+    <lastmod>2019-05-02T01:05:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/2019/03/25/V2%E5%9F%BA%E4%BA%8ENginx%E7%9A%84VMess-WS-TLS-Website%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
@@ -240,14 +254,14 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/debian%E5%AE%89%E8%A3%85%E5%90%8E%E4%B8%AD%E6%96%87%E5%90%8D%E7%A7%B0%E7%9A%84%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%BE%E7%A4%BA%E4%B8%BA%E6%96%B9%E5%9D%97/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/centos%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%EF%BC%8C%E5%8D%B8%E8%BD%BDpython,yum/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/libev%E7%89%88%E4%BC%98%E5%8C%96%E3%80%81%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E3%80%81%E5%90%8C%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E5%AF%86%E7%A0%81/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/debian%E5%AE%89%E8%A3%85%E5%90%8E%E4%B8%AD%E6%96%87%E5%90%8D%E7%A7%B0%E7%9A%84%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%BE%E7%A4%BA%E4%B8%BA%E6%96%B9%E5%9D%97/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
@@ -262,6 +276,13 @@
   
   <url>
     <loc>http://www.jiayie.xyz/2019/03/25/kcptun-ss/</loc>
+    
+    <lastmod>2019-05-02T01:05:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/2019/03/25/libev%E7%89%88%E4%BC%98%E5%8C%96%E3%80%81%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E3%80%81%E5%90%8C%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E5%AF%86%E7%A0%81/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
@@ -310,13 +331,6 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/%E5%88%A0%E9%99%A4%E8%80%81%E6%97%A7%E7%9A%84%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6/</loc>
-    
-    <lastmod>2019-05-02T01:05:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/%E5%88%A0%E9%99%A4%E7%A9%BA%E7%9B%AE%E5%BD%95%E5%91%BD%E4%BB%A4rmdir/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
@@ -324,7 +338,7 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/%E5%9C%A8VPS%E4%B8%8A%E5%AE%89%E8%A3%85btsync/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/%E5%88%A0%E9%99%A4%E8%80%81%E6%97%A7%E7%9A%84%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
@@ -338,7 +352,7 @@
   </url>
   
   <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E3%80%81%E5%85%B3%E9%97%AD%E5%92%8C%E8%AE%BE%E7%BD%AEubuntu%E9%98%B2%E7%81%AB%E5%A2%99/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/%E5%9C%A8VPS%E4%B8%8A%E5%AE%89%E8%A3%85btsync/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
@@ -381,6 +395,13 @@
   
   <url>
     <loc>http://www.jiayie.xyz/2019/03/27/%E6%96%90%E8%AE%AFP1%E9%99%8D%E7%BA%A7%E6%81%A2%E5%A4%8D%E7%BA%BF%E5%88%B7%E5%8A%9F%E8%83%BD/</loc>
+    
+    <lastmod>2019-05-02T01:05:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.jiayie.xyz/2019/03/25/%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E3%80%81%E5%85%B3%E9%97%AD%E5%92%8C%E8%AE%BE%E7%BD%AEubuntu%E9%98%B2%E7%81%AB%E5%A2%99/</loc>
     
     <lastmod>2019-05-02T01:05:54.000Z</lastmod>
     
@@ -439,13 +460,6 @@
     <loc>http://www.jiayie.xyz/2019/04/05/excel%E6%80%8E%E4%B9%88%E4%BB%8E%E8%BA%AB%E4%BB%BD%E8%AF%81%E5%8F%B7%E4%B8%AD%E6%8F%90%E5%8F%96%E5%87%BA%E7%94%9F%E6%97%A5%E6%9C%9F/</loc>
     
     <lastmod>2019-04-11T10:03:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.jiayie.xyz/tags/index.html</loc>
-    
-    <lastmod>2019-04-05T01:37:40.000Z</lastmod>
     
   </url>
   
