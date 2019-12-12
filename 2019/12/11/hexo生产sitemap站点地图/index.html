@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://www.jiayie.xyz/2019/12/11/hexo生产sitemap站点地图/1.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/12/11/hexo生产sitemap站点地图/2.png">
 <meta property="og:image" content="http://www.jiayie.xyz/2019/12/11/hexo生产sitemap站点地图/3.png">
-<meta property="og:updated_time" content="2019-12-11T04:51:37.039Z">
+<meta property="og:updated_time" content="2019-12-12T08:48:45.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo生产sitemap站点地图">
 <meta name="twitter:description" content="创建站点地图文件站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。 先安装一下，打开你的hexo博客根目录，分别用下面两个命令来安装针对谷歌和百度的插件 12npm install hexo-generator-sitemap --savenpm install hexo-">
@@ -308,8 +308,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-11T12:51:37+08:00">
-                2019-12-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-12T16:48:45+08:00">
+                2019-12-12
               </time>
             
           </span>
@@ -396,7 +396,7 @@
 <p>修改Next主题（v7.1.0）的配置文件<br>接着打开Next主题的配置文件，将google_site_verification属性设置为true</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Google Webmaster tools verification.</span><br><span class="line"># See: https://www.google.com/webmasters</span><br><span class="line">google_site_verification: true</span><br></pre></td></tr></table></figure>
 
-<p>配置head.swig文件<br>然后配置head.swig文件（根目录\themes\next-reloaded\layout_partials\head\head.swig）</p>
+<h4 id="配置head-swig文件"><a href="#配置head-swig文件" class="headerlink" title="配置head.swig文件"></a>配置head.swig文件</h4><p>然后配置head.swig文件（根目录\themes\next-reloaded\layout_partials\head\head.swig）</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.google_site_verification %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"google-site-verification"</span> <span class="attr">content</span>=<span class="string">"X7_M3eeaLhvcnX4TXnFCfa8gF_OXS5CEpA0zKHEBuLY"</span> /&gt;</span> </span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>将中间那行换成上面红色框部分即可，完成这项步骤后，执行下列命令生成静态文件并且部署到github</p>
@@ -621,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建站点地图文件"><span class="nav-number">1.</span> <span class="nav-text">创建站点地图文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证网站所有权"><span class="nav-number">2.</span> <span class="nav-text">验证网站所有权</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交谷歌站点地图"><span class="nav-number">3.</span> <span class="nav-text">提交谷歌站点地图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建站点地图文件"><span class="nav-number">1.</span> <span class="nav-text">创建站点地图文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证网站所有权"><span class="nav-number">2.</span> <span class="nav-text">验证网站所有权</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置head-swig文件"><span class="nav-number">3.</span> <span class="nav-text">配置head.swig文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交谷歌站点地图"><span class="nav-number">4.</span> <span class="nav-text">提交谷歌站点地图</span></a></li></ol></div>
             
 
           </div>
