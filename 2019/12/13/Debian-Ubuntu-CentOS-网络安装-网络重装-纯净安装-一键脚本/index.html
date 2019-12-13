@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="网络重装,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小强" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="背景:适用于由GRUB引导的CentOS,Ubuntu,Debian系统.使用官方发行版去掉模板预装的软件.同时也可以解决内核版本与软件不兼容的问题。只要有root权限,还您一个纯净的系统。 注意: 全自动安装默认root密码:MoeClub.org 安装完成后请立即更改密码. 能够全自动重装Debian/Ubuntu/CentOS等系统. 同时提供dd安装镜像功能,例如: 全自动无救援dd安装w">
+<meta name="keywords" content="网络重装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debian&#x2F;Ubuntu&#x2F;CentOS,网络安装&#x2F;网络重装&#x2F;纯净安装-一键脚本">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/12/13/Debian-Ubuntu-CentOS-网络安装-网络重装-纯净安装-一键脚本/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="背景:适用于由GRUB引导的CentOS,Ubuntu,Debian系统.使用官方发行版去掉模板预装的软件.同时也可以解决内核版本与软件不兼容的问题。只要有root权限,还您一个纯净的系统。 注意: 全自动安装默认root密码:MoeClub.org 安装完成后请立即更改密码. 能够全自动重装Debian/Ubuntu/CentOS等系统. 同时提供dd安装镜像功能,例如: 全自动无救援dd安装w">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-13T10:18:18.441Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Debian&#x2F;Ubuntu&#x2F;CentOS,网络安装&#x2F;网络重装&#x2F;纯净安装-一键脚本">
+<meta name="twitter:description" content="背景:适用于由GRUB引导的CentOS,Ubuntu,Debian系统.使用官方发行版去掉模板预装的软件.同时也可以解决内核版本与软件不兼容的问题。只要有root权限,还您一个纯净的系统。 注意: 全自动安装默认root密码:MoeClub.org 安装完成后请立即更改密码. 能够全自动重装Debian/Ubuntu/CentOS等系统. 同时提供dd安装镜像功能,例如: 全自动无救援dd安装w">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/12/13/Debian-Ubuntu-CentOS-网络安装-网络重装-纯净安装-一键脚本/">
+
+
+
+<meta name="google-site-verification" content="SJdugethbC9MOKKUQpbH92hWT1kAEgfX0Y7TXo9Lm7M">
+
+
+
+  <title>Debian/Ubuntu/CentOS,网络安装/网络重装/纯净安装-一键脚本 | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录技术中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/12/13/Debian-Ubuntu-CentOS-网络安装-网络重装-纯净安装-一键脚本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Debian/Ubuntu/CentOS,网络安装/网络重装/纯净安装-一键脚本</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-13T18:09:36+08:00">
+                2019-12-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-13T18:18:18+08:00">
+                2019-12-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/一键脚本/" itemprop="url" rel="index">
+                    <span itemprop="name">一键脚本</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  947
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h4><p>适用于由GRUB引导的CentOS,Ubuntu,Debian系统.<br>使用官方发行版去掉模板预装的软件.<br>同时也可以解决内核版本与软件不兼容的问题。<br>只要有root权限,还您一个纯净的系统。</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><ul>
+<li>全自动安装默认root密码:MoeClub.org</li>
+<li>安装完成后请立即更改密码.</li>
+<li>能够全自动重装Debian/Ubuntu/CentOS等系统.</li>
+<li>同时提供dd安装镜像功能,例如: 全自动无救援dd安装windows系统</li>
+<li>全自动安装CentOS时默认提供VNC功能,可使用VNC Viewer查看进度,</li>
+<li>VNC端口为1或者5901,可自行尝试连接.(成功后VNC功能会消失.)</li>
+<li>目前CentOS系统只支持任意版本重装为 CentOS 6.x 及以下版本.</li>
+<li>特别注意:OpenVZ构架不适用.<h4 id="依赖包"><a href="#依赖包" class="headerlink" title="依赖包:"></a>依赖包:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#二进制文件    Debian/Ubuntu    RedHat/CentOS</span></span><br><span class="line">iconv         [libc-bin]       [glibc-common]</span><br><span class="line">xz            [xz-utils]       [xz]</span><br><span class="line">awk           [gawk]           [gawk]</span><br><span class="line">sed           [sed]            [sed]</span><br><span class="line">file          [file]           [file]</span><br><span class="line">grep          [grep]           [grep]</span><br><span class="line">openssl       [openssl]        [openssl]</span><br><span class="line">cpio          [cpio]           [cpio]</span><br><span class="line">gzip          [gzip]           [gzip]</span><br><span class="line">cat,cut..     [coreutils]      [coreutils]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="确保安装了所需软件"><a href="#确保安装了所需软件" class="headerlink" title="确保安装了所需软件:"></a>确保安装了所需软件:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get install -y xz-utils openssl gawk file</span><br><span class="line"></span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum install -y xz openssl gawk file</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果出现了错误-请运行"><a href="#如果出现了错误-请运行" class="headerlink" title="如果出现了错误,请运行:"></a>如果出现了错误,请运行:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
+
+<h4 id="快速使用示例"><a href="#快速使用示例" class="headerlink" title="快速使用示例:"></a>快速使用示例:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(wget --no-check-certificate -qO- <span class="string">'https://moeclub.org/attachment/LinuxShell/InstallNET.sh'</span>) -d 8 -v 64 -a</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载及说明"><a href="#下载及说明" class="headerlink" title="下载及说明:"></a>下载及说明:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO InstallNET.sh <span class="string">'https://moeclub.org/attachment/LinuxShell/InstallNET.sh'</span> &amp;&amp; chmod a+x InstallNET.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">        bash InstallNET.sh      -d/--debian [dist-name]</span><br><span class="line">                                -u/--ubuntu [dist-name]</span><br><span class="line">                                -c/--centos [dist-version]</span><br><span class="line">                                -v/--ver [32/i386|64/amd64]</span><br><span class="line">                                --ip-addr/--ip-gate/--ip-mask</span><br><span class="line">                                -apt/-yum/--mirror</span><br><span class="line">                                -dd/--image</span><br><span class="line">                                -a/-m</span><br><span class="line"></span><br><span class="line"><span class="comment"># dist-name: 发行版本代号</span></span><br><span class="line"><span class="comment"># dist-version: 发行版本号</span></span><br><span class="line"><span class="comment"># -apt/-yum/--mirror : 使用定义镜像</span></span><br><span class="line"><span class="comment"># -a/-m : 询问是否能进入VNC自行操作. -a 为不提示(一般用于全自动安装), -m 为提示.</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例:"></a>使用示例:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用默认镜像全自动安装</span></span><br><span class="line">bash InstallNET.sh -d 8 -v 64 -a</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用自定义镜像全自动安装</span></span><br><span class="line">bash InstallNET.sh -c 6.10 -v 64 -a --mirror <span class="string">'http://mirror.centos.org/centos'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下示例中,将X.X.X.X替换为自己的网络参数.</span></span><br><span class="line"><span class="comment"># --ip-addr :IP Address/IP地址</span></span><br><span class="line"><span class="comment"># --ip-gate :Gateway   /网关</span></span><br><span class="line"><span class="comment"># --ip-mask :Netmask   /子网掩码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用自定义镜像全自动安装</span></span><br><span class="line"><span class="comment">#bash InstallNET.sh -d 9 -v 64 -a --mirror 'http://mirrors.ustc.edu.cn/debian/'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用自定义镜像自定义网络参数全自动安装</span></span><br><span class="line"><span class="comment">#bash InstallNET.sh -u 16.04 -v 64 -a --ip-addr x.x.x.x --ip-gate x.x.x.x --ip-mask x.x.x.x --mirror 'http://archive.ubuntu.com/ubuntu'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用自定义网络参数全自动dd方式安装</span></span><br><span class="line"><span class="comment">#bash InstallNET.sh --ip-addr x.x.x.x --ip-gate x.x.x.x --ip-mask x.x.x.x -dd 'https://moeclub.org/onedrive/IMAGE/Windows/win7emb_x86.tar.gz'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用自定义网络参数全自动dd方式安装存储在谷歌网盘中的镜像(调用文件ID的方式)</span></span><br><span class="line"><span class="comment">#bash InstallNET.sh --ip-addr x.x.x.x --ip-gate x.x.x.x --ip-mask x.x.x.x -dd "https://image.moeclub.org/GoogleDrive/1cqVl2wSGx92UTdhOxU9pW3wJgmvZMT_J"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用自定义网络参数全自动dd方式安装存储在谷歌网盘中的镜像</span></span><br><span class="line"><span class="comment">#bash InstallNET.sh --ip-addr x.x.x.x --ip-gate x.x.x.x --ip-mask x.x.x.x -dd "https://image.moeclub.org/GoogleDrive/1cqVl2wSGx92UTdhOxU9pW3wJgmvZMT_J"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#国内推荐使用USTC源</span></span><br><span class="line"><span class="comment">#--mirror 'http://mirrors.ustc.edu.cn/debian/'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="一些可用镜像地址"><a href="#一些可用镜像地址" class="headerlink" title="一些可用镜像地址:"></a>一些可用镜像地址:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 推荐使用带有 /GoogleDrive/ 链接, 速度更快.</span></span><br><span class="line"><span class="comment"># 当然也可以使用自己GoogleDrive中储存的镜像,使用方式:</span></span><br><span class="line">  https://image.moeclub.org/GoogleDrive/</span><br><span class="line"></span><br><span class="line"><span class="comment"># win7emb_x86.tar.gz:</span></span><br><span class="line">  https://image.moeclub.org/GoogleDrive/1srhylymTjYS-Ky8uLw4R6LCWfAo1F3s7 </span><br><span class="line">  https://moeclub.org/onedrive/IMAGE/Windows/win7emb_x86.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># win8.1emb_x64.tar.gz:</span></span><br><span class="line">  https://image.moeclub.org/GoogleDrive/1cqVl2wSGx92UTdhOxU9pW3wJgmvZMT_J</span><br><span class="line">  https://moeclub.org/onedrive/IMAGE/Windows/win8.1emb_x64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># win10ltsc_x64.tar.gz:</span></span><br><span class="line">  https://image.moeclub.org/GoogleDrive/1OVA3t-ZI2arkM4E4gKvofcBN9aoVdneh</span><br><span class="line">  https://moeclub.org/onedrive/IMAGE/Windows/win10ltsc_x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="注：原文在安装Debian9的时的命令有错吴，本文已做修改。可放心使用"><a href="#注：原文在安装Debian9的时的命令有错吴，本文已做修改。可放心使用" class="headerlink" title="注：原文在安装Debian9的时的命令有错吴，本文已做修改。可放心使用"></a>注：原文在安装Debian9的时的命令有错吴，本文已做修改。可放心使用</h3><p>本文原作者：萌咖<br>原文地址：  <a href="https://moeclub.org/2018/04/03/603/?spm=60.1" target="_blank" rel="noopener">https://moeclub.org/2018/04/03/603/?spm=60.1</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+   
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------���Ľ���<i class="fa fa-paw"></i>��л�����Ķ�-------------</div>
+    
+</div>
+   
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络重装/" rel-"tag>"<i class="fa fa-tag"></i> 网络重装</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/12/hexo的next主题个性化教程/" rel="next" title="hexo的next主题个性化教程">
+                <i class="fa fa-chevron-left"></i> hexo的next主题个性化教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John">
+            
+              <p class="site-author-name" itemprop="name">John</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://msdn.itellyou.cn/" title="MSDN" target="_blank">MSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖包"><span class="nav-number">3.</span> <span class="nav-text">依赖包:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#确保安装了所需软件"><span class="nav-number">4.</span> <span class="nav-text">确保安装了所需软件:</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#如果出现了错误-请运行"><span class="nav-number"></span> <span class="nav-text">如果出现了错误,请运行:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#快速使用示例"><span class="nav-number">1.</span> <span class="nav-text">快速使用示例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载及说明"><span class="nav-number">2.</span> <span class="nav-text">下载及说明:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用示例"><span class="nav-number">3.</span> <span class="nav-text">使用示例:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一些可用镜像地址"><span class="nav-number">4.</span> <span class="nav-text">一些可用镜像地址:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注：原文在安装Debian9的时的命令有错吴，本文已做修改。可放心使用"><span class="nav-number"></span> <span class="nav-text">注：原文在安装Debian9的时的命令有错吴，本文已做修改。可放心使用</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-usr"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://www.jiayie.xyz">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
