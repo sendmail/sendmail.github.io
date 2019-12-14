@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="v2,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小强" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言：Shadowsocks-libev是一款安全、轻量和快速的代理协议。它是由clowwindy发明，后同很多技术大牛一起开发，原作者被喝茶以后，因为项目是开源的，所以很多人fork后继续开发，现在主要由madeye负责更新维护。shadowsocks注重加密，数据包几乎没有特征，而shadowsocksr注重混淆，倾向无加密化，现在已经停更，所以不再推荐使用。之前的simple-obfs插件已">
+<meta name="keywords" content="v2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用docker快速部署shadowsocks-libev+v2ray-plugin代理">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="前言：Shadowsocks-libev是一款安全、轻量和快速的代理协议。它是由clowwindy发明，后同很多技术大牛一起开发，原作者被喝茶以后，因为项目是开源的，所以很多人fork后继续开发，现在主要由madeye负责更新维护。shadowsocks注重加密，数据包几乎没有特征，而shadowsocksr注重混淆，倾向无加密化，现在已经停更，所以不再推荐使用。之前的simple-obfs插件已">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/1.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/2.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/3.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/4.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/5.png">
+<meta property="og:updated_time" content="2019-12-14T14:01:33.210Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用docker快速部署shadowsocks-libev+v2ray-plugin代理">
+<meta name="twitter:description" content="前言：Shadowsocks-libev是一款安全、轻量和快速的代理协议。它是由clowwindy发明，后同很多技术大牛一起开发，原作者被喝茶以后，因为项目是开源的，所以很多人fork后继续开发，现在主要由madeye负责更新维护。shadowsocks注重加密，数据包几乎没有特征，而shadowsocksr注重混淆，倾向无加密化，现在已经停更，所以不再推荐使用。之前的simple-obfs插件已">
+<meta name="twitter:image" content="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/">
+
+
+
+<meta name="google-site-verification" content="SJdugethbC9MOKKUQpbH92hWT1kAEgfX0Y7TXo9Lm7M">
+
+
+
+  <title>使用docker快速部署shadowsocks-libev+v2ray-plugin代理 | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录技术中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用docker快速部署shadowsocks-libev+v2ray-plugin代理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-14T21:34:15+08:00">
+                2019-12-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-14T22:01:33+08:00">
+                2019-12-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/shadowsocks/" itemprop="url" rel="index">
+                    <span itemprop="name">shadowsocks</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前言：Shadowsocks-libev是一款安全、轻量和快速的代理协议。它是由clowwindy发明，后同很多技术大牛一起开发，原作者被喝茶以后，因为项目是开源的，所以很多人fork后继续开发，现在主要由madeye负责更新维护。shadowsocks注重加密，数据包几乎没有特征，而shadowsocksr注重混淆，倾向无加密化，现在已经停更，所以不再推荐使用。之前的simple-obfs插件已经弃更，在github项目里也被标识为不推荐使用，转之项目维护者推荐使用shadowsocks-libev+v2ray-plugin插件。</p>
+<p>本文会知无不言地介绍一下使用秋水逸冰为之制作的docker镜像快速部署shadowsocks-libev+v2ray-plugin，主要介绍ws和ws+tls模式。</p>
+<h4 id="说明：本文使用到的各种资源都是各位技术大牛们敲代码洒下汗水一点点换来的，在此对各位用爱发电的大佬们表示感谢！"><a href="#说明：本文使用到的各种资源都是各位技术大牛们敲代码洒下汗水一点点换来的，在此对各位用爱发电的大佬们表示感谢！" class="headerlink" title="说明：本文使用到的各种资源都是各位技术大牛们敲代码洒下汗水一点点换来的，在此对各位用爱发电的大佬们表示感谢！"></a>说明：本文使用到的各种资源都是各位技术大牛们敲代码洒下汗水一点点换来的，在此对各位用爱发电的大佬们表示感谢！</h4><p><strong>条件准备：</strong></p>
+<ul>
+<li>一台墙外VPS</li>
+<li>一台安装好SSH客户端的PC电脑</li>
+<li>只用ws就不用域名，加tls就需要准备一个域名</li>
+<li>注册好Cloudflare账号</li>
+<li>一位会使用基本的Linux命令的自然人<h3 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h3><h4 id="1-1-以root用户登录，执行一键脚本安装docker"><a href="#1-1-以root用户登录，执行一键脚本安装docker" class="headerlink" title="1.1 以root用户登录，执行一键脚本安装docker"></a>1.1 以root用户登录，执行一键脚本安装docker</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install -y wget vim //以Debian系为例，升级源并安装软件</span><br><span class="line"></span><br><span class="line">wget -qO- get.docker.com | bash //执行此命令等候自动安装docker</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>说明：</strong>推荐使用KVM架构的VPS，OpenVZ架构的VPS不支持安装docker，另外CentOS8好像还不受此脚本支持来安装docker。</p>
+<h4 id="1-2-对docker的一些命令操作"><a href="#1-2-对docker的一些命令操作" class="headerlink" title="1.2 对docker的一些命令操作"></a>1.2 对docker的一些命令操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker version //查看docker安装版本等信息</span><br><span class="line"></span><br><span class="line">systemctl start docker //启动docker服务</span><br><span class="line"></span><br><span class="line">systemctl status docker //查看docker运行状态</span><br><span class="line"></span><br><span class="line">systemctl <span class="built_in">enable</span> docker //将docker服务加入开机自启动</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、用docker部署shadowsocks-libev-v2ray-plugin（ws类型，不用域名）"><a href="#二、用docker部署shadowsocks-libev-v2ray-plugin（ws类型，不用域名）" class="headerlink" title="二、用docker部署shadowsocks-libev+v2ray-plugin（ws类型，不用域名）"></a>二、用docker部署shadowsocks-libev+v2ray-plugin（ws类型，不用域名）</h3><h4 id="2-1-创建配置文件"><a href="#2-1-创建配置文件" class="headerlink" title="2.1 创建配置文件"></a>2.1 创建配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/shadowsocks-libev //在/etc目录下创建shadowsocks-libev目录</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> /etc/shadowsocks-libev //工作空间切换至此</span><br><span class="line"></span><br><span class="line">vim config.json //创建并开始编辑名为config.json的配置文件</span><br><span class="line"></span><br><span class="line">//下为配置文件示例，请添加至文件</span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line"><span class="string">"server_port"</span>:9000,</span><br><span class="line"><span class="string">"method"</span>:<span class="string">"aes-256-gcm"</span>,</span><br><span class="line"><span class="string">"timeout"</span>:300,</span><br><span class="line"><span class="string">"password"</span>:<span class="string">"password0"</span>,</span><br><span class="line"><span class="string">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line"><span class="string">"nameserver"</span>:<span class="string">"8.8.8.8"</span>,</span><br><span class="line"><span class="string">"mode"</span>:<span class="string">"tcp_and_udp"</span>,</span><br><span class="line"><span class="string">"plugin"</span>:<span class="string">"v2ray-plugin"</span>,</span><br><span class="line"><span class="string">"plugin_opts"</span>:<span class="string">"server"</span></span><br><span class="line">&#125;</span><br><span class="line">//上为配置文件示例，添加至文件后保存并退出</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>说明：<code>server</code>后面默认填<code>0.0.0.0</code>，请不要修改。</p>
+</li>
+<li><p>关于更多参数用法和说明请参考：<a href="https://github.com/shadowsocks/shadowsocks-libev/blob/master/doc/shadowsocks-libev.asciidoc" target="_blank" rel="noopener">这个链接</a></p>
+</li>
+<li><p>值得注意的是：如果你配置文件里<code>&quot;plugin_opts&quot;:&quot;server;mux=0&quot;</code>这样配置，那么你可以使用Quantumult X来添加节点使用。</p>
+<h4 id="2-2-用docker结合上面的配置文件创建并启动容器"><a href="#2-2-用docker结合上面的配置文件创建并启动容器" class="headerlink" title="2.2 用docker结合上面的配置文件创建并启动容器"></a>2.2 用docker结合上面的配置文件创建并启动容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name ss-libev --restart always -p 9000:9000 -p 9000:9000/udp -v /etc/shadowsocks-libev:/etc/shadowsocks-libev teddysun/shadowsocks-libev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>docker run：开始运行一个容器</p>
+</li>
+<li><p>-d 参数：容器以后台运行并输出容器ID</p>
+</li>
+<li><p>—name 参数：给容器分配一个识别符，方便将来的启动，停止，删除等操作</p>
+</li>
+<li><p>—restart 参数：配置容器启动类型，always即为docker服务重新启动时自动启动本容器</p>
+</li>
+<li><p>-p 参数：容器的9000端口映射到本机的9000端口。默认是TCP映射，当需要UDP映射时候，那就再追加一次UDP的映射。冒号后面是容器端口，冒号前面是宿主机端口，可以写成一致，也可以写成不一致</p>
+</li>
+<li><p>-v 参数：挂载卷（volume），冒号后面是容器的路径，冒号前面是宿主机的路径，可以写成一致，也可以写成不一致</p>
+</li>
+<li><p>teddysun/shadowsocks-libev：这是从docker拉取回来的镜像路径</p>
+<h4 id="2-3-后期容器处理常用命令"><a href="#2-3-后期容器处理常用命令" class="headerlink" title="2.3 后期容器处理常用命令"></a>2.3 后期容器处理常用命令</h4><p>记前面<code>docker run</code>后面<code>--name ss-libev</code>中的<code>ss-libev</code>为<code>$name</code>，其代表容器识别符，也就是<code>$name=ss-libev</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker ps -as //查看容器在线状态及大小，在这里你一般可以看到<span class="variable">$name</span>=ss-libev</span><br><span class="line"></span><br><span class="line">docker logs <span class="variable">$name</span> //查看此容器的运行输出日志</span><br><span class="line"></span><br><span class="line">docker restart <span class="variable">$name</span> //重新启动容器，一般在修改除端口外的配置后使用使修改生效</span><br><span class="line"></span><br><span class="line">docker stop <span class="variable">$name</span> //停止此容器的运行</span><br><span class="line"></span><br><span class="line">docker rm <span class="variable">$name</span> //移除此容器</span><br><span class="line"></span><br><span class="line">docker stats --no-stream //查看docker容器占用CPU，内存等信息</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="三、用docker部署shadowsocks-libev-v2ray-plugin（ws-tls类型，需要域名）"><a href="#三、用docker部署shadowsocks-libev-v2ray-plugin（ws-tls类型，需要域名）" class="headerlink" title="三、用docker部署shadowsocks-libev+v2ray-plugin（ws+tls类型，需要域名）"></a>三、用docker部署shadowsocks-libev+v2ray-plugin（ws+tls类型，需要域名）</h3><h4 id="3-1-用acme-sh脚本申请证书"><a href="#3-1-用acme-sh脚本申请证书" class="headerlink" title="3.1 用acme.sh脚本申请证书"></a>3.1 用acme.sh脚本申请证书</h4><p>关于这个，之前专门水过一篇文章：用acme.sh脚本申请证书并自动续更 ，还请麻烦前往查看，下面默认你已经获取到<code>Clouflare api key</code>，并且也已经安装好<code>acme.sh</code>脚本。</p>
+<h4 id="3-2-安装证书到放置ss配置文件的目录"><a href="#3-2-安装证书到放置ss配置文件的目录" class="headerlink" title="3.2 安装证书到放置ss配置文件的目录"></a>3.2 安装证书到放置ss配置文件的目录</h4><p>假设你的是域名是<code>mydomain.me</code>，且已经在<code>Cloudflare</code>上设置好<code>A记录解析</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kdir /etc/ssplugin &amp;&amp; <span class="built_in">cd</span> /etc/ssplugin //创建目录并切换至此</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> CF_Key=<span class="string">"slfjksjffjfhfhkjhfksjf"</span> //此处替换成你自己的Key</span><br><span class="line"><span class="built_in">export</span> CF_Email=<span class="string">"yourcloudflare@gmail.com"</span> //此处填写你注册Cloudflare使用的邮箱账号</span><br><span class="line"></span><br><span class="line">acme.sh --issue --dns dns_cf -d mydomain.me -k ec-256 //用脚本申请证书</span><br><span class="line"></span><br><span class="line">acme.sh --installcert -d mydomain.me --fullchain-file /etc/ssplugin/plugin.crt --key-file /etc/ssplugin/plugin.key --ecc //安装证书到/etc/ssplugin目录下</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-创建配置文件"><a href="#3-3-创建配置文件" class="headerlink" title="3.3 创建配置文件"></a>3.3 创建配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/ssplugin //其实上一步之后应该就是在这个目录里了</span><br><span class="line"></span><br><span class="line">vim config.json //创建并开始编辑配置文件</span><br><span class="line"></span><br><span class="line">//下面是配置文件示例</span><br><span class="line">&#123;</span><br><span class="line">&quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">&quot;server_port&quot;:9000,</span><br><span class="line">&quot;password&quot;:&quot;password0&quot;,</span><br><span class="line">&quot;timeout&quot;:300,</span><br><span class="line">&quot;method&quot;:&quot;aes-256-gcm&quot;,</span><br><span class="line">&quot;fast_open&quot;:false,</span><br><span class="line">&quot;nameserver&quot;:&quot;8.8.8.8&quot;,</span><br><span class="line">&quot;mode&quot;:&quot;tcp_and_udp&quot;,</span><br><span class="line">&quot;plugin&quot;:&quot;v2ray-plugin&quot;,</span><br><span class="line">&quot;plugin_opts&quot;:&quot;server;tls;host=mydomain.me;cert=/etc/shadowsocks-libev/plugin.crt;key=/etc/shadowsocks-libev/plugin.key&quot;</span><br><span class="line">&#125;</span><br><span class="line">//上面是配置文件示例，请添加至文件后保存并退出。</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明</strong>：server后面的 0.0.0.0 不要修改，plugin_opts后面的证书位置配置也不要修改，尽管你证书明明是放在 /etc/ssplugin 目录下，尽管你宿主机里没有创建 /etc/shadowsocks-libev 目录，这里cert和key的路径是写死的，当然证书名是要根据你上一步生成的。</p>
+<h4 id="3-4-用docker配合配置文件创建并启动容器"><a href="#3-4-用docker配合配置文件创建并启动容器" class="headerlink" title="3.4 用docker配合配置文件创建并启动容器"></a>3.4 用docker配合配置文件创建并启动容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name ss-plugin --restart always -p 9000:9000 -p 9000:9000/udp -v /etc/ssplugin:/etc/shadowsocks-libev teddysun/shadowsocks-libev</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>docker run：开始运行一个容器</li>
+<li>-d 参数：容器以后台运行并输出容器ID</li>
+<li>—name 参数：给容器分配一个识别符，方便将来的启动，停止，删除等操作</li>
+<li>—restart 参数：配置容器启动类型，always即为docker服务重新启动时自动启动本容器</li>
+<li>-p 参数：容器的9000端口映射到本机的9000端口。默认是TCP映射，当需要UDP映射时候，那就再追加一次UDP的映射。冒号后面是容器端口，冒号前面是宿主机端口，可以写成一致，也可以写成不一致</li>
+<li>-v 参数：挂载卷（volume），冒号后面是容器的路径，冒号前面是宿主机的路径，可以写成一致，也可以写成不一致</li>
+<li>teddysun/shadowsocks-libev：这是从docker拉取回来的镜像路径<h4 id="3-5-后期docker容器常用处理命令"><a href="#3-5-后期docker容器常用处理命令" class="headerlink" title="3.5 后期docker容器常用处理命令"></a>3.5 后期docker容器常用处理命令</h4>记前面<code>docker run</code>后面<code>--name ss-plugin</code>中的<code>ss-plugin</code>为<code>$name</code>，其代表容器识别符，也就是<code>$name=ss-plugin</code>。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker ps -as //查看容器在线状态及大小，在这里你一般可以看到<span class="variable">$name</span>=ss-plugin</span><br><span class="line"></span><br><span class="line">docker logs <span class="variable">$name</span> //查看此容器的运行输出日志</span><br><span class="line"></span><br><span class="line">docker restart <span class="variable">$name</span> //重新启动容器，一般在修改除端口外的配置后使用使修改生效</span><br><span class="line"></span><br><span class="line">docker stop <span class="variable">$name</span> //停止此容器的运行</span><br><span class="line"></span><br><span class="line">docker rm <span class="variable">$name</span> //移除此容器</span><br><span class="line"></span><br><span class="line">docker stats --no-stream //查看docker容器占用CPU，内存等信息</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="四、用docker部署shadowsocks-libev-v2ray-plugin（ws-caddy提供的tls，可选套cdn）"><a href="#四、用docker部署shadowsocks-libev-v2ray-plugin（ws-caddy提供的tls，可选套cdn）" class="headerlink" title="四、用docker部署shadowsocks-libev+v2ray-plugin（ws+caddy提供的tls，可选套cdn）"></a>四、用docker部署shadowsocks-libev+v2ray-plugin（ws+caddy提供的tls，可选套cdn）</h3><h4 id="4-1-证书安装情况跟上面一致"><a href="#4-1-证书安装情况跟上面一致" class="headerlink" title="4.1 证书安装情况跟上面一致"></a>4.1 证书安装情况跟上面一致</h4><p>这种方式是受推荐使用的，也是借鉴v2ray安装ws+tls而来。其中申请证书什么的跟上面一致，请参考：<a href="https://ssu.tw/index.php/archives/8/" target="_blank" rel="noopener">这个链接</a>。<br>基于此，下面默认你已经为<code>mydomain.me</code>申请好证书放置在<code>/root/.acme.sh</code>内部目录下，但还没安装证书到哪个位置。</p>
+<h4 id="4-2-创建ss的配置文件"><a href="#4-2-创建ss的配置文件" class="headerlink" title="4.2 创建ss的配置文件"></a>4.2 创建ss的配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/ssplugin &amp;&amp; <span class="built_in">cd</span> /etc/ssplugin //创建目录并切换至此</span><br><span class="line"></span><br><span class="line">vim config.json //创建并开始编辑config.json配置文件</span><br><span class="line"></span><br><span class="line">//下面是配置文件示例，请添加至文件</span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"server"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line"><span class="string">"server_port"</span>:9000,</span><br><span class="line"><span class="string">"method"</span>:<span class="string">"aes-256-gcm"</span>,</span><br><span class="line"><span class="string">"timeout"</span>:300,</span><br><span class="line"><span class="string">"password"</span>:<span class="string">"password0"</span>,</span><br><span class="line"><span class="string">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line"><span class="string">"nameserver"</span>:<span class="string">"8.8.8.8"</span>,</span><br><span class="line"><span class="string">"mode"</span>:<span class="string">"tcp_and_udp"</span>,</span><br><span class="line"><span class="string">"plugin"</span>:<span class="string">"v2ray-plugin"</span>,</span><br><span class="line"><span class="string">"plugin_opts"</span>:<span class="string">"server;path=/ray"</span></span><br><span class="line">&#125;</span><br><span class="line">//上面是配置文件示例，请添加至文件后保存并退出</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明：</strong>因为要监听本地，所以server后面地址填127.0.0.1，所以9000端口不对外开放，此处只是在ws的配置上加了个path参数，tls要由后面的caddy来支持。</p>
+<h4 id="4-4-安装caddy"><a href="#4-4-安装caddy" class="headerlink" title="4.4 安装caddy"></a>4.4 安装caddy</h4><p>执行下面一条命令安装<code>caddy</code>，也就是以个人身份申请使用<code>caddy</code>的二进制，并把它放到<code>/usr/local/bin</code>目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root //切换到/root目录</span><br><span class="line"></span><br><span class="line">wget -qO- https://getcaddy.com | bash -s personal //下载caddy的二进制并放置在/usr/<span class="built_in">local</span>/bin目录下</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明：</strong>如果你用的Centos7安装到这一步了，执行完上面的命令会有报错，你可以先 <code>ls /usr/local/bin</code> 先查看下caddy的二进制有没有下载到本地了，如果有的话，那么执行下caddy你可能会遇到<code>command not found</code>的反馈结果，原因应该是上面这个安装脚本在Centos7下没法把caddy所在的路径<code>/usr/local/bin</code>加入到环境变量里，那么解决办法有两个。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">第一：在4.7使用 nohup /usr/<span class="built_in">local</span>/bin/caddy -conf /root/caddy/Caddyfile &amp; 避免报错。</span><br><span class="line"></span><br><span class="line">第二：这一步就开始把/usr/<span class="built_in">local</span>/bin加入<span class="variable">$PATH</span>的取值内，具体操作步骤如下：</span><br><span class="line"></span><br><span class="line">vim /root/.bash_profile</span><br><span class="line"></span><br><span class="line">PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/bin //加入此行，文件内应该是有 <span class="built_in">export</span> PATH这一行的。</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> /root/.bash_profile //使环境变量生效</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-5-配置caddy证书"><a href="#4-5-配置caddy证书" class="headerlink" title="4.5 配置caddy证书"></a>4.5 配置caddy证书</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir caddy &amp;&amp; <span class="built_in">cd</span> caddy //在/root目录下创建caddy目录并切换至此</span><br><span class="line"></span><br><span class="line">acme.sh --installcert -d mydomain.me --fullchain-file /root/caddy/caddy.crt --key-file /root/caddy/caddy.key --ecc //安装证书和key到/root/caddy目录下</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-6-创建caddy主配置文件Caddyfile"><a href="#4-6-创建caddy主配置文件Caddyfile" class="headerlink" title="4.6 创建caddy主配置文件Caddyfile"></a>4.6 创建caddy主配置文件Caddyfile</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vim Caddyfile //创建文件并开始编辑</span><br><span class="line"></span><br><span class="line">//下面是caddy配置文件示例，请添加至文件</span><br><span class="line">mydomain.me:443 &#123;</span><br><span class="line">  gzip</span><br><span class="line">  tls /root/caddy/caddy.crt /root/caddy/caddy.key</span><br><span class="line">  <span class="built_in">log</span> /root/caddy/caddy.log</span><br><span class="line">  proxy / https://baidu.com</span><br><span class="line">  proxy /ray 127.0.0.1:9000 &#123;</span><br><span class="line">    websocket</span><br><span class="line">    header_upstream -Origin</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//上面是配置文件示例，请按照实际情况替换填写</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明:</strong>此处只需要关注路径和端口号，<code>9000</code>是你<code>/etc/ssplugin/config.json</code>目录下配置的，<code>/ray</code>是你这个文件内<code>plugin_opts</code>后面的<code>path=/ray</code>，请注意替换。</p>
+<h4 id="4-7-让caddy搭配Caddyfile文件运行起来"><a href="#4-7-让caddy搭配Caddyfile文件运行起来" class="headerlink" title="4.7 让caddy搭配Caddyfile文件运行起来"></a>4.7 让caddy搭配Caddyfile文件运行起来</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nohup caddy -conf /root/caddy/Caddyfile &amp; //让caddy在后台运行起来</span><br><span class="line"></span><br><span class="line">//直接回车让caddy服务后台挂起</span><br><span class="line"></span><br><span class="line">cat nohup.out //可以查看输出的日志</span><br><span class="line"></span><br><span class="line">cat /root/caddy/caddy.log //可以查看caddy运行产生的日志</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-8-开启Cloudflare的CDN保护，开启SSL-TLS的Full模式"><a href="#4-8-开启Cloudflare的CDN保护，开启SSL-TLS的Full模式" class="headerlink" title="4.8 开启Cloudflare的CDN保护，开启SSL/TLS的Full模式"></a>4.8 开启Cloudflare的CDN保护，开启SSL/TLS的Full模式</h4><img src="/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/1.png">
+<img src="/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/2.png">
+<p><strong>值得注意的是：</strong>使用<code>ss-libev+ws+tls</code>，能否套<code>CDN</code>并不依赖<code>web</code>服务器，就像如果是第二种配置，没有使用caddy，配置文件里直接配置证书和key路径的那种，你可以设置特殊端口，比如443和8443，这些端口的https流量是可以经cloudflare转发的。但是使用web服务器也可以套CDN，而且伪装的比较好，可能就是稍微有些麻烦吧。</p>
+<h3 id="五、客户端配置"><a href="#五、客户端配置" class="headerlink" title="五、客户端配置"></a>五、客户端配置</h3><h4 id="5-1-Win端"><a href="#5-1-Win端" class="headerlink" title="5.1 Win端"></a>5.1 Win端</h4><ul>
+<li><p>先到<a href="https://github.com/shadowsocks/v2ray-plugin/releases" target="_blank" rel="noopener">这个链接</a>下载v2ray-plugin-windows-amd64的包</p>
+</li>
+<li><p>下载完成后解压到<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">shadowsocks-windows</a>的目录下</p>
+</li>
+<li><p>重命名为v2ray-plugin.exe文件</p>
+</li>
+<li><p>插件程序：v2ray-plugin</p>
+</li>
+<li><p>如果选的是第一种，<code>v2ray-plugin</code>的ws类型，插件选项这里可以留空</p>
+</li>
+<li><p>如果选的是第二种，v2ray-plugin的<code>ws+tls</code>类型，插件选项这里填 <code>tls;host=mydomain.me</code></p>
+</li>
+<li><p>如果选的是第三种，v2ray-plugin的<code>ws+caddy</code>提供的tls类型，插件选项这里填 <code>tls;host=mydomain.me;path=/ray</code>。</p>
+</li>
+<li><p>第三种配置建议是开启CDN，然后本地配置两个节点，服务器那里写IP就是<code>ss+ws+tls</code>，写域名就是<code>ss+ws+tls+cdn</code>。</p>
+</li>
+<li><p>值得注意的是：如果你这么设置<code>&quot;plugin_opts&quot;:&quot;server;mux=0&quot;</code>，你就可以使用Quantumult X来使用这个节点，但win端不能直接使用了。</p>
+<h4 id="5-2-Android端"><a href="#5-2-Android端" class="headerlink" title="5.2 Android端"></a>5.2 Android端</h4><p>先到这个<a href="https://github.com/shadowsocks/v2ray-plugin-android/releases" target="_blank" rel="noopener">链接</a>下载插件并安装<br>其余的配置都跟上面win端一致</p>
+<h4 id="5-3-ios端"><a href="#5-3-ios端" class="headerlink" title="5.3 ios端"></a>5.3 ios端</h4><p>请使用<code>Shadowrocket</code>，也就是俗称的小火箭，配置添加使用。</p>
+<img src="/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/3.png">
+<img src="/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/4.png">
+<img src="/2019/12/14/使用docker快速部署shadowsocks-libev-v2ray-plugin代理/5.png">
+
+</li>
+</ul>
+<p><strong>原文链接：</strong><a href="https://ssu.tw/index.php/archives/31/" target="_blank" rel="noopener">https://ssu.tw/index.php/archives/31/</a></p>
+<p><strong>参考链接：</strong><br><a href="https://github.com/shadowsocks/shadowsocks-libev" target="_blank" rel="noopener">github上shadowsocks-libev项目开源地址</a><br><a href="https://github.com/shadowsocks/v2ray-plugin" target="_blank" rel="noopener">github上v2ray-plugin插件项目开源地址</a><br><a href="https://github.com/shadowsocks/simple-obfs" target="_blank" rel="noopener">github上simple-obfs插件项目开源地址</a><br><a href="https://github.com/docker/docker-ce" target="_blank" rel="noopener">github上docker项目开源地址</a><br><a href="https://github.com/Neilpang/acme.sh" target="_blank" rel="noopener">github上Neilpang关于acme.sh证书申请脚本项目开源地址</a><br><a href="https://teddysun.com/536.html" target="_blank" rel="noopener">秋水逸冰“介绍几款Docker镜像”文章</a><br><a href="https://hub.docker.com/r/teddysun/shadowsocks-libev" target="_blank" rel="noopener">秋水逸冰发布shadowsocks-libev docker镜像地址</a><br><a href="https://shadowsocks.org/" target="_blank" rel="noopener">shadowsocks官网地址介绍</a><br><a href="https://toutyrater.github.io/advanced/wss_and_web.html" target="_blank" rel="noopener">V2Ray白话文配置教程</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+   
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------���Ľ���<i class="fa fa-paw"></i>��л�����Ķ�-------------</div>
+    
+</div>
+   
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/v2/" rel-"tag>"<i class="fa fa-tag"></i> v2</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/14/用acme-sh脚本申请证书并自动续更/" rel="next" title="用acme.sh脚本申请证书并自动续更">
+                <i class="fa fa-chevron-left"></i> 用acme.sh脚本申请证书并自动续更
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/14/给VPS添加用户并赋予sudo权限/" rel="prev" title="给VPS添加用户并赋予sudo权限">
+                给VPS添加用户并赋予sudo权限 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John">
+            
+              <p class="site-author-name" itemprop="name">John</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://msdn.itellyou.cn/" title="MSDN" target="_blank">MSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明：本文使用到的各种资源都是各位技术大牛们敲代码洒下汗水一点点换来的，在此对各位用爱发电的大佬们表示感谢！"><span class="nav-number">1.</span> <span class="nav-text">说明：本文使用到的各种资源都是各位技术大牛们敲代码洒下汗水一点点换来的，在此对各位用爱发电的大佬们表示感谢！</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#一、安装docker"><span class="nav-number"></span> <span class="nav-text">一、安装docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-以root用户登录，执行一键脚本安装docker"><span class="nav-number">1.</span> <span class="nav-text">1.1 以root用户登录，执行一键脚本安装docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-对docker的一些命令操作"><span class="nav-number">2.</span> <span class="nav-text">1.2 对docker的一些命令操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、用docker部署shadowsocks-libev-v2ray-plugin（ws类型，不用域名）"><span class="nav-number"></span> <span class="nav-text">二、用docker部署shadowsocks-libev+v2ray-plugin（ws类型，不用域名）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-创建配置文件"><span class="nav-number">1.</span> <span class="nav-text">2.1 创建配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-用docker结合上面的配置文件创建并启动容器"><span class="nav-number">2.</span> <span class="nav-text">2.2 用docker结合上面的配置文件创建并启动容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-后期容器处理常用命令"><span class="nav-number">3.</span> <span class="nav-text">2.3 后期容器处理常用命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、用docker部署shadowsocks-libev-v2ray-plugin（ws-tls类型，需要域名）"><span class="nav-number"></span> <span class="nav-text">三、用docker部署shadowsocks-libev+v2ray-plugin（ws+tls类型，需要域名）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-用acme-sh脚本申请证书"><span class="nav-number">1.</span> <span class="nav-text">3.1 用acme.sh脚本申请证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-安装证书到放置ss配置文件的目录"><span class="nav-number">2.</span> <span class="nav-text">3.2 安装证书到放置ss配置文件的目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-创建配置文件"><span class="nav-number">3.</span> <span class="nav-text">3.3 创建配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-用docker配合配置文件创建并启动容器"><span class="nav-number">4.</span> <span class="nav-text">3.4 用docker配合配置文件创建并启动容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-后期docker容器常用处理命令"><span class="nav-number">5.</span> <span class="nav-text">3.5 后期docker容器常用处理命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、用docker部署shadowsocks-libev-v2ray-plugin（ws-caddy提供的tls，可选套cdn）"><span class="nav-number"></span> <span class="nav-text">四、用docker部署shadowsocks-libev+v2ray-plugin（ws+caddy提供的tls，可选套cdn）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-证书安装情况跟上面一致"><span class="nav-number">1.</span> <span class="nav-text">4.1 证书安装情况跟上面一致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-创建ss的配置文件"><span class="nav-number">2.</span> <span class="nav-text">4.2 创建ss的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-安装caddy"><span class="nav-number">3.</span> <span class="nav-text">4.4 安装caddy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-配置caddy证书"><span class="nav-number">4.</span> <span class="nav-text">4.5 配置caddy证书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-创建caddy主配置文件Caddyfile"><span class="nav-number">5.</span> <span class="nav-text">4.6 创建caddy主配置文件Caddyfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-让caddy搭配Caddyfile文件运行起来"><span class="nav-number">6.</span> <span class="nav-text">4.7 让caddy搭配Caddyfile文件运行起来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-8-开启Cloudflare的CDN保护，开启SSL-TLS的Full模式"><span class="nav-number">7.</span> <span class="nav-text">4.8 开启Cloudflare的CDN保护，开启SSL/TLS的Full模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、客户端配置"><span class="nav-number"></span> <span class="nav-text">五、客户端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-Win端"><span class="nav-number">1.</span> <span class="nav-text">5.1 Win端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-Android端"><span class="nav-number">2.</span> <span class="nav-text">5.2 Android端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-ios端"><span class="nav-number">3.</span> <span class="nav-text">5.3 ios端</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-usr"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://www.jiayie.xyz">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
