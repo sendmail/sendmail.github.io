@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.jiayie.xyz/2019/12/14/Ubuntu-18-04-LTS%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <lastmod>2019-12-14</lastmod>
+  </url>  <url>
     <loc>http://www.jiayie.xyz/2019/12/13/Debian-Ubuntu-CentOS-%E7%BD%91%E7%BB%9C%E5%AE%89%E8%A3%85-%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85-%E7%BA%AF%E5%87%80%E5%AE%89%E8%A3%85-%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2019-12-13</lastmod>
   </url>  <url>
@@ -100,16 +103,13 @@
     <loc>http://www.jiayie.xyz/2019/04/28/Phicomm%E6%96%90%E8%AE%AFN1-NAS%E6%89%93%E9%80%A0%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/V2%E5%9F%BA%E4%BA%8ENginx%E7%9A%84VMess-WS-TLS-Website%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2019-05-02</lastmod>
-  </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/apt-get%E5%8D%87%E7%BA%A7%E7%9A%84%E5%90%84%E7%A7%8D%E5%8C%BA%E5%88%AB/</loc>
-    <lastmod>2019-05-02</lastmod>
-  </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/centos%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%EF%BC%8C%E5%8D%B8%E8%BD%BDpython,yum/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/debian%E5%AE%89%E8%A3%85%E5%90%8E%E4%B8%AD%E6%96%87%E5%90%8D%E7%A7%B0%E7%9A%84%E6%96%87%E4%BB%B6%E5%8F%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%BE%E7%A4%BA%E4%B8%BA%E6%96%B9%E5%9D%97/</loc>
+    <lastmod>2019-05-02</lastmod>
+  </url>  <url>
+    <loc>http://www.jiayie.xyz/2019/03/25/apt-get%E5%8D%87%E7%BA%A7%E7%9A%84%E5%90%84%E7%A7%8D%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</loc>
@@ -118,19 +118,19 @@
     <loc>http://www.jiayie.xyz/2019/03/25/kcptun-ss/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/libev%E7%89%88%E4%BC%98%E5%8C%96%E3%80%81%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E3%80%81%E5%90%8C%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E5%AF%86%E7%A0%81/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/linux-inux%E4%B8%ADfind%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E7%A9%BA%E6%96%87%E4%BB%B6%E5%8F%8A%E7%A9%BA%E6%96%87%E4%BB%B6%E5%A4%B9%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/linux-inux%E4%B8%ADfind%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E7%A9%BA%E6%96%87%E4%BB%B6%E5%8F%8A%E7%A9%BA%E6%96%87%E4%BB%B6%E5%A4%B9%E8%84%9A%E6%9C%AC/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/libev%E7%89%88%E4%BC%98%E5%8C%96%E3%80%81%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E3%80%81%E5%90%8C%E7%AB%AF%E5%8F%A3%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/04/16/phicomm-N1-armbian%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85%E5%8A%9F%E8%83%BD%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%BC%80%E6%BA%90NAS%E7%B3%BB%E7%BB%9F-OpenMediaVault/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/wget%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%AC%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/python3%E5%AE%89%E8%A3%85pip3/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/python3%E5%AE%89%E8%A3%85pip3/</loc>
+    <loc>http://www.jiayie.xyz/2019/03/25/wget%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%AC%E7%9A%84%E6%97%B6%E5%80%99%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/04/18/%E4%B8%BAN1%E6%97%81%E8%B7%AF%E7%94%B1openwrt%E5%AE%89%E8%A3%85KoolProxy-%E5%B7%B2%E4%B8%8A%E4%BC%A0openwrt/</loc>
@@ -140,6 +140,9 @@
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/%E5%88%A0%E9%99%A4%E7%A9%BA%E7%9B%AE%E5%BD%95%E5%91%BD%E4%BB%A4rmdir/</loc>
+    <lastmod>2019-05-02</lastmod>
+  </url>  <url>
+    <loc>http://www.jiayie.xyz/2019/03/25/V2%E5%9F%BA%E4%BA%8ENginx%E7%9A%84VMess-WS-TLS-Website%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/%E5%88%A0%E9%99%A4%E8%80%81%E6%97%A7%E7%9A%84%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6/</loc>
@@ -163,16 +166,13 @@
     <loc>http://www.jiayie.xyz/2019/03/25/%E5%B0%8F%E5%86%85%E5%AD%98%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%20Caddy+PHP7+Sqlite3%20%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/04/22/%E6%96%90%E8%AE%AFN1%E4%BD%BF%E7%94%A8ddbr%E6%81%A2%E5%A4%8D%E5%AE%98%E6%94%B9%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2019-05-02</lastmod>
-  </url>  <url>
     <loc>http://www.jiayie.xyz/2019/04/12/%E6%96%90%E8%AE%AFN1%E5%88%B7Openwrt%E5%90%8E%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/27/%E6%96%90%E8%AE%AFP1%E9%99%8D%E7%BA%A7%E6%81%A2%E5%A4%8D%E7%BA%BF%E5%88%B7%E5%8A%9F%E8%83%BD/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
-    <loc>http://www.jiayie.xyz/2019/03/25/%E8%87%AA%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98%E8%84%9A%E6%9C%AC-%E5%B0%8F%E5%86%85%E5%AD%98VPS%E7%9A%84%E7%A6%8F%E9%9F%B3/</loc>
+    <loc>http://www.jiayie.xyz/2019/04/22/%E6%96%90%E8%AE%AFN1%E4%BD%BF%E7%94%A8ddbr%E6%81%A2%E5%A4%8D%E5%AE%98%E6%94%B9%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/04/02/%E7%BD%91%E7%BB%9C%E6%90%9C%E7%B4%A2%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8D%A1%E6%B7%B7%E6%B7%86/</loc>
@@ -182,6 +182,9 @@
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/%E9%98%B2SSH-FTP%E6%9A%B4%E7%A0%B4%EF%BC%8C%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85fail2ban%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2019-05-02</lastmod>
+  </url>  <url>
+    <loc>http://www.jiayie.xyz/2019/03/25/%E8%87%AA%E5%8A%A8%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98%E8%84%9A%E6%9C%AC-%E5%B0%8F%E5%86%85%E5%AD%98VPS%E7%9A%84%E7%A6%8F%E9%9F%B3/</loc>
     <lastmod>2019-05-02</lastmod>
   </url>  <url>
     <loc>http://www.jiayie.xyz/2019/03/25/64MB%E5%86%85%E5%AD%98%E7%9A%84VPS%E4%B8%8A%E6%90%AD%E5%BB%BAWordPress/</loc>
