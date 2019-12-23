@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Openwrt,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="小强" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="文章转自恩山   原文链接：https://www.right.com.cn/forum/thread-365936-1-1.html 刷机的准备1）breed: 按照大神hackpascal 的这个帖子 https://www.right.com.cn/forum/thread-342918-1-1.html， 下载好包含breed的解锁包：newifi-d2-jail-break.zip2)">
+<meta name="keywords" content="Openwrt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="newifi3新路由3并编译刷入最新官方OpenWrt">
+<meta property="og:url" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/index.html">
+<meta property="og:site_name" content="小强">
+<meta property="og:description" content="文章转自恩山   原文链接：https://www.right.com.cn/forum/thread-365936-1-1.html 刷机的准备1）breed: 按照大神hackpascal 的这个帖子 https://www.right.com.cn/forum/thread-342918-1-1.html， 下载好包含breed的解锁包：newifi-d2-jail-break.zip2)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/1.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/2.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/3.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/4.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/5.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/6.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/7.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/8.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/9.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/10.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/11.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/12.png">
+<meta property="og:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/13.png">
+<meta property="og:updated_time" content="2019-12-23T10:08:37.011Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="newifi3新路由3并编译刷入最新官方OpenWrt">
+<meta name="twitter:description" content="文章转自恩山   原文链接：https://www.right.com.cn/forum/thread-365936-1-1.html 刷机的准备1）breed: 按照大神hackpascal 的这个帖子 https://www.right.com.cn/forum/thread-342918-1-1.html， 下载好包含breed的解锁包：newifi-d2-jail-break.zip2)">
+<meta name="twitter:image" content="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/">
+
+
+
+<meta name="google-site-verification" content="SJdugethbC9MOKKUQpbH92hWT1kAEgfX0Y7TXo9Lm7M">
+
+
+
+  <title>newifi3新路由3并编译刷入最新官方OpenWrt | 小强</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小强</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录技术中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.jiayie.xyz/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小强">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">newifi3新路由3并编译刷入最新官方OpenWrt</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T17:13:10+08:00">
+                2019-12-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-23T18:08:37+08:00">
+                2019-12-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Openwrt/" itemprop="url" rel="index">
+                    <span itemprop="name">Openwrt</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Openwrt/路由/" itemprop="url" rel="index">
+                    <span itemprop="name">路由</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文章转自恩山   原文链接：<a href="https://www.right.com.cn/forum/thread-365936-1-1.html" target="_blank" rel="noopener">https://www.right.com.cn/forum/thread-365936-1-1.html</a></p>
+<h3 id="刷机的准备"><a href="#刷机的准备" class="headerlink" title="刷机的准备"></a>刷机的准备</h3><p>1）breed: 按照大神hackpascal 的这个帖子 <a href="https://www.right.com.cn/forum/thread-342918-1-1.html，" target="_blank" rel="noopener">https://www.right.com.cn/forum/thread-342918-1-1.html，</a> 下载好包含breed的解锁包：newifi-d2-jail-break.zip<br>2) ftp软件： 到这个官网下载 ftp32.exe/ftp64.exe 软件: <a href="http://tftpd32.jounin.net/" target="_blank" rel="noopener">http://tftpd32.jounin.net/</a><br>3) ssh/telnet软件： SecureCRT/Putty等。<br>4) 固件程序： 自己编译OpenWrt官方固件。(openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin)， 见最后部分。<br>   (也可以到OpenWrt官网下载编译好的固件，不过目前看mt7621还在添加代码, 因此自己编译master分支应干不错)<br>官网18.06.1的已编译好固件地址：<a href="https://downloads.openwrt.org/releases/18.06.1/targets/ramips/mt7621/" target="_blank" rel="noopener">https://downloads.openwrt.org/releases/18.06.1/targets/ramips/mt7621/</a><br>没有看到newifi-d2版本，说明之前最新的稳定版并未加入newifi-d2的支持。期待稳定版的要等以后了~~</p>
+<h3 id="解锁及刷机"><a href="#解锁及刷机" class="headerlink" title="解锁及刷机"></a>解锁及刷机</h3><p>1) 开启sshd<br>设置好newifi管理员密码。电脑连接路由器，浏览器输入地址：  <a href="http://192.168.99.1/newifi/ifiwen_hss.html" target="_blank" rel="noopener">http://192.168.99.1/newifi/ifiwen_hss.html</a> ,  页面出现success字样表明开启sshd成功。<br>2) 用ssh客户端软件SecureCRT/Putty等， 输入地址192.168.99.1,  用户名root, 密码是设置的管理员密码即可登录进入路由器的控制台。<br>未用“newifi-d2-jail-break.ko”解锁之前的mtd，其中u-boot和fullflash部分不可见：</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/1.png">
+<p>用 <code>newifi-d2-jail-break.ko</code>解锁之之后，完整的mtd所有分区：</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/2.png">
+<p>3) #### 备份 #### <code>(请运行第5步的解锁后再备份)</code><br>可以在这里备份，也可以刷入breed后，再进行编程器固件和eeprom固件备份。<br>备份到/tmp目录下面。(注意：/tmp目录是内存映射的目录，可以随便读写，速度快。其它目录因为存储器原因-只写/速度慢-不推荐)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># cat /proc/mtd</span></span><br><span class="line"><span class="comment"># dd if=/dev/mtd2  of=2-Factory.bin</span></span><br><span class="line"><span class="comment"># dd if=/dev/mtd3  of=3-fullflash.bin</span></span><br><span class="line"><span class="comment"># dd if=/dev/mtd4  of=4-firmware.bin</span></span><br><span class="line"><span class="comment"># dd if=/dev/mtd9  of=9-nvram.bin</span></span><br></pre></td></tr></table></figure>
+
+<p>文件说明：<br>Factory 就是breed里面的eeprom文件， 含无线相关参数内容。<br>fullflash大小为完整的32M, 为编程器固件。（这个固件和用breed备份的内容有点差别）<br>firmware为 原厂固件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@newifi_A91F:/root]<span class="comment">#cat /proc/mtd</span></span><br><span class="line">dev:   size   erasesize  name</span><br><span class="line">mtd0: 00030000 00010000 <span class="string">"u-boot"</span></span><br><span class="line">mtd1: 00010000 00010000<span class="string">"u-boot-env"</span></span><br><span class="line">mtd2: 00010000 00010000 <span class="string">"Factory"</span></span><br><span class="line">mtd3: 02000000 00010000<span class="string">"fullflash"</span></span><br><span class="line">mtd4: 01fb0000 00010000<span class="string">"firmware"</span></span><br><span class="line">mtd5: 00146b7e 00010000 <span class="string">"kernel"</span></span><br><span class="line">mtd6: 01e49482 00010000 <span class="string">"rootfs"</span></span><br><span class="line">mtd7: 00e30000 00010000<span class="string">"rootfs_data"</span></span><br><span class="line">mtd8: 00020000 00010000<span class="string">"panic_oops"</span></span><br><span class="line">mtd9: 00010000 00010000 <span class="string">"nvram"</span></span><br></pre></td></tr></table></figure>
+
+<p>4) 将备份的文件上传到PC电脑上<br>在电脑上打开上面下载的tftpd32.exe/tftpd64.exe,   地址选择绑定到 192.168.99.x的地址，目录选择你要备份保存的目录。记下电脑IP地址: 192.168.99.x (这里x是实际的IP地址)<br>在ssh软件的控制台里面，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /tmp</span></span><br><span class="line"><span class="comment"># (完成上面的备份操作得到2-Factory.bin等)</span></span><br><span class="line"><span class="comment">#tftp</span></span><br><span class="line"><span class="comment"># tftp  -p  -l  2-Factory.bin 192.168.99.x</span></span><br><span class="line"><span class="comment"># tftp  -p  -l  3-fullflash.bin 192.168.99.x</span></span><br><span class="line"><span class="comment"># tftp  -p  -l  4-firmware.bin 192.168.99.x</span></span><br><span class="line"><span class="comment"># tftp  -p  -l  9-nvram.bin 192.168.99.x</span></span><br><span class="line">(依次上传备份的几个文件到电脑上)</span><br></pre></td></tr></table></figure>
+
+<p>5) 解锁并刷入breed<br>在上述tftp32/64.exe运行的目录下，拷贝入前面下载的解锁文件：<code>newifi-d2-jail-break.ko</code>(注意，前面下载的是压缩包，需要解压得到)， 为了方便，重命名为<code>d2.ko</code><br>在ssh控制台，输入如下命令解锁并刷入breed:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#cd /tmp</span></span><br><span class="line"><span class="comment"># tftp -g -r d2.ko 192.168.99.x</span></span><br><span class="line"><span class="comment"># insmod d2.ko</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>(这里不能断电，建议多等等个几分钟，直到刷机完成并自动重启)</strong><br>( 此时 SSH 会停止响应，因为 <code>newifi-d2-jail-break.ko</code> 会冻结系统的其他功能，强制写入 <code>Newifi D2</code> 专用版 <code>Breed</code> 到 <code>Flash</code>)<br>成功后路由器会自动重启。断电后按复位健/USB键开机均可进入 Breed.</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/3.png">
+<p>6) #### 进入breed ####<br>断电，按住usb键或者reset不放，开机，等待电源灯闪烁，此时进入breed.<br>电脑连接路由，浏览器输入： <a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a><br>此时也可以备份编程器固件和eeprom。</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/4.png">
+<p>7) 在breed界面， 刷入OpenWrt官方固件。然后重启即可。<br>（一般不需要恢复eeprom，如果想尝试其它人的eeprom，可以在breed界面刷入）</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/5.png">
+<h3 id="编译OpenWrt官方固件"><a href="#编译OpenWrt官方固件" class="headerlink" title="编译OpenWrt官方固件"></a>编译OpenWrt官方固件</h3><p>1) 编译环境准备，请查看网上教程。<br>2) 检出代码并配置选项:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/openwrt/openwrt</span><br><span class="line"><span class="variable">$cd</span> openwrt</span><br><span class="line">$./scripts/feeds update  -a</span><br><span class="line">$./scripts/feeds install  -a</span><br><span class="line">$ make menuconfig</span><br><span class="line">    配置需要的选项，主要是base-system中的usb块设备，luci, kernel中的本地语言支持等。</span><br><span class="line">$ make download</span><br><span class="line">$ make -j5</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译好的固件文件在 <code>bin/targets/ramips/mt7621/openwrt-ramips-mt7621-d-team_newifi-d2-squashfs-sysupgrade.bin</code></strong></p>
+<p>3) 选项说明：</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/6.png">
+<p><strong>Base System –&gt; block块设备支持：</strong></p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/7.png">
+<p><strong>Kenel models –&gt; Usb Support, 选择usb2/usb3</strong></p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/8.png">
+<p><strong>Kenel models –&gt;naive language support, 选择code 936, 简体中文支持</strong></p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/9.png">
+<p><strong>Luci-modules-translation , 选择简体中文支持：</strong></p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/10.png">
+<p><strong>MT7603驱动选择：”kernel modules  —-&gt; wireless drivers”</strong><br>(这里有两种驱动，一个是MT76开源驱动，一个是自带的7603驱动)</p>
+<p><strong>MT76开源驱动： <a href="https://github.com/openwrt/mt76" target="_blank" rel="noopener">https://github.com/openwrt/mt76</a></strong></p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/11.png">
+<p>其它选项也可以自行添加，也可以下载别人编译好的ipk文件安装。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>1) 目前的OpenWrt 主分支master已经有了newifi-d2的支持，但是新的稳定版未发布，喜欢干净的，自己折腾的，可以试试。</p>
+<p>2) 基本上，按照这样的顺序操作，路由器上的eeprom是不需要事后再进入breed中恢复一次的。<br>    当然如果无线以及mac地址不正常，可以进breed中，恢复一下eeprom, 并设置路由器的mac地址。</p>
+<p>3) 刷入后无线功能正常，但是速率等未进行测试。 最后附上一张编译好刷入的截图：</p>
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/12.png">
+<img src="/2019/12/23/newifi3新路由3并编译刷入最新官方OpenWrt/13.png">
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    <div>
+   
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------���Ľ���<i class="fa fa-paw"></i>��л�����Ķ�-------------</div>
+    
+</div>
+   
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Openwrt/" rel="tag"><i class="fa fa-tag"></i> Openwrt</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/14/IOS免密码安装小火箭/" rel="next" title="IOS免密码安装小火箭">
+                <i class="fa fa-chevron-left"></i> IOS免密码安装小火箭
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/23/微信防撤实践/" rel="prev" title="微信防撤实践">
+                微信防撤实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John">
+            
+              <p class="site-author-name" itemprop="name">John</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://msdn.itellyou.cn/" title="MSDN" target="_blank">MSDN</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alloyteam.com/nav/" title="Web前端导航" target="_blank">Web前端导航</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.36zhen.com/t?id=3448" title="前端书籍资料" target="_blank">前端书籍资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://ife.baidu.com/" title="百度前端技术学院" target="_blank">百度前端技术学院</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://wf.uisdc.com/cn/" title="google前端开发基础" target="_blank">google前端开发基础</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://breed.hackpascal.net/" title="路由器Breed" target="_blank">路由器Breed</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#刷机的准备"><span class="nav-number">1.</span> <span class="nav-text">刷机的准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解锁及刷机"><span class="nav-number">2.</span> <span class="nav-text">解锁及刷机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译OpenWrt官方固件"><span class="nav-number">3.</span> <span class="nav-text">编译OpenWrt官方固件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-usr"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://www.jiayie.xyz">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
