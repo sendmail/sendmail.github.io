@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jiayie.xyz/"/>
-  <updated>2020-01-06T03:41:40.031Z</updated>
+  <updated>2020-01-07T09:24:40.112Z</updated>
   <id>http://www.jiayie.xyz/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小睿家庭云刷机教程含第三方固件</title>
+    <link href="http://www.jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B%E5%90%AB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6/"/>
+    <id>http://www.jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B%E5%90%AB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6/</id>
+    <published>2020-01-07T09:19:10.000Z</published>
+    <updated>2020-01-07T09:24:40.112Z</updated>
+    
+    <content type="html"><![CDATA[<p>小睿家庭云主板采用Pandorabox-ralink-mt7621-pbr-m1型号，外置一个wan千兆口，两个lan千兆口，一个usb3.0接口，家庭云原版系统已经默认刷入pboot，可以随意刷入适配型号为pbr-m1的第三方固件，比如Padavan、OpenWrt、PandoraBox、高格等固件，以上固件都可以正常识别硬盘，做主路由或旁路由都可以，毕竟是千兆路由器的配置，只是双无线隔墙信号有点渣，不穿墙的话无线还可以做为日常办公使用，可以搭配斐讯E1做无线信号转发，信号也是杠杠的。固件内置的插件可以支持硬盘休眠，去广告，开启S-S R+模式，BT下载、多线多拔、安装可道云、开户DDNS或frp做一个小型的家庭NAS足够了。</p><p>刷机步骤如下：</p><ol><li><p>首先用网线直接连接小睿后面的黄色Lan口，电脑网络设置为DHCP模式；</p></li><li><p>在断电情况下用针尖状物体，顶住小睿后面的reset键(不松手)，同时插电源；</p></li><li><p>等待10秒左右，有一个红灯会快速闪动，然后浏览器可以访问<a href="http://192.168.60.1，出现固件恢复页面，" target="_blank" rel="noopener">http://192.168.60.1，出现固件恢复页面，</a> 点恢复按钮，选择第三方固件bin文件，等待系统刷机和重启即可正常使用；</p></li><li><p>刷机的时候如果电脑开有虚拟机的可能会导致失败，请关闭虚拟机和网络虚拟网卡；</p></li><li><p>固件下载 * * 链接: <a href="https://pan.baidu.com/s/1ee0KX5T9nlP1R05xoN9osw" target="_blank" rel="noopener">https://pan.baidu.com/s/1ee0KX5T9nlP1R05xoN9osw</a> 提取码: 9jbv </p><img src="/2020/01/07/小睿家庭云刷机教程含第三方固件/1.jpg"><img src="/2020/01/07/小睿家庭云刷机教程含第三方固件/2.png"></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;小睿家庭云主板采用Pandorabox-ralink-mt7621-pbr-m1型号，外置一个wan千兆口，两个lan千兆口，一个usb3.0接口，家庭云原版系统已经默认刷入pboot，可以随意刷入适配型号为pbr-m1的第三方固件，比如Padavan、OpenWrt、Pa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="小睿家庭云" scheme="http://www.jiayie.xyz/tags/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小睿私人云刷OMV教程</title>
+    <link href="http://www.jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91%E5%88%B7OMV%E6%95%99%E7%A8%8B/"/>
+    <id>http://www.jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91%E5%88%B7OMV%E6%95%99%E7%A8%8B/</id>
+    <published>2020-01-07T09:10:56.000Z</published>
+    <updated>2020-01-07T09:16:48.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>1，把小睿私人云刷debian刷机教程参考：上一篇<br>固件地址：<a href="https://github.com/hanwckf/build-raycloud/releases" target="_blank" rel="noopener">https://github.com/hanwckf/build-raycloud/releases</a><br>2，ssh 连接上小睿 账号：root，密码：admin</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">替换源</span><br><span class="line">nano /etc/apt/sources.list</span><br><span class="line">替换成下面内容：</span><br><span class="line">deb http://deb.debian.org/debian buster main contrib non-free</span><br><span class="line">deb-src http://deb.debian.org/debian buster main contrib non-free</span><br><span class="line">deb http://security.debian.org/debian-security buster/updates main contrib</span><br><span class="line">deb-src http://security.debian.org/debian-security buster/updates main contrib</span><br></pre></td></tr></table></figure><p>保存并推出<br>更新</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure><p>安装 Realtek Firmware</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install firmware-realtek</span><br></pre></td></tr></table></figure><p>安装其他内核</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install firmware-linux firmware-linux-free firmware-linux-nonfree</span><br></pre></td></tr></table></figure><p>安装其gnupg2</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install gnupg2</span><br></pre></td></tr></table></figure><p>下载公钥并添加</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O <span class="string">"/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc"</span> https://packages.openmediavault.org/public/archive.key</span><br><span class="line">apt-key add <span class="string">"/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc"</span></span><br></pre></td></tr></table></figure><p>添加omv软件源</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list</span><br><span class="line">deb https://packages.openmediavault.org/public usul main</span><br><span class="line"><span class="comment"># deb https://downloads.sourceforge.net/project/openmediavault/packages usul main</span></span><br><span class="line"><span class="comment">## Uncomment the following line to add software from the proposed repository.</span></span><br><span class="line"><span class="comment"># deb https://packages.openmediavault.org/public usul-proposed main</span></span><br><span class="line"><span class="comment"># deb https://downloads.sourceforge.net/project/openmediavault/packages usul-proposed main</span></span><br><span class="line"><span class="comment">## This software is not part of OpenMediaVault, but is offered by third-party</span></span><br><span class="line"><span class="comment">## developers as a service to OpenMediaVault users.</span></span><br><span class="line"><span class="comment"># deb https://packages.openmediavault.org/public usul partner</span></span><br><span class="line"><span class="comment"># deb https://downloads.sourceforge.net/project/openmediavault/packages usul partner</span></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure><p>环境设置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LANG=C.UTF-8</span><br><span class="line"><span class="built_in">export</span> DEBIAN_FRONTEND=noninteractive</span><br><span class="line"><span class="built_in">export</span> APT_LISTCHANGES_FRONTEND=none</span><br><span class="line">apt-get update</span><br><span class="line">apt-get --allow-unauthenticated install openmediavault-keyring</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure><p>安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get --yes --auto-remove --show-upgraded \</span><br><span class="line">    --allow-downgrades --allow-change-held-packages \</span><br><span class="line">    --no-install-recommends \</span><br><span class="line">    --option Dpkg::Options::=<span class="string">"--force-confdef"</span> \</span><br><span class="line">    --option DPkg::Options::=<span class="string">"--force-confold"</span> \</span><br><span class="line">install postfix openmediavault</span><br></pre></td></tr></table></figure><p>8，等待安装结束，输入IP地址就能进OMV系统了<br>默认账号：admin，密码：openmediavault</p><p>文章转自恩山 链接：<a href="https://www.right.com.cn/forum/thread-1329009-1-1.html" target="_blank" rel="noopener">https://www.right.com.cn/forum/thread-1329009-1-1.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1，把小睿私人云刷debian刷机教程参考：上一篇&lt;br&gt;固件地址：&lt;a href=&quot;https://github.com/hanwckf/build-raycloud/releases&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://git
+      
+    
+    </summary>
+    
+    
+    
+      <category term="小睿私人云" scheme="http://www.jiayie.xyz/tags/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小睿私人云RTD1296刷机步骤</title>
+    <link href="http://www.jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91RTD1296%E5%88%B7%E6%9C%BA%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://www.jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91RTD1296%E5%88%B7%E6%9C%BA%E6%AD%A5%E9%AA%A4/</id>
+    <published>2020-01-07T09:00:33.000Z</published>
+    <updated>2020-01-07T09:10:07.342Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、准备工具：<br>①小睿私人云一台。<br>②CH340G TTL转USB模块，淘宝价8.5元包邮送杜邦线。<br>③固件。<a href="https://github.com/hanwckf/build-raycloud/releases/tag/v2019-7-8，下载ubuntu-base-18.04.2-base-raycloud.tar.xz，或者下载BPI-W2固件。" target="_blank" rel="noopener">https://github.com/hanwckf/build-raycloud/releases/tag/v2019-7-8，下载ubuntu-base-18.04.2-base-raycloud.tar.xz，或者下载BPI-W2固件。</a><br>④刷机工具包。链接: <a href="https://pan.baidu.com/s/1yh4glvUJw_enhEX4qElYhA" target="_blank" rel="noopener">https://pan.baidu.com/s/1yh4glvUJw_enhEX4qElYhA</a> 提取码: vbgi。<br>2、拆机。拔掉背后4个橡胶垫，拆开螺丝，将硬盘与主板分开。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/1.jpg"><p>3、连接杜邦线。拆开后，主板上箭头指的串口引脚依次为：3.3V、TX、RX、GND。将赠送的杜邦线依次插上。如图：棕、黑、白、灰。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/2.jpg"><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/3.jpg"><p>4、连接“TTL转USB模块”。线序依次为：空、空、白、黑、灰。即：主板的3.3V不接线，主板的TX接模块的RX，主板的RX接模块的TX，主板的GND接模块的GND。同时，“TTL转USB模块”的电平选择帽子选择5V。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/4.jpg"><p>5、连接电脑。主板通过“TTL转USB模块”连接电脑，但不接电源线。<br>6、运行kylin_bootcode_recovery_tool_v1.4/boot_recovery.exe，软件会自动读取串口号（COM3或COM4或COM5或其他）与波特率（115200），选择上级目录的RTD1296_hwsetting_BOOT_4DDR4_4Gb_s1866.config和dvrboot.exe.bin，勾选LK option。点击Write。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/5.jpg"><p>7、插上电源。右边会跳乱码，耐心等待刷机完成。如果没有乱码，仔细检查前面3、4、5、6、7步骤，按顺序一步一步重新来过，直到看到乱码。有可能会出现提示NG，但是如果看到右边窗口出现大量乱码，一般就是刷成功了，可继续下一步。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/6.jpg"><p>8、关闭软件，拔电源断电，拔“TTL转USB模块”。</p><p>9、找一个U盘并格式化成FAT32文件系统，将xz固件包里的全部文件解压到U盘根目录。看一下，确保U盘里有这4个文件名的文件。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/7.jpg"><p>10、连接。将U盘插到小睿私人云主板上，再将“TTL转USB模块”连到电脑上。打开“hypertrm.exe”。</p><p>11、新建连接。如图依次选择。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/8.jpg"><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/9.jpg"><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/10.jpg"><p>12、安装电脑键盘“Esc”按钮，然后给小睿私人云主板通电。直到出现如下界面，松开“Esc”按钮。</p><p>13、输入代码。<br>13.1、在“hypertrm.exe”界面输入代码printenv，然后回车。<br>13.2、继续输入代码printenv，然后回车。<br>13.3、继续输入代码setenv bootargs “earlycon=uart8250,mmio32,0x98007800 console=ttyS0,115200 loglevel=7 audit=0 root=/dev/mmcblk2p1 rootfstype=ext4 rootwait”，然后回车。<br>13.4、继续输入代码save，然后回车。<br>13.5、继续输入代码go ru，然后回车。</p><p>14、耐心等待，直到刷机完成。中间会重启，要有耐心，做好等10分钟的打算。完成界面如下。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/11.jpg"><p>15、关闭软件，拔电源断电，拔“TTL转USB模块”，拔U盘。</p><p>16、将小睿私人云插上网线，连路由器LAN端，电脑同样连路由器LAN端，登陆路由器管理界面，即可查看到多了一台设备。</p><img src="/2020/01/07/小睿私人云RTD1296刷机步骤/12.jpg"><p>17、putty，hypertrm，winSCP等，登录名root，密码admin。<br>文章转自恩山：<a href="https://www.right.com.cn/forum/thread-833165-1-1.html" target="_blank" rel="noopener">链接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、准备工具：&lt;br&gt;①小睿私人云一台。&lt;br&gt;②CH340G TTL转USB模块，淘宝价8.5元包邮送杜邦线。&lt;br&gt;③固件。&lt;a href=&quot;https://github.com/hanwckf/build-raycloud/releases/tag/v2019-7-8
+      
+    
+    </summary>
+    
+    
+    
+      <category term="小睿私人云" scheme="http://www.jiayie.xyz/tags/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91/"/>
+    
+  </entry>
   
   <entry>
     <title>AdobePhotoshopCC2020绿色便携精简版</title>
@@ -460,86 +532,6 @@
     
     
       <category term="shadowsocks 四合一" scheme="http://www.jiayie.xyz/tags/shadowsocks-%E5%9B%9B%E5%90%88%E4%B8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>N1刷入Armbian后换软件源、安装Docker并提速</title>
-    <link href="http://www.jiayie.xyz/2019/06/26/N1%E5%88%B7%E5%85%A5Armbian%E5%90%8E%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90%E3%80%81%E5%AE%89%E8%A3%85Docker%E5%B9%B6%E6%8F%90%E9%80%9F/"/>
-    <id>http://www.jiayie.xyz/2019/06/26/N1%E5%88%B7%E5%85%A5Armbian%E5%90%8E%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90%E3%80%81%E5%AE%89%E8%A3%85Docker%E5%B9%B6%E6%8F%90%E9%80%9F/</id>
-    <published>2019-06-26T01:25:53.000Z</published>
-    <updated>2019-12-21T12:35:46.448Z</updated>
-    
-    <content type="html"><![CDATA[<p>文章转自恩山原地址： <a href="https://www.right.com.cn/forum/thread-430903-1-1.html" target="_blank" rel="noopener">N1刷入Armbian</a><br>网络环境所限，在使用Armbian的时候经常下载软件出问题，下载不到或者下载中断，所以找来了国内的源，更换一下，下载会变快很多。</p><p>假定armbian已经安装完成</p><p>1、打开putty，输入N1的IP地址连接并登陆</p><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/1.png"><a id="more"></a><p>2、输入命令 </p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apt/sources.<span class="built_in">list</span></span><br></pre></td></tr></table></figure><p>3、在原先的源前面加#号注释掉，并将国内源复制过去</p><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/2.png"><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/debian stretch main contrib non-free</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/debian stretch-updates main contrib non-free</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/debian stretch-backports main contrib non-free</span></span><br><span class="line">deb <span class="string">http:</span><span class="comment">//mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free</span></span><br></pre></td></tr></table></figure><p>4、ctrl+x退出编辑，按y回车保存<br>5、执行</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure><p>至此，软件源更换完毕。</p><p>6、安装docker</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">curl </span>-<span class="string">fsSL </span><span class="string">https:</span>//<span class="string">get.</span><span class="string">docker.</span><span class="string">com </span>-o <span class="built_in">get-docker.sh</span></span><br><span class="line"><span class="built_in"></span></span><br><span class="line"><span class="built_in">sh</span> <span class="built_in">get-docker.sh</span> <span class="built_in">--mirror</span> <span class="string">Aliyun</span></span><br></pre></td></tr></table></figure><p>使用上述命令安装会调用阿里云的镜像，安装速度较快。</p><p>7、配置docker镜像加速<br>登陆</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dev<span class="selector-class">.aliyun</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure><p>进入容器镜像服务，得到镜像加速器地址</p><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/3.png"><p>8、putty下执行</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir -<span class="selector-tag">p</span> /etc/docker</span><br><span class="line"></span><br><span class="line">tee /etc/docker/daemon<span class="selector-class">.json</span> &lt;&lt;-<span class="string">'EOF'</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"registry-mirrors"</span>: [<span class="string">"https://加速镜像地址"</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure><p>9、安装docker图形化管理Portainer  </p><p>在putty下执行</p><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker volume create portainer_data</span><br><span class="line"></span><br><span class="line">docker run -d -p <span class="number">9000</span>:<span class="number">9000</span> -v <span class="regexp">/var/</span>run<span class="regexp">/docker.sock:/</span>var<span class="regexp">/run/</span>docker.sock -v <span class="string">portainer_data:</span><span class="regexp">/data portainer/</span><span class="string">portainer:</span>linux-arm64</span><br></pre></td></tr></table></figure><p>10、安装完成后可访问N1ip:9000查看图形化界面</p><img src="/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/4.png"><p>运行镜像加入–restart=always，开机自启，已经创建容器的可以用：docker update –restart=always Portainer 更新设置</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;文章转自恩山原地址： &lt;a href=&quot;https://www.right.com.cn/forum/thread-430903-1-1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;N1刷入Armbian&lt;/a&gt;&lt;br&gt;网络环境所限，在使用Armbian的时候经常下载软件出问题，下载不到或者下载中断，所以找来了国内的源，更换一下，下载会变快很多。&lt;/p&gt;
-&lt;p&gt;假定armbian已经安装完成&lt;/p&gt;
-&lt;p&gt;1、打开putty，输入N1的IP地址连接并登陆&lt;/p&gt;
-&lt;img src=&quot;/2019/06/26/N1刷入Armbian后换软件源、安装Docker并提速/1.png&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="N1" scheme="http://www.jiayie.xyz/categories/N1/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>小钢炮docker运行op且做旁路由的问题</title>
-    <link href="http://www.jiayie.xyz/2019/06/26/%E5%B0%8F%E9%92%A2%E7%82%AEdocker%E8%BF%90%E8%A1%8Cop%E4%B8%94%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.jiayie.xyz/2019/06/26/%E5%B0%8F%E9%92%A2%E7%82%AEdocker%E8%BF%90%E8%A1%8Cop%E4%B8%94%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2019-06-26T01:21:18.000Z</published>
-    <updated>2019-12-21T12:44:47.670Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>刷入小钢炮并开启DOCKER，这个在灯大的网站里有详细的步骤，我就不赘述了</li><li>拉取op进Docker，可分为5小步：<br>1）SSH登录小钢炮ip，运行 docker pull kanshudj/n1-openwrtgateway<br>2）运行 ip link set eth0 promisc on<br>3）运行 docker network create -d macvlan –subnet=192.168.1.0/24 –gateway=192.168.1.1 -o parent=eth0 macnet<br>注意将上述192.168.1.0及192.168.1.1替换为你的主路由网段，如192.168.2.0与192.168.2.1<br>4）运行 docker run –restart always -d –network macnet –privileged kanshudj/n1-openwrtgateway /sbin/init<br>5）进docker管理页面里的命令输入行，运行vi /etc/config/network<br>按一下i键编辑网络参数，将其中倒数第五行192.168.0.2替换为你想登录op的ip，注意其应在主路由网段内，如192.168.2.2，最后两行中的192.168.0.1替换为192.168.2.1<br>依次按esc : w q 后回车，restart一下op进入op管理页面（如192.168.2.2）</li><li>路由模式设置<br>1）主路由<br>接口—LAN—修改—DHCP服务器—高级设置—DHCP选项添加以下两行：3,192.168.2.2与6,192.168.2.2<br>2）N1 op<br>接口—LAN—编辑—物理设置—取消桥接接口<br>重启主路由及N1，电脑重新获取ip，查看网关及DNS服务器为op地址则成功，小钢炮功能正常使用！3</li></ol><p>上述方法设置会让小钢炮使用docker里op的网关导致小钢炮的下载工具没有下载速度，<br>方法如下：<br>小钢炮管理—SYSTEM—NETWORK，选择固定IP，将ipv4设置为固定值（如你管理小钢炮的ip），将路由（routers）与DNS指向主路由的ip（如192.168.2.1），重启小钢炮与主路由。<br>不足：小钢炮仅可正常下载国内资源。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;刷入小钢炮并开启DOCKER，这个在灯大的网站里有详细的步骤，我就不赘述了&lt;/li&gt;
-&lt;li&gt;拉取op进Docker，可分为5小步：&lt;br&gt;1）SSH登录小钢炮ip，运行 docker pull kanshudj/n1-openwrtgateway&lt;br&gt;2）运
-      
-    
-    </summary>
-    
-    
-      <category term="N1" scheme="http://www.jiayie.xyz/categories/N1/"/>
-    
-    
-      <category term="小钢炮 docker op" scheme="http://www.jiayie.xyz/tags/%E5%B0%8F%E9%92%A2%E7%82%AE-docker-op/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>N1-openwrt镜像教程</title>
-    <link href="http://www.jiayie.xyz/2019/06/21/N1-openwrt%E9%95%9C%E5%83%8F%E6%95%99%E7%A8%8B/"/>
-    <id>http://www.jiayie.xyz/2019/06/21/N1-openwrt%E9%95%9C%E5%83%8F%E6%95%99%E7%A8%8B/</id>
-    <published>2019-06-21T01:59:31.000Z</published>
-    <updated>2019-12-21T12:35:04.775Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹</strong></p><img src="/2019/06/21/N1-openwrt镜像教程/1.jpg"><p><strong>解压N1 openwr固件到openwrt目录</strong></p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf openwrt-armvirt-<span class="number">64</span>-default-rootfs<span class="selector-class">.tar</span><span class="selector-class">.gz</span> -C openwrt</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/2.jpg"><a id="more"></a><h4 id="挂载-Armbian-镜像文件"><a href="#挂载-Armbian-镜像文件" class="headerlink" title="挂载 Armbian 镜像文件"></a>挂载 Armbian 镜像文件</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f --show <span class="module-access"><span class="module"><span class="identifier">Armbian</span>.</span></span>img</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/3.jpg"><p><strong>挂载镜像分区到文件夹</strong></p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount <span class="string">/dev/loop11p2</span> <span class="string">/media</span>  【<span class="string">/devloop11</span> 换成你自己的】</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/4.jpg"><h4 id="把armbian的文件拉到openwrt里"><a href="#把armbian的文件拉到openwrt里" class="headerlink" title="把armbian的文件拉到openwrt里"></a>把armbian的文件拉到openwrt里</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">firmware</span>/</span></span><br><span class="line">sudo rm -rf openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/</span></span><br><span class="line">sudo mv /media/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/ <span class="title">openwrt</span>/<span class="title">lib</span>/</span></span><br><span class="line">sudo mv /media/<span class="class"><span class="keyword">lib</span>/<span class="title">firmware</span>/ <span class="title">openwrt</span>/<span class="title">lib</span>/</span></span><br><span class="line">sudo mv /media/etc/modprobe.d/ openwrt/etc/</span><br><span class="line">sudo mv /media/etc/fstab openwrt/etc/</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/5.jpg"><p><strong>到openwrt/lib/modules/4.18.7-aml-s9xxx目录下创建一个脚本文件</strong></p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd openwrt/<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/4.18.7-<span class="title">aml</span>-<span class="title">s9xxx</span></span></span><br><span class="line">执行 sudo vi link-ko.sh</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/6.jpg"><p><strong>添加脚本</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> `<span class="builtin-name">find</span> -name *.ko`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ln -s <span class="variable">$x</span> .</span><br><span class="line">done</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/7.jpg"><p><strong>保存退出  设置文件权限和链接命令</strong></p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="keyword">chmod</span> +<span class="keyword">x</span> <span class="keyword">link</span>-ko.sh</span><br><span class="line">sudo ./<span class="keyword">link</span>-ko.sh</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/8.jpg"><p><strong>回到目录编辑openwrt/etc/init.d/boot文件</strong></p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi openwrt<span class="regexp">/etc/i</span>nit.d<span class="regexp">/boot</span></span><br></pre></td></tr></table></figure><p>第38行添加叫脚本</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ulimit -n <span class="number">51200</span></span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/9.jpg"><p><strong>保存退出</strong></p><p><strong>删除armbian镜像所有文件</strong></p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="regexp">/media/</span>*</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/10.jpg"><p><strong>将openwrt中的所有文件移动到media文件夹</strong></p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv openwrt<span class="regexp">/* /m</span>edia</span><br><span class="line">sudo mkdir <span class="regexp">/media/</span>boot</span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/11.jpg"><h4 id="执行-刷新命令-sync-并卸载刚刚挂载的镜像"><a href="#执行-刷新命令-sync-并卸载刚刚挂载的镜像" class="headerlink" title="执行 刷新命令 sync  并卸载刚刚挂载的镜像"></a>执行 刷新命令 sync  并卸载刚刚挂载的镜像</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="string">/media</span>      </span><br><span class="line">sudo losetup -d <span class="string">/dev/loop11</span></span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/12.jpg"><h4 id="下载启动wifi-脚本文件"><a href="#下载启动wifi-脚本文件" class="headerlink" title="下载启动wifi 脚本文件"></a><strong>下载启动wifi 脚本文件</strong></h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/maxlicheng/phicomm-n1-wireless.git</span><br></pre></td></tr></table></figure><p><strong>重新挂载刚刚移植好的openwrt镜像</strong></p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo losetup -P -f <span class="comment">--show armbian.img</span></span><br></pre></td></tr></table></figure><p><strong>将启动脚本移动到镜像 /media/etc/modules.d 下</strong></p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv phicomm-n1-wireless<span class="regexp">/wireless_enable /m</span>edia<span class="regexp">/etc/m</span>odules.d<span class="regexp">/wireless_enable</span></span><br></pre></td></tr></table></figure><p><strong>并查看 该文件是否移动到该目录下</strong></p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> <span class="string">/media/etc/modules.d</span></span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/13.jpg"><p><strong>刷新 sync</strong><br><strong>卸载挂载的镜像</strong></p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount <span class="string">/media</span></span><br><span class="line">sudo losetup -d <span class="string">/dev/loop11</span></span><br></pre></td></tr></table></figure><img src="/2019/06/21/N1-openwrt镜像教程/14.jpg"><p><strong>到此openwrt固件就制作完成了</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;编译好的op固件和armbain镜像放在同一个文件夹目录 新建一个openwrt文件夹&lt;/strong&gt;&lt;/p&gt;
-&lt;img src=&quot;/2019/06/21/N1-openwrt镜像教程/1.jpg&quot;&gt;
-&lt;p&gt;&lt;strong&gt;解压N1 openwr固件到openwrt目录&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tar xvf openwrt-armvirt-&lt;span class=&quot;number&quot;&gt;64&lt;/span&gt;-default-rootfs&lt;span class=&quot;selector-class&quot;&gt;.tar&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.gz&lt;/span&gt; -C openwrt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;img src=&quot;/2019/06/21/N1-openwrt镜像教程/2.jpg&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="N1" scheme="http://www.jiayie.xyz/categories/N1/"/>
-    
-    
-      <category term="N1 镜像" scheme="http://www.jiayie.xyz/tags/N1-%E9%95%9C%E5%83%8F/"/>
     
   </entry>
   
