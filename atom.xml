@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jiayie.xyz/"/>
-  <updated>2020-01-09T09:13:04.947Z</updated>
+  <updated>2020-01-09T13:39:20.400Z</updated>
   <id>http://www.jiayie.xyz/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ShadowsocksR如何限制用户连接数量及速度</title>
+    <link href="http://www.jiayie.xyz/2020/01/09/ShadowsocksR%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E5%8F%8A%E9%80%9F%E5%BA%A6/"/>
+    <id>http://www.jiayie.xyz/2020/01/09/ShadowsocksR%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E5%8F%8A%E9%80%9F%E5%BA%A6/</id>
+    <published>2020-01-09T13:30:04.000Z</published>
+    <updated>2020-01-09T13:39:20.400Z</updated>
+    
+    <content type="html"><![CDATA[<p>SSR账号小范围分享给家人或朋友。这种情况下，就有必要为SSR设置一定的限制了，避免滥用问题。</p><p>我们只需将单个账号的同时连接数量，限制在一个较小的范围内，比如6，这样即便这个账号被100人拥有，也只能同时登录6个人。<br>另外SSR的限流限速，需要相关协议的支持，即安装<code>SSR</code>服务器端时选择的协议<code>（protocol）</code>。</p><blockquote><p>如下图所示，建议选择<code>auth_aes128_md5</code>开始往下的几种，最好是<code>auth_chain</code>开头的几个，效果更好。</p></blockquote><img src="/2020/01/09/ShadowsocksR如何限制用户连接数量及速度/1.jpg"><h4 id="限制SSR连接数量"><a href="#限制SSR连接数量" class="headerlink" title="限制SSR连接数量"></a>限制SSR连接数量</h4><p>打开<code>ShadowsocksR</code>的配置文件 <code>config.json</code>，该文件路径在<code>/etc/shadowsocks-r/config.json</code>。<br>找到如下参数行，双引号中间填入合适的数字，该数字即代表限制连接数。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"protocol_param"</span>:<span class="string">""</span>,</span><br><span class="line"></span><br><span class="line">更改后：</span><br><span class="line">    <span class="string">"protocol_param"</span>:<span class="string">"6"</span>,</span><br></pre></td></tr></table></figure><h4 id="限制SSR连接速度"><a href="#限制SSR连接速度" class="headerlink" title="限制SSR连接速度"></a>限制SSR连接速度</h4><p>用Winscp登录SSR服务器，打开SSR的配置文件<code>config.json</code>，该文件路径在<code>/etc/shadowsocks-r/config.json</code>。<br>在配置文件中的大括号中，添加以下两行参数，将后面的数字改为适合自己的。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"speed_limit_per_con"</span>: 512,</span><br><span class="line">    <span class="string">"speed_limit_per_user"</span>: 1024,</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">speed_limit_per_con&amp;<span class="comment">#8221;: 512,代表每个连接限速512KB。</span></span><br><span class="line">speed_limit_per_user&amp;<span class="comment">#8221;: 1024，代表每个端口限速1MB。</span></span><br></pre></td></tr></table></figure><p>完成后保存，然后重启SSR使设置生效。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/shadowsocks-r restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;SSR账号小范围分享给家人或朋友。这种情况下，就有必要为SSR设置一定的限制了，避免滥用问题。&lt;/p&gt;
+&lt;p&gt;我们只需将单个账号的同时连接数量，限制在一个较小的范围内，比如6，这样即便这个账号被100人拥有，也只能同时登录6个人。&lt;br&gt;另外SSR的限流限速，需要相关协议的
+      
+    
+    </summary>
+    
+    
+      <category term="一键脚本" scheme="http://www.jiayie.xyz/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
+    
+    
+      <category term="shadowsocksR" scheme="http://www.jiayie.xyz/tags/shadowsocksR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSR添加多用户多端口教程ShadowsocksR多用户</title>
+    <link href="http://www.jiayie.xyz/2020/01/09/SSR%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E7%AB%AF%E5%8F%A3%E6%95%99%E7%A8%8BShadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
+    <id>http://www.jiayie.xyz/2020/01/09/SSR%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E7%AB%AF%E5%8F%A3%E6%95%99%E7%A8%8BShadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/</id>
+    <published>2020-01-09T13:19:18.000Z</published>
+    <updated>2020-01-09T13:26:11.319Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们在搭建好SSR之后，一般情况下是一个人用的，所以默认的一个端口就够了。但还有一些朋友可能有多用户的需求，那这种情况就需要对SSR服务器端做额外的设置了。  用过SSR的朋友可能都知道，使用SSR的时候只需要输入服务器IP、端口和密码等信息，并不需要单独的用户名。所以针对多用户的需求，我们并不是真的创建很多用户，而是为SSR服务器开放多个端口，每个端口对应不同的密码就可以了。</p><h4 id="多用户实现途径"><a href="#多用户实现途径" class="headerlink" title="多用户实现途径"></a>多用户实现途径</h4><p>连接至服务器，打开<code>/etc/shadowsocks-r/config.json</code>，这是SSR的配置文件，其原始部分内容为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="string">"server_ipv6"</span>:<span class="string">"::"</span>,</span><br><span class="line">    <span class="string">"server_port"</span>:8686,</span><br><span class="line">    <span class="string">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"local_port"</span>:1080,</span><br><span class="line">    <span class="string">"password"</span>:<span class="string">"mimamima"</span>,</span><br><span class="line">    <span class="string">"timeout"</span>:120,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"chacha20"</span>,</span><br><span class="line">    <span class="string">"protocol"</span>:<span class="string">"auth_aes128_md5"</span>,</span><br><span class="line">    <span class="string">"protocol_param"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="string">"obfs"</span>:<span class="string">"http_simple"</span>,</span><br><span class="line">    <span class="string">"obfs_param"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="string">"redirect"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="string">"dns_ipv6"</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="string">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="string">"workers"</span>:1</span><br></pre></td></tr></table></figure><p>我们需要分别删掉关于端口和密码的两行，即以下两行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"server_port"</span>:8686,</span><br><span class="line">    <span class="string">"password"</span>:<span class="string">"mimamima"</span>,</span><br></pre></td></tr></table></figure><p>然后另外加入一个port_password参数，参数中标明多个端口和对应的密码：<br><strong>注意：最后一个密码后面只有双引号没有逗号，前几个密码后面都有！</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"port_password"</span>:&#123;</span><br><span class="line">        <span class="string">"8686"</span>:<span class="string">"mimamima1"</span>,</span><br><span class="line">        <span class="string">"8787"</span>:<span class="string">"mimamima2"</span>,</span><br><span class="line">        <span class="string">"8888"</span>:<span class="string">"mimamima3"</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure><p>更改后的最终形式如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="string">"server_ipv6"</span>:<span class="string">"::"</span>,</span><br><span class="line">    <span class="string">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"local_port"</span>:1080,</span><br><span class="line">    <span class="string">"port_password"</span>:&#123;</span><br><span class="line">        <span class="string">"8686"</span>:<span class="string">"mimamima1"</span>,</span><br><span class="line">        <span class="string">"8787"</span>:<span class="string">"mimamima2"</span>,</span><br><span class="line">        <span class="string">"8888"</span>:<span class="string">"mimamima3"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"timeout"</span>:120,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"chacha20"</span>,</span><br><span class="line">    <span class="string">"protocol"</span>:<span class="string">"auth_aes128_md5"</span>,</span><br><span class="line">    <span class="string">"protocol_param"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="string">"obfs"</span>:<span class="string">"http_simple"</span>,</span><br><span class="line">    <span class="string">"obfs_param"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="string">"redirect"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="string">"dns_ipv6"</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="string">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="string">"workers"</span>:1</span><br></pre></td></tr></table></figure><p>更改完成后，保存文件。如果系统启用了防火墙，记得在防火墙中开放刚才添加的端口。<br>最后重启SSR服务</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/shadowsocks-r restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们在搭建好SSR之后，一般情况下是一个人用的，所以默认的一个端口就够了。但还有一些朋友可能有多用户的需求，那这种情况就需要对SSR服务器端做额外的设置了。  用过SSR的朋友可能都知道，使用SSR的时候只需要输入服务器IP、端口和密码等信息，并不需要单独的用户名。所以针对
+      
+    
+    </summary>
+    
+    
+      <category term="一键脚本" scheme="http://www.jiayie.xyz/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
+    
+    
+      <category term="shadowsocksR多用户" scheme="http://www.jiayie.xyz/tags/shadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Microsoft-Office2016四合一绿色便携精简版</title>
@@ -484,57 +537,6 @@
     
     
       <category term="阅读全文" scheme="http://www.jiayie.xyz/tags/%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客添加google,adsense广告</title>
-    <link href="http://www.jiayie.xyz/2019/12/10/Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0google-adsense%E5%B9%BF%E5%91%8A/"/>
-    <id>http://www.jiayie.xyz/2019/12/10/Hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0google-adsense%E5%B9%BF%E5%91%8A/</id>
-    <published>2019-12-10T15:26:10.000Z</published>
-    <updated>2020-01-05T13:20:26.556Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://www.google.com/adsense/app" target="_blank" rel="noopener">添加google adsense广告</a></p><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>google adsense对网站内容有要求。<br>网站必须提交几篇(博主写了五篇)博客之后再去申请google adsense，否则会被拒。<br>google adsense账号<br>申请google adsense账号，<a href="https://www.google.com/adsense" target="_blank" rel="noopener">见网址</a></p><h4 id="adsense代码"><a href="#adsense代码" class="headerlink" title="adsense代码"></a>adsense代码</h4><p>此处以 NexT 主题为例（注：可能不是最简方式，自行斟酌）：</p><p>新建 <code>theme/next/layout/_custom/google_adsense.swig</code>，将 AdSense 上的代码粘贴进去<br>在 <code>theme/next/layout/_custom/head.swig</code> 中也粘贴一份<br>如果在每篇博客里也想看到广告的话，在<code>theme/next/layout/post.swig</code> 里中在希望看到的地方加上:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include '_custom/google_adsense.swig' %&#125;</span><br></pre></td></tr></table></figure><p>例如：在 <div id="posts" class="posts-expand"> </div> 中间插入，总代码如下：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"posts"</span> <span class="attr">class</span>=<span class="string">"posts-expand"</span>&gt;</span></span><br><span class="line">    &#123;&#123; post_template.render(page) &#125;&#125;</span><br><span class="line">    &#123;% include '_custom/google_adsense.swig' %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure><p>此时如果 hexo server 的话是看不到广告的，因为 AdSense 的显示是 Google 控制的。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://www.google.com/adsense/app&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;添加google adsense广告&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;h
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://www.jiayie.xyz/categories/hexo/"/>
-    
-    
-      <category term="Hexo博客广告" scheme="http://www.jiayie.xyz/tags/Hexo%E5%8D%9A%E5%AE%A2%E5%B9%BF%E5%91%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一键安装KMS服务脚本</title>
-    <link href="http://www.jiayie.xyz/2019/08/08/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85KMS%E6%9C%8D%E5%8A%A1%E8%84%9A%E6%9C%AC/"/>
-    <id>http://www.jiayie.xyz/2019/08/08/%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85KMS%E6%9C%8D%E5%8A%A1%E8%84%9A%E6%9C%AC/</id>
-    <published>2019-08-08T03:30:15.000Z</published>
-    <updated>2019-12-21T12:45:48.629Z</updated>
-    
-    <content type="html"><![CDATA[<p>秋水逸冰 » 一键安装KMS服务脚本<br>KMS，是 Key Management System 的缩写，也就是密钥管理系统。这里所说的 KMS，毋庸置疑就是用来激活 VOL 版本的 Windows 和 Office 的 KMS 啦。经常能在网上看到有人提供的 KMS 服务器地址，那么你有没有想过自己也来搞一个这样的服务呢？而这样的服务在 Github 上已经有开源代码实现了。<br>本文就是在这个开源代码的基础上，开发了适用于三大 Linux 发行版的一键安装 KMS 服务的脚本。</p><h1 id="本脚本适用环境"><a href="#本脚本适用环境" class="headerlink" title="本脚本适用环境"></a>本脚本适用环境</h1><p>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+<br>虚拟技术：任意<br>内存要求：≥128M<br>日期　　：2018 年 10 月 25 日</p><a id="more"></a><h2 id="关于本脚本"><a href="#关于本脚本" class="headerlink" title="关于本脚本"></a>关于本脚本</h2><p>1、本脚本适用于三大 Linux 发行版，其他版本则不支持。<br>2、KMS 服务安装完成后会加入开机自启动。<br>3、默认记录日志，其日志位于 /var/log/vlmcsd.log。</p><h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>使用root用户登录，运行以下命令：</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --<span class="keyword">no</span>-check-certificate http<span class="variable">s:</span>//github.<span class="keyword">com</span>/teddysun/across/raw/master/kms.<span class="keyword">sh</span> &amp;&amp; chmod +<span class="keyword">x</span> kms.<span class="keyword">sh</span> &amp;&amp; ./kms.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure><p>安装完成后，输入以下命令查看端口号 1688 的监听情况</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nxtlp <span class="string">| grep 1688</span></span><br></pre></td></tr></table></figure><p>返回值类似于如下这样就表示 OK 了：</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">1688</span>                <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*                   LISTEN      <span class="number">3200</span>/vlmcsd         </span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> :::<span class="number">1688</span>                     :::*                        LISTEN      <span class="number">3200</span>/vlmcsd</span><br></pre></td></tr></table></figure><p>本脚本安装完成后，会将 KMS 服务加入开机自启动。</p><h4 id="使用命令："><a href="#使用命令：" class="headerlink" title="使用命令："></a>使用命令：</h4><p>启动：/etc/init.d/kms start<br>停止：/etc/init.d/kms stop<br>重启：/etc/init.d/kms restart<br>状态：/etc/init.d/kms status</p><h4 id="卸载方法："><a href="#卸载方法：" class="headerlink" title="卸载方法："></a>卸载方法：</h4><p>使用 root 用户登录，运行以下命令：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kms<span class="selector-class">.sh</span> uninstall</span><br></pre></td></tr></table></figure><h4 id="如何使用-KMS-服务"><a href="#如何使用-KMS-服务" class="headerlink" title="如何使用 KMS 服务"></a>如何使用 KMS 服务</h4><p>KMS 服务，用于在线激活 VOL 版本的 Windows 和 Office。<br>激活的前提是你的系统是批量授权版本，即 VL 版，一般企业版都是 VL 版。而 VL 版本的镜像一般内置 GVLK key，用于 KMS 激活。<br>下面列表里面含有的产品的 VL 版本或者能使用 key 进入 KMS 通道的产品，都支持使用 KMS 激活。</p><p>Office 2019 &amp; Office 2016：<a href="https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks</a><br>Office 2013：<a href="https://technet.microsoft.com/zh-cn/library/dn385360.aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-cn/library/dn385360.aspx</a><br>Office 2010：<a href="https://technet.microsoft.com/zh-cn/library/ee624355(v=office.14).aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-cn/library/ee624355(v=office.14).aspx</a><br>Windows：<a href="https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys</a></p><p>使用管理员权限运行 cmd 查看系统版本，命令如下：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic os <span class="builtin-name">get</span> caption</span><br></pre></td></tr></table></figure><p>使用管理员权限运行 cmd 安装从上面列表得到的 key，命令如下：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr <span class="string">/ipk</span> xxxxx-xxxxx-xxxxx-xxxxx-xxxxx</span><br></pre></td></tr></table></figure><p>使用管理员权限运行 cmd 将 KMS 服务器地址设置为你自己的 IP 或 域名，后面最好再加上端口号（:1688），命令如下：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr /skms Your<span class="built_in"> IP </span><span class="keyword">or</span> Domain:1688</span><br></pre></td></tr></table></figure><p>注意：本脚本所做的工作就是此步骤。当你的 KMS 服务出于启动状态，那么此处就可以设置为你自己的 KMS 服务器地址。<br>使用管理员权限运行 cmd 手动激活系统，命令如下：</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slmgr <span class="string">/ato</span></span><br></pre></td></tr></table></figure><p>关于 Office 的激活，要求必须是 VOL 版本，否则无法激活。<br>找到你的 Office 安装目录，32 位默认一般为 C:\Program Files (x86)\Microsoft Office\Office16<br>64 位默认一般为 C:\Program Files\Microsoft Office\Office16<br>Office16 是 Office 2016，Office15 就是 Office 2013，Office14 就是 Office 2010。<br>打开以上所说的目录，应该有个 OSPP.VBS 文件。<br>使用管理员权限运行 cmd 进入 Office 目录，命令如下：</p><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd "C:<span class="symbol">\P</span>rogram Files (x86)<span class="symbol">\M</span>icrosoft Office<span class="symbol">\O</span>ffice16"</span><br></pre></td></tr></table></figure><p>使用管理员权限运行 cmd 注册 KMS 服务器地址：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cscript ospp.vbs /sethst:Your<span class="built_in"> IP </span><span class="keyword">or</span> Domain</span><br></pre></td></tr></table></figure><p>使用管理员权限运行 cmd 手动激活 Office，命令如下：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cscript ospp<span class="selector-class">.vbs</span> /act</span><br></pre></td></tr></table></figure><p>注意： KMS 方式激活，其有效期只有 180 天。<br>每隔一段时间系统会自动向 KMS 服务器请求续期，请确保你自己的 KMS 服务正常运行。</p><p>常见错误的对策<br>如果遇到在执行过程报错，请按以下步骤检查：<br>1，你的 KMS 服务器是否挂了？<br>2，你的 KMS 服务是否正常开启？<br>3，你的系统或 Office 是否为批量 VL 版本？<br>4，你的系统或 Office 是否修改过 Key 或未安装 GVLK Key？<br>5，你是否以管理员权限运行 cmd？<br>6，你的网络连接是否正常？<br>7，你的本地 DNS 解析是否正常？<br>8，如果你排除了以上的对策，那请根据错误提示代码自行搜索原因。</p><p>更新日志<br>2018 年 10 月 25 日：修正 vlmcsd 的 git 链接，即每次全新安装皆为官方的最新版本。注意：如果你想升级版本，则需要先停止 kms 服务，再删除 /usr/bin/vlmcsd 文件，然后重新下载最新脚本安装即可。</p><p>参考链接<br><a href="https://03k.org/kms.html" target="_blank" rel="noopener">https://03k.org/kms.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;秋水逸冰 » 一键安装KMS服务脚本&lt;br&gt;KMS，是 Key Management System 的缩写，也就是密钥管理系统。这里所说的 KMS，毋庸置疑就是用来激活 VOL 版本的 Windows 和 Office 的 KMS 啦。经常能在网上看到有人提供的 KMS 服务器地址，那么你有没有想过自己也来搞一个这样的服务呢？而这样的服务在 Github 上已经有开源代码实现了。&lt;br&gt;本文就是在这个开源代码的基础上，开发了适用于三大 Linux 发行版的一键安装 KMS 服务的脚本。&lt;/p&gt;
-&lt;h1 id=&quot;本脚本适用环境&quot;&gt;&lt;a href=&quot;#本脚本适用环境&quot; class=&quot;headerlink&quot; title=&quot;本脚本适用环境&quot;&gt;&lt;/a&gt;本脚本适用环境&lt;/h1&gt;&lt;p&gt;系统支持：CentOS 6+，Debian 7+，Ubuntu 12+&lt;br&gt;虚拟技术：任意&lt;br&gt;内存要求：≥128M&lt;br&gt;日期　　：2018 年 10 月 25 日&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="KMS脚本" scheme="http://www.jiayie.xyz/categories/KMS%E8%84%9A%E6%9C%AC/"/>
-    
-    
-      <category term="KMS" scheme="http://www.jiayie.xyz/tags/KMS/"/>
     
   </entry>
   
