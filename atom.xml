@@ -5,9 +5,9 @@
   <subtitle>记录玩中的过程</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jiayie.xyz/"/>
-  <updated>2020-01-09T13:39:20.400Z</updated>
-  <id>http://jiayie.xyz/</id>
+  <link href="http://jiayie.top/"/>
+  <updated>2020-02-16T08:07:10.851Z</updated>
+  <id>http://jiayie.top/</id>
   
   <author>
     <name>小强</name>
@@ -17,9 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Debian从8Jessie升级到9Stretch以及到10Buster</title>
+    <link href="http://jiayie.top/2020/02/16/Debian%E4%BB%8E8Jessie%E5%8D%87%E7%BA%A7%E5%88%B09Stretch%E4%BB%A5%E5%8F%8A%E5%88%B010Buster/"/>
+    <id>http://jiayie.top/2020/02/16/Debian%E4%BB%8E8Jessie%E5%8D%87%E7%BA%A7%E5%88%B09Stretch%E4%BB%A5%E5%8F%8A%E5%88%B010Buster/</id>
+    <published>2020-02-16T07:52:15.000Z</published>
+    <updated>2020-02-16T08:07:10.851Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="* 准备工作 *"></a>* 准备工作 *</h4><p>在升级之前，请你先确认，你的 Debian 是不是 8 版本，<br>有一点要注意，我们都知道，一旦 SSH 中断连线后，正在操作的程序就会全部停止！所以，在升级之前，最好安装一下 <code>screen</code> 这个小程序，它可以让程序在我们中断了 SSH 的连线以后继续正常运行，是不是很神奇？安装的方法是，在 Putty 窗口上，输入 <code>apt-get install screen</code> 这条指令，然后，按照提示输入一下 Y，并且按一下回车键，这样，screen 就会被安装啦。</p><h4 id="screen-的简单使用"><a href="#screen-的简单使用" class="headerlink" title="screen 的简单使用"></a>screen 的简单使用</h4><p>可以先执行：screen -S lnmp ，screen就会创建一个名字为lnmp的会话。<br>当需要临时离开时（会话中的程序不会关闭，仍在运行）可以用快捷键Ctrl+a d(即按住Ctrl，依次再按a,d)<br>当回来时可以再执行执行：screen -r lnmp 即可恢复到离开前创建的lnmp会话的工作界面。如果忘记了，或者当时没有指定会话名，可以执行：screen -ls screen会列出当前存在的会话列表<br>执行：exit ，会提示：[screen is terminating]，表示已经成功退出screen会话。</p><h4 id="将现有-Debian-8-升级到最新版本"><a href="#将现有-Debian-8-升级到最新版本" class="headerlink" title="将现有 Debian 8 升级到最新版本"></a>将现有 Debian 8 升级到最新版本</h4><p>输入 <code>apt-get update</code>，这条命令是升级当前的软件包索引，还没到真正升级系统。<br>然后，我们来升级系统，输入<code>apt-get upgrade</code>，</p><h4 id="开始升级-Debian-9"><a href="#开始升级-Debian-9" class="headerlink" title="开始升级 Debian 9"></a>开始升级 Debian 9</h4><p>浏览到 <code>/etc/apt/</code> 文件夹，然后打开 <code>sources.list</code> 这个文件。<br>我们知道，Debian 的版本，并不是用数字来表示的，而是一个代号，比如，<code>Debian 8</code> 的代号是 <code>Jessie</code>，到了 <code>Debian 9</code> 就变成了 <code>Stretch</code>。只要把 <code>sources.list</code> 里面的 <code>jessie</code> 修改成 <code>stretch</code>。注意，都是小写字母。</p><h4 id="记得先备份一份"><a href="#记得先备份一份" class="headerlink" title="记得先备份一份"></a>记得先备份一份</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/apt/sources.list /etc/apt/sources.list.orig</span><br></pre></td></tr></table></figure><p>将<code>/etc/apt/sources.list</code>里所有“jessie”替换为“stretch”：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s/jessie/stretch/g'</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure><h4 id="再更新一下"><a href="#再更新一下" class="headerlink" title="再更新一下"></a>再更新一下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get upgrade</span><br></pre></td></tr></table></figure><h4 id="执行升级命令"><a href="#执行升级命令" class="headerlink" title="执行升级命令"></a>执行升级命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get dist-upgrade</span><br></pre></td></tr></table></figure><p>提示完成后重启<br>reboot</p><h4 id="升级debian10"><a href="#升级debian10" class="headerlink" title="升级debian10"></a>升级debian10</h4><p>升级完debian9后我们来升级debian10,其实就跟debian8升级到9一样只需要把<code>/etc/apt/sources.list</code>里面的<code>stretch</code>修改为Debian10的<code>buster</code>。<br>将/etc/apt/sources.list里所有“stretch”替换为“buster”：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s/stretch/buster/g'</span> /etc/apt/sources.list</span><br></pre></td></tr></table></figure><p>再更新一下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get upgrade</span><br></pre></td></tr></table></figure><p>执行升级命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get dist-upgrade</span><br></pre></td></tr></table></figure><p>提示完成后重启<br>reboot</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;* 准备工作 *&quot;&gt;&lt;/a&gt;* 准备工作 *&lt;/h4&gt;&lt;p&gt;在升级之前，请你先确认，你的 Debian 是不是 8 版本，&lt;br&gt;有一点要注意，我们都知道，一旦 SSH
+      
+    
+    </summary>
+    
+    
+      <category term="Debian" scheme="http://jiayie.top/categories/Debian/"/>
+    
+    
+      <category term="Debian" scheme="http://jiayie.top/tags/Debian/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ShadowsocksR如何限制用户连接数量及速度</title>
-    <link href="http://jiayie.xyz/2020/01/09/ShadowsocksR%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E5%8F%8A%E9%80%9F%E5%BA%A6/"/>
-    <id>http://jiayie.xyz/2020/01/09/ShadowsocksR%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E5%8F%8A%E9%80%9F%E5%BA%A6/</id>
+    <link href="http://jiayie.top/2020/01/09/ShadowsocksR%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E5%8F%8A%E9%80%9F%E5%BA%A6/"/>
+    <id>http://jiayie.top/2020/01/09/ShadowsocksR%E5%A6%82%E4%BD%95%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%87%8F%E5%8F%8A%E9%80%9F%E5%BA%A6/</id>
     <published>2020-01-09T13:30:04.000Z</published>
     <updated>2020-01-09T13:39:20.400Z</updated>
     
@@ -36,17 +62,17 @@
     </summary>
     
     
-      <category term="一键脚本" scheme="http://jiayie.xyz/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
+      <category term="一键脚本" scheme="http://jiayie.top/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
     
     
-      <category term="shadowsocksR" scheme="http://jiayie.xyz/tags/shadowsocksR/"/>
+      <category term="shadowsocksR" scheme="http://jiayie.top/tags/shadowsocksR/"/>
     
   </entry>
   
   <entry>
     <title>SSR添加多用户多端口教程ShadowsocksR多用户</title>
-    <link href="http://jiayie.xyz/2020/01/09/SSR%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E7%AB%AF%E5%8F%A3%E6%95%99%E7%A8%8BShadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
-    <id>http://jiayie.xyz/2020/01/09/SSR%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E7%AB%AF%E5%8F%A3%E6%95%99%E7%A8%8BShadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/</id>
+    <link href="http://jiayie.top/2020/01/09/SSR%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E7%AB%AF%E5%8F%A3%E6%95%99%E7%A8%8BShadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
+    <id>http://jiayie.top/2020/01/09/SSR%E6%B7%BB%E5%8A%A0%E5%A4%9A%E7%94%A8%E6%88%B7%E5%A4%9A%E7%AB%AF%E5%8F%A3%E6%95%99%E7%A8%8BShadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/</id>
     <published>2020-01-09T13:19:18.000Z</published>
     <updated>2020-01-09T13:26:11.319Z</updated>
     
@@ -62,17 +88,17 @@
     </summary>
     
     
-      <category term="一键脚本" scheme="http://jiayie.xyz/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
+      <category term="一键脚本" scheme="http://jiayie.top/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
     
     
-      <category term="shadowsocksR多用户" scheme="http://jiayie.xyz/tags/shadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
+      <category term="shadowsocksR多用户" scheme="http://jiayie.top/tags/shadowsocksR%E5%A4%9A%E7%94%A8%E6%88%B7/"/>
     
   </entry>
   
   <entry>
     <title>Microsoft-Office2016四合一绿色便携精简版</title>
-    <link href="http://jiayie.xyz/2020/01/09/Microsoft-Office2016%E5%9B%9B%E5%90%88%E4%B8%80%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/"/>
-    <id>http://jiayie.xyz/2020/01/09/Microsoft-Office2016%E5%9B%9B%E5%90%88%E4%B8%80%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/</id>
+    <link href="http://jiayie.top/2020/01/09/Microsoft-Office2016%E5%9B%9B%E5%90%88%E4%B8%80%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/"/>
+    <id>http://jiayie.top/2020/01/09/Microsoft-Office2016%E5%9B%9B%E5%90%88%E4%B8%80%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/</id>
     <published>2020-01-09T07:40:18.000Z</published>
     <updated>2020-01-09T09:13:04.947Z</updated>
     
@@ -89,17 +115,17 @@
     </summary>
     
     
-      <category term="office" scheme="http://jiayie.xyz/categories/office/"/>
+      <category term="office" scheme="http://jiayie.top/categories/office/"/>
     
     
-      <category term="office" scheme="http://jiayie.xyz/tags/office/"/>
+      <category term="office" scheme="http://jiayie.top/tags/office/"/>
     
   </entry>
   
   <entry>
     <title>小睿家庭云刷机教程含第三方固件</title>
-    <link href="http://jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B%E5%90%AB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6/"/>
-    <id>http://jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B%E5%90%AB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6/</id>
+    <link href="http://jiayie.top/2020/01/07/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B%E5%90%AB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6/"/>
+    <id>http://jiayie.top/2020/01/07/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91%E5%88%B7%E6%9C%BA%E6%95%99%E7%A8%8B%E5%90%AB%E7%AC%AC%E4%B8%89%E6%96%B9%E5%9B%BA%E4%BB%B6/</id>
     <published>2020-01-07T09:19:10.000Z</published>
     <updated>2020-01-07T09:24:40.112Z</updated>
     
@@ -116,14 +142,14 @@
     
     
     
-      <category term="小睿家庭云" scheme="http://jiayie.xyz/tags/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91/"/>
+      <category term="小睿家庭云" scheme="http://jiayie.top/tags/%E5%B0%8F%E7%9D%BF%E5%AE%B6%E5%BA%AD%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>小睿私人云刷OMV教程</title>
-    <link href="http://jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91%E5%88%B7OMV%E6%95%99%E7%A8%8B/"/>
-    <id>http://jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91%E5%88%B7OMV%E6%95%99%E7%A8%8B/</id>
+    <link href="http://jiayie.top/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91%E5%88%B7OMV%E6%95%99%E7%A8%8B/"/>
+    <id>http://jiayie.top/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91%E5%88%B7OMV%E6%95%99%E7%A8%8B/</id>
     <published>2020-01-07T09:10:56.000Z</published>
     <updated>2020-01-07T09:16:48.398Z</updated>
     
@@ -140,14 +166,14 @@
     
     
     
-      <category term="小睿私人云" scheme="http://jiayie.xyz/tags/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91/"/>
+      <category term="小睿私人云" scheme="http://jiayie.top/tags/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>小睿私人云RTD1296刷机步骤</title>
-    <link href="http://jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91RTD1296%E5%88%B7%E6%9C%BA%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://jiayie.xyz/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91RTD1296%E5%88%B7%E6%9C%BA%E6%AD%A5%E9%AA%A4/</id>
+    <link href="http://jiayie.top/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91RTD1296%E5%88%B7%E6%9C%BA%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://jiayie.top/2020/01/07/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91RTD1296%E5%88%B7%E6%9C%BA%E6%AD%A5%E9%AA%A4/</id>
     <published>2020-01-07T09:00:33.000Z</published>
     <updated>2020-01-07T09:32:39.113Z</updated>
     
@@ -164,14 +190,14 @@
     
     
     
-      <category term="小睿私人云" scheme="http://jiayie.xyz/tags/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91/"/>
+      <category term="小睿私人云" scheme="http://jiayie.top/tags/%E5%B0%8F%E7%9D%BF%E7%A7%81%E4%BA%BA%E4%BA%91/"/>
     
   </entry>
   
   <entry>
     <title>AdobePhotoshopCC2020绿色便携精简版</title>
-    <link href="http://jiayie.xyz/2020/01/06/AdobePhotoshopCC2020%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/"/>
-    <id>http://jiayie.xyz/2020/01/06/AdobePhotoshopCC2020%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/</id>
+    <link href="http://jiayie.top/2020/01/06/AdobePhotoshopCC2020%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/"/>
+    <id>http://jiayie.top/2020/01/06/AdobePhotoshopCC2020%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%B2%BE%E7%AE%80%E7%89%88/</id>
     <published>2020-01-06T03:37:48.000Z</published>
     <updated>2020-01-06T03:41:40.031Z</updated>
     
@@ -188,17 +214,17 @@
     </summary>
     
     
-      <category term="软件" scheme="http://jiayie.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="http://jiayie.top/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-      <category term="AdobePhotoshopCC" scheme="http://jiayie.xyz/tags/AdobePhotoshopCC/"/>
+      <category term="AdobePhotoshopCC" scheme="http://jiayie.top/tags/AdobePhotoshopCC/"/>
     
   </entry>
   
   <entry>
     <title>WIN10激活工具HIWDgen</title>
-    <link href="http://jiayie.xyz/2020/01/03/WIN10%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HIWDgen/"/>
-    <id>http://jiayie.xyz/2020/01/03/WIN10%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HIWDgen/</id>
+    <link href="http://jiayie.top/2020/01/03/WIN10%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HIWDgen/"/>
+    <id>http://jiayie.top/2020/01/03/WIN10%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HIWDgen/</id>
     <published>2020-01-03T02:05:36.000Z</published>
     <updated>2020-01-03T02:07:40.565Z</updated>
     
@@ -214,17 +240,17 @@
     </summary>
     
     
-      <category term="软件" scheme="http://jiayie.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="http://jiayie.top/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-      <category term="激活工具" scheme="http://jiayie.xyz/tags/%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7/"/>
+      <category term="激活工具" scheme="http://jiayie.top/tags/%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>一个免费投屏工具慕享</title>
-    <link href="http://jiayie.xyz/2020/01/03/%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E6%8A%95%E5%B1%8F%E5%B7%A5%E5%85%B7%E6%85%95%E4%BA%AB/"/>
-    <id>http://jiayie.xyz/2020/01/03/%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E6%8A%95%E5%B1%8F%E5%B7%A5%E5%85%B7%E6%85%95%E4%BA%AB/</id>
+    <link href="http://jiayie.top/2020/01/03/%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E6%8A%95%E5%B1%8F%E5%B7%A5%E5%85%B7%E6%85%95%E4%BA%AB/"/>
+    <id>http://jiayie.top/2020/01/03/%E4%B8%80%E4%B8%AA%E5%85%8D%E8%B4%B9%E6%8A%95%E5%B1%8F%E5%B7%A5%E5%85%B7%E6%85%95%E4%BA%AB/</id>
     <published>2020-01-03T02:03:24.000Z</published>
     <updated>2020-01-03T02:04:54.521Z</updated>
     
@@ -241,17 +267,17 @@
     </summary>
     
     
-      <category term="软件" scheme="http://jiayie.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="http://jiayie.top/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-      <category term="软件" scheme="http://jiayie.xyz/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="http://jiayie.top/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>微信防撤实践</title>
-    <link href="http://jiayie.xyz/2019/12/23/%E5%BE%AE%E4%BF%A1%E9%98%B2%E6%92%A4%E5%AE%9E%E8%B7%B5/"/>
-    <id>http://jiayie.xyz/2019/12/23/%E5%BE%AE%E4%BF%A1%E9%98%B2%E6%92%A4%E5%AE%9E%E8%B7%B5/</id>
+    <link href="http://jiayie.top/2019/12/23/%E5%BE%AE%E4%BF%A1%E9%98%B2%E6%92%A4%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://jiayie.top/2019/12/23/%E5%BE%AE%E4%BF%A1%E9%98%B2%E6%92%A4%E5%AE%9E%E8%B7%B5/</id>
     <published>2019-12-23T10:13:47.000Z</published>
     <updated>2019-12-23T11:24:32.663Z</updated>
     
@@ -268,17 +294,17 @@
     </summary>
     
     
-      <category term="微信" scheme="http://jiayie.xyz/categories/%E5%BE%AE%E4%BF%A1/"/>
+      <category term="微信" scheme="http://jiayie.top/categories/%E5%BE%AE%E4%BF%A1/"/>
     
     
-      <category term="防撤" scheme="http://jiayie.xyz/tags/%E9%98%B2%E6%92%A4/"/>
+      <category term="防撤" scheme="http://jiayie.top/tags/%E9%98%B2%E6%92%A4/"/>
     
   </entry>
   
   <entry>
     <title>newifi3新路由3并编译刷入最新官方OpenWrt</title>
-    <link href="http://jiayie.xyz/2019/12/23/newifi3%E6%96%B0%E8%B7%AF%E7%94%B13%E5%B9%B6%E7%BC%96%E8%AF%91%E5%88%B7%E5%85%A5%E6%9C%80%E6%96%B0%E5%AE%98%E6%96%B9OpenWrt/"/>
-    <id>http://jiayie.xyz/2019/12/23/newifi3%E6%96%B0%E8%B7%AF%E7%94%B13%E5%B9%B6%E7%BC%96%E8%AF%91%E5%88%B7%E5%85%A5%E6%9C%80%E6%96%B0%E5%AE%98%E6%96%B9OpenWrt/</id>
+    <link href="http://jiayie.top/2019/12/23/newifi3%E6%96%B0%E8%B7%AF%E7%94%B13%E5%B9%B6%E7%BC%96%E8%AF%91%E5%88%B7%E5%85%A5%E6%9C%80%E6%96%B0%E5%AE%98%E6%96%B9OpenWrt/"/>
+    <id>http://jiayie.top/2019/12/23/newifi3%E6%96%B0%E8%B7%AF%E7%94%B13%E5%B9%B6%E7%BC%96%E8%AF%91%E5%88%B7%E5%85%A5%E6%9C%80%E6%96%B0%E5%AE%98%E6%96%B9OpenWrt/</id>
     <published>2019-12-23T09:13:10.000Z</published>
     <updated>2019-12-23T15:17:28.601Z</updated>
     
@@ -294,19 +320,19 @@
     </summary>
     
     
-      <category term="Openwrt" scheme="http://jiayie.xyz/categories/Openwrt/"/>
+      <category term="Openwrt" scheme="http://jiayie.top/categories/Openwrt/"/>
     
-      <category term="路由" scheme="http://jiayie.xyz/categories/Openwrt/%E8%B7%AF%E7%94%B1/"/>
+      <category term="路由" scheme="http://jiayie.top/categories/Openwrt/%E8%B7%AF%E7%94%B1/"/>
     
     
-      <category term="Openwrt" scheme="http://jiayie.xyz/tags/Openwrt/"/>
+      <category term="Openwrt" scheme="http://jiayie.top/tags/Openwrt/"/>
     
   </entry>
   
   <entry>
     <title>IOS免密码安装小火箭</title>
-    <link href="http://jiayie.xyz/2019/12/14/IOS%E5%85%8D%E5%AF%86%E7%A0%81%E5%AE%89%E8%A3%85%E5%B0%8F%E7%81%AB%E7%AE%AD/"/>
-    <id>http://jiayie.xyz/2019/12/14/IOS%E5%85%8D%E5%AF%86%E7%A0%81%E5%AE%89%E8%A3%85%E5%B0%8F%E7%81%AB%E7%AE%AD/</id>
+    <link href="http://jiayie.top/2019/12/14/IOS%E5%85%8D%E5%AF%86%E7%A0%81%E5%AE%89%E8%A3%85%E5%B0%8F%E7%81%AB%E7%AE%AD/"/>
+    <id>http://jiayie.top/2019/12/14/IOS%E5%85%8D%E5%AF%86%E7%A0%81%E5%AE%89%E8%A3%85%E5%B0%8F%E7%81%AB%E7%AE%AD/</id>
     <published>2019-12-14T14:33:04.000Z</published>
     <updated>2019-12-14T14:38:36.926Z</updated>
     
@@ -322,17 +348,17 @@
     </summary>
     
     
-      <category term="IOS" scheme="http://jiayie.xyz/categories/IOS/"/>
+      <category term="IOS" scheme="http://jiayie.top/categories/IOS/"/>
     
     
-      <category term="小火箭" scheme="http://jiayie.xyz/tags/%E5%B0%8F%E7%81%AB%E7%AE%AD/"/>
+      <category term="小火箭" scheme="http://jiayie.top/tags/%E5%B0%8F%E7%81%AB%E7%AE%AD/"/>
     
   </entry>
   
   <entry>
     <title>给VPS添加用户并赋予sudo权限</title>
-    <link href="http://jiayie.xyz/2019/12/14/%E7%BB%99VPS%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%B9%B6%E8%B5%8B%E4%BA%88sudo%E6%9D%83%E9%99%90/"/>
-    <id>http://jiayie.xyz/2019/12/14/%E7%BB%99VPS%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%B9%B6%E8%B5%8B%E4%BA%88sudo%E6%9D%83%E9%99%90/</id>
+    <link href="http://jiayie.top/2019/12/14/%E7%BB%99VPS%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%B9%B6%E8%B5%8B%E4%BA%88sudo%E6%9D%83%E9%99%90/"/>
+    <id>http://jiayie.top/2019/12/14/%E7%BB%99VPS%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%B9%B6%E8%B5%8B%E4%BA%88sudo%E6%9D%83%E9%99%90/</id>
     <published>2019-12-14T14:01:57.000Z</published>
     <updated>2019-12-14T14:09:42.274Z</updated>
     
@@ -348,17 +374,17 @@
     </summary>
     
     
-      <category term="linux" scheme="http://jiayie.xyz/categories/linux/"/>
+      <category term="linux" scheme="http://jiayie.top/categories/linux/"/>
     
     
-      <category term="添加用户" scheme="http://jiayie.xyz/tags/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7/"/>
+      <category term="添加用户" scheme="http://jiayie.top/tags/%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7/"/>
     
   </entry>
   
   <entry>
     <title>使用docker快速部署shadowsocks-libev+v2ray-plugin代理</title>
-    <link href="http://jiayie.xyz/2019/12/14/%E4%BD%BF%E7%94%A8docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2shadowsocks-libev-v2ray-plugin%E4%BB%A3%E7%90%86/"/>
-    <id>http://jiayie.xyz/2019/12/14/%E4%BD%BF%E7%94%A8docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2shadowsocks-libev-v2ray-plugin%E4%BB%A3%E7%90%86/</id>
+    <link href="http://jiayie.top/2019/12/14/%E4%BD%BF%E7%94%A8docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2shadowsocks-libev-v2ray-plugin%E4%BB%A3%E7%90%86/"/>
+    <id>http://jiayie.top/2019/12/14/%E4%BD%BF%E7%94%A8docker%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2shadowsocks-libev-v2ray-plugin%E4%BB%A3%E7%90%86/</id>
     <published>2019-12-14T13:34:15.000Z</published>
     <updated>2019-12-14T14:01:33.210Z</updated>
     
@@ -374,17 +400,17 @@
     </summary>
     
     
-      <category term="shadowsocks" scheme="http://jiayie.xyz/categories/shadowsocks/"/>
+      <category term="shadowsocks" scheme="http://jiayie.top/categories/shadowsocks/"/>
     
     
-      <category term="v2" scheme="http://jiayie.xyz/tags/v2/"/>
+      <category term="v2" scheme="http://jiayie.top/tags/v2/"/>
     
   </entry>
   
   <entry>
     <title>用acme.sh脚本申请证书并自动续更</title>
-    <link href="http://jiayie.xyz/2019/12/14/%E7%94%A8acme-sh%E8%84%9A%E6%9C%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9B%B4/"/>
-    <id>http://jiayie.xyz/2019/12/14/%E7%94%A8acme-sh%E8%84%9A%E6%9C%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9B%B4/</id>
+    <link href="http://jiayie.top/2019/12/14/%E7%94%A8acme-sh%E8%84%9A%E6%9C%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9B%B4/"/>
+    <id>http://jiayie.top/2019/12/14/%E7%94%A8acme-sh%E8%84%9A%E6%9C%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E5%B9%B6%E8%87%AA%E5%8A%A8%E7%BB%AD%E6%9B%B4/</id>
     <published>2019-12-14T13:23:00.000Z</published>
     <updated>2019-12-14T13:33:20.178Z</updated>
     
@@ -401,17 +427,17 @@
     </summary>
     
     
-      <category term="域名证书" scheme="http://jiayie.xyz/categories/%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%A6/"/>
+      <category term="域名证书" scheme="http://jiayie.top/categories/%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%A6/"/>
     
     
-      <category term="脚本申请证书" scheme="http://jiayie.xyz/tags/%E8%84%9A%E6%9C%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/"/>
+      <category term="脚本申请证书" scheme="http://jiayie.top/tags/%E8%84%9A%E6%9C%AC%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu-18.04-LTS安装KVM虚拟机</title>
-    <link href="http://jiayie.xyz/2019/12/14/Ubuntu-18-04-LTS%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    <id>http://jiayie.xyz/2019/12/14/Ubuntu-18-04-LTS%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
+    <link href="http://jiayie.top/2019/12/14/Ubuntu-18-04-LTS%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <id>http://jiayie.top/2019/12/14/Ubuntu-18-04-LTS%E5%AE%89%E8%A3%85KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
     <published>2019-12-14T10:24:20.000Z</published>
     <updated>2019-12-14T10:50:35.501Z</updated>
     
@@ -427,17 +453,17 @@
     </summary>
     
     
-      <category term="KVM虚拟机" scheme="http://jiayie.xyz/categories/KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="KVM虚拟机" scheme="http://jiayie.top/categories/KVM%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
     
-      <category term="虚拟机" scheme="http://jiayie.xyz/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="虚拟机" scheme="http://jiayie.top/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>Debian/Ubuntu/CentOS,网络安装/网络重装/纯净安装-一键脚本</title>
-    <link href="http://jiayie.xyz/2019/12/13/Debian-Ubuntu-CentOS-%E7%BD%91%E7%BB%9C%E5%AE%89%E8%A3%85-%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85-%E7%BA%AF%E5%87%80%E5%AE%89%E8%A3%85-%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
-    <id>http://jiayie.xyz/2019/12/13/Debian-Ubuntu-CentOS-%E7%BD%91%E7%BB%9C%E5%AE%89%E8%A3%85-%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85-%E7%BA%AF%E5%87%80%E5%AE%89%E8%A3%85-%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/</id>
+    <link href="http://jiayie.top/2019/12/13/Debian-Ubuntu-CentOS-%E7%BD%91%E7%BB%9C%E5%AE%89%E8%A3%85-%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85-%E7%BA%AF%E5%87%80%E5%AE%89%E8%A3%85-%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
+    <id>http://jiayie.top/2019/12/13/Debian-Ubuntu-CentOS-%E7%BD%91%E7%BB%9C%E5%AE%89%E8%A3%85-%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85-%E7%BA%AF%E5%87%80%E5%AE%89%E8%A3%85-%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/</id>
     <published>2019-12-13T10:09:36.000Z</published>
     <updated>2019-12-13T10:18:18.441Z</updated>
     
@@ -453,17 +479,17 @@
     </summary>
     
     
-      <category term="一键脚本" scheme="http://jiayie.xyz/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
+      <category term="一键脚本" scheme="http://jiayie.top/categories/%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC/"/>
     
     
-      <category term="网络重装" scheme="http://jiayie.xyz/tags/%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85/"/>
+      <category term="网络重装" scheme="http://jiayie.top/tags/%E7%BD%91%E7%BB%9C%E9%87%8D%E8%A3%85/"/>
     
   </entry>
   
   <entry>
     <title>hexo的next主题个性化教程</title>
-    <link href="http://jiayie.xyz/2019/12/12/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E6%95%99%E7%A8%8B/"/>
-    <id>http://jiayie.xyz/2019/12/12/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E6%95%99%E7%A8%8B/</id>
+    <link href="http://jiayie.top/2019/12/12/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E6%95%99%E7%A8%8B/"/>
+    <id>http://jiayie.top/2019/12/12/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E6%95%99%E7%A8%8B/</id>
     <published>2019-12-12T07:19:14.000Z</published>
     <updated>2019-12-21T12:31:26.385Z</updated>
     
@@ -479,17 +505,17 @@
     </summary>
     
     
-      <category term="hexo" scheme="http://jiayie.xyz/categories/hexo/"/>
+      <category term="hexo" scheme="http://jiayie.top/categories/hexo/"/>
     
     
-      <category term="主题个性化" scheme="http://jiayie.xyz/tags/%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/"/>
+      <category term="主题个性化" scheme="http://jiayie.top/tags/%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>hexo生产sitemap站点地图</title>
-    <link href="http://jiayie.xyz/2019/12/11/hexo%E7%94%9F%E4%BA%A7sitemap%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/"/>
-    <id>http://jiayie.xyz/2019/12/11/hexo%E7%94%9F%E4%BA%A7sitemap%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</id>
+    <link href="http://jiayie.top/2019/12/11/hexo%E7%94%9F%E4%BA%A7sitemap%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/"/>
+    <id>http://jiayie.top/2019/12/11/hexo%E7%94%9F%E4%BA%A7sitemap%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/</id>
     <published>2019-12-11T04:04:21.000Z</published>
     <updated>2019-12-21T12:31:48.991Z</updated>
     
@@ -505,38 +531,10 @@
     </summary>
     
     
-      <category term="hexo" scheme="http://jiayie.xyz/categories/hexo/"/>
+      <category term="hexo" scheme="http://jiayie.top/categories/hexo/"/>
     
     
-      <category term="站点地图" scheme="http://jiayie.xyz/tags/%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>给Hexo,Next设置阅读全文</title>
-    <link href="http://jiayie.xyz/2019/12/10/%E7%BB%99Hexo-Next%E8%AE%BE%E7%BD%AE%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87/"/>
-    <id>http://jiayie.xyz/2019/12/10/%E7%BB%99Hexo-Next%E8%AE%BE%E7%BD%AE%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87/</id>
-    <published>2019-12-10T15:59:19.000Z</published>
-    <updated>2019-12-21T12:40:42.217Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hexo 的 Next 主题默认是首页显示你每篇文章的全文内容，但这会使你的首页篇幅过于冗长，针对这个问题我们可以这么做：<br>用编辑器打开themes/next 目录下的_config.yml文件</p><p>*1找到代码：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">      enable: false</span><br><span class="line">      length: 150</span><br></pre></td></tr></table></figure><p>将enable的 false改成true，length可以设定文章预览的文本长度。<br>*2在文章中使用&lt; !–more–&gt; 手动进行截断<br>这种方法可以根据文章的内容，自己在合适的位置添加 &lt; !–more–&gt; 标签，使用灵活，也是Hexo推荐的方法。</p><img src="/2019/12/10/给Hexo-Next设置阅读全文/1.png"><p>*3在文章中的front-matter中添加description，并提供文章摘录<br>这种方式只会在首页列表中显示文章的摘要内容，进入文章详情后不会再显示。</p><img src="/2019/12/10/给Hexo-Next设置阅读全文/1.png">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Hexo 的 Next 主题默认是首页显示你每篇文章的全文内容，但这会使你的首页篇幅过于冗长，针对这个问题我们可以这么做：&lt;br&gt;用编辑器打开themes/next 目录下的_config.yml文件&lt;/p&gt;
-&lt;p&gt;*1找到代码：&lt;/p&gt;
-&lt;figure class=&quot;hi
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://jiayie.xyz/categories/hexo/"/>
-    
-    
-      <category term="阅读全文" scheme="http://jiayie.xyz/tags/%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87/"/>
+      <category term="站点地图" scheme="http://jiayie.top/tags/%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE/"/>
     
   </entry>
   
